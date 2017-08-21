@@ -16,22 +16,23 @@ public class FreeBoarderCommentDTO {
 	public FreeBoarderCommentDTO() {}
 	
 	//인자생성자
-	public FreeBoarderCommentDTO(int fbc_index, String fbc_content, Date fbc_date, String u_id, int fb_index,
-			int fbc_group, int fbc_step, int fbc_depth) {
+	public FreeBoarderCommentDTO(int fbc_index, String fbc_content, Date fbc_date, int fbc_group, int fbc_step,
+			int fbc_depth, String u_id, int fb_index) {
+		super();
 		this.fbc_index = fbc_index;
 		this.fbc_content = fbc_content;
 		this.fbc_date = fbc_date;
-		this.u_id = u_id;
-		this.fb_index = fb_index;
 		this.fbc_group = fbc_group;
 		this.fbc_step = fbc_step;
 		this.fbc_depth = fbc_depth;
+		this.u_id = u_id;
+		this.fb_index = fb_index;
 	}
-	
 	//getter() / setter()
 	public int getFbc_index() {
 		return fbc_index;
 	}
+
 	public void setFbc_index(int fbc_index) {
 		this.fbc_index = fbc_index;
 	}
