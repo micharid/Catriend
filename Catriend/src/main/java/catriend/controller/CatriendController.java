@@ -52,4 +52,13 @@ public class CatriendController {
 	public String image(Model model, HttpServletRequest req){
 		return "image";
 	}
+	@RequestMapping("/catlist2")
+	public String catlist2(Model model, HttpServletRequest req){
+		return "catlist2";
+	}
+	@RequestMapping("/review2")
+	public String review2(Model model, HttpServletRequest req){
+		return "review2";
+	}
+	
 }
