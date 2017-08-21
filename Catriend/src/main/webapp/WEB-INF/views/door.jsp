@@ -26,8 +26,8 @@ html{
         <div class="row title">당신에게 고양이를</div>
         <div class="row title">빌려 드립니다</div>
         <div class="row store">
-          <div class="col-sm-6 appstore"><a href="regist.jsp"><img src="./resources/images/icon1.png" ></a></div>
-          <div class="col-sm-6 playstore"><a href="login.jsp"><img src="./resources/images/icon2.png" ></a></div>
+          <div class="col-sm-6 appstore"><a href="regist"><img src="./resources/images/icon1.png" ></a></div>
+          <div class="col-sm-6 playstore"><a href="login"><img src="./resources/images/icon2.png" ></a></div>
           
         </div>
       </div>
@@ -125,7 +125,7 @@ html{
         </div>
         <div class="row">
           <div class="col-sm-4 section-4-item">
-            <a href="company.jsp">
+            <a href="company">
             <div class="row">
               <div class="col-sm-12 subject">
                 캣 랜드 서비스 구성에 대해서
@@ -140,7 +140,7 @@ html{
             </a>
           </div>
           <div class="col-sm-4 section-4-item">
-            <a href="CatP.jsp">
+            <a href="catlist">
             <div class="row">
               <div class="col-sm-12 subject">
                 캣 랜드 고양이들
@@ -155,7 +155,7 @@ html{
             </a>
           </div>
           <div class="col-sm-4 section-4-item">
-            <a href="image.jsp">
+            <a href="image">
             <div class="row">
               <div class="col-sm-12 subject">
                 후  기
