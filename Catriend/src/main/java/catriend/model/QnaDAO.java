@@ -162,6 +162,7 @@ public class QnaDAO {
 	                dto.setQ_answer(rs.getString(5));
 	                dto.setQ_a_result(rs.getInt(6));
 	                dto.setU_id(rs.getString(7));
+	                
 	             }
 	          }
 	          catch(Exception e){
