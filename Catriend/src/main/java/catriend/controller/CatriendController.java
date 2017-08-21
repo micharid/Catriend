@@ -28,10 +28,6 @@ public class CatriendController {
 	public String BoardList(Model model, HttpServletRequest req){
 		return "BoardList";
 	}
-	@RequestMapping("/CatP")
-	public String CatP(Model model, HttpServletRequest req){
-		return "CatP";
-	}
 	@RequestMapping("/company")
 	public String company(Model model, HttpServletRequest req){
 		return "company";

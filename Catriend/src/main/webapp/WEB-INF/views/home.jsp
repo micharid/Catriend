@@ -4,238 +4,185 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./resources/bootstrap3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./resources/bootstrap3.3.7/js/bootstrap.min.js"></script>
-<link rel="shortcut icon" href="./resources/images/logo8.ico">
-
-<title>고양이목록1111jkhj</title>
-
-<link rel="stylesheet" href="./resources/common/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "input" ).checkboxradio({
-      icon: false
-    });
-  } );
-  </script>
-<style>	
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
-body
-{
-background-color:#222223;
-font-family: 'Noto Sans KR', sans-serif;
-font-weight: 300;
-}
-#testtable
-{
-	border:1px solid #000000;
-}
-.thumbnail
-{
-	background-color:#D8D8D8;
-}
-.thumbnail .caption
-{
-    padding: 0px;
-    color: #333;
-}
-#image
-{
-	width: 300px;
-	height: 300px;
-}
-table
-{
-	color:white;
+<title>Door</title>
+<style>
+html{
+	background-color:#ff8877;
 }
 </style>
+
+<link rel="stylesheet" href="./resources/common/divstyle.css"/>
+
+<link rel="stylesheet" href="https://nrise.github.io/css/spoqahansans.css" type="text/css"/>
+    
+    
 </head>
-<body>
-<div class="container-fluid">
-	<div class="row">
-		<div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<center><h2 style="color:white;">고양이 분류</h2></center>
-				<table class="table table-bordered">
-					<tr>
-						<td style="text-align:center">
-							<div class="widget">
-								<fieldset>
-									<label for="checkbox-1">분류1</label>
-									<input type="checkbox" name="checkbox-1" id="checkbox-1">
-									<label for="checkbox-2">분류2</label>
-									<input type="checkbox" name="checkbox-2" id="checkbox-2">
-									<label for="checkbox-3">분류3</label>
-									<input type="checkbox" name="checkbox-3" id="checkbox-3">
-									<label for="checkbox-4">분류4</label>
-									<input type="checkbox" name="checkbox-4" id="checkbox-4">
-									<label for="checkbox-5">분류5</label>
-									<input type="checkbox" name="checkbox-5" id="checkbox-5">
-									<label for="checkbox-6">분류6</label>
-									<input type="checkbox" name="checkbox-6" id="checkbox-6">
-									<label for="checkbox-7">분류7</label>
-									<input type="checkbox" name="checkbox-7" id="checkbox-7">
-									<label for="checkbox-8">분류8</label>
-									<input type="checkbox" name="checkbox-8" id="checkbox-8">
-									
-									<label for="checkbox-9">분류9</label>
-									<input type="checkbox" name="checkbox-9" id="checkbox-9">
-									<label for="checkbox-10">분류10</label>
-									<input type="checkbox" name="checkbox-10" id="checkbox-10">
-									<label for="checkbox-11">분류11</label>
-									<input type="checkbox" name="checkbox-11" id="checkbox-11">
-									<label for="checkbox-12">분류12</label>
-									<input type="checkbox" name="checkbox-12" id="checkbox-12">
-									<label for="checkbox-13">분류13</label>
-									<input type="checkbox" name="checkbox-13" id="checkbox-13">
-									<label for="checkbox-14">분류14</label>
-									<input type="checkbox" name="checkbox-14" id="checkbox-14">
-									<label for="checkbox-15">분류15</label>
-									<input type="checkbox" name="checkbox-15" id="checkbox-15">
-									<label for="checkbox-16">분류16</label>
-									<input type="checkbox" name="checkbox-16" id="checkbox-16">
-								</fieldset>
-							</div>
-						</td>
-					</tr>
-				</table>
-			<div class="col-sm-2"></div>
-			</div>
-		</div>
-	</div>
-</div>
+ <body>
+    <header>
+      <div class="container">
+        <div class="row logo" id="logo">
+        
+        </div>
+        <div class="row title">당신에게 고양이를</div>
+        <div class="row title">빌려 드립니다</div>
+        <div class="row store">
+          <div class="col-sm-6 appstore"><a href="regist.jsp"><img src="./resources/images/icon1.png" ></a></div>
+          <div class="col-sm-6 playstore"><a href="login.jsp"><img src="./resources/images/icon2.png" ></a></div>
+          
+        </div>
+      </div>
+    </header>
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<div class="row">
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs1.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT A</h3>
-								<center>
-									<p>
-										이고양이는 귀엽습니다.
-									</p>
-								</center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs2.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT B</h3>
-								<center>
-									<p>
-										이고양이는 귀엽습니다.
-									</p>
-								</center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs3.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT C</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-				</div>
-			<div class="col-sm-2"></div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<div class="row">
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs4.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT A</h3>
-								<center>
-									<p>
-										이고양이는 귀엽습니다.
-									</p>
-								</center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs5.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT B</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs6.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT C</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-				</div>
-			<div class="col-sm-2"></div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<div class="row">
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs7.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT A</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs8.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT B</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs9.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT C</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-				</div>
-			<div class="col-sm-2"></div>
-			</div>
-		</div>
-	</div>
-</div>
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div id="section-1-item-1" class="col-sm-4 section-1-item">
+            <div class="row">
+              <div class="col-sm-12 subject">
+                외 로 움 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 content">
+                <p>
+              고양이들이 당신을 외롭지 않게 해줄꺼에요</p>
+               
+              </div>
+            </div>
+          </div>
+          <div id="section-1-item-2" class="col-sm-4 section-1-item">
+            <div class="row">
+              <div class="col-sm-12 subject">
+               즐 거 움
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 content">
+                <p>
+              고양이가 귀여운 만큼 웃기는 짓을 잘 해요. 여러분을 웃게 만들어 줄거에요.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div id="section-1-item-3" class="col-sm-4 section-1-item">
+            <div class="row">
+              <div class="col-sm-12 subject">
+               독 립 성
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 content">
+                <p>
+                고양이는 혼자서도 잘해요 ~ 
+                </p>
+                <p>
+                		
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section-2">
+      <div class="container">
+        <div class="row">
+          <div id="section-2-item-2" class="col-sm-7 col-sm-push-5">
+            <p>
+		            외롭고 바쁜 현대인들을 위해서 우리 캣 랜드 에서는
+		            우리 고양이들을 빌려 드리고 있습니다. 
+      		</p>
+      		
+            <p>
+            <br>
+              
+            </p>
+            <p>
+             
+            </p>
+            <p>
+              
+            </p>
+          </div>
+          <div id="section-2-item-1" class="col-sm-5 col-sm-pull-7"></div>
+        </div>
+      </div>
+    </section>
 
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div id="section-3-item-1" class="col-sm-12"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container-fluid moci-story">
+        <div class="row story">
+          <div class="col-sm-12">Cat`riedn STORY</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 section-4-item">
+            <a href="company.jsp">
+            <div class="row">
+              <div class="col-sm-12 subject">
+                캣 랜드 서비스 구성에 대해서
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="content">캣랜드 아키텍쳐에 대해서 이야기 합니다.</p>
+                <p class="anchor">더 보기...</p>
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="col-sm-4 section-4-item">
+            <a href="CatP.jsp">
+            <div class="row">
+              <div class="col-sm-12 subject">
+                캣 랜드 고양이들
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 content">
+                <p class="content">우리 고양이들을 소개합니다.</p>
+                <p class="anchor">더 보기...</p>
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="col-sm-4 section-4-item">
+            <a href="image.jsp">
+            <div class="row">
+              <div class="col-sm-12 subject">
+                후  기
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 content">
+                <p class="content">우리 고양이들과 함께.</p>
+                <p class="anchor">더 보기...</p>
+              </div>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-sm-1"><a href="https://nrise.github.io/">COMPANY</a></div>
+          <div class="col-sm-1"><a href="https://www.facebook.com/likemoci/">FACEBOOK</a></div>
+          <div class="col-sm-1"><a href="mailto:help@moci.kr">CONTACT</a></div>
+          <div class="col-sm-7 hidden-xs"></div>
+          <div class="col-sm-2">&#169; 2017, CAT`riend,Inc.</div>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>
