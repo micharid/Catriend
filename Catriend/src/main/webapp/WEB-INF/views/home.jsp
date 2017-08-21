@@ -10,7 +10,7 @@
 <script src="./resources/bootstrap3.3.7/js/bootstrap.min.js"></script>
 <link rel="shortcut icon" href="./resources/images/logo8.ico">
 
-<title>고양이목록</title>
+<title>고양이목록1111</title>
 
 <link rel="stylesheet" href="./resources/common/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
