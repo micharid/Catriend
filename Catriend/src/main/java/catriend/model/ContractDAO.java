@@ -12,7 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class ContractDAO {
-	private Connection conn;
+   private Connection conn;
    private ResultSet rs;
    private PreparedStatement psmt;
    
@@ -64,7 +64,7 @@ public class ContractDAO {
     }
     
     // QnA 입력
-    public boolean InsertQnaQ(QnaDTO dto){
+    public boolean InsertContract(ContractDTO dto){
        try{
           String sql = "INSERT INTO "
                 + " Contract(ct_index, ct_sday, ct_eday, u_id, c_index) "
@@ -72,9 +72,10 @@ public class ContractDAO {
           
           psmt = conn.prepareStatement(sql);
           
-          psmt.setString(2, dto.getQ_content());
+          psmt.setDate(1, dto.getCt_sday());
+          psmt.setDate(2, dto.getCt_eday());
           psmt.setString(3, dto.getU_id());
-          psmt.setString(3, dto.getU_id());
+          psmt.setInt(4, dto.getC_index());
           
           rs = psmt.executeQuery();
           rs.next();
@@ -85,21 +86,49 @@ public class ContractDAO {
        catch(Exception e){
           // 에러나도 false
           e.printStackTrace();
-          System.out.println("InsertQnaQ 예외 발생");
+          System.out.println("InsertContract 예외 발생");
           return false;
        }
        // 통과
        return true;
-    } 
+    }
     
-    // QnA 게시판 삭제
-    public boolean DeleteQna(int q_index){
+    public boolean UpdateContract(ContractDTO dto){
+    	try{
+    		String sql = " UPDATE contract "
+    				+ " SET ct_sday=?, ct_eday=?, c_index=? "
+    				+ " WHERE ct_index = ? ";
+    		
+    		psmt = conn.prepareStatement(sql);
+    		psmt.setDate(1, dto.getCt_sday());
+    		psmt.setDate(2, dto.getCt_eday());
+    		psmt.setInt(3, dto.getC_index());
+    		psmt.setInt(4, dto.getCt_index());
+    		
+    		rs = psmt.executeQuery();
+    		rs.next();
+    		
+    		// 없으면 false
+    		if(rs.getInt(1)==0) return false;
+    	}
+    	catch(Exception e){
+    		// 에러나도 false
+    		e.printStackTrace();
+    		System.out.println("UpdateContract 예외 발생");
+    		return false;
+    	}
+    	// 통과
+    	return true;
+    }
+    
+    // Contract 게시판 삭제
+    public boolean DeleteContract(int ct_index){
        try{
-          String sql = " delete from qna WHERE q_index=? ";
+          String sql = " delete from Contract WHERE ct_index=? ";
           
           psmt = conn.prepareStatement(sql);
           
-          psmt.setInt(1, q_index);
+          psmt.setInt(1, ct_index);
           
           rs = psmt.executeQuery();
           rs.next();
@@ -110,7 +139,7 @@ public class ContractDAO {
        catch(Exception e){
           // 에러나도 false
           e.printStackTrace();
-          System.out.println("DeleteQna 예외 발생");
+          System.out.println("DeleteContract 예외 발생");
           return false;
        }
        // 통과
@@ -118,24 +147,22 @@ public class ContractDAO {
     } 
      
     // QnA 게시판 상세보기
-    public QnaDTO selectOne(int q_index){
-    	QnaDTO dto = null;
+    public ContractDTO selectOne(int ct_index){
+    	ContractDTO dto = null;
        try{
-          String sql = "SELECT * FROM qna WHERE q_index=?";
+          String sql = "SELECT * FROM contract WHERE q_index=?";
           psmt = conn.prepareStatement(sql);
-          psmt.setInt(1, q_index);
+          psmt.setInt(1, ct_index);
           
           rs = psmt.executeQuery();
           if(rs.next()){
-             dto = new QnaDTO();
-                dto.setQ_index(rs.getInt(1));
-                dto.setQ_title(rs.getString(2));
-                dto.setQ_content(rs.getString(3));
-                dto.setQ_date(rs.getDate(4));
-                dto.setQ_answer(rs.getString(5));
-                dto.setQ_a_result(rs.getInt(6));
-                dto.setU_id(rs.getString(7));
-                
+             dto = new ContractDTO();
+             dto.setCt_index(rs.getInt(1));
+             dto.setCt_sday(rs.getDate(2));  
+             dto.setCt_eday(rs.getDate(3));
+             dto.setCt_date(rs.getDate(4));
+             dto.setU_id(rs.getString(5));
+             dto.setC_index(rs.getInt(6));
              }
           }
           catch(Exception e){
@@ -146,17 +173,17 @@ public class ContractDAO {
           return dto;
     }
     
-    public List<QnaDTO> selectAll(Map<String, Object> map){
-       List<QnaDTO> qna = new Vector<QnaDTO>();
+    public List<ContractDTO> selectAll(Map<String, Object> map){
+       List<ContractDTO> contract = new Vector<ContractDTO>();
        try{
          String sql = "";
          sql += "SELECT * FROM ( "
             + "SELECT Tb.* , rownum rNum FROM ( "
-               + "SELECT * FROM qna ";
+               + "SELECT * FROM contract ";
             if(map.get("COLUMN") != null){
                sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
             }
-            sql += " ORDER BY q_index DESC) Tb "
+            sql += " ORDER BY ct_index DESC) Tb "
          + ") WHERE rNum BETWEEN ? AND ? ";
           
           psmt=conn.prepareStatement(sql);
@@ -165,16 +192,15 @@ public class ContractDAO {
           
           rs = psmt.executeQuery();
           while(rs.next()){
-        	QnaDTO dto = new QnaDTO();
-        	
-			dto.setQ_index(rs.getInt(1));
-			dto.setQ_title(rs.getString(2));
-			dto.setQ_content(rs.getString(3));
-			dto.setQ_date(rs.getDate(4));
-			dto.setQ_answer(rs.getString(5));
-			dto.setQ_a_result(rs.getInt(6));
-			dto.setU_id(rs.getString(7));        
-			qna.add(dto);
+    	  ContractDTO dto = new ContractDTO();
+           
+    	  dto.setCt_index(rs.getInt(1));
+          dto.setCt_sday(rs.getDate(2));  
+          dto.setCt_eday(rs.getDate(3));
+          dto.setCt_date(rs.getDate(4));
+          dto.setU_id(rs.getString(5));
+          dto.setC_index(rs.getInt(6)); 
+          contract.add(dto);
           }
        }
        catch(Exception e){
@@ -182,6 +208,6 @@ public class ContractDAO {
           System.out.println("selectAll 예외 발생");
        }
        
-       return qna;
+       return contract;
     }
 }
