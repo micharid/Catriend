@@ -52,4 +52,8 @@ public class CatriendController {
 	public String regist(Model model, HttpServletRequest req){
 		return "regist";
 	}
+	@RequestMapping("/image")
+	public String image(Model model, HttpServletRequest req){
+		return "image";
+	}
 }
