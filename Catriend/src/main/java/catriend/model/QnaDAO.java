@@ -42,7 +42,7 @@ public class QnaDAO {
 	    }
 	    // QnA 총 갯수 가져오기(검색가능)
 	    public int getTotalQna(Map<String, Object> map){
-	       int totalCatBoarder = 0;
+	       int totalQna = 0;
 	       try{
 	          String sql = "SELECT count(*) FROM qna";
 	          
@@ -54,13 +54,13 @@ public class QnaDAO {
 	          psmt = conn.prepareStatement(sql);
 	          rs = psmt.executeQuery();
 	          rs.next();
-	         totalCatBoarder = rs.getInt(1);
+	          totalQna = rs.getInt(1);
 	       }
 	       catch(Exception e){
 	          e.printStackTrace();
 	       }
 	       
-	       return totalCatBoarder;
+	       return totalQna;
 	    }
 	    
 	    // QnA 입력
