@@ -145,12 +145,12 @@ public class QnaDAO {
 	    } 
 	     
 	    // QnA 게시판 상세보기
-	    public QnaDTO selectOne(int cb_index){
+	    public QnaDTO selectOne(int q_index){
 	    	QnaDTO dto = null;
 	       try{
 	          String sql = "SELECT * FROM qna WHERE q_index=?";
 	          psmt = conn.prepareStatement(sql);
-	          psmt.setInt(1, cb_index);
+	          psmt.setInt(1, q_index);
 	          
 	          rs = psmt.executeQuery();
 	          if(rs.next()){
