@@ -81,7 +81,7 @@ public class FreeBoarderCommentDAO {
 	       catch(Exception e){
 	          // 에러나도 false
 	          e.printStackTrace();
-	          System.out.println("InsertCatBoarder 예외 발생");
+	          System.out.println("InsertFreeBoarderComment 예외 발생");
 	          return false;
 	       }
 	       // 통과
@@ -106,7 +106,7 @@ public class FreeBoarderCommentDAO {
 	       catch(Exception e){
 	          // 에러나도 false
 	          e.printStackTrace();
-	          System.out.println("DeleteCat 예외 발생");
+	          System.out.println("DeleteFreeBoarderComment 예외 발생");
 	          return false;
 	       }
 	       // 통과
@@ -133,7 +133,7 @@ public class FreeBoarderCommentDAO {
 	       catch(Exception e){
 	          // 에러나도 false
 	          e.printStackTrace();
-	          System.out.println("UpdateCatBoarder 예외 발생");
+	          System.out.println("UpdateFreeBoarderComment 예외 발생");
 	          return false;
 	       }
 	       // 통과
