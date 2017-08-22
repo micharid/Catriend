@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -92,44 +93,32 @@ font-weight: 300;
 	 <div class="row">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8" >
-			<table class="table table-bordered">
-				<tr>
-					<td rowspan="3" style="width:20%; text-align:center; border:1px solid white;"><img src="./resources/images/Bbs10.jpg" id="image" style="width:200px; height:200px;"></td>
-					<td style="width:80%; border:1px solid white;">이것은 제목</td>
-				</tr>
-				<tr>
-					<td rowspan="2" style="border:1px solid white;">
-						가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하
-					</td>
-				</tr>
-				<tr></tr>
-			</table>
-			<hr style="border:1px solid #00b3fe"/>
-			<table class="table table-bordered">
-				<tr>
-					<td rowspan="3" style="width:20%; text-align:center; border:1px solid white;"><img src="./resources/images/Bbs10.jpg" id="image" style="width:200px; height:200px;"></td>
-					<td style="width:80%; border:1px solid white;">이것은 제목</td>
-				</tr>
-				<tr>
-					<td rowspan="2" style="border:1px solid white;">
-						가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하
-					</td>
-				</tr>
-				<tr></tr>
-			</table>
-			<hr style="border:1px solid #00b3fe"/>
-			<table class="table table-bordered">
-				<tr>
-					<td rowspan="3" style="width:20%; text-align:center; border:1px solid white;"><img src="./resources/images/Bbs10.jpg" id="image" style="width:200px; height:200px;"></td>
-					<td style="width:80%; border:1px solid white;">이것은 제목</td>
-				</tr>
-				<tr>
-					<td rowspan="2" style="border:1px solid white;">
-						가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하
-					</td>
-				</tr>
-				<tr></tr>
-			</table>
+			
+			<c:choose>
+               <c:when test="${empty listRows}">
+                  <!-- 등록된 글이 없는경우 노출 -->
+                  <tr>
+                     <td colspan="5" style="height:100px;">등록된 글이 없습니다.</td>
+                  </tr>   
+               </c:when>
+               <c:otherwise>
+                  <c:forEach items="${listRows}" var="row" varStatus="loop">
+                     <!-- 등록된 글이 있는경우 노출 -->
+                     <table class="table table-bordered" onclick="location.href='./view';">                  
+						<tr>
+							<td rowspan="3" style="width:20%; text-align:center; border:1px solid white;">${row.cb_file }</td>
+							<td style="width:80%; border:1px solid white;">${row.cb_title }</td>
+						</tr>
+						<tr>
+							<td rowspan="2" style="border:1px solid white;">
+								${row.cb_content }
+							</td>
+						</tr>
+					</table>
+					<hr style="border:1px solid #00b3fe"/>
+                  </c:forEach>
+               </c:otherwise>
+            </c:choose>
 		</div>
 		<div class="col-sm-2"></div>
 	</div>

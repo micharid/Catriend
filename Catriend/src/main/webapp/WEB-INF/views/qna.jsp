@@ -1,5 +1,11 @@
+<%@page import="catriend.model.QnaDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	List<QnaDTO> listRows = (List<QnaDTO>)request.getAttribute("listRows");
+	int totalRecordCount = Integer.parseInt(request.getAttribute("totalRecordCount").toString());
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,205 +71,258 @@
       </div>
     </div>
 
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
-	<div id="blue">
-	    <div class="container">
-			<div class="row">
-				<center><h3>Q&A</h3></center>
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /blue -->
+   <!-- *****************************************************************************************************************
+    BLUE WRAP
+    ***************************************************************************************************************** -->
+   <div id="blue">
+       <div class="container">
+         <div class="row">
+            <center><h3>Q&A</h3></center>
+         </div><!-- /row -->
+       </div> <!-- /container -->
+   </div><!-- /blue -->
 
-	<!-- *****************************************************************************************************************
-	 CONTACT WRAP
-	 ***************************************************************************************************************** -->
+   <!-- *****************************************************************************************************************
+    CONTACT WRAP
+    ***************************************************************************************************************** -->
 
-	 <div id="contactwrap"></div>
-	 
-	 <br /><br />
-	 
-	 <div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingOne">
-							<h4 class="panel-title">
-								<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-									자주 묻는 질문1
-								</a>
-							</h4>
-						</div>
-						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-							<div class="panel-body">
-								이것은 자주 묻는 질문 1입니다. 그만 물어봐주세요.
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingTwo">
-							<h4 class="panel-title">
-								<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									자주 묻는 질문2
-								</a>
-							</h4>
-						</div>
-						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-							<div class="panel-body">
-								이것은 자주 묻는 질문 2입니다. 그만 물어봐주세요.
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingThree">
-							<h4 class="panel-title">
-								<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									자주 묻는 질문3
-								</a>
-							</h4>
-						</div>
-						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-							<div class="panel-body">
-								이것은 자주 묻는 질문 3입니다. 그만 물어봐주세요.
-							</div>
-						</div>
-					</div>
-					
-					
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingFour">
-							<h4 class="panel-title">
-								<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-									자주 묻는 질문4
-								</a>
-							</h4>
-						</div>
-						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-							<div class="panel-body">
-								이것은 자주 묻는 질문 4입니다. 그만 물어봐주세요.
-							</div>
-						</div>
-					</div>
-					
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingFive">
-							<h4 class="panel-title">
-								<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-									자주 묻는 질문5
-								</a>
-							</h4>
-						</div>
-						<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-							<div class="panel-body">
-								이것은 자주 묻는 질문 5입니다. 그만 물어봐주세요.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-2"></div>
-		</div>
-	 
-	<!-- *****************************************************************************************************************
-	 CONTACT FORMS
-	 ***************************************************************************************************************** -->
-	
-	 <div class="container mtb">
-	 	<div class="row">
-	 		<div class="col-lg-8">
-	 			<h4>Just Get In Touch!</h4>
-	 			<div class="hline"></div>
-		 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-		 			<form role="form">
-					  <div class="form-group">
-					    <label for="InputName1">Your Name</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1">
-					  </div>
-					  <div class="form-group">
-					    <label for="InputEmail1">Email address</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1">
-					  </div>
-					  <div class="form-group">
-					    <label for="InputSubject1">Subject</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1">
-					  </div>
-					  <div class="form-group">
-					  	<label for="message1">Message</label>
-					  	<textarea class="form-control" id="message1" rows="3"></textarea>
-					  </div>
-					  <button type="submit" class="btn btn-theme">Submit</button>
-					</form>
-			</div><! --/col-lg-8 -->
-	 		
-	 		<div class="col-lg-4">
-		 		<h4>Our Address</h4>
-		 		<div class="hline"></div>
-		 			<p>
-		 				Some Ave, 987,<br/>
-		 				23890, New York,<br/>
-		 				United States.<br/>
-		 			</p>
-		 			<p>
-		 				Email: hello@solidtheme.com<br/>
-		 				Tel: +34 8493-4893
-		 			</p>
-		 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-	 		</div>
-	 	</div><! --/row -->
-	 </div><! --/container -->
-	 
-	 
-	 
+    <div id="contactwrap"></div>
+    
+    <br /><br />
+    
+    <div class="container-fluid">
+         <div class="col-sm-2"></div>
+         <div class="col-sm-8" >
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+               <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                     <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                           자주 묻는 질문1
+                        </a>
+                     </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                     <div class="panel-body">
+                        이것은 자주 묻는 질문 1입니다. 그만 물어봐주세요.
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingTwo">
+                     <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                           자주 묻는 질문2
+                        </a>
+                     </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                     <div class="panel-body">
+                        이것은 자주 묻는 질문 2입니다. 그만 물어봐주세요.
+                     </div>
+                  </div>
+               </div>
+               <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree">
+                     <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                           자주 묻는 질문3
+                        </a>
+                     </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                     <div class="panel-body">
+                        이것은 자주 묻는 질문 3입니다. 그만 물어봐주세요.
+                     </div>
+                  </div>
+               </div>
+               
+               
+               <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingFour">
+                     <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                           자주 묻는 질문4
+                        </a>
+                     </h4>
+                  </div>
+                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                     <div class="panel-body">
+                        이것은 자주 묻는 질문 4입니다. 그만 물어봐주세요.
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingFive">
+                     <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                           자주 묻는 질문5
+                        </a>
+                     </h4>
+                  </div>
+                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                     <div class="panel-body">
+                        이것은 자주 묻는 질문 5입니다. 그만 물어봐주세요.
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-2"></div>
+      </div>
+      
+      <center><h1 style="color:white;">내 질문</h1></center>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="container-fluid">
+               <div class="col-sm-2"></div>
+               <div class="col-sm-8" >
+                  <table class="table table-bordered">
+                  <colgroup>
+                     <col style="width:5%;">
+                     <col style="width:auto;">
+                     <col style="width:8%;">
+                     <col style="width:8%;">
+                  </colgroup>
+                     <thead>
+                     <tr>
+                        <th>No</th>
+                        <th style="text-align:left;">제목</th>
+                        <th>답변여부</th>
+                        <th>글작성일</th>
+                     </tr>
+                     </thead>
+                     
+                     <tbody>
+                     <%
+						if(listRows.size() == 0){
+					%>
+						<!-- 등록된 글이 없는경우 노출 -->
+						<span>등록된 글이 없습니다.</span>
+					<%} 
+						else{
+					%>
+					<%
+							for(QnaDTO dto : listRows){
+					%>
+		                     <!-- 등록된 글이 있는경우 노출 -->
+		                     <tr>
+		                        <td style="text-align:center;"><%= totalRecordCount - dto.getrNum() + 1 %></td>
+		                        <td><a href="./view?idx=<%=dto.getQ_index() %>&nowPage=${nowPage}"><%= dto.getQ_title() %></a></td>
+		                        <td style="text-align:center;"><%=(dto.getQ_a_result() == 0) ? "<span class='glyphicon glyphicon-ok' aria-hidden='true'></span>" : "<span class='glyphicon glyphicon-remove' aria-hidden='true'></span>" %></td>
+		                        <td style="text-align:center;"><%=dto.getQ_date() %></td>
+		                     </tr>
+					<%
+							}
+						}
+					%>
+                     </tbody>
+                  </table>
+               </div>
+               <div class="col-sm-2"></div>
+            </div>
+         </div>
+      </div>
+    
+   <!-- *****************************************************************************************************************
+    CONTACT FORMS
+    ***************************************************************************************************************** -->
+   
+    <div class="container mtb">
+       <div class="row">
+          <div class="col-lg-8">
+             <h4>Just Get In Touch!</h4>
+             <div class="hline"></div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                <form role="form">
+                 <div class="form-group">
+                   <label for="InputName1">Your Name</label>
+                   <input type="email" class="form-control" id="exampleInputEmail1">
+                 </div>
+                 <div class="form-group">
+                   <label for="InputEmail1">Email address</label>
+                   <input type="email" class="form-control" id="exampleInputEmail1">
+                 </div>
+                 <div class="form-group">
+                   <label for="InputSubject1">Subject</label>
+                   <input type="email" class="form-control" id="exampleInputEmail1">
+                 </div>
+                 <div class="form-group">
+                    <label for="message1">Message</label>
+                    <textarea class="form-control" id="message1" rows="3"></textarea>
+                 </div>
+                 <button type="submit" class="btn btn-theme">Submit</button>
+               </form>
+         </div><! --/col-lg-8 -->
+          
+          <div class="col-lg-4">
+             <h4>Our Address</h4>
+             <div class="hline"></div>
+                <p>
+                   Some Ave, 987,<br/>
+                   23890, New York,<br/>
+                   United States.<br/>
+                </p>
+                <p>
+                   Email: hello@solidtheme.com<br/>
+                   Tel: +34 8493-4893
+                </p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+          </div>
+       </div><! --/row -->
+    </div><! --/container -->
+    
+    
+    
 
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
-	 <div id="footerwrap">
-	 	<div class="container">
-		 	<div class="row">
-		 		<div class="col-lg-4">
-		 			<h4>About</h4>
-		 			<div class="hline-w"></div>
-		 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-		 		</div>
-		 		<div class="col-lg-4">
-		 			<h4>Social Links</h4>
-		 			<div class="hline-w"></div>
-		 			<p>
-		 				<a href="#"><i class="fa fa-dribbble"></i></a>
-		 				<a href="#"><i class="fa fa-facebook"></i></a>
-		 				<a href="#"><i class="fa fa-twitter"></i></a>
-		 				<a href="#"><i class="fa fa-instagram"></i></a>
-		 				<a href="#"><i class="fa fa-tumblr"></i></a>
-		 			</p>
-		 		</div>
-		 		<div class="col-lg-4">
-		 			<h4>Our Bunker</h4>
-		 			<div class="hline-w"></div>
-		 			<p>
-		 				Some Ave, 987,<br/>
-		 				23890, New York,<br/>
-		 				United States.<br/>
-		 			</p>
-		 		</div>
-		 	
-		 	</div><! --/row -->
-	 	</div><! --/container -->
-	 </div><! --/footerwrap -->
-	 
+   <!-- *****************************************************************************************************************
+    FOOTER
+    ***************************************************************************************************************** -->
+    <div id="footerwrap">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-4">
+                <h4>About</h4>
+                <div class="hline-w"></div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+             </div>
+             <div class="col-lg-4">
+                <h4>Social Links</h4>
+                <div class="hline-w"></div>
+                <p>
+                   <a href="#"><i class="fa fa-dribbble"></i></a>
+                   <a href="#"><i class="fa fa-facebook"></i></a>
+                   <a href="#"><i class="fa fa-twitter"></i></a>
+                   <a href="#"><i class="fa fa-instagram"></i></a>
+                   <a href="#"><i class="fa fa-tumblr"></i></a>
+                </p>
+             </div>
+             <div class="col-lg-4">
+                <h4>Our Bunker</h4>
+                <div class="hline-w"></div>
+                <p>
+                   Some Ave, 987,<br/>
+                   23890, New York,<br/>
+                   United States.<br/>
+                </p>
+             </div>
+          
+          </div><! --/row -->
+       </div><! --/container -->
+    </div><! --/footerwrap -->
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="./resources/assets/js/bootstrap.min.js"></script>
-	<script src="./resources/assets/js/retina-1.1.0.js"></script>
-	<script src="./resources/assets/js/jquery.hoverdir.js"></script>
-	<script src="./resources/assets/js/jquery.hoverex.min.js"></script>
-	<script src="./resources/assets/js/jquery.prettyPhoto.js"></script>
-  	<script src="./resources/assets/js/jquery.isotope.min.js"></script>
-  	<script src="./resources/assets/js/custom.js"></script>
+   <script src="./resources/assets/js/retina-1.1.0.js"></script>
+   <script src="./resources/assets/js/jquery.hoverdir.js"></script>
+   <script src="./resources/assets/js/jquery.hoverex.min.js"></script>
+   <script src="./resources/assets/js/jquery.prettyPhoto.js"></script>
+     <script src="./resources/assets/js/jquery.isotope.min.js"></script>
+     <script src="./resources/assets/js/custom.js"></script>
 
 
   </body>

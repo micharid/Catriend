@@ -7,9 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import catriend.command.CatBoarderHotListCommand;
+import catriend.command.CatBoarderListCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.FreeBoarderListCommand;
+import catriend.command.QnAListCommand;
 
 @Controller
 public class CatriendController {
@@ -22,6 +24,9 @@ public class CatriendController {
 	}
 	@RequestMapping("/qna")
 	public String qna(Model model, HttpServletRequest req){
+		model.addAttribute("req", req);
+		command = new QnAListCommand();
+		command.execute(model);
 		return "qna";
 	}
 	@RequestMapping("/catlist")
@@ -75,6 +80,9 @@ public class CatriendController {
 	}
 	@RequestMapping("/review2")
 	public String review2(Model model, HttpServletRequest req){
+		model.addAttribute("req", req);
+		command = new CatBoarderListCommand();
+		command.execute(model);
 		return "review2";
 	}
 	
