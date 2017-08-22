@@ -15,8 +15,7 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<!-- 뷰 또는 새로운걸 담을 폴더를 만들게되면 이런형식으로 추가해줘야한다. -->
 	<resources mapping="/resources/**" location="/resources/" />
-	<resources mapping="/images/**" location="/images/" />
-	<resources mapping="/common/**" location="/common/" />
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<!-- 실제 명령줄을 합치는 부분 -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
