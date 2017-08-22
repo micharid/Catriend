@@ -37,10 +37,10 @@
     <header class="site-header px2 px-responsive">
   <div class="mt2 wrap">
     <div class="measure">
-      <a href="door.jsp" class="site-title">HOME</a>
+      <a href="door" class="site-title">HOME</a>
       <nav class="site-nav right">
-        <a href="about.jsp">About</a>
-<a href="image.jsp">Gallery</a>
+        <a href="#">About</a>
+<a href="catlist">Gallery</a>
 
       </nav>
       <div class="clearfix"></div>
@@ -75,7 +75,7 @@
   <div class="p2 wrap">
     <div class="measure mt1 center">
       <small>
-		© Copyright NRISE, Inc., 2014-2016. All rights reserved.
+		Copyright © Website 2017
       </small>
     </div>
   </div>

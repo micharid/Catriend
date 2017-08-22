@@ -230,7 +230,7 @@ font-weight: 300;
    	<footer>
       <div class="wrapper">
         <div class="row">
-          <div class="col-sm-1"><a href="door.jsp">HOME</a></div>
+          <div class="col-sm-1"><a href="door">HOME</a></div>
           <div class="col-sm-1"><a href="regist">REGIST</a></div>
           <div class="col-sm-1"><a href="login">LOGIN</a></div>
           <div class="col-sm-7 hidden-xs"></div>

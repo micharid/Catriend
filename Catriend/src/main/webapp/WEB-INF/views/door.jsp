@@ -176,11 +176,11 @@ html{
     <footer>
       <div class="wrapper">
         <div class="row">
-          <div class="col-sm-1"><a href="https://nrise.github.io/">COMPANY</a></div>
-          <div class="col-sm-1"><a href="https://www.facebook.com/likemoci/">FACEBOOK</a></div>
-          <div class="col-sm-1"><a href="mailto:help@moci.kr">CONTACT</a></div>
+          <div class="col-sm-1"><a href="">COMPANY</a></div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-1"></div>
           <div class="col-sm-7 hidden-xs"></div>
-          <div class="col-sm-2">&#169; 2017, CAT`riend,Inc.</div>
+          <div class="col-sm-2">&#169; Copyright © Website 2017</div>
         </div>
       </div>
     </footer>
