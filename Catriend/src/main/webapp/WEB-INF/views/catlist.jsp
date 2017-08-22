@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="./resources/bootstrap3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./resources/bootstrap3.3.7/js/bootstrap.min.js"></script>
-<link rel="shortcut icon" href="./resources/images/logo8.ico">
+
 
 <title>고양이목록1111jkhj김진수짱짱맨</title>
-
+<link rel="stylesheet" href="./resources/common/divstyle.css">
 <link rel="stylesheet" href="./resources/common/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -22,21 +22,21 @@
     });
   } );
   </script>
-<style>	
+<style>   
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 body
 {
-background-color:#222223;
+background-color:#ff8877;
 font-family: 'Noto Sans KR', sans-serif;
 font-weight: 300;
 }
 #testtable
 {
-	border:1px solid #000000;
+   border:1px solid #000000;
 }
 .thumbnail
 {
-	background-color:#D8D8D8;
+   background-color:#eaeaea;
 }
 .thumbnail .caption
 {
@@ -45,18 +45,14 @@ font-weight: 300;
 }
 #image
 {
-	width: 300px;
-	height: 300px;
-}
-table
-{
-	color:white;
+   width: 300px;
+   height: 300px;
 }
 </style>
 </head>
 <body>
-<div class="container-fluid">
-	<div class="row">
+<div class="">
+<div class="row">
 		<div class="container-fluid">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8" >
@@ -65,7 +61,7 @@ table
 					<tr>
 						<td style="text-align:center">
 							<div class="widget">
-								<fieldset>
+								
 									<label for="checkbox-1">분류1</label>
 									<input type="checkbox" name="checkbox-1" id="checkbox-1">
 									<label for="checkbox-2">분류2</label>
@@ -99,7 +95,7 @@ table
 									<input type="checkbox" name="checkbox-15" id="checkbox-15">
 									<label for="checkbox-16">분류16</label>
 									<input type="checkbox" name="checkbox-16" id="checkbox-16">
-								</fieldset>
+								
 							</div>
 						</td>
 					</tr>
@@ -108,132 +104,140 @@ table
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="container-fluid">
-	<div class="row">
-		<div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<div class="row">
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs1.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT A</h3>
-								<center>
-									<p>
-										이고양이는 귀엽습니다.
-									</p>
-								</center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs2.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT B</h3>
-								<center>
-									<p>
-										이고양이는 귀엽습니다.
-									</p>
-								</center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs3.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT C</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-				</div>
-			<div class="col-sm-2"></div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<div class="row">
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs4.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT A</h3>
-								<center>
-									<p>
-										이고양이는 귀엽습니다.
-									</p>
-								</center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs10.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT B</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs6.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT C</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-				</div>
-			<div class="col-sm-2"></div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<div class="row">
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs7.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT A</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs8.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT B</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="thumbnail">
-							<img src="./resources/images/Bbs9.jpg" id="image">
-							<div class="caption">
-								<h3 align="center">CAT C</h3>
-								<center><p>이고양이는 귀엽습니다.</p></center>
-							</div>
-						</div>
-					</div>
-				</div>
-			<div class="col-sm-2"></div>
-			</div>
-		</div>
-	</div>
+   <div class="row">
+      <div class="container-fluid">
+         <div class="col-sm-2"></div>
+         <div class="col-sm-8" >
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/1.jpg" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT A</h3>
+                        <center>
+                           <p>
+                              이고양이는 귀엽습니다.
+                           </p>
+                        </center>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/2.jpg" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT B</h3>
+                        <center>
+                           <p>
+                              이고양이는 귀엽습니다.
+                           </p>
+                        </center>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/3.jpg" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT C</h3>
+                        <center><p>이고양이는 귀엽습니다.</p></center>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         <div class="col-sm-2"></div>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="container-fluid">
+         <div class="col-sm-2"></div>
+         <div class="col-sm-8" >
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/4.jpg" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT A</h3>
+                        <center>
+                           <p>
+                              이고양이는 귀엽습니다.
+                           </p>
+                        </center>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/5.jpg" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT B</h3>
+                        <center><p>이고양이는 귀엽습니다.</p></center>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/6.jpg" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT C</h3>
+                        <center><p>이고양이는 귀엽습니다.</p></center>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         <div class="col-sm-2"></div>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="container-fluid">
+         <div class="col-sm-2"></div>
+         <div class="col-sm-8" >
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/7.jpg" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT A</h3>
+                        <center><p>이고양이는 귀엽습니다.</p></center>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/8.jpg" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT B</h3>
+                        <center><p>이고양이는 귀엽습니다.</p></center>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="thumbnail">
+                     <img src="./resources/images/9.png" id="image">
+                     <div class="caption">
+                        <h3 align="center">CAT C</h3>
+                        <center><p>이고양이는 귀엽습니다.</p></center>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         <div class="col-sm-2"></div>
+         </div>
+      </div>
+   </div>
+   	<footer>
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-sm-1"><a href="door.jsp">HOME</a></div>
+          <div class="col-sm-1"><a href="regist">REGIST</a></div>
+          <div class="col-sm-1"><a href="login">LOGIN</a></div>
+          <div class="col-sm-7 hidden-xs"></div>
+          <div class="col-sm-2">&#169; 2017, CAT,Inc.</div>
+        </div>
+      </div>
+    </footer>
 </div>
 
 
