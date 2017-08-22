@@ -8,6 +8,7 @@ public class FreeBoarderDTO {
 	private String fb_content;
 	private String fb_file;
 	private Date fb_date;
+	private int fb_hits;
 	private int fb_likecount;
 	private String u_id;
 	
@@ -28,6 +29,17 @@ public class FreeBoarderDTO {
 		this.fb_likecount = fb_likecount;
 		this.u_id = u_id;
 	}
+	public FreeBoarderDTO(int fb_index, String fb_title, String fb_content, String fb_file, Date fb_date, int fb_hits,
+			int fb_likecount, String u_id) {
+		this.fb_index = fb_index;
+		this.fb_title = fb_title;
+		this.fb_content = fb_content;
+		this.fb_file = fb_file;
+		this.fb_date = fb_date;
+		this.fb_hits = fb_hits;
+		this.fb_likecount = fb_likecount;
+		this.u_id = u_id;
+	}
 	public FreeBoarderDTO(int fb_index, String fb_title, String fb_content, String fb_file, Date fb_date,
 			int fb_likecount, String u_id, int rNum) {
 		super();
@@ -40,8 +52,27 @@ public class FreeBoarderDTO {
 		this.u_id = u_id;
 		this.rNum = rNum;
 	}
-	
+	public FreeBoarderDTO(int fb_index, String fb_title, String fb_content, String fb_file, Date fb_date, int fb_hits,
+			int fb_likecount, String u_id, int rNum) {
+		super();
+		this.fb_index = fb_index;
+		this.fb_title = fb_title;
+		this.fb_content = fb_content;
+		this.fb_file = fb_file;
+		this.fb_date = fb_date;
+		this.fb_hits = fb_hits;
+		this.fb_likecount = fb_likecount;
+		this.u_id = u_id;
+		this.rNum = rNum;
+	}
 	//getter() / setter()
+	public int getFb_hits() {
+		return fb_hits;
+	}
+
+	public void setFb_hits(int fb_hits) {
+		this.fb_hits = fb_hits;
+	}
 	public int getrNum() {
 		return rNum;
 	}

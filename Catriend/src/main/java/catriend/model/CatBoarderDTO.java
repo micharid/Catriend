@@ -8,6 +8,7 @@ public class CatBoarderDTO {
 	private String cb_content;
 	private String cb_file;
 	private Date cb_date;
+	private int cb_hits;
 	private int cb_likecount;
 	private String u_id;
 	private int c_index;
@@ -27,8 +28,28 @@ public class CatBoarderDTO {
 		this.u_id = u_id;
 		this.c_index = c_index;
 	}
-	
+	public CatBoarderDTO(int cb_index, String cb_title, String cb_content, String cb_file, Date cb_date, int cb_hits,
+			int cb_likecount, String u_id, int c_index) {
+		super();
+		this.cb_index = cb_index;
+		this.cb_title = cb_title;
+		this.cb_content = cb_content;
+		this.cb_file = cb_file;
+		this.cb_date = cb_date;
+		this.cb_hits = cb_hits;
+		this.cb_likecount = cb_likecount;
+		this.u_id = u_id;
+		this.c_index = c_index;
+	}
+
 	//getter() / setter()
+	public int getCb_hits() {
+		return cb_hits;
+	}
+
+	public void setCb_hits(int cb_hits) {
+		this.cb_hits = cb_hits;
+	}
 	public int getCb_index() {
 		return cb_index;
 	}

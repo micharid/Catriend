@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import catriend.command.CatBoarderHotListCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.FreeBoarderListCommand;
@@ -63,6 +64,9 @@ public class CatriendController {
 	}
 	@RequestMapping("/image")
 	public String image(Model model, HttpServletRequest req){
+		model.addAttribute("req", req);
+		command = new CatBoarderHotListCommand();
+		command.execute(model);
 		return "image";
 	}
 	@RequestMapping("/catlist2")

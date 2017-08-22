@@ -63,7 +63,7 @@ public class CatBoarderDAO {
        return totalCatBoarder;
     }
     
-    //고양이 입력
+    //입력
     public boolean InsertCatBoarder(CatBoarderDTO dto){
        try{
           String sql = "INSERT INTO "
@@ -186,9 +186,10 @@ public class CatBoarderDAO {
                 dto.setCb_content(rs.getString(3));
                 dto.setCb_file(rs.getString(4));
                 dto.setCb_date(rs.getDate(5));
-                dto.setCb_likecount(rs.getInt(6));
-                dto.setU_id(rs.getString(7));
-                dto.setC_index(rs.getInt(8));
+                dto.setCb_hits(rs.getInt(6));
+                dto.setCb_likecount(rs.getInt(7));
+                dto.setU_id(rs.getString(8));
+                dto.setC_index(rs.getInt(9));
 
              }
           }
@@ -224,9 +225,10 @@ public class CatBoarderDAO {
            dto.setCb_content(rs.getString(3));
            dto.setCb_file(rs.getString(4));
            dto.setCb_date(rs.getDate(5));
-           dto.setCb_likecount(rs.getInt(6));
-           dto.setU_id(rs.getString(7));
-           dto.setC_index(rs.getInt(8));
+           dto.setCb_hits(rs.getInt(6));
+           dto.setCb_likecount(rs.getInt(7));
+           dto.setU_id(rs.getString(8));
+           dto.setC_index(rs.getInt(9));
              
            catBoarders.add(dto);
           }
@@ -237,4 +239,44 @@ public class CatBoarderDAO {
        
        return catBoarders;
     }
+    
+    public List<CatBoarderDTO> selectHotRecord(Map<String, Object> map){
+        List<CatBoarderDTO> catBoarders = new Vector<CatBoarderDTO>();
+        try{
+          String sql = "";
+          sql += "SELECT * FROM ( "
+             + "SELECT Tb.* , rownum rNum FROM ( "
+                + "SELECT * FROM catboarder ";
+             if(map.get("COLUMN") != null){
+                sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+             }
+             sql += " ORDER BY cb_hits DESC) Tb "
+          + ") WHERE rNum BETWEEN ? AND ? ";
+           
+           psmt=conn.prepareStatement(sql);
+           psmt.setInt(1, Integer.parseInt(map.get("start").toString()));
+           psmt.setInt(2, Integer.parseInt(map.get("end").toString()));
+           
+           rs = psmt.executeQuery();
+           while(rs.next()){
+        	   CatBoarderDTO dto = new CatBoarderDTO();
+        	   dto.setCb_index(rs.getInt(1));
+        	   dto.setCb_title(rs.getString(2));
+        	   dto.setCb_content(rs.getString(3));
+        	   dto.setCb_file(rs.getString(4));
+        	   dto.setCb_date(rs.getDate(5));
+        	   dto.setCb_hits(rs.getInt(6));
+        	   dto.setCb_likecount(rs.getInt(7));
+        	   dto.setU_id(rs.getString(8));
+        	   dto.setC_index(rs.getInt(9));
+              
+        	   catBoarders.add(dto);
+           }
+        }
+        catch(Exception e){
+           e.printStackTrace();
+        }
+        
+        return catBoarders;
+     }
 }

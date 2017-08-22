@@ -158,7 +158,7 @@ public class FreeBoarderDAO {
     		if(rs.next()){
     			dto = new FreeBoarderDTO(rs.getInt(1), rs.getString(2), 
     					rs.getString(3), rs.getString(4), rs.getDate(5), 
-    					rs.getInt(6), rs.getString(7));
+    					rs.getInt(6), rs.getInt(7), rs.getString(8));
  		   	}
  	   	}
  	   	catch(Exception e){
@@ -189,7 +189,7 @@ public class FreeBoarderDAO {
  		   while(rs.next()){
 				FreeBoarderDTO dto = new FreeBoarderDTO(rs.getInt(1), rs.getString(2), 
 						rs.getString(3), rs.getString(4), rs.getDate(5), 
-						rs.getInt(6), rs.getString(7), rs.getInt(8));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getInt(9));
 				
 				freeboarders.add(dto);
  		   }

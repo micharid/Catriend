@@ -108,10 +108,12 @@ font-weight: 300;
 		</div>
 	</div>
 </div>
+<div class="container-fluid">
 	<div class="row">
-    	<div class="container-fluid">
-    		<div class="col-sm-2"></div>
-       		<div class="col-sm-8" >
+		<div class="container-fluid">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8" >
+				<div class="row">
        		<%
 			if(listRows.size() == 0){
 			%>
@@ -125,70 +127,58 @@ font-weight: 300;
 				for(CatsDTO dto : listRows){
 					if(nextrow == 0 || nextrow%3 != 0 ){
 			%>
-				<div class="row">
-					<div class="col-md-4">
-	                  <div class="thumbnail">
-	                     <img src="./resources/images/<%=dto.getC_index() %>.jpg" id="image">
-	                     <div class="caption">
-	                        <h3 align="center"><%=dto.getC_name() %></h3>
-	                        <center>
-	                           <p>
-	                              <%=dto.getC_keyword() %>
-	                           </p>
-	                        </center>
-	                     </div>
-	                  </div>
-	               </div>
-	    		</div>
-				<%		
-						nextrow++;
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img src="./resources/images/<%=dto.getC_index() %>.jpg" id="image">
+						<div class="caption">
+							<h3 align="center"><%=dto.getC_name() %></h3>
+							<center>
+							<p>
+				               <%=dto.getC_keyword() %>
+				            </p>
+				       		</center>
+				    	</div>
+				  	</div>
+				</div>
+				<%
+					nextrow++;
 					}
 					else{
 				%>
-			</div>
+				</div>
 			<div class="col-sm-2"></div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 	<div class="row">
-    	<div class="container-fluid">
-    		<div class="col-sm-2"></div>
-       		<div class="col-sm-8" >
+		<div class="container-fluid">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8" >
 				<div class="row">
 					<div class="col-md-4">
-	                  <div class="thumbnail">
-	                     <img src="./resources/images/<%=dto.getC_index() %>.jpg" id="image">
-	                     <div class="caption">
-	                        <h3 align="center"><%=dto.getC_name() %></h3>
-	                        <center>
-	                           <p>
-	                              <%=dto.getC_keyword() %>
-	                           </p>
-	                        </center>
-	                     </div>
-	                  </div>
-	               </div>
-	    		</div>
+						<div class="thumbnail">
+							<img src="./resources/images/<%=dto.getC_index() %>.jpg" id="image">
+							<div class="caption">
+								<h3 align="center"><%=dto.getC_name() %></h3>
+								<center>
+								<p>
+					               <%=dto.getC_keyword() %>
+					            </p>
+					       		</center>
+					    	</div>
+					  	</div>
+					</div>
 				<%
-						nextrow++;
+					nextrow++;
 					}
 				}
 			}
-				%>
+			%>
 			</div>
 			<div class="col-sm-2"></div>
+			</div>
 		</div>
 	</div>
-	<footer>
-	  <div class="wrapper">
-	    <div class="row">
-	      <div class="col-sm-1"><a href="door">HOME</a></div>
-	      <div class="col-sm-1"><a href="regist">REGIST</a></div>
-	      <div class="col-sm-1"><a href="login">LOGIN</a></div>
-	      <div class="col-sm-7 hidden-xs"></div>
-	      <div class="col-sm-2">&#169; 2017, CAT,Inc.</div>
-	    </div>
-	  </div>
-	</footer>
 </div>
 
 </body>
