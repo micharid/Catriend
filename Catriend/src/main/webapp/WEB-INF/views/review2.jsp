@@ -104,7 +104,7 @@ font-weight: 300;
 				</tr>
 				<tr></tr>
 			</table>
-			<hr style="border:1px solid black"/>
+			<hr style="border:1px solid #00b3fe"/>
 			<table class="table table-bordered">
 				<tr>
 					<td rowspan="3" style="width:20%; text-align:center; border:1px solid white;"><img src="./resources/images/Bbs10.jpg" id="image" style="width:200px; height:200px;"></td>
@@ -117,7 +117,7 @@ font-weight: 300;
 				</tr>
 				<tr></tr>
 			</table>
-			<hr style="border:1px solid black"/>
+			<hr style="border:1px solid #00b3fe"/>
 			<table class="table table-bordered">
 				<tr>
 					<td rowspan="3" style="width:20%; text-align:center; border:1px solid white;"><img src="./resources/images/Bbs10.jpg" id="image" style="width:200px; height:200px;"></td>
