@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import catriend.command.CatCommand;
+import catriend.command.CatsListCommand;
 import catriend.command.FreeBoarderListCommand;
 
 @Controller
@@ -24,6 +25,9 @@ public class CatriendController {
 	}
 	@RequestMapping("/catlist")
 	public String catlist(Model model, HttpServletRequest req){
+		model.addAttribute("req", req);
+		command = new CatsListCommand();
+		command.execute(model);
 		return "catlist";
 	}
 	@RequestMapping("/about")

@@ -79,26 +79,26 @@ table
                </tr>
             </thead>
             <tbody>
-          	 	<c:choose>
-					<c:when test="${empty listRows}">
-						<!-- 등록된 글이 없는경우 노출 -->
-						<tr>
-							<td colspan="5" style="height:100px;">등록된 글이 없습니다.</td>
-						</tr>	
-					</c:when>
-					<c:otherwise>
-						<c:forEach items="${listRows}" var="row" varStatus="loop">
-							<!-- 등록된 글이 있는경우 노출 -->
-							<tr>
-								<td style="text-align:center;">${row.fb_index }</td>
-								<td><a href="./view.do?idx=${row.fb_index }&nowPage=${nowPage}">${row.fb_title }</a></td>
-								<td style="text-align:center;">${row.fb_date }</td>
-								<td style="text-align:center;">${row.fb_likecount }</td>
-								<td style="text-align:center;">${row.u_id }</td>
-							</tr>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
+            <c:choose>
+               <c:when test="${empty listRows}">
+                  <!-- 등록된 글이 없는경우 노출 -->
+                  <tr>
+                     <td colspan="5" style="height:100px;">등록된 글이 없습니다.</td>
+                  </tr>   
+               </c:when>
+               <c:otherwise>
+                  <c:forEach items="${listRows}" var="row" varStatus="loop">
+                     <!-- 등록된 글이 있는경우 노출 -->
+                     <tr>
+                        <td style="text-align:center;">${totalRecordCount - row.rNum + 1}</td>
+                        <td><a href="./view.do?idx=${row.fb_index }&nowPage=${nowPage}">${row.fb_title }</a></td>
+                        <td style="text-align:center;">${row.fb_date }</td>
+                        <td style="text-align:center;">${row.fb_likecount }</td>
+                        <td style="text-align:center;">${row.u_id }</td>
+                     </tr>
+                  </c:forEach>
+               </c:otherwise>
+            </c:choose>
             </tbody>
          </table>
          <div class="row" style="text-align:center; padding-right:10px;">
@@ -143,48 +143,5 @@ table
    </div>
    
 </div>
-
-<!-- 로그인 -->
-<div class="modal fade" id="myModal" role="dialog">
-   <div class="modal-dialog">
-      <!-- Modal창의 내용 -->
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <center><h4 class="modal-title">Login</h4></center>
-         </div>
-         <!-- 폼 전달  -->
-         <div class="container-fluid">                           
-            <div class="modal-body">
-               <form class="form-horizontal" name="loginFrm" method="post" action="LoginProcess.jsp" onsubmit="return loginFrmCheck();">
-                  <div class="form-group">
-                     <label class="control-label col-sm-2" for="email">ID:</label>
-                     <div class="col-sm-10">
-                        <input type="text" name="user_id" placeholder="ID를 입력해주세요." class="form-control" />
-                     </div>
-                  </div>
-                  <div class="form-group">
-                     <label class="control-label col-sm-2" for="pwd">Password:</label>
-                     <div class="col-sm-10">          
-                        <input type="password" name="user_pw" placeholder="PW를 입력해주세요." class="form-control" />                 
-                     </div>
-                  </div>
-                  <div class="form-group">        
-                     <div class="col-sm-offset-2 col-sm-10">
-                        <div class="modal-footer">
-                           <div class="checkbox">                                  
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           </div>                  
-                        </div>
-                     </div>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-
 </body>
 </html>

@@ -1,5 +1,10 @@
+<%@page import="catriend.model.CatsDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+List<CatsDTO> listRows = (List<CatsDTO>)request.getAttribute("listRows");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +15,7 @@
 <script src="./resources/bootstrap3.3.7/js/bootstrap.min.js"></script>
 
 
-<title>고양이목록1111jkhj김진수짱짱맨</title>
+<title>고양이목록</title>
 <link rel="stylesheet" href="./resources/common/divstyle.css">
 <link rel="stylesheet" href="./resources/common/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -53,193 +58,138 @@ font-weight: 300;
 <body>
 <div class="">
 <div class="row">
-		<div class="container-fluid">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8" >
-				<center><h2 style="color:white;">고양이 분류</h2></center>
-				<table class="table table-bordered">
-					<tr>
-						<td style="text-align:center">
-							<div class="widget">
+	<div class="container-fluid">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8" >
+			<center><h2 style="color:white;">고양이 분류</h2></center>
+			<table class="table table-bordered">
+				<tr>
+					<td style="text-align:center">
+						<div class="widget">
 								
-									<label for="checkbox-1">분류1</label>
-									<input type="checkbox" name="checkbox-1" id="checkbox-1">
-									<label for="checkbox-2">분류2</label>
-									<input type="checkbox" name="checkbox-2" id="checkbox-2">
-									<label for="checkbox-3">분류3</label>
-									<input type="checkbox" name="checkbox-3" id="checkbox-3">
-									<label for="checkbox-4">분류4</label>
-									<input type="checkbox" name="checkbox-4" id="checkbox-4">
-									<label for="checkbox-5">분류5</label>
-									<input type="checkbox" name="checkbox-5" id="checkbox-5">
-									<label for="checkbox-6">분류6</label>
-									<input type="checkbox" name="checkbox-6" id="checkbox-6">
-									<label for="checkbox-7">분류7</label>
-									<input type="checkbox" name="checkbox-7" id="checkbox-7">
-									<label for="checkbox-8">분류8</label>
-									<input type="checkbox" name="checkbox-8" id="checkbox-8">
-									
-									<label for="checkbox-9">분류9</label>
-									<input type="checkbox" name="checkbox-9" id="checkbox-9">
-									<label for="checkbox-10">분류10</label>
-									<input type="checkbox" name="checkbox-10" id="checkbox-10">
-									<label for="checkbox-11">분류11</label>
-									<input type="checkbox" name="checkbox-11" id="checkbox-11">
-									<label for="checkbox-12">분류12</label>
-									<input type="checkbox" name="checkbox-12" id="checkbox-12">
-									<label for="checkbox-13">분류13</label>
-									<input type="checkbox" name="checkbox-13" id="checkbox-13">
-									<label for="checkbox-14">분류14</label>
-									<input type="checkbox" name="checkbox-14" id="checkbox-14">
-									<label for="checkbox-15">분류15</label>
-									<input type="checkbox" name="checkbox-15" id="checkbox-15">
-									<label for="checkbox-16">분류16</label>
-									<input type="checkbox" name="checkbox-16" id="checkbox-16">
+							<label for="checkbox-1">분류1</label>
+							<input type="checkbox" name="checkbox-1" id="checkbox-1">
+							<label for="checkbox-2">분류2</label>
+							<input type="checkbox" name="checkbox-2" id="checkbox-2">
+							<label for="checkbox-3">분류3</label>
+							<input type="checkbox" name="checkbox-3" id="checkbox-3">
+							<label for="checkbox-4">분류4</label>
+							<input type="checkbox" name="checkbox-4" id="checkbox-4">
+							<label for="checkbox-5">분류5</label>
+							<input type="checkbox" name="checkbox-5" id="checkbox-5">
+							<label for="checkbox-6">분류6</label>
+							<input type="checkbox" name="checkbox-6" id="checkbox-6">
+							<label for="checkbox-7">분류7</label>
+							<input type="checkbox" name="checkbox-7" id="checkbox-7">
+							<label for="checkbox-8">분류8</label>
+							<input type="checkbox" name="checkbox-8" id="checkbox-8">
 								
-							</div>
-						</td>
-					</tr>
-				</table>
-			<div class="col-sm-2"></div>
-			</div>
+							<label for="checkbox-9">분류9</label>
+							<input type="checkbox" name="checkbox-9" id="checkbox-9">
+							<label for="checkbox-10">분류10</label>
+							<input type="checkbox" name="checkbox-10" id="checkbox-10">
+							<label for="checkbox-11">분류11</label>
+							<input type="checkbox" name="checkbox-11" id="checkbox-11">
+							<label for="checkbox-12">분류12</label>
+							<input type="checkbox" name="checkbox-12" id="checkbox-12">
+							<label for="checkbox-13">분류13</label>
+							<input type="checkbox" name="checkbox-13" id="checkbox-13">
+							<label for="checkbox-14">분류14</label>
+							<input type="checkbox" name="checkbox-14" id="checkbox-14">
+							<label for="checkbox-15">분류15</label>
+							<input type="checkbox" name="checkbox-15" id="checkbox-15">
+							<label for="checkbox-16">분류16</label>
+							<input type="checkbox" name="checkbox-16" id="checkbox-16">
+						</div>
+					</td>
+				</tr>
+			</table>
+		<div class="col-sm-2"></div>
 		</div>
 	</div>
-   <div class="row">
-      <div class="container-fluid">
-         <div class="col-sm-2"></div>
-         <div class="col-sm-8" >
-            <div class="row">
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/1.jpg" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT A</h3>
-                        <center>
-                           <p>
-                              이고양이는 귀엽습니다.
-                           </p>
-                        </center>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/2.jpg" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT B</h3>
-                        <center>
-                           <p>
-                              이고양이는 귀엽습니다.
-                           </p>
-                        </center>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/3.jpg" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT C</h3>
-                        <center><p>이고양이는 귀엽습니다.</p></center>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         <div class="col-sm-2"></div>
-         </div>
-      </div>
-   </div>
-   <div class="row">
-      <div class="container-fluid">
-         <div class="col-sm-2"></div>
-         <div class="col-sm-8" >
-            <div class="row">
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/4.jpg" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT A</h3>
-                        <center>
-                           <p>
-                              이고양이는 귀엽습니다.
-                           </p>
-                        </center>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/5.jpg" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT B</h3>
-                        <center><p>이고양이는 귀엽습니다.</p></center>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/6.jpg" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT C</h3>
-                        <center><p>이고양이는 귀엽습니다.</p></center>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         <div class="col-sm-2"></div>
-         </div>
-      </div>
-   </div>
-   <div class="row">
-      <div class="container-fluid">
-         <div class="col-sm-2"></div>
-         <div class="col-sm-8" >
-            <div class="row">
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/7.jpg" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT A</h3>
-                        <center><p>이고양이는 귀엽습니다.</p></center>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/8.jpg" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT B</h3>
-                        <center><p>이고양이는 귀엽습니다.</p></center>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="thumbnail">
-                     <img src="./resources/images/9.png" id="image">
-                     <div class="caption">
-                        <h3 align="center">CAT C</h3>
-                        <center><p>이고양이는 귀엽습니다.</p></center>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         <div class="col-sm-2"></div>
-         </div>
-      </div>
-   </div>
-   	<footer>
-      <div class="wrapper">
-        <div class="row">
-          <div class="col-sm-1"><a href="door">HOME</a></div>
-          <div class="col-sm-1"><a href="regist">REGIST</a></div>
-          <div class="col-sm-1"><a href="login">LOGIN</a></div>
-          <div class="col-sm-7 hidden-xs"></div>
-          <div class="col-sm-2">&#169; 2017, CAT,Inc.</div>
-        </div>
-      </div>
-    </footer>
 </div>
-
+	<div class="row">
+    	<div class="container-fluid">
+    		<div class="col-sm-2"></div>
+       		<div class="col-sm-8" >
+       		<%
+			if(listRows.size() == 0){
+			%>
+			<!-- 등록된 글이 없는경우 노출 -->
+			<span>등록된 글이 없습니다.</span>
+			<%} 
+			else{
+			%>
+			<%
+				int nextrow=0;
+				for(CatsDTO dto : listRows){
+					if(nextrow == 0 || nextrow%3 != 0 ){
+			%>
+				<div class="row">
+					<div class="col-md-4">
+	                  <div class="thumbnail">
+	                     <img src="./resources/images/<%=dto.getC_index() %>.jpg" id="image">
+	                     <div class="caption">
+	                        <h3 align="center"><%=dto.getC_name() %></h3>
+	                        <center>
+	                           <p>
+	                              <%=dto.getC_keyword() %>
+	                           </p>
+	                        </center>
+	                     </div>
+	                  </div>
+	               </div>
+	    		</div>
+				<%		
+						nextrow++;
+					}
+					else{
+				%>
+			</div>
+			<div class="col-sm-2"></div>
+        </div>
+    </div>
+	<div class="row">
+    	<div class="container-fluid">
+    		<div class="col-sm-2"></div>
+       		<div class="col-sm-8" >
+				<div class="row">
+					<div class="col-md-4">
+	                  <div class="thumbnail">
+	                     <img src="./resources/images/<%=dto.getC_index() %>.jpg" id="image">
+	                     <div class="caption">
+	                        <h3 align="center"><%=dto.getC_name() %></h3>
+	                        <center>
+	                           <p>
+	                              <%=dto.getC_keyword() %>
+	                           </p>
+	                        </center>
+	                     </div>
+	                  </div>
+	               </div>
+	    		</div>
+				<%
+						nextrow++;
+					}
+				}
+			}
+				%>
+			</div>
+			<div class="col-sm-2"></div>
+		</div>
+	</div>
+	<footer>
+	  <div class="wrapper">
+	    <div class="row">
+	      <div class="col-sm-1"><a href="door">HOME</a></div>
+	      <div class="col-sm-1"><a href="regist">REGIST</a></div>
+	      <div class="col-sm-1"><a href="login">LOGIN</a></div>
+	      <div class="col-sm-7 hidden-xs"></div>
+	      <div class="col-sm-2">&#169; 2017, CAT,Inc.</div>
+	    </div>
+	  </div>
+	</footer>
+</div>
 
 </body>
 </html>

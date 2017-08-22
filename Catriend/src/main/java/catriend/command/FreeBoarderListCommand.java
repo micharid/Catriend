@@ -57,6 +57,7 @@ public class FreeBoarderListCommand implements CatCommand{
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("nowPage", nowPage);
 		
+		model.addAttribute("totalRecordCount", totalRecordCount);
 		//리스트 레코드를 저장
 		model.addAttribute("listRows", listRows);
 		
