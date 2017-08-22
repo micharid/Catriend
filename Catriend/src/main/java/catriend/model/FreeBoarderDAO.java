@@ -23,6 +23,7 @@ public class FreeBoarderDAO {
 			Context ctx = new InitialContext();
 			DataSource source = (DataSource)ctx.lookup("java:comp/env/jdbc/myoracle");
 			conn = source.getConnection();
+			System.out.println("연결성공");
 		}
 		catch(Exception e){
 			e.printStackTrace();

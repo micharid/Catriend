@@ -1,5 +1,7 @@
+<%@page import="catriend.model.FreeBoarderDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -57,8 +59,6 @@ table
    color : black;
 }
 
-
-
 </style>
 </head>
 <body>
@@ -73,60 +73,32 @@ table
                <tr>
                   <th>No</th>
                   <th>제목</th>
-                  <th>날자</th>
+                  <th>날짜</th>
+                  <th>좋아요</th>
+                  <th>작성자</th>
                </tr>
             </thead>
             <tbody>
-               <tr>
-                  <td>1</td>
-                  <td>제목은 제목일뿐</td>
-                  <td>17/01/01</td>
-               </tr>
-               <tr>
-                  <td>2</td>
-                  <td>오늘은 엄청 더운날씨네요</td>
-                  <td>17/07/17</td>
-               </tr>
-               <tr>
-                  <td>3</td>
-                  <td>35층 초고층 주상복합 랜드마크</td>
-                  <td>17/10/24</td>
-               </tr>
-               <tr>
-                  <td>4</td>
-                  <td>레이아웃 잡기가 너무 어려운</td>
-                  <td>17/10/24</td>
-               </tr>
-               <tr>
-                  <td>5</td>
-                  <td>홍길동의 이름은 홍길동이다</td>
-                  <td>17/10/24</td>
-               </tr>
-               <tr>
-                  <td>6</td>
-                  <td>얼음의 이름은 왜 얼음일까</td>
-                  <td>17/10/24</td>
-               </tr>
-               <tr>
-                  <td>7</td>
-                  <td>당근은 주황색이다 주황색은 당근색이다.</td>
-                  <td>17/10/24</td>
-               </tr>
-               <tr>
-                  <td>8</td>
-                  <td>컴퓨터는 왜 느린걸까? 거북이도 아니고</td>
-                  <td>17/10/24</td>
-               </tr>
-               <tr>
-                  <td>9</td>
-                  <td>지금시간은 세시삼십구분이다.</td>
-                  <td>17/10/24</td>
-               </tr>
-               <tr>
-                  <td>10</td>
-                  <td>10번째 tr에 있는 내용은 지금 보이는 내용이다.</td>
-                  <td>17/10/24</td>
-               </tr>
+          	 	<c:choose>
+					<c:when test="${empty listRows}">
+						<!-- 등록된 글이 없는경우 노출 -->
+						<tr>
+							<td colspan="5" style="height:100px;">등록된 글이 없습니다.</td>
+						</tr>	
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${listRows}" var="row" varStatus="loop">
+							<!-- 등록된 글이 있는경우 노출 -->
+							<tr>
+								<td style="text-align:center;">${row.fb_index }</td>
+								<td><a href="./view.do?idx=${row.fb_index }&nowPage=${nowPage}">${row.fb_title }</a></td>
+								<td style="text-align:center;">${row.fb_date }</td>
+								<td style="text-align:center;">${row.fb_likecount }</td>
+								<td style="text-align:center;">${row.u_id }</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
             </tbody>
          </table>
          <div class="row" style="text-align:center; padding-right:10px;">
@@ -163,26 +135,8 @@ table
                     </div>
                </div>      
               </div>
-              <!-- 페이지번호 -->
-              <nav>
-               <ul class="pagination" style="font-color:black;">
-                  <li>
-                     <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                     </a>
-                   </li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li>
-                     <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                     </a>
-                  </li>
-               </ul>
-            </nav>
+              <!-- 페이지 처리 -->
+              ${pagingImg}
            </div>
       </div>
       <div class="col-sm-2"></div>

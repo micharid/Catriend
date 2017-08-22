@@ -6,8 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import catriend.command.CatCommand;
+import catriend.command.FreeBoarderListCommand;
+
 @Controller
 public class CatriendController {
+	//다형성을 위한
+	CatCommand command;
+	
 	@RequestMapping("/surveyform")
 	public String surveyform(Model model, HttpServletRequest req){
 		return "surveyform";
@@ -26,6 +32,9 @@ public class CatriendController {
 	}
 	@RequestMapping("/BoardList")
 	public String BoardList(Model model, HttpServletRequest req){
+		model.addAttribute("req", req);
+		command = new FreeBoarderListCommand();
+		command.execute(model);
 		return "BoardList";
 	}
 	@RequestMapping("/company")
