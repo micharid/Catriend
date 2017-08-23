@@ -29,7 +29,7 @@ public class FreeBoarderDAO {
 			sql += " where " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
 
-		return template.update(sql, Integer.class);
+		return this.template.queryForObject(sql, Integer.class);
 	}
 
 	// 자유게시물 입력
