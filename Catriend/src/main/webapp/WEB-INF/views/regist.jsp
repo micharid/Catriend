@@ -8,10 +8,6 @@
 <link rel="stylesheet" href="./resources/bootstrap3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./resources/bootstrap3.3.7/js/bootstrap.min.js"></script>
-
-
-
-
 <title>regist</title>
 <style>   
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -69,60 +65,77 @@ hr {
     border-top: 1px solid #000000;
 }
 
-
-
 </style>
+<script type="text/javascript">
+	function registCheck(){
+		var f = document.registFrm;
+		if(f.id.value == ""){
+			alert("아이디를 입력해주세요 ! ");
+			f.id.focus();
+			return false;
+		}
+		
+		if(f.password.value == ""){
+			alert("비밀번호 입력해주세요 ! ");
+			f.password.focus();
+			return false;
+		}
+		
+		if(f.passwordCheck.value == ""){
+			alert("비밀번호 확인을 입력해주세요 ! ");
+			f.passwordCheck.focus();
+			return false;
+		}
+		
+		if(f.password.value != f.passwordCheck.value){
+			alert("비밀번호와 비밀번호확인이 동일하지 않습니다 ! ");
+			f.passwordCheck.value="";
+			f.passwordCheck.focus();
+			return false;
+		}
+		
+		if(f.nickname.value == ""){
+			alert("닉네임을 입력해주세요 ! ");
+			f.nickname.focus();
+			return false;
+		}
+		
+		if(f.name.value == ""){
+			alert("이름을 입력해주세요 ! ");
+			f.name.focus();
+			return false;
+		}
+		
+		if(f.email.value == ""){
+			alert("이메일을 입력해주세요 ! ");
+			f.email.focus();
+			return false;
+		}
+		
+		if(f.birthday.value == ""){
+			alert("생일을 입력해주세요 ! ");
+			f.birthday.focus();
+			return false;
+		}
+		
+		if(f.phoneNumber.value == ""){
+			alert("휴대폰번호를 입력해주세요 ! ");
+			f.phoneNumber.focus();
+			return false;
+		}
+		
+		if(f.address.value == ""){
+			alert("주소를 입력해주세요 ! ");
+			f.address.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
 </head>
 <body>
-<div class="container-fluid">
- <!--
-   <div class="row">
-      <nav class="navbar navbar-inverse">
-         <div class="container-fluid">
-       
-            <div class="row">
-               <div class="col-sm-2"></div>
-               <div class="col-sm-8">
-                  
-                  
-                  
-                  <ul class="nav navbar-nav navbar-right" style="padding-top:25px; font-size:1.4em;">
-                     <li>
-                        <a onclick="javascript:location.href='JoinMembership.jsp';" 
-                        style="cursor:pointer;">
-                           <font color="white">
-                              <span class="glyphicon glyphicon-user"></span>&nbsp;회원가입
-                           </font>
-                        </a>
-                     </li>
-                     <li>
-                        <a data-toggle="modal" data-target="#myModal">
-                           <font color="white" style="cursor:pointer;">
-                              <span class="glyphicon glyphicon-log-in"></span>&nbsp;로그인
-                           </font>
-                        </a>
-                     </li>
-                  </ul>
-               </div>
-               <div class="col-sm-2"></div>
-            </div>
-            <div class="row">
-               <div class="col-sm-2"></div>
-               <div class="col-sm-8" >
-                  <div class="btn-group btn-group-justified" id="mainmenu">
-                     <a class="btn btn-default" onclick="javascript:location.href='Notice.jsp';">공지(NOTICE)</a>
-                     <a class="btn btn-default" onclick="javascript:location.href='Review.jsp';">리뷰(REVIEW)</a>
-                     <a class="btn btn-default" onclick="javascript:location.href='Community.jsp';">커뮤니티(COMMUNITY)</a>
-                     <a class="btn btn-default" onclick="javascript:location.href='Gallery.jsp';">갤러리(GALLERY)</a>
-                  </div>
-               </div>
-               <div class="col-sm-2"></div>
-            </div>
-         </div>
-      </nav>
-   </div>
-    -->
-   
+<div class="container-fluid">   
    <div class="row">
       <div class="col-sm-2"></div>
       <div class="col-sm-8" >
@@ -131,60 +144,60 @@ hr {
                <div class="page-header">
                   <h1>회원가입 <small>Register</small></h1>
                </div>
-               <form class="form-horizontal">
+               <form class="form-horizontal" name="registFrm" onsubmit="return registCheck()" action="provision">
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputId">아이디</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputId" type="text" placeholder="아이디">
+                        <input class="form-control" id="inputId" name="id" type="text" placeholder="아이디">
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputPassword" type="password" placeholder="비밀번호">
+                        <input class="form-control" id="inputPassword" name="password" type="password" placeholder="비밀번호">
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인">
+                        <input class="form-control" id="inputPasswordCheck" type="password" name="passwordCheck" placeholder="비밀번호 확인">
                         <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">닉네임</label>
                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="NickName" placeholder="닉네임을 입력해주세요"/>
+                        <input type="text" class="form-control" id="NickName" name="nickname" placeholder="닉네임을 입력해주세요"/>
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputName">이름</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputName" type="text" placeholder="이름" />
+                        <input class="form-control" id="inputName" name="name" type="text" placeholder="이름" />
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputEmail" type="email" placeholder="Example@Example.com 형식으로 넣어주세요">
+                        <input class="form-control" id="inputEmail" name="email" type="email" placeholder="Example@Example.com 형식으로 넣어주세요">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="birthdate" class="col-sm-3 control-label">생년월일</label>
                      <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="birthdate" placeholder="19700101 형식으로 입력하세요." maxlength="8">
+                        <input type="tel" class="form-control" id="birthdate" name="birthday" placeholder="19700101 형식으로 입력하세요." maxlength="8">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">휴대폰 번호</label>
                      <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="phoneNumber" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
+                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">주소</label>
                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="address" placeholder="주소를 입력해주세요"/>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="주소를 입력해주세요"/>
                      </div>
                   </div>
                   
@@ -197,7 +210,7 @@ hr {
                         <button class="btn btn-primary" type="submit">회원가입
                            <i class="fa fa-check spaceLeft"></i>
                         </button>
-                        <button class="btn btn-danger" type="submit">가입취소
+                        <button class="btn btn-danger" type="button">가입취소
                            <i class="fa fa-times spaceLeft"></i>
                         </button>
                      </div>

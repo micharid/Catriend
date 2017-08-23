@@ -11,11 +11,36 @@ textarea{
 }
 </style>
 <title>provision</title>
+<script type="text/javascript">
+	function fregister_submit(f) 
+	{
+	    var agree1 = document.getElementsByName("agree");
+	    if (!agree1[0].checked) {
+	        alert("회원가입약관의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
+	        agree1[0].focus();
+	        return false;
+	    }
+	
+	    var agree2 = document.getElementsByName("agree2");
+	    if (!agree2[0].checked) {
+	        alert("개인정보취급방침의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
+	        agree2[0].focus();
+	        return false;
+	    }
+	
+	    f.action = "regist";
+	    return true;
+	}
+	
+	if (typeof(document.fregister.mb_name) != "undefined")
+	    document.fregister.mb_name.focus();
+</script>
 </head>
+
 <body>
 	<a name="g4_head"></a>
 
-<form name="fregister" method="POST" onsubmit="return fregister_submit(this);" autocomplete="off">
+<form name="fregister" method="POST" onsubmit="return fregister_submit(this);">
 
 <table width=600 cellspacing=0 cellspacing=0 align=center><tr><td align=center>
     
@@ -243,29 +268,6 @@ textarea{
 </form>
 
 
-<script type="text/javascript">
-function fregister_submit(f) 
-{
-    var agree1 = document.getElementsByName("agree");
-    if (!agree1[0].checked) {
-        alert("회원가입약관의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
-        agree1[0].focus();
-        return false;
-    }
 
-    var agree2 = document.getElementsByName("agree2");
-    if (!agree2[0].checked) {
-        alert("개인정보취급방침의 내용에 동의하셔야 회원가입 하실 수 있습니다.");
-        agree2[0].focus();
-        return false;
-    }
-
-    f.action = "";
-    return true;
-}
-
-if (typeof(document.fregister.mb_name) != "undefined")
-    document.fregister.mb_name.focus();
-</script>
 </body>
 </html>
