@@ -14,6 +14,7 @@ import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.FreeBoarderListCommand;
 import catriend.command.QnAListCommand;
+import catriend.command.registActionCommend;
 import catriend.model.Constant;
 
 @Controller
@@ -79,6 +80,13 @@ public class CatriendController {
 	@RequestMapping("/regist")
 	public String regist(Model model, HttpServletRequest req){
 		return "regist";
+	}
+	@RequestMapping("/registAction")
+	public String registAction(Model model, HttpServletRequest req) throws Exception{
+		model.addAttribute("req", req);
+		registActionCommend command = new registActionCommend();
+		command.userInsert(model);
+		return "redirect:door";
 	}
 	@RequestMapping("/image")
 	public String image(Model model, HttpServletRequest req){

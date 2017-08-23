@@ -32,20 +32,21 @@ public class UsersDAO {
 	// 유저 입력
 	public int InsertUser(final UsersDTO dto) {
 		String sql = "INSERT INTO " + " users (u_id, u_pw, u_name, u_birthday, u_phonenumber, u_address, "
-				+ " u_email, u_grade, u_nickname) " + " VALUES (users_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " u_email, u_grade, u_nickname) " + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
-				psmt.setString(1, dto.getU_pw());
-				psmt.setString(2, dto.getU_name());
-				psmt.setDate(3, dto.getU_birthday());
-				psmt.setString(4, dto.getU_phonenumber());
-				psmt.setString(5, dto.getU_address());
-				psmt.setString(6, dto.getU_email());
-				psmt.setInt(7, dto.getU_grade());
-				psmt.setString(8, dto.getU_nickname());
+				psmt.setString(1, dto.getU_id());
+				psmt.setString(2, dto.getU_pw());
+				psmt.setString(3, dto.getU_name());
+				psmt.setDate(4, dto.getU_birthday());
+				psmt.setString(5, dto.getU_phonenumber());
+				psmt.setString(6, dto.getU_address());
+				psmt.setString(7, dto.getU_email());
+				psmt.setInt(8, 10);
+				psmt.setString(9, dto.getU_nickname());
 			}
 		});
 	}

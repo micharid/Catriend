@@ -144,7 +144,7 @@ hr {
                <div class="page-header">
                   <h1>회원가입 <small>Register</small></h1>
                </div>
-               <form class="form-horizontal" name="registFrm" onsubmit="return registCheck()" action="provision">
+               <form class="form-horizontal" name="registFrm" onsubmit="return registCheck()" action="registAction">
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputId">아이디</label>
                      <div class="col-sm-6">
@@ -185,7 +185,7 @@ hr {
                   <div class="form-group">
                      <label for="birthdate" class="col-sm-3 control-label">생년월일</label>
                      <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="birthdate" name="birthday" placeholder="19700101 형식으로 입력하세요." maxlength="8">
+                        <input type="date" class="form-control" id="birthdate" name="birthday" placeholder="19700101 형식으로 입력하세요." maxlength="8">
                      </div>
                   </div>
                   <div class="form-group">
