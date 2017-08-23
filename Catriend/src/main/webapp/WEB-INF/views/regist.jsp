@@ -144,7 +144,7 @@ hr {
                <div class="page-header">
                   <h1>회원가입 <small>Register</small></h1>
                </div>
-               <form class="form-horizontal">
+               <form class="form-horizontal" name="registFrm" onsubmit="return registCheck()" action="provision">
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputId">아이디</label>
                      <div class="col-sm-6">
@@ -154,50 +154,50 @@ hr {
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputPassword" type="password" placeholder="비밀번호">
+                        <input class="form-control" id="inputPassword" name="password" type="password" placeholder="비밀번호">
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호 확인">
+                        <input class="form-control" id="inputPasswordCheck" type="password" name="passwordCheck" placeholder="비밀번호 확인">
                         <p class="help-block">비밀번호를 한번 더 입력해주세요.</p>
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">닉네임</label>
                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="NickName" placeholder="닉네임을 입력해주세요"/>
+                        <input type="text" class="form-control" id="NickName" name="nickname" placeholder="닉네임을 입력해주세요"/>
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputName">이름</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputName" type="text" placeholder="이름" />
+                        <input class="form-control" id="inputName" name="name" type="text" placeholder="이름" />
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputEmail" type="email" placeholder="Example@Example.com 형식으로 넣어주세요">
+                        <input class="form-control" id="inputEmail" name="email" type="email" placeholder="Example@Example.com 형식으로 넣어주세요">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="birthdate" class="col-sm-3 control-label">생년월일</label>
                      <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="birthdate" placeholder="19700101 형식으로 입력하세요." maxlength="8">
+                        <input type="tel" class="form-control" id="birthdate" name="birthday" placeholder="19700101 형식으로 입력하세요." maxlength="8">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">휴대폰 번호</label>
                      <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="phoneNumber" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
+                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">주소</label>
                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="address" placeholder="주소를 입력해주세요"/>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="주소를 입력해주세요"/>
                      </div>
                   </div>
                   
@@ -210,7 +210,7 @@ hr {
                         <button class="btn btn-primary" type="submit">회원가입
                            <i class="fa fa-check spaceLeft"></i>
                         </button>
-                        <button class="btn btn-danger" type="submit">가입취소
+                        <button class="btn btn-danger" type="button">가입취소
                            <i class="fa fa-times spaceLeft"></i>
                         </button>
                      </div>
