@@ -9,11 +9,12 @@ public class ContractDTO {
 	private Date ct_date;
 	private String u_id;
 	private int c_index;
-	
-	//기본생성자
-	public ContractDTO() {}
-	
-	//인자생성자
+
+	// 기본생성자
+	public ContractDTO() {
+	}
+
+	// 인자생성자
 	public ContractDTO(int ct_index, Date ct_sday, Date ct_eday, Date ct_date, String u_id, int c_index) {
 		this.ct_index = ct_index;
 		this.ct_sday = ct_sday;
@@ -22,8 +23,8 @@ public class ContractDTO {
 		this.u_id = u_id;
 		this.c_index = c_index;
 	}
-	
-	//getter() / setter()
+
+	// getter() / setter()
 	public int getCt_index() {
 		return ct_index;
 	}

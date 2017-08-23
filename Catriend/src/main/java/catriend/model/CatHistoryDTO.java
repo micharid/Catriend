@@ -8,11 +8,12 @@ public class CatHistoryDTO {
 	private Date ch_date;
 	private int c_index;
 	private String u_id;
-	
-	//기본생성자
-	public CatHistoryDTO() {}
 
-	//인자생성자
+	// 기본생성자
+	public CatHistoryDTO() {
+	}
+
+	// 인자생성자
 	public CatHistoryDTO(int ch_index, int ch_catio, Date ch_date, int c_index, String u_id) {
 		this.ch_index = ch_index;
 		this.ch_catio = ch_catio;
@@ -20,8 +21,8 @@ public class CatHistoryDTO {
 		this.c_index = c_index;
 		this.u_id = u_id;
 	}
-	
-	//getter() / setter()
+
+	// getter() / setter()
 	public int getCh_index() {
 		return ch_index;
 	}

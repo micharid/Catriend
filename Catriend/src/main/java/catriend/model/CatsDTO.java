@@ -16,10 +16,12 @@ public class CatsDTO {
 	private Date c_eday;
 	private String c_detail;
 	private int c_state;
-	
-	//기본생성자
-	public CatsDTO() {}
-	//인자생성자
+
+	// 기본생성자
+	public CatsDTO() {
+	}
+
+	// 인자생성자
 	public CatsDTO(int c_index, String c_name, Date c_birthday, String c_gender, String c_type, String c_keyword,
 			String c_health, int c_grade, Date c_comeday, Date c_sday, Date c_eday, String c_detail, int c_state) {
 		this.c_index = c_index;
@@ -36,8 +38,8 @@ public class CatsDTO {
 		this.c_detail = c_detail;
 		this.c_state = c_state;
 	}
-	
-	//setter() / getter()
+
+	// setter() / getter()
 	public int getC_index() {
 		return c_index;
 	}

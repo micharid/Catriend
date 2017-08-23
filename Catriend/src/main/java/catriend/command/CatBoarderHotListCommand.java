@@ -37,8 +37,6 @@ public class CatBoarderHotListCommand implements CatCommand{
 		//리스트 레코드를 저장
 		model.addAttribute("listRows", listRows);
 		
-		dao.close();
-		
 		System.out.println("execute()메소드 호출");
 	}
 }

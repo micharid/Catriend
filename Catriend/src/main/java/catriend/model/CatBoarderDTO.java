@@ -12,11 +12,12 @@ public class CatBoarderDTO {
 	private int cb_likecount;
 	private String u_id;
 	private int c_index;
-	
-	//기본생성자
-	public CatBoarderDTO() {}
-	
-	//인자생성자
+
+	// 기본생성자
+	public CatBoarderDTO() {
+	}
+
+	// 인자생성자
 	public CatBoarderDTO(int cb_index, String cb_title, String cb_content, String cb_file, Date cb_date,
 			int cb_likecount, String u_id, int c_index) {
 		this.cb_index = cb_index;
@@ -28,6 +29,7 @@ public class CatBoarderDTO {
 		this.u_id = u_id;
 		this.c_index = c_index;
 	}
+
 	public CatBoarderDTO(int cb_index, String cb_title, String cb_content, String cb_file, Date cb_date, int cb_hits,
 			int cb_likecount, String u_id, int c_index) {
 		super();
@@ -42,7 +44,7 @@ public class CatBoarderDTO {
 		this.c_index = c_index;
 	}
 
-	//getter() / setter()
+	// getter() / setter()
 	public int getCb_hits() {
 		return cb_hits;
 	}
@@ -50,6 +52,7 @@ public class CatBoarderDTO {
 	public void setCb_hits(int cb_hits) {
 		this.cb_hits = cb_hits;
 	}
+
 	public int getCb_index() {
 		return cb_index;
 	}
