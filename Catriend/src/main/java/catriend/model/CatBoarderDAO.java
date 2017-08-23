@@ -83,22 +83,26 @@ public class CatBoarderDAO {
 	}
 
 	public List<CatBoarderDTO> selectAll(Map<String, Object> map) {
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM catboarder ";
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ORDER BY cb_index DESC) Tb " + ") WHERE rNum BETWEEN ? AND ? ";
+		sql += " ORDER BY cb_index DESC) Tb " + ") WHERE rNum BETWEEN "+start+" AND "+end;
 		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
 	}
 
 	public List<CatBoarderDTO> selectHotRecord(Map<String, Object> map) {
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM catboarder ";
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ORDER BY cb_hits DESC) Tb " + ") WHERE rNum BETWEEN ? AND ? ";
+		sql += " ORDER BY cb_hits DESC) Tb " + ") WHERE rNum BETWEEN "+start+" AND "+end;
 		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
 	}
 }
