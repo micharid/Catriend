@@ -30,5 +30,17 @@
 	<context:component-scan base-package="com.ohsteward.Catriend" />
 	<context:component-scan base-package="catriend.controller" />
 	
-	
+	<!-- JDBC템플릿 설정 : dataSource 빈을 생성함 -->
+	<beans:bean name="dataSource" 
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<beans:property name="url" value="jdbc:oracle:thin:@192.168.0.254:1521:orcl"/>
+		<beans:property name="username" value="cat_riendDB"/>
+		<beans:property name="password" value="1234"/>
+	</beans:bean>
+	<!-- JDBC템플릿 설정 : template 빈을 생성함 -->
+	<beans:bean name="template" 
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<beans:property name="dataSource" ref="dataSource"/>
+	</beans:bean>
 </beans:beans>

@@ -8,10 +8,6 @@
 <link rel="stylesheet" href="./resources/bootstrap3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./resources/bootstrap3.3.7/js/bootstrap.min.js"></script>
-
-
-
-
 <title>regist</title>
 <style>   
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -69,60 +65,77 @@ hr {
     border-top: 1px solid #000000;
 }
 
-
-
 </style>
+<script type="text/javascript">
+	function registCheck(){
+		var f = document.registFrm;
+		if(f.id.value == ""){
+			alert("아이디를 입력해주세요 ! ");
+			f.id.focus();
+			return false;
+		}
+		
+		if(f.password.value == ""){
+			alert("비밀번호 입력해주세요 ! ");
+			f.password.focus();
+			return false;
+		}
+		
+		if(f.passwordCheck.value == ""){
+			alert("비밀번호 확인을 입력해주세요 ! ");
+			f.passwordCheck.focus();
+			return false;
+		}
+		
+		if(f.password.value != f.passwordCheck.value){
+			alert("비밀번호와 비밀번호확인이 동일하지 않습니다 ! ");
+			f.passwordCheck.value="";
+			f.passwordCheck.focus();
+			return false;
+		}
+		
+		if(f.nickname.value == ""){
+			alert("닉네임을 입력해주세요 ! ");
+			f.nickname.focus();
+			return false;
+		}
+		
+		if(f.name.value == ""){
+			alert("이름을 입력해주세요 ! ");
+			f.name.focus();
+			return false;
+		}
+		
+		if(f.email.value == ""){
+			alert("이메일을 입력해주세요 ! ");
+			f.email.focus();
+			return false;
+		}
+		
+		if(f.birthday.value == ""){
+			alert("생일을 입력해주세요 ! ");
+			f.birthday.focus();
+			return false;
+		}
+		
+		if(f.phoneNumber.value == ""){
+			alert("휴대폰번호를 입력해주세요 ! ");
+			f.phoneNumber.focus();
+			return false;
+		}
+		
+		if(f.address.value == ""){
+			alert("주소를 입력해주세요 ! ");
+			f.address.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
 </head>
 <body>
-<div class="container-fluid">
- <!--
-   <div class="row">
-      <nav class="navbar navbar-inverse">
-         <div class="container-fluid">
-       
-            <div class="row">
-               <div class="col-sm-2"></div>
-               <div class="col-sm-8">
-                  
-                  
-                  
-                  <ul class="nav navbar-nav navbar-right" style="padding-top:25px; font-size:1.4em;">
-                     <li>
-                        <a onclick="javascript:location.href='JoinMembership.jsp';" 
-                        style="cursor:pointer;">
-                           <font color="white">
-                              <span class="glyphicon glyphicon-user"></span>&nbsp;회원가입
-                           </font>
-                        </a>
-                     </li>
-                     <li>
-                        <a data-toggle="modal" data-target="#myModal">
-                           <font color="white" style="cursor:pointer;">
-                              <span class="glyphicon glyphicon-log-in"></span>&nbsp;로그인
-                           </font>
-                        </a>
-                     </li>
-                  </ul>
-               </div>
-               <div class="col-sm-2"></div>
-            </div>
-            <div class="row">
-               <div class="col-sm-2"></div>
-               <div class="col-sm-8" >
-                  <div class="btn-group btn-group-justified" id="mainmenu">
-                     <a class="btn btn-default" onclick="javascript:location.href='Notice.jsp';">공지(NOTICE)</a>
-                     <a class="btn btn-default" onclick="javascript:location.href='Review.jsp';">리뷰(REVIEW)</a>
-                     <a class="btn btn-default" onclick="javascript:location.href='Community.jsp';">커뮤니티(COMMUNITY)</a>
-                     <a class="btn btn-default" onclick="javascript:location.href='Gallery.jsp';">갤러리(GALLERY)</a>
-                  </div>
-               </div>
-               <div class="col-sm-2"></div>
-            </div>
-         </div>
-      </nav>
-   </div>
-    -->
-   
+<div class="container-fluid">   
    <div class="row">
       <div class="col-sm-2"></div>
       <div class="col-sm-8" >
@@ -135,7 +148,7 @@ hr {
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputId">아이디</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputId" type="text" placeholder="아이디">
+                        <input class="form-control" id="inputId" name="id" type="text" placeholder="아이디">
                      </div>
                   </div>
                   <div class="form-group">

@@ -2,6 +2,8 @@ package catriend.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +14,20 @@ import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.FreeBoarderListCommand;
 import catriend.command.QnAListCommand;
+import catriend.model.Constant;
 
 @Controller
 public class CatriendController {
+	//Spring JDBC를 사용하기 위한 설정
+	//JDBC템플릿 설정
+	private JdbcTemplate template;
+	//setter설정(빈이 설정되면 자동으로 됨)
+	@Autowired
+	public void setTemplate(JdbcTemplate template){
+		this.template = template;
+		Constant.template = this.template;
+	}
+	
 	//다형성을 위한
 	CatCommand command;
 	
