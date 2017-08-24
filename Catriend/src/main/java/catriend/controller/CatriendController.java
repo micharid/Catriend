@@ -62,12 +62,12 @@ public class CatriendController {
 		public String about(Model model, HttpServletRequest req){
 			return "about";
 		}
-		@RequestMapping("/BoardList")
+		@RequestMapping("/boardlist")
 		public String BoardList(Model model, HttpServletRequest req){
 			model.addAttribute("req", req);
 			command = new FreeBoarderListCommand();
 			command.execute(model);
-			return "BoardList";
+			return "boardlist";
 		}
 		@RequestMapping("/company")
 		public String company(Model model, HttpServletRequest req){
@@ -134,5 +134,29 @@ public class CatriendController {
 		@RequestMapping("/memberfreeboard")
 		public String memberfreeboard(Model model, HttpServletRequest req){
 			return "memberfreeboard";
+		}
+		@RequestMapping("/catp")
+		public String catp(Model model, HttpServletRequest req){
+			return "catp";
+		}
+		@RequestMapping("/contact")
+		public String contact(Model model, HttpServletRequest req){
+			return "contact";
+		}
+		@RequestMapping("/myPage")
+		public String myPage(Model model, HttpServletRequest req){
+			return "myPage";
+		}
+		@RequestMapping("/portfolio")
+		public String portfolio(Model model, HttpServletRequest req){
+			return "portfolio";
+		}
+		@RequestMapping("/singlepost")
+		public String singlepost(Model model, HttpServletRequest req){
+			return "singlepost";
+		}
+		@RequestMapping("/index")
+		public String index(Model model, HttpServletRequest req){
+			return "index";
 		}
 }
