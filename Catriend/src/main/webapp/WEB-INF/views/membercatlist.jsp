@@ -27,7 +27,7 @@
 	  $( "input" ).checkboxradio({
 	    icon: false
 	  });
-	} );
+	} );  
 </script>
 
 

@@ -38,7 +38,7 @@
           <a class="navbar-brand" href="index.html">SOLID.</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav"> 
             <li><a href="index.html">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li class="active"><a href="qna2.html">Q&A</a></li>
