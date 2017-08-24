@@ -53,11 +53,11 @@ font-weight: 300;
 </style>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
-    <script src="../assets/js/modernizr.js"></script>
+    <link href="./resources/assets/css/style.css" rel="stylesheet">
+    <link href="./resources/assets/css/font-awesome.min.css" rel="stylesheet">
+    <script src="./resources/assets/js/modernizr.js"></script>
     
 </head>
   <body>
