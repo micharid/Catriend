@@ -111,4 +111,12 @@ public class CatriendController {
 		model.addAttribute("msg", req.getParameter("msg"));
 		return "processing/catlistAction";
 	}
+	@RequestMapping("/catcontractpage")
+	public String catcontractpage(Model model, HttpServletRequest req){
+		return "catcontractpage";
+	}
+	@RequestMapping("/memberfreeboard")
+	public String memberfreeboard(Model model, HttpServletRequest req){
+		return "memberfreeboard";
+	}
 }
