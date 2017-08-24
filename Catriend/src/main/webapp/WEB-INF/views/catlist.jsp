@@ -41,10 +41,10 @@
 	$(document).ready(function() {
 		$("input[type='checkbox']").click(function() {
 			var keyword = "";
-			$("input[type='checkbox']:checked").each(function(){
+			$("input[type='checkbox']:checked").each(function() {
 				keyword = keyword + this.value + "_";
 			});
-			
+
 			$.ajax({
 				url : 'processing/catlistAction',
 				dataType : "html",
@@ -52,7 +52,7 @@
 				contentType : "text/html;charset:utf-8",
 				data : {
 					msg : keyword
-						
+
 				},
 				//success : sucFunc,
 				success : function(data) {
@@ -72,10 +72,6 @@ body {
 	font-weight: 300;
 }
 
-#testtable {
-	border: 1px solid #000000;
-}
-
 .thumbnail {
 	background-color: #eaeaea;
 }
@@ -89,6 +85,16 @@ body {
 	width: 300px;
 	height: 300px;
 }
+
+tr {
+	text-align: left;
+	border-bottom: 2px solid white;
+	padding: 20px;
+}
+
+tr:last-child {
+	border-bottom: 0;
+}
 </style>
 </head>
 <body>
@@ -100,40 +106,87 @@ body {
 					<center>
 						<h2 style="color: white;">고양이 분류</h2>
 					</center>
-					<table class="table table-bordered">
+					<table class="table table-condensed"
+						style="border: 2px solid white;">
 						<tr>
 							<td style="text-align: center">
 								<table width="100%">
-								<colgroup>
-									<col width="10%"/>
-									<col width="*"/>
-								</colgroup>
+									<colgroup>
+										<col width="10%" />
+										<col width="*" />
+									</colgroup>
 									<tr>
-										<td>사이즈 : </td>
-										<td><label for="cb_1">소</label><input
-											type="checkbox" name="size" id="cb_1" value="소">
-											<label for="cb_2">중</label><input
-											type="checkbox" name="size" id="cb_2" value="중">
-											<label for="cb_3">대</label><input
-											type="checkbox" name="size" id="cb_3" value="대">
+										<td>사이즈 :</td>
+										<td><label for="cb_1">소형</label><input type="checkbox"
+											name="keyword" id="cb_1" value="소형"> <label
+											for="cb_2">중형</label><input type="checkbox" name="keyword"
+											id="cb_2" value="중형"><label for="cb_3">대형</label><input
+											type="checkbox" name="keyword" id="cb_3" value="대형">
 										</td>
 									</tr>
+
 									<tr>
-										<td colspan="2"><hr /></td>
+										<td>종류 :</td>
+										<td><label for="cb_4">코리안숏헤어</label><input
+											type="checkbox" name="keyword" id="cb_4" value="코리안숏헤어" /> <label
+											for="cb_5">러시안블루</label><input type="checkbox" name="keyword"
+											id="cb_5" value="러시안블루" /> <label for="cb_6">샴</label><input
+											type="checkbox" name="keyword" id="cb_6" value="샴" /> <label
+											for="cb_7">페르시안</label><input type="checkbox" name="keyword"
+											id="cb_7" value="페르시안" /> <label for="cb_8">사바나캣</label><input
+											type="checkbox" name="keyword" id="cb_8" value="사바나캣" /> <label
+											for="cb_9">기타종류</label><input type="checkbox" name="keyword"
+											id="cb_9" value="기타종류" /></td>
 									</tr>
-									
+
 									<tr>
-										<td>털색 : </td>
-										<td><label for="cb_4">갈색</label><input
-											type="checkbox" name="color" id="cb_4" value="갈색">
-											<label for="cb_5">검정색</label><input
-											type="checkbox" name="color" id="cb_5" value="검정색">
-											<label for="cb_6">흰색</label><input
-											type="checkbox" name="color" id="cb_6" value="흰색">
-										</td>
+										<td>털색 :</td>
+										<td><label for="cb_10">갈색</label><input type="checkbox"
+											name="keyword" id="cb_10" value="갈색" /> <label for="cb_11">흰색</label><input
+											type="checkbox" name="keyword" id="cb_11" value="흰색" /> <label
+											for="cb_12">검정색</label><input type="checkbox" name="keyword"
+											id="cb_12" value="검정색" /> <label for="cb_13">회색</label><input
+											type="checkbox" name="keyword" id="cb_13" value="회색" /> <label
+											for="cb_14">특이색</label><input type="checkbox" name="keyword"
+											id="cb_14" value="특이색" /></td>
 									</tr>
-									<tr height="5px">
-										<td colspan="2"><hr /></td>
+
+									<tr>
+										<td>무늬 :</td>
+										<td><label for="cb_15">줄무늬</label><input type="checkbox"
+											name="keyword" id="cb_15" value="줄무늬" /> <label for="cb_16">민무늬</label><input
+											type="checkbox" name="keyword" id="cb_16" value="민무늬" /> <label
+											for="cb_17">특이한무늬</label><input type="checkbox"
+											name="keyword" id="cb_17" value="특이한무늬" /> <label
+											for="cb_18">포인트</label><input type="checkbox" name="keyword"
+											id="cb_18" value="포인트" /></td>
+									</tr>
+
+									<tr>
+										<td>체형 :</td>
+										<td><label for="cb_19">포린</label><input type="checkbox"
+											name="keyword" id="cb_19" value="포린" /> <label for="cb_20">코비</label><input
+											type="checkbox" name="keyword" id="cb_20" value="코비" /> <label
+											for="cb_21">롱앤드섭스텐셜</label><input type="checkbox"
+											name="keyword" id="cb_21" value="롱앤드섭스텐셜" /> <label
+											for="cb_22">오리엔탈</label><input type="checkbox" name="keyword"
+											id="cb_22" value="오리엔탈" /></td>
+									</tr>
+
+									<tr>
+										<td>고양이 등급 :</td>
+										<td><label for="cb_23">초보</label><input type="checkbox"
+											name="keyword" id="cb_23" value="초보" /> <label for="cb_24">중수</label><input
+											type="checkbox" name="keyword" id="cb_24" value="중수" /> <label
+											for="cb_25">고수</label><input type="checkbox" name="keyword"
+											id="cb_25" value="고수" /></td>
+									</tr>
+
+									<tr>
+										<td>성별 :</td>
+										<td><label for="cb_26">암컷</label><input type="checkbox"
+											name="keyword" id="cb_26" value="암컷" /> <label for="cb_27">수컷</label><input
+											type="checkbox" name="keyword" id="cb_27" value="수컷" /></td>
 									</tr>
 								</table>
 							</td>
@@ -218,15 +271,21 @@ body {
 		</div>
 	</div>
 	<footer>
-      <div class="wrapper">
-        <div class="row">
-          <div class="col-sm-1"><a href="door">HOME</a></div>
-          <div class="col-sm-1"><a href="regist">REGIST</a></div>
-          <div class="col-sm-1"><a href="login">LOGIN</a></div>
-          <div class="col-sm-7 hidden-xs"></div>
-          <div class="col-sm-2">&#169; 2017, CAT,Inc.</div>
-        </div>
-      </div>
-    </footer>
+	<div class="wrapper">
+		<div class="row">
+			<div class="col-sm-1">
+				<a href="door">HOME</a>
+			</div>
+			<div class="col-sm-1">
+				<a href="regist">REGIST</a>
+			</div>
+			<div class="col-sm-1">
+				<a href="login">LOGIN</a>
+			</div>
+			<div class="col-sm-7 hidden-xs"></div>
+			<div class="col-sm-2">&#169; 2017, CAT,Inc.</div>
+		</div>
+	</div>
+	</footer>
 </body>
 </html>

@@ -1,5 +1,9 @@
+<%@page import="catriend.model.CatsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	CatsDTO dto = (CatsDTO)request.getAttribute("dto");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -13,11 +17,11 @@
     <title>고양이 상세보기</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./resources/assets/css/style.css" rel="stylesheet">
+    <link href="./resources/assets/css/font-awesome.min.css" rel="stylesheet">
 
     
     <script src="../assets/js/modernizr.js"></script>
@@ -78,21 +82,21 @@
 					
 					<tr style="text-align:center; font-size:1.5em">
 						<td colspan="2" >
-							<strong>고양이 이름</strong>
+							<strong><%=dto.getC_name() %></strong>
 						</td>
 					</tr>
 					<tr>
-						<td>고양이 성별</td>
-						<td>고양이 나이</td>
+						<td><%=dto.getC_gender() %></td>
+						<td><%=dto.getC_keyword() %></td>
 					</tr>
 					<tr style="text-align:center;">
 						<td colspan="2">
-							<img src="./img/고양이3.jpg" width="100%;" height="100%;">
+							<img src="./resources/images/<%=dto.getC_index() %>.jpg" width="100%;" height="100%;">
 						</td>
 					</tr>
 					<tr style="text-align:center;">
 						<td colspan="2">
-							<p>고양이 이고양이는 고양이 그리고 하다 멍청 귀엽다 매우 카와이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이이</p>
+							<p></p>
 						</td>
 					</tr>
 					<tr>
@@ -148,13 +152,13 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-	<script src="../assets/js/retina-1.1.0.js"></script>
-	<script src="../assets/js/jquery.hoverdir.js"></script>
-	<script src="../assets/js/jquery.hoverex.min.js"></script>
-	<script src="../assets/js/jquery.prettyPhoto.js"></script>
-  	<script src="../assets/js/jquery.isotope.min.js"></script>
-  	<script src="../assets/js/custom.js"></script>
+    <script src="./resources/assets/js/bootstrap.min.js"></script>
+	<script src="./resources/assets/js/retina-1.1.0.js"></script>
+	<script src="./resources/assets/js/jquery.hoverdir.js"></script>
+	<script src="./resources/assets/js/jquery.hoverex.min.js"></script>
+	<script src="./resources/assets/js/jquery.prettyPhoto.js"></script>
+  	<script src="./resources/assets/js/jquery.isotope.min.js"></script>
+  	<script src="./resources/assets/js/custom.js"></script>
 
 
   </body>
