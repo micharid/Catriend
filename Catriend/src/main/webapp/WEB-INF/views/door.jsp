@@ -26,7 +26,7 @@ html{
         <div class="row title">당신에게 고양이를</div>
         <div class="row title">빌려 드립니다</div>
         <div class="row store">
-          <div class="col-sm-6 appstore"><a href="regist"><img src="./resources/images/icon1.png" ></a></div>
+          <div class="col-sm-6 appstore"><a href="provision"><img src="./resources/images/icon1.png" ></a></div>
           <div class="col-sm-6 playstore"><a href="login"><img src="./resources/images/icon2.png" ></a></div>
           
         </div>

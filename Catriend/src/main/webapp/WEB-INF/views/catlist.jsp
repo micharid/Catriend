@@ -217,5 +217,16 @@ body {
 			</div>
 		</div>
 	</div>
+	<footer>
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-sm-1"><a href="door">HOME</a></div>
+          <div class="col-sm-1"><a href="regist">REGIST</a></div>
+          <div class="col-sm-1"><a href="login">LOGIN</a></div>
+          <div class="col-sm-7 hidden-xs"></div>
+          <div class="col-sm-2">&#169; 2017, CAT,Inc.</div>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>
