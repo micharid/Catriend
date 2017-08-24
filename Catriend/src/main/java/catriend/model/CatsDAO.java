@@ -96,4 +96,29 @@ public class CatsDAO {
 		sql += " ORDER BY c_type asc) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 		return (List<CatsDTO>) template.query(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
 	}
+	
+	// 고양이 분류리스트
+	public List<CatsDTO> selectAllKeyword(Map<String, Object> map) {
+		int keyCount;
+		if(map.get("keyCount") != null){
+			keyCount = Integer.parseInt(map.get("keyCount").toString());
+		}
+		else{
+			keyCount = 0;
+		}
+		String sql = "SELECT * FROM cats ";
+		if(keyCount!=0){
+			sql += " WHERE ";
+			for(int i=0; i<keyCount; i++){
+				if(i==0){
+				sql += "c_keyword like '%"+map.get("str"+i)+"%'";
+				}
+				else{
+				sql += " OR c_keyword like '%"+map.get("str"+i)+"%'";
+				}
+			}
+		}
+		sql += " ORDER BY c_type asc";
+		return (List<CatsDTO>) template.query(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
+	}
 }

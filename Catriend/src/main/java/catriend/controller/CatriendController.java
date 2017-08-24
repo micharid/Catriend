@@ -106,5 +106,9 @@ public class CatriendController {
 		command.execute(model);
 		return "review2";
 	}
-	
+	@RequestMapping("/processing/catlistAction")
+	public String catlistAction(Model model, HttpServletRequest req){
+		model.addAttribute("msg", req.getParameter("msg"));
+		return "processing/catlistAction";
+	}
 }
