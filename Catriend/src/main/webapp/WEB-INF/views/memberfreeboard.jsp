@@ -41,9 +41,9 @@ font-weight: 300;
 	    <div class="container">
 			<div class="row">
 				<center><h3>자유게시판</h3></center>
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /blue -->
+			</div>
+	    </div>
+	</div>
 
 	 <!-- 컨텐츠영역 -->
 	 <div class="row">
@@ -60,17 +60,44 @@ font-weight: 300;
 					</tr>
 				</thead>
 				<tbody>
+					<!-- 반복시작 -->
 					<tr>
 						<td>1</td>
 						<td>제목은 제목일뿐</td>
 						<td>나쁜놈</td>
 						<td>17/01/01</td>
 					</tr>
+					<!-- 반복종료 -->
 				</tbody>
 			</table>
-		</div>
-		<div class="col-sm-2"></div>
-	</div>
+			<div class="row" style="text-align:center; padding-right:10px;">
+				<div class="container-fluid">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-8" >	
+			  			<!-- 페이지번호 -->
+		  				<nav>
+							<ul class="pagination" style="font-color:black;">
+								<li>
+									<a href="#" aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+							    </li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li>
+									<a href="#" aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+  					</div>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
 
 	<!-- 푸터 -->
 	<%@ include file ="../../resources/common/footer.jsp" %>
