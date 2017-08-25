@@ -98,4 +98,10 @@ public class UsersDAO {
 
 		return (List<UsersDTO>) template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}
+	
+	//유저 로그인시 필요메소드
+	public UsersDTO loginProcess(String u_id, String u_pass){
+		String sql = " SELECT * FROM users WHERE id= "+u_id+" AND pass="+u_pass;
+		return (UsersDTO) template.queryForObject(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
+	}
 }

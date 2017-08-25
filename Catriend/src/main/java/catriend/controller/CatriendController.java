@@ -1,6 +1,7 @@
 package catriend.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,9 +15,11 @@ import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.CatsViewCommand;
 import catriend.command.FreeBoarderListCommand;
+import catriend.command.LoginCommand;
 import catriend.command.QnAListCommand;
 import catriend.command.registActionCommend;
 import catriend.model.Constant;
+import catriend.model.UsersDTO;
 
 @Controller
 public class CatriendController {
@@ -72,5 +75,19 @@ public class CatriendController {
 		public String catlistAction(Model model, HttpServletRequest req){
 			model.addAttribute("msg", req.getParameter("msg"));
 			return "processing/catlistAction";
+		}
+		@RequestMapping("/login")
+		public String login(Model model, HttpServletRequest req, HttpSession session){
+			command = new LoginCommand();
+			command.execute(model);
+			
+			UsersDTO dto = (UsersDTO)session.getAttribute("loginUser");
+			if(dto != null){
+				return "redirect:mainPage";
+			}
+			else{
+				//로그인페이지에 loginError 변수 받아서 출력해줘야한다.
+				return "login";
+			}
 		}
 }
