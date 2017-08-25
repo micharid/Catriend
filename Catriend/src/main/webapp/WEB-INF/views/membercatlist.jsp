@@ -102,9 +102,9 @@
 			</div>
 			<div class="navbar-collapse collapse navbar-right">
 				<ul class="nav navbar-nav">
-					<li><a href="index.html">HOME</a></li>
-					<li><a href="about.html">ABOUT</a></li>
-					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="index">HOME</a></li>
+					<li><a href="about">ABOUT</a></li>
+					<li><a href="contact">CONTACT</a></li>
 					<li class="dropdown active"><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown">PAGES <b
 							class="caret"></b></a>
@@ -235,8 +235,43 @@
 		</div>
 	</div>
 
-	<div class="container-fluid" id="Display">
-		<div class="row">
+	<div id="Display" >
+	<div id="portfoliowrap" >
+		<div class="portfolio-centered">
+			<div class="recentitems portfolio" >
+				<%
+								if (listRows.size() == 0) {
+							%>
+				<span>등록된 글이 없습니다.</span>
+				<%
+								} else {
+							%>
+				<%
+				for (CatsDTO dto : listRows) {
+				%>
+				<a href="membercatview?c_index=<%=dto.getC_index() %>">
+					<div class="portfolio-item graphic-design">
+						<div class="he-wrap tpl6">
+							<img src="./resources/images/1.jpg" alt="">
+							<div class="he-view">
+								<div class="bg a0" data-animate="fadeIn">
+									<p id="catname"><%=dto.getC_name() %></p>
+									<p><%=dto.getC_gender() %></p>
+									<p><%=dto.getC_keyword() %></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+				<%
+					}
+				}%>
+			</div>
+		</div>
+	</div>
+	</div>
+	<%-- <div class="container-fluid" id="Display">
+		 <div class="row">
 			<div class="container-fluid">
 				<div class="col-sm-2"></div>
 				<div class="col-sm-8">
@@ -244,51 +279,53 @@
 						<%
 								if (listRows.size() == 0) {
 							%>
-						<!-- 등록된 글이 없는경우 노출 -->
-						<span>등록된 글이 없습니다.</span>
-						<%
+				<!-- 등록된 글이 없는경우 노출 -->
+				<span>등록된 글이 없습니다.</span>
+				<%
 								} else {
 							%>
-						<%
+				<%
 								int nextrow = 0;
 									for (CatsDTO dto : listRows) {
 										if (nextrow == 0 || nextrow % 3 != 0) {
 							%>
-						<div class="col-md-4">
-							<div class="thumbnail">
-							<a href="<%=request.getContextPath() %>/membercatview?c_index=<%=dto.getC_index()%>">
-								<img src="./resources/images/<%=dto.getC_index()%>.jpg"
-									id="image">
-								<div class="caption">
-									<h3 align="center"><%=dto.getC_name()%></h3>
-									<center>
-										<p>
-											<%=dto.getC_keyword()%>
-										</p>
-									</center>
-								</div>
-							</a>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<a
+							href="<%=request.getContextPath() %>/membercatview?c_index=<%=dto.getC_index()%>">
+							<img src="./resources/images/<%=dto.getC_index()%>.jpg"
+							id="image">
+							<div class="caption">
+								<h3 align="center"><%=dto.getC_name()%></h3>
+								<center>
+									<p>
+										<%=dto.getC_keyword()%>
+									</p>
+								</center>
 							</div>
-						</div>
-						<%
+						</a>
+					</div>
+				</div>
+				<%
 								nextrow++;
 										} else {
 							%>
-					</div>
-					<div class="col-sm-2"></div>
-				</div>
 			</div>
+			<div class="col-sm-2"></div>
 		</div>
-		<div class="row">
-			<div class="container-fluid">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-8">
-					<div class="row">
-						<div class="col-md-4">
-							<div class="thumbnail">
-							<a href="<%=request.getContextPath() %>/membercatview?c_index=<%=dto.getC_index()%>">
+	</div>
+	</div>
+	<div class="row">
+		<div class="container-fluid">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="thumbnail">
+							<a
+								href="<%=request.getContextPath() %>/membercatview?c_index=<%=dto.getC_index()%>">
 								<img src="./resources/images/<%=dto.getC_index()%>.jpg"
-									id="image">
+								id="image">
 								<div class="caption">
 									<h3 align="center"><%=dto.getC_name()%></h3>
 									<center>
@@ -298,19 +335,22 @@
 									</center>
 								</div>
 							</a>
-							</div>
 						</div>
-						<%
+					</div>
+					<%
 								nextrow++;
 										}
 									}
 								}
 							%>
-					</div>
-					<div class="col-sm-2"></div>
 				</div>
+				<div class="col-sm-2"></div>
 			</div>
 		</div>
+	</div>
+	--%>
+
+
 	</div>
 
 	<!-- *****************************************************************************************************************
@@ -358,6 +398,86 @@
 	<script src="./resources/assets/js/jquery.prettyPhoto.js"></script>
 	<script src="./resources/assets/js/jquery.isotope.min.js"></script>
 	<script src="./resources/assets/js/custom.js"></script>
-
+<script>
+(function($) {
+	"use strict";
+	var $container = $('.portfolio'),
+		$items = $container.find('.portfolio-item'),
+		portfolioLayout = 'fitRows';
+		
+		if( $container.hasClass('portfolio-centered') ) {
+			portfolioLayout = 'masonry';
+		}
+				
+		$container.isotope({
+			filter: '*',
+			animationEngine: 'best-available',
+			layoutMode: portfolioLayout,
+			animationOptions: {
+			duration: 750,
+			easing: 'linear',
+			queue: false
+		},
+		masonry: {
+		}
+		}, refreshWaypoints());
+		
+		function refreshWaypoints() {
+			setTimeout(function() {
+			}, 1000);   
+		}
+				
+		$('nav.portfolio-filter ul a').on('click', function() {
+				var selector = $(this).attr('data-filter');
+				$container.isotope({ filter: selector }, refreshWaypoints());
+				$('nav.portfolio-filter ul a').removeClass('active');
+				$(this).addClass('active');
+				return false;
+		});
+		
+		function getColumnNumber() { 
+			var winWidth = $(window).width(), 
+			columnNumber = 1;
+		
+			if (winWidth > 1200) {
+				columnNumber = 5;
+			} else if (winWidth > 950) {
+				columnNumber = 4;
+			} else if (winWidth > 600) {
+				columnNumber = 3;
+			} else if (winWidth > 400) {
+				columnNumber = 2;
+			} else if (winWidth > 250) {
+				columnNumber = 1;
+			}
+				return columnNumber;
+			}       
+			
+			function setColumns() {
+				var winWidth = $(window).width(), 
+				columnNumber = getColumnNumber(), 
+				itemWidth = Math.floor(winWidth / columnNumber);
+				
+				$container.find('.portfolio-item').each(function() { 
+					$(this).css( { 
+					width : itemWidth + 'px' 
+				});
+			});
+		}
+		
+		function setPortfolio() { 
+			setColumns();
+			$container.isotope('reLayout');
+		}
+			
+		$container.imagesLoaded(function () { 
+			setPortfolio();
+		});
+		
+		$(window).on('resize', function () { 
+		setPortfolio();          
+	});
+})(jQuery);
+</script>
 </body>
 </html>
