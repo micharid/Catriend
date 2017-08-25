@@ -29,6 +29,7 @@
     <![endif]-->
     
     <script src="./resources/assets/js/modernizr.js"></script>
+
   </head>
 
   <body>
@@ -61,14 +62,9 @@
 	 		<div class="col-lg-8" style="margin:15px 0 0 0;">
 	 			<!-- Blog Post 1 -->
 		 		<div> <!-- top s -->
-				 <%@ include file="./standard" %>
+				 <%@ include file="./standard.jsp" %>
 				  <!-- top e -->
 				</div>
-		 		
-		 		
-		 		
-		 		
-		 		
 		 		
 		 		<a href="single-post.html"><h3 class="ctitle">Time to change your apps.</h3></a>
 		 		<p><csmall>Posted: April 25, 2014.</csmall> | <csmall2>By: Admin - 3 Comments</csmall2></p>

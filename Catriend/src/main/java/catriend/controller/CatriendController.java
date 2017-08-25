@@ -163,4 +163,16 @@ public class CatriendController {
 		public String standard(Model model, HttpServletRequest req){
 			return "standard";
 		}
+		@RequestMapping("/catlistP")
+		public String catlistP(Model model, HttpServletRequest req){
+			model.addAttribute("req", req);
+			command = new CatsListCommand();
+			command.execute(model);
+			return "catlistP";
+		}
+		@RequestMapping("/processing/catlistPAction")
+		public String catlistPAction(Model model, HttpServletRequest req){
+			model.addAttribute("msg", req.getParameter("msg"));
+			return "processing/catlistPAction";
+		}
 }

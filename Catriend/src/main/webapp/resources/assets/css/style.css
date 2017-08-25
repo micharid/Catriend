@@ -289,7 +289,7 @@ a:focus {
 
 /* Testimonials Wrap */
 #twrap {
-	background: url(../img/t-back2.png) no-repeat center top;
+	background: url('../img/t-back2.png') no-repeat center top;
 	margin-top: 100px;
 	padding-top:60px;
 	text-align:center;

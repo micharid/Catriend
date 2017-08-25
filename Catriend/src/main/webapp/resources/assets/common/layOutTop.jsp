@@ -22,8 +22,8 @@
               <ul class="dropdown-menu">
                 
                
-                <li><a href="portfolio">PORTFOLIO</a></li>
-                <li><a href="catp ">SINGLE</a></li>
+                <li><a href="catlistP">고양이들</a></li>
+                <li><a href="catp">SINGLE</a></li>
                 
                
               </ul>

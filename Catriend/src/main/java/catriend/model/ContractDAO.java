@@ -22,7 +22,7 @@ public class ContractDAO {
 	// 총갯수 가져오기(검색가능)
 	public int getTotalContract(Map<String, Object> map) {
 		String sql = "SELECT count(*) FROM contract";
-
+   
 		// 검색단어가 있을 경우 검색조건을 쿼리에 추가
 		if (map.get("WORD") != null) {
 			sql += " where " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
