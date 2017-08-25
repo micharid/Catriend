@@ -61,7 +61,7 @@
 	 		<div class="col-lg-8" style="margin:15px 0 0 0;">
 	 			<!-- Blog Post 1 -->
 		 		<div> <!-- top s -->
-				 <%@ include file="./standard.html" %>
+				 <%@ include file="./standard" %>
 				  <!-- top e -->
 				</div>
 		 		

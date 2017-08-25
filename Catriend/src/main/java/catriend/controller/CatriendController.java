@@ -159,4 +159,8 @@ public class CatriendController {
 		public String index(Model model, HttpServletRequest req){
 			return "index";
 		}
+		@RequestMapping("/standard")
+		public String standard(Model model, HttpServletRequest req){
+			return "standard";
+		}
 }
