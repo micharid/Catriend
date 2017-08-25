@@ -16,7 +16,8 @@
 
 <title>Cat`riend</title>
 
-<link rel="stylesheet" href="./resources/common/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="./resources/assets/css/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -38,7 +39,12 @@
     <![endif]-->
 <script src="./resources/assets/js/modernizr.js"></script>
 
+
+
 <script>
+$( function() {
+  $( "input" ).checkboxradio();
+} );
 	//에러시 실행할 함수
 	function errFunc() {
 		alert("실패임 ㅜㅠ");
@@ -124,9 +130,9 @@
 				<div class="col-sm-2"></div>
 				<div class="col-sm-8">
 					<table class="table table-condensed"
-						style="border: 2px solid white;">
+						style="border: 2px solid black;">
 						<tr>
-							<td style="text-align: center">
+							<td style="text-align: left">
 								<table width="100%">
 									<colgroup>
 										<col width="10%" />
@@ -272,7 +278,6 @@
 	<script src="./resources/assets/js/jquery.prettyPhoto.js"></script>
 	<script src="./resources/assets/js/jquery.isotope.min.js"></script>
 	<script src="./resources/assets/js/custom.js"></script>
-
 
 	<script>
 // Portfolio
