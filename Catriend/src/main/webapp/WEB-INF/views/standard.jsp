@@ -132,48 +132,48 @@
     <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:480px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="./resources/img/spin.svg" />
+            <span>Loding..</span>
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
             <div>
-                <img data-u="image" src="./resources/img/rush1.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush1.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush1.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush1.jpg" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush2.png" />
-                <img data-u="thumb" src="./resources/img/rsz_rush2.png" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush2.png" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush2.png" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush3.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush3.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush3.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush3.jpg" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush4.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush4.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush4.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush4.jpg" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush5.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush5.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush5.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush5.jpg" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush6.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush6.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush6.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush6.jpg" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush7.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush7.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush7.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush7.jpg" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush8.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush8.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush8.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush8.jpg" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush9.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush9.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush9.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush9.jpg" />
             </div>
             <div>
-                <img data-u="image" src="./resources/img/rush10.jpg" />
-                <img data-u="thumb" src="./resources/img/rsz_rush10.jpg" />
+                <img data-u="image" src="./resources/assets/img/catprofile/rush10.jpg" />
+                <img data-u="thumb" src="./resources/assets/img/catprofile/rsz_rush10.jpg" />
             </div>
             <a data-u="any" href="https://www.jssor.com" style="display:none">javascript slider</a>
         </div>

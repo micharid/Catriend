@@ -1,210 +1,277 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="utf-8">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
 
-    <title>SOLID - Bootstrap 3 Theme</title>
+<title>SOLID - Bootstrap 3 Theme</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="./resources/assets/css/style.css" rel="stylesheet">
-    <link href="./resources/assets/css/font-awesome.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="./resources/assets/css/style.css" rel="stylesheet">
+<link href="./resources/assets/css/font-awesome.min.css" rel="stylesheet">
 
+</head>
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<body>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="./resources/assets/js/modernizr.js"></script>
-  </head>
-
-  <body>
-
-    <!-- Fixed navbar -->
-<!-- top s -->
- <%@ include file="../../resources/assets/common/layOutTop.jsp" %>
-<!-- top e -->
+	<!-- Fixed navbar -->
+	<!-- top s -->
+	<%@ include file="../../resources/common/layOutTop.jsp"%>
+	<!-- top e -->
 
 
 	<!-- *****************************************************************************************************************
 	 BLUE WRAP
 	 ***************************************************************************************************************** -->
 	<div id="blue">
-	    <div class="container">
+		<div class="container">
 			<div class="row">
-				<center><h3>MY PAGE</h3></center>
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /blue -->
+				<center>
+					<h3>MY PAGE</h3>
+				</center>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /blue -->
 
 	<!-- *****************************************************************************************************************
 	 TITLE & CONTENT
 	 ***************************************************************************************************************** -->
 
-	 <div class="container mt">
-	 	<div class="row">
-		 	<div class="col-lg-10 col-lg-offset-1 centered">
-			 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-				  <!-- Indicators -->
-				  <ol class="carousel-indicators">
-				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				  </ol>
-				
-				  <!-- Wrapper for slides -->
-				  <div class="carousel-inner">
-				    <div class="item active">
-				      <img src="assets/img/portfolio/single01.jpg" alt="">
-				    </div>
-				    <div class="item">
-				      <img src="assets/img/portfolio/single02.jpg" alt="">
-				    </div>
-				    <div class="item">
-				      <img src="assets/img/portfolio/single03.jpg" alt="">
-				    </div>
-				  </div>
+	<div class="container mt">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1 centered">
+				<div id="carousel-example-generic" class="carousel slide"
+					data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="./resources/assets/img/portfolio/1.jpg" alt="">
+						</div>
+						<div class="item">
+							<img src="./resources/assets/img/portfolio/2.jpg" alt="">
+						</div>
+						<div class="item">
+							<img src="./resources/assets/img/portfolio/3.jpg" alt="">
+						</div>
+					</div>
 				</div>
-		 	</div>
-		 	
-		 	<div class="col-lg-5 col-lg-offset-1">
-			 	<div class="spacing"></div>
-		 		<h4>YOUR PROJECT NAME</h4>
-		 		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-		 		<h4>Our Proposal</h4>
-		 		<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-		 	</div>
-		 	
-		 	<div class="col-lg-4 col-lg-offset-1">
-			 	<div class="spacing"></div>
-		 		<h4>Project Details</h4>
-		 		<div class="hline"></div>
-		 		<p><b>Date:</b> April 18, 2014</p>
-		 		<p><b>Author:</b> Marcel Newman</p>
-		 		<p><b>Categories:</b> Illustration, Web Design, Wordpress</p>
-		 		<p><b>Tagged:</b> Flat, UI, Development</p>
-		 		<p><b>Client:</b> Wonder Corp.</p>
-		 		<p><b>Website:</b> <a href="http://blacktie.co">http://blacktie.co</a></p>
-		 	</div>
-		 	
-	 	</div>
-	 </div>
-	 
+				<! --/Carousel -->
+			</div>
+
+			<div class="col-lg-5 col-lg-offset-1">
+				<div class="spacing"></div>
+				<h4>YOUR PROJECT NAME</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and
+					typesetting industry. Lorem Ipsum has been the industry's standard
+					dummy text ever since the 1500s, when an unknown printer took a
+					galley of type and scrambled it to make a type specimen book. It
+					has survived not only five centuries, but also the leap into
+					electronic typesetting, remaining essentially unchanged.</p>
+				<h4>Our Proposal</h4>
+				<p>It was popularised in the 1960s with the release of Letraset
+					sheets containing Lorem Ipsum passages, and more recently with
+					desktop publishing software like Aldus PageMaker including versions
+					of Lorem Ipsum.</p>
+			</div>
+
+			<div class="col-lg-4 col-lg-offset-1">
+				<div class="spacing"></div>
+				<h4>Project Details</h4>
+				<div class="hline"></div>
+				<p>
+					<b>Date:</b> April 18, 2014
+				</p>
+				<p>
+					<b>Author:</b> Marcel Newman
+				</p>
+				<p>
+					<b>Categories:</b> Illustration, Web Design, Wordpress
+				</p>
+				<p>
+					<b>Tagged:</b> Flat, UI, Development
+				</p>
+				<p>
+					<b>Client:</b> Wonder Corp.
+				</p>
+				<p>
+					<b>Website:</b> <a href="http://blacktie.co">http://blacktie.co</a>
+				</p>
+			</div>
+
+		</div>
+		<! --/row -->
+	</div>
+	<! --/container -->
+
 	<!-- *****************************************************************************************************************
 	 PORTFOLIO SECTION
 	 ***************************************************************************************************************** -->
-	 <div id="portfoliowrap">
-        <div class="portfolio-centered">
-        	<h3>Related Works.</h3>
-            <div class="recentitems portfolio">
+	<div id="portfoliowrap">
+		<div class="portfolio-centered">
+			<h3>Related Works.</h3>
+			<div class="recentitems portfolio">
 				<div class="portfolio-item graphic-design">
 					<div class="he-wrap tpl6">
-					<img src="./resources/assets/img/portfolio/portfolio_09.jpg" alt="">
+						<img src="./resources/assets/img/portfolio/9.jpg" alt="">
 						<div class="he-view">
 							<div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                                <a data-rel="prettyPhoto" href="./resources/assets/img/portfolio/portfolio_09.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                        	</div><!-- he bg -->
-						</div><!-- he view -->		
-					</div><!-- he wrap -->
-				</div><!-- end col-12 -->
-                            
-                <div class="portfolio-item web-design">
-                    <div class="he-wrap tpl6">
-					<img src="./resources/assets/img/portfolio/portfolio_02.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
-                                <a data-rel="prettyPhoto" href="./resources/assets/img/portfolio/portfolio_02.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                        	</div><!-- he bg -->
-						</div><!-- he view -->		
-					</div><!-- he wrap -->
-				</div><!-- end col-12 -->
-        
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-					<img src="./resources/assets/img/portfolio/portfolio_03.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                                <a data-rel="prettyPhoto" href="./resources/assets/img/portfolio/portfolio_03.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                        	</div><!-- he bg -->
-						</div><!-- he view -->		
-					</div><!-- he wrap -->
-				</div><!-- end col-12 -->
-        
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-					<img src="./resources/assets/img/portfolio/portfolio_04.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                                <a data-rel="prettyPhoto" href="./resources/assets/img/portfolio/portfolio_04.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                        	</div><!-- he bg -->
-						</div><!-- he view -->		
-					</div><!-- he wrap -->
-				</div><!-- end col-12 -->
+								<h3 class="a1" data-animate="fadeInDown">A Graphic Design
+									Item</h3>
+								<a data-rel="prettyPhoto"
+									href="./resources/assets/img/portfolio/9.jpg"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-search"></i></a> <a href="single-project.html"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-link"></i></a>
+							</div>
+							<!-- he bg -->
+						</div>
+						<!-- he view -->
+					</div>
+					<!-- he wrap -->
+				</div>
+				<!-- end col-12 -->
 
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-					<img src="./resources/assets/img/portfolio/portfolio_05.jpg" alt="">
+				<div class="portfolio-item web-design">
+					<div class="he-wrap tpl6">
+						<img src="./resources/assets/img/portfolio/2.jpg" alt="">
 						<div class="he-view">
 							<div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                                <a data-rel="prettyPhoto" href="./resources/assets/img/portfolio/portfolio_04.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                        	</div><!-- he bg -->
-						</div><!-- he view -->		
-					</div><!-- he wrap -->
-				</div><!-- end col-12 -->
-                                        
-                    
-            </div><!-- portfolio -->
-        </div><!-- portfolio container -->
-	 </div><!--/Portfoliowrap -->
-	 
-	 	 
+								<h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
+								<a data-rel="prettyPhoto"
+									href="./resources/assets/img/portfolio/2.jpg"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-search"></i></a> <a href="single-project.html"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-link"></i></a>
+							</div>
+							<!-- he bg -->
+						</div>
+						<!-- he view -->
+					</div>
+					<!-- he wrap -->
+				</div>
+				<!-- end col-12 -->
+
+				<div class="portfolio-item graphic-design">
+					<div class="he-wrap tpl6">
+						<img src="./resources/assets/img/portfolio/3.jpg" alt="">
+						<div class="he-view">
+							<div class="bg a0" data-animate="fadeIn">
+								<h3 class="a1" data-animate="fadeInDown">A Graphic Design
+									Item</h3>
+								<a data-rel="prettyPhoto"
+									href="./resources/assets/img/portfolio/3.jpg"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-search"></i></a> <a href="single-project.html"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-link"></i></a>
+							</div>
+							<!-- he bg -->
+						</div>
+						<!-- he view -->
+					</div>
+					<!-- he wrap -->
+				</div>
+				<!-- end col-12 -->
+
+				<div class="portfolio-item graphic-design">
+					<div class="he-wrap tpl6">
+						<img src="./resources/assets/img/portfolio/4.jpg" alt="">
+						<div class="he-view">
+							<div class="bg a0" data-animate="fadeIn">
+								<h3 class="a1" data-animate="fadeInDown">A Graphic Design
+									Item</h3>
+								<a data-rel="prettyPhoto"
+									href="./resources/assets/img/portfolio/4.jpg"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-search"></i></a> <a href="single-project.html"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-link"></i></a>
+							</div>
+							<!-- he bg -->
+						</div>
+						<!-- he view -->
+					</div>
+					<!-- he wrap -->
+				</div>
+				<!-- end col-12 -->
+
+				<div class="portfolio-item graphic-design">
+					<div class="he-wrap tpl6">
+						<img src="./resources/assets/img/portfolio/5.jpg" alt="">
+						<div class="he-view">
+							<div class="bg a0" data-animate="fadeIn">
+								<h3 class="a1" data-animate="fadeInDown">A Graphic Design
+									Item</h3>
+								<a data-rel="prettyPhoto"
+									href="./resources/assets/img/portfolio/5.jpg"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-search"></i></a> <a href="single-project.html"
+									class="dmbutton a2" data-animate="fadeInUp"><i
+									class="fa fa-link"></i></a>
+							</div>
+							<!-- he bg -->
+						</div>
+						<!-- he view -->
+					</div>
+					<!-- he wrap -->
+				</div>
+				<!-- end col-12 -->
+
+
+			</div>
+			<!-- portfolio -->
+		</div>
+		<!-- portfolio container -->
+	</div>
+	<!--/Portfoliowrap -->
+
+
 
 	<!-- *****************************************************************************************************************
 	 FOOTER
 	 ***************************************************************************************************************** -->
-	     <!-- Fixed navbar -->
-<!-- top s -->
- <%@ include file="../../resources/assets/common/layOutBottom.jsp" %>
-<!-- top e -->
-	 
-    <!-- Bootstrap core JavaScript
+	<!-- Fixed navbar -->
+	<!-- bottom s -->
+	<%@ include file="../../resources/common/layOutBottom.jsp"%>
+	<!-- bottom e -->
+
+	<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="./resources/assets/js/bootstrap.min.js"></script>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script src="./resources/assets/js/retina-1.1.0.js"></script>
 	<script src="./resources/assets/js/jquery.hoverdir.js"></script>
 	<script src="./resources/assets/js/jquery.hoverex.min.js"></script>
 	<script src="./resources/assets/js/jquery.prettyPhoto.js"></script>
-  	<script src="./resources/assets/js/jquery.isotope.min.js"></script>
-  	<script src="./resources/assets/js/custom.js"></script>
+	<script src="./resources/assets/js/jquery.isotope.min.js"></script>
+	<script src="./resources/assets/js/custom.js"></script>
 
 
-    <script>
+	<script>
 // Portfolio
 (function($) {
 	"use strict";
@@ -286,5 +353,5 @@
 	});
 })(jQuery);
 </script>
-  </body>
+</body>
 </html>

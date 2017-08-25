@@ -33,16 +33,9 @@ public class CatriendController {
 		//다형성을 위한
 		CatCommand command;
 		
-		@RequestMapping("/surveyform")
-		public String surveyform(Model model, HttpServletRequest req){
-			return "surveyform";
-		}
-		@RequestMapping("/qna")
-		public String qna(Model model, HttpServletRequest req){
-			model.addAttribute("req", req);
-			command = new QnAListCommand();
-			command.execute(model);
-			return "qna";
+		@RequestMapping("/about")
+		public String about(Model model, HttpServletRequest req){
+			return "about";
 		}
 		@RequestMapping("/catlist")
 		public String catlist(Model model, HttpServletRequest req){
@@ -51,128 +44,33 @@ public class CatriendController {
 			command.execute(model);
 			return "catlist";
 		}
-		@RequestMapping("/membercatlist")
-		public String membercatlist(Model model, HttpServletRequest req){
-			model.addAttribute("req", req);
-			command = new CatsListCommand();
-			command.execute(model);
-			return "membercatlist";
-		}
-		@RequestMapping("/about")
-		public String about(Model model, HttpServletRequest req){
-			return "about";
-		}
-		@RequestMapping("/boardlist")
-		public String BoardList(Model model, HttpServletRequest req){
-			model.addAttribute("req", req);
-			command = new FreeBoarderListCommand();
-			command.execute(model);
-			return "boardlist";
-		}
-		@RequestMapping("/company")
-		public String company(Model model, HttpServletRequest req){
-			return "company";
-		}
-		@RequestMapping("/door")
-		public String door(Model model, HttpServletRequest req){
-			return "door";
-		}
-		@RequestMapping("/login")
-		public String login(Model model, HttpServletRequest req){
-			return "login";
-		}
-		@RequestMapping("/provision")
-		public String provision(Model model, HttpServletRequest req){
-			return "provision";
-		}
-		@RequestMapping("/regist")
-		public String regist(Model model, HttpServletRequest req){
-			return "regist";
-		}
-		@RequestMapping("/registAction")
-		public String registAction(Model model, HttpServletRequest req) throws Exception{
-			model.addAttribute("req", req);
-			registActionCommend command = new registActionCommend();
-			command.userInsert(model);
-			return "redirect:door";
-		}
-		@RequestMapping("/image")
-		public String image(Model model, HttpServletRequest req){
-			model.addAttribute("req", req);
-			command = new CatBoarderHotListCommand();
-			command.execute(model);
-			return "image";
-		}
-		@RequestMapping("/review2")
-		public String review2(Model model, HttpServletRequest req){
-			model.addAttribute("req", req);
-			command = new CatBoarderListCommand();
-			command.execute(model);
-			return "review2";
-		}
-		@RequestMapping("/processing/catlistAction")
-		public String catlistAction(Model model, HttpServletRequest req){
-			model.addAttribute("msg", req.getParameter("msg"));
-			return "processing/catlistAction";
-		}
-		@RequestMapping("/processing/membercatlistAction")
-		public String membercatlistAction(Model model, HttpServletRequest req){
-			model.addAttribute("msg", req.getParameter("msg"));
-			return "processing/membercatlistAction";
-		}
-		@RequestMapping("/membercatview")
-		public String membercatview(Model model, HttpServletRequest req){
-			model.addAttribute("req", req);
-			command = new CatsViewCommand();
-			command.execute(model);
-			return "membercatview";
-		}
-		@RequestMapping("/catcontractpage")
-		public String catcontractpage(Model model, HttpServletRequest req){
-			return "catcontractpage";
-		}
-		@RequestMapping("/memberfreeboard")
-		public String memberfreeboard(Model model, HttpServletRequest req){
-			return "memberfreeboard";
-		}
-		@RequestMapping("/catp")
-		public String catp(Model model, HttpServletRequest req){
-			return "catp";
+		@RequestMapping("/catProfile")
+		public String catProfile(Model model, HttpServletRequest req){
+			return "catProfile";
 		}
 		@RequestMapping("/contact")
 		public String contact(Model model, HttpServletRequest req){
 			return "contact";
 		}
+		@RequestMapping("/mainPage")
+		public String mainPage(Model model, HttpServletRequest req){
+			return "mainPage";
+		}
 		@RequestMapping("/myPage")
 		public String myPage(Model model, HttpServletRequest req){
 			return "myPage";
 		}
-		@RequestMapping("/portfolio")
-		public String portfolio(Model model, HttpServletRequest req){
-			return "portfolio";
-		}
-		@RequestMapping("/singlepost")
-		public String singlepost(Model model, HttpServletRequest req){
-			return "singlepost";
-		}
-		@RequestMapping("/index")
-		public String index(Model model, HttpServletRequest req){
-			return "index";
+		@RequestMapping("/newFile")
+		public String newFile(Model model, HttpServletRequest req){
+			return "newFile";
 		}
 		@RequestMapping("/standard")
 		public String standard(Model model, HttpServletRequest req){
 			return "standard";
 		}
-		@RequestMapping("/catlistP")
-		public String catlistP(Model model, HttpServletRequest req){
-			model.addAttribute("req", req);
-			command = new CatsListCommand();
-			command.execute(model);
-			return "catlistP";
-		}
-		@RequestMapping("/processing/catlistPAction")
-		public String catlistPAction(Model model, HttpServletRequest req){
+		@RequestMapping("/processing/catlistAction")
+		public String catlistAction(Model model, HttpServletRequest req){
 			model.addAttribute("msg", req.getParameter("msg"));
-			return "processing/catlistPAction";
+			return "processing/catlistAction";
 		}
 }
