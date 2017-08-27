@@ -24,6 +24,6 @@ public class CatsViewCommand implements CatCommand{
 		
 		model.addAttribute("dto", dto);
 		
-		System.out.println("execute()메소드 호출");
+		System.out.println("CatsViewCommand");
 	}
 }

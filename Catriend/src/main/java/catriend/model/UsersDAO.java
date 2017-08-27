@@ -52,13 +52,13 @@ public class UsersDAO {
 	}
 
 	// 유저 비활성화
-	public int DeleteUser(final UsersDTO dto) {
+	public int DeleteUser(final String u_id) {
 		String sql = "Update users " + " SET u_state = 0 " + " WHERE u_id = ? ";
 		return this.template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
-				psmt.setString(1, dto.getU_id());
+				psmt.setString(1, u_id);
 			}
 		});
 	}
@@ -77,6 +77,7 @@ public class UsersDAO {
 				psmt.setString(4, dto.getU_email());
 				psmt.setInt(5, dto.getU_grade());
 				psmt.setString(6, dto.getU_nickname());
+				psmt.setString(7, dto.getU_id());
 			}
 		});
 	}

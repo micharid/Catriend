@@ -50,30 +50,33 @@ public class CatsDAO {
 	}
 
 	// 고양이 비활성화
-	public int DeleteCat(final CatsDTO dto) {
+	public int DeleteCat(final int c_index) {
 		String sql = " Update cats " + " SET c_state = 0" + "WHERE c_index = ?";
 		return this.template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
-				psmt.setInt(1, dto.getC_index());
+				psmt.setInt(1, c_index);
 			}
 		});
 	}
 
 	// 고양이 정보변경
 	public int UpdateCat(final CatsDTO dto) {
-		String sql = " UPDATE cats " + " SET c_keyword=?, c_health=?, c_grade=?, c_sday=?, c_eday=? "
+		String sql = " UPDATE cats " + " SET c_keyword=?, c_health=?, c_grade=?, c_sday=?, c_eday=? c_detail=? c_state=?"
 				+ " WHERE c_index = ? ";
 		return this.template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
-				psmt.setInt(1, dto.getC_index());
+				psmt.setString(1, dto.getC_keyword());
 				psmt.setString(2, dto.getC_health());
-				psmt.setInt(2, dto.getC_grade());
-				psmt.setDate(2, dto.getC_sday());
-				psmt.setDate(2, dto.getC_eday());
+				psmt.setInt(3, dto.getC_grade());
+				psmt.setDate(4, dto.getC_sday());
+				psmt.setDate(5, dto.getC_eday());
+				psmt.setString(6, dto.getC_detail());
+				psmt.setInt(7, dto.getC_state());
+				psmt.setInt(8, dto.getC_index());
 			}
 		});
 	}

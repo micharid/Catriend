@@ -17,7 +17,6 @@ import catriend.command.CatsViewCommand;
 import catriend.command.FreeBoarderListCommand;
 import catriend.command.LoginCommand;
 import catriend.command.QnAListCommand;
-import catriend.command.registActionCommend;
 import catriend.model.Constant;
 import catriend.model.UsersDTO;
 

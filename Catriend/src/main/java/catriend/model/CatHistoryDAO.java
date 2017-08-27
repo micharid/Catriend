@@ -54,6 +54,13 @@ public class CatHistoryDAO {
 		});
 	}
 
+	// 입력
+	public int DeleteCatHistory(final int ch_index) {
+		String sql = " DELETE FROM CatHistory "
+				+ " WHERE ch_index = "+ch_index;
+		return template.update(sql);
+	}
+
 	public int UpdateCatHistory(final CatHistoryDTO dto) {
 		String sql = " UPDATE CatHistory " + " SET ch_catio=?, ch_date=?, u_id=?, c_index=? " + " WHERE ch_index = ? ";
 		return template.update(sql, new PreparedStatementSetter() {
