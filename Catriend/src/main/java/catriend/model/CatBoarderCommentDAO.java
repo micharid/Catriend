@@ -29,15 +29,14 @@ public class CatBoarderCommentDAO {
 	public int InsertCatBoarderComment(final CatBoarderCommentDTO dto) {
 		String sql = "INSERT INTO "
 				+ " CatBoarderComment (cbc_index, cbc_content, cbc_date, cbc_group, cbc_step, cbc_depth, u_id, cb_index) "
-				+ " VALUES (CatBoarderComment_seq.nextval, ?, ?, CatBoarderComment_seq.currval, 0, 0, ?, ?)";
+				+ " VALUES (CatBoarderComment_seq.nextval, ?, sysdate, CatBoarderComment_seq.currval, 0, 0, ?, ?)";
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
 				psmt.setString(1, dto.getCbc_content());
-				psmt.setDate(2, dto.getCbc_date());
-				psmt.setString(3, dto.getU_id());
-				psmt.setInt(4, dto.getCb_index());
+				psmt.setString(2, dto.getU_id());
+				psmt.setInt(3, dto.getCb_index());
 			}
 		});
 	}
@@ -51,14 +50,13 @@ public class CatBoarderCommentDAO {
 
 	// 정보변경
 	public int UpdateCatBoarderComment(final CatBoarderCommentDTO dto) {
-		String sql = " UPDATE CatBoarderComment " + " SET cbc_content = ?, cbc_date = ? WHERE cbc_index = ? ";
+		String sql = " UPDATE CatBoarderComment SET cbc_content = ?, cbc_date = sysdate WHERE cbc_index = ? ";
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
 				psmt.setString(1, dto.getCbc_content());
-				psmt.setDate(2, dto.getCbc_date());
-				psmt.setInt(3, dto.getCbc_index());
+				psmt.setInt(2, dto.getCbc_index());
 			}
 		});
 	}

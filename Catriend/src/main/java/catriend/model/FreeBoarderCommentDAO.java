@@ -33,16 +33,15 @@ public class FreeBoarderCommentDAO {
 
 		String sql = "INSERT INTO "
 				+ " freeboardercomment (fbc_index, fbc_content, fbc_date, fbc_group, fbc_step, fbc_depth, u_id, fb_index) "
-				+ " VALUES (freeboardercomment_seq.nextval, ?, ?, freeboardercomment_seq.currval, 0, 0, ?, ?)";
+				+ " VALUES (freeboardercomment_seq.nextval, ?, sysdate, freeboardercomment_seq.currval, 0, 0, ?, ?)";
 
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
 				psmt.setString(1, dto.getFbc_content());
-				psmt.setDate(2, dto.getFbc_date());
-				psmt.setString(3, dto.getU_id());
-				psmt.setInt(4, dto.getFb_index());
+				psmt.setString(2, dto.getU_id());
+				psmt.setInt(3, dto.getFb_index());
 
 			}
 		});
@@ -60,7 +59,7 @@ public class FreeBoarderCommentDAO {
 	// 정보변경
 	public int UpdateFreeBoarderComment(final FreeBoarderCommentDTO dto) {
 
-		String sql = " UPDATE freeboardercomment " + " SET fbc_content = ?, fbc_date = ? WHERE fbc_index = ? ";
+		String sql = " UPDATE freeboardercomment SET fbc_content = ?, fbc_date = ? WHERE fbc_index = ? ";
 
 		return this.template.update(sql, new PreparedStatementSetter() {
 

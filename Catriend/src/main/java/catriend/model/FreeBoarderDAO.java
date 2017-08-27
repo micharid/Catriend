@@ -35,16 +35,16 @@ public class FreeBoarderDAO {
 	// 자유게시물 입력
 	public int InsertFreeBoarder(final FreeBoarderDTO dto) {
 
-		String sql = "INSERT INTO " + " freeboarder(fb_index, fb_title, fb_file, fb_date, " + " fb_likecount, u_id) "
-				+ " VALUES (freeboarder_seq.nextval, ?, ?, sysdate, ?, ?)";
+		String sql = "INSERT INTO " + " freeboarder(fb_index, fb_title, fb_content, fb_file, fb_date, fb_likecount, u_id) "
+				+ " VALUES (freeboarder_seq.nextval, ?, ?, ?, sysdate, 0, ?)";
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
 				psmt.setString(1, dto.getFb_title());
-				psmt.setString(2, dto.getFb_file());
-				psmt.setDate(3, dto.getFb_date());
-				psmt.setInt(4, dto.getFb_likecount());
+				psmt.setString(2, dto.getFb_content());
+				psmt.setString(3, dto.getFb_file());
+				psmt.setString(4, dto.getU_id());
 
 			}
 		});
@@ -58,7 +58,7 @@ public class FreeBoarderDAO {
 	}
 
 	// 자유게시물 변경
-	public int UpdateCat(final FreeBoarderDTO dto) {
+	public int UpdateFreeBoarder(final FreeBoarderDTO dto) {
 
 		String sql = " UPDATE freeboarder " + " SET fb_title = ?, fb_content = ?, fb_file = ?, fb_date = ? "
 				+ " WHERE fb_index = ? ";

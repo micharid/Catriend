@@ -56,7 +56,7 @@ public class CatBoarderDAO {
 
 	// 정보변경
 	public int UpdateCatBoarder(final CatBoarderDTO dto) {
-		String sql = " UPDATE catboarder " + " SET Cb_title=?, Cb_content=?, Cb_file=? WHERE cb_index = ?";
+		String sql = " UPDATE catboarder SET Cb_title=?, Cb_content=?, Cb_file=? WHERE cb_index = ? AND u_id = ?";
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
@@ -64,8 +64,8 @@ public class CatBoarderDAO {
 				psmt.setString(1, dto.getCb_title());
 				psmt.setString(2, dto.getCb_content());
 				psmt.setString(3, dto.getCb_file());
-				psmt.setString(4, dto.getU_id());
-				psmt.setInt(5, dto.getCb_index());
+				psmt.setInt(4, dto.getCb_index());
+				psmt.setString(5, dto.getU_id());
 			}
 		});
 	}
