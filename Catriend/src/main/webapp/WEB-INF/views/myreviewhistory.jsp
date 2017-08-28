@@ -21,15 +21,6 @@
 <link href="./resources/assets/css/font-awesome.min.css" rel="stylesheet">
 
 
-<!-- Just for debugging purposes. Don't actually copy this line! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 
 </head>
 
@@ -84,6 +75,7 @@
 								<th style="width:75%;">글제목</th>
 								<th style="width:25%;">작성일</th>
 							</tr>
+							<!-- 반복시작 -->
 							<tr>
 								<td class="text-center">1</td>
 								<td>
@@ -93,6 +85,7 @@
 								</td>
 								<td>2017-08-26</td>
 							</tr>
+							<!-- 반복끝 -->
 							<tr>
 								<td class="text-center">1</td>
 								<td>

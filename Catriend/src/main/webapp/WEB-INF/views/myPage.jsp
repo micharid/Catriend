@@ -15,7 +15,7 @@
 <script>
    function confirmFunc() {
       if (confirm(" 탈퇴하시겠습니까? \n\n 탈퇴를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.")) {
-         location.href = "userdeletesuccess.jsp";
+         location.href = "userdeletesuccess";
       }
    }
    
@@ -86,7 +86,7 @@
 						</div>
 						<h3 class="username text-bold">홍길동</h3>
 						<div class="text-center">
-							<a href="membermyPageindex.jsp">
+							<a href="myPageindex">
 								<button class="btn" type="submit"
 									style="background-color: #00b3fe; color: white;">마이페이지로</button>
 							</a>
