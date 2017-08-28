@@ -21,7 +21,7 @@ public class CatBoarderCommentInsertCommand implements CatCommand {
 		CatBoarderCommentDTO dto = new CatBoarderCommentDTO();
 
 		dto.setCbc_content(req.getParameter("cbc_content"));
-		dto.setCbc_index(Integer.parseInt(req.getParameter("cbc_index")));
+		dto.setCbc_index(Integer.parseInt(req.getParameter("cb_index")));
 
 		dao.UpdateCatBoarderComment(dto);
 
