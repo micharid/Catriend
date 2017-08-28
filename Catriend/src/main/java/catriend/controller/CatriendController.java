@@ -50,10 +50,27 @@ public class CatriendController {
 		public String catProfile(Model model, HttpServletRequest req){
 			return "catProfile";
 		}
+		@RequestMapping("/boardWrite")
+		public String boardWrite(Model model, HttpServletRequest req){
+			return "boardWrite";
+		}
+		@RequestMapping("/boardList")
+		public String boardList(Model model, HttpServletRequest req){
+			return "boardList";
+		}
+		@RequestMapping("/boardView")
+		public String boardView(Model model, HttpServletRequest req){
+			return "boardView";
+		}
+		@RequestMapping("/onlineForm")
+		public String onlineForm(Model model, HttpServletRequest req){
+			return "onlineForm";
+		}
 		@RequestMapping("/contact")
 		public String contact(Model model, HttpServletRequest req){
 			return "contact";
 		}
+		
 		@RequestMapping("/mainPage")
 		public String mainPage(Model model, HttpServletRequest req){
 			return "mainPage";
