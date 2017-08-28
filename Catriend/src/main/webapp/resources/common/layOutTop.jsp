@@ -40,7 +40,7 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 
 
 					</ul> 
-				<li><a href="contact">Q&A</a></li>	
+				<li><a href="qna">Q&A</a></li>	
 				<%
 				if(login != null){
 				%>
@@ -50,9 +50,8 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 				else{
 				%>
 				<li><a href="loginPage">로그인</a></li>
-				<li><a href="regist">회원가입</a></li>
+				<li><a href="onlineForm">회원가입</a></li>
 				<%} %>
-				</li>
 			</ul>
 		</div>
 		<!--/.nav-collapse -->

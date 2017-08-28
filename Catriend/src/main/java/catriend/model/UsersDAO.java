@@ -65,7 +65,7 @@ public class UsersDAO {
 
 	// 회원 정보변경 크게
 	public int UpdateUsers(final UsersDTO dto) {
-		String sql = " UPDATE users " + " SET u_pw = ?, u_phonenumber = ?, u_address = ? "
+		String sql = " UPDATE users " + " SET u_pw = ?, u_phonenumber = ?, u_address = ?, "
 				+ " u_email = ?, u_grade = ?, u_nickname = ? " + " WHERE u_id = ? ";
 		return this.template.update(sql, new PreparedStatementSetter() {
 
@@ -84,7 +84,7 @@ public class UsersDAO {
 
 	// 유저 정보가져오기
 	public UsersDTO selectOne(String u_id) {
-		String sql = "SELECT * FROM users WHERE u_id=?";
+		String sql = "SELECT * FROM users WHERE u_id= '" + u_id + "'";
 		return (UsersDTO) template.queryForObject(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}
 
@@ -97,18 +97,16 @@ public class UsersDAO {
 		}
 		sql += " ) Tb " + ") WHERE rNum BETWEEN ? AND ? ";
 
-		return (List<UsersDTO>)template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
+		return (List<UsersDTO>) template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}
-	
-	//유저 로그인시 필요메소드
-	public UsersDTO loginProcess(String u_id, String u_pw){
-		String sql = " SELECT * FROM users WHERE u_id= '"+u_id+"' AND u_pw= '"+u_pw+"' ";
-		
-		try{
-			return (UsersDTO) template.queryForObject(sql,
-					new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
-		}
-		catch(Exception e){
+
+	// 유저 로그인시 필요메소드
+	public UsersDTO loginProcess(String u_id, String u_pw) {
+		String sql = " SELECT * FROM users WHERE u_id= '" + u_id + "' AND u_pw= '" + u_pw + "' ";
+
+		try {
+			return (UsersDTO) template.queryForObject(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;

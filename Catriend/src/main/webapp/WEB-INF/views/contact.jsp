@@ -272,22 +272,15 @@
 				<p>Lorem Ipsum is simply dummy text of the printing and
 					typesetting industry. Lorem Ipsum has been the industry's standard
 					dummy text ever since the 1500s.</p>
-				<form role="form">
+				<form role="form" name="qnaFrm" action="qnaAction">
+					<input type="hidden" value="${loginUser.u_id}" name="u_id"/>
 					<div class="form-group">
 						<label for="InputName1">Your Name</label> <input type="email"
-							class="form-control" id="exampleInputEmail1">
-					</div>
-					<div class="form-group">
-						<label for="InputEmail1">Email address</label> <input type="email"
-							class="form-control" id="exampleInputEmail1">
-					</div>
-					<div class="form-group">
-						<label for="InputSubject1">Subject</label> <input type="email"
-							class="form-control" id="exampleInputEmail1">
+							class="form-control" id="InputName1" name="q_title">
 					</div>
 					<div class="form-group">
 						<label for="message1">Message</label>
-						<textarea class="form-control" id="message1" rows="3"></textarea>
+						<textarea class="form-control" id="message1" rows="3" name="q_content"></textarea>
 					</div>
 					<button type="submit" class="btn btn-theme">Submit</button>
 				</form>

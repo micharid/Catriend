@@ -16,7 +16,7 @@ public class UsersInsertCommand implements CatCommand {
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
-		String birthStr = req.getParameter("birthday");
+		String birthStr = req.getParameter("u_birthday");
 		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd");
 
 		java.sql.Date u_birthday = null;

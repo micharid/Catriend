@@ -22,13 +22,13 @@
 <script type="text/javascript">
 	function registCheck(){
 		var f = document.registFrm;
-		if(f.id.value == ""){
+		if(f.u_id.value == ""){
 			alert("아이디를 입력해주세요 ! ");
 			f.id.focus();
 			return false;
 		}
 		
-		if(f.password.value == ""){
+		if(f.u_pw.value == ""){
 			alert("비밀번호 입력해주세요 ! ");
 			f.password.focus();
 			return false;
@@ -40,44 +40,44 @@
 			return false;
 		}
 		
-		if(f.password.value != f.passwordCheck.value){
+		if(f.u_pw.value != f.passwordCheck.value){
 			alert("비밀번호와 비밀번호확인이 동일하지 않습니다 ! ");
 			f.passwordCheck.value="";
 			f.passwordCheck.focus();
 			return false;
 		}
 		
-		if(f.nickname.value == ""){
+		if(f.u_nickname.value == ""){
 			alert("닉네임을 입력해주세요 ! ");
 			f.nickname.focus();
 			return false;
 		}
 		
-		if(f.name.value == ""){
+		if(f.u_name.value == ""){
 			alert("이름을 입력해주세요 ! ");
 			f.name.focus();
 			return false;
 		}
 		
-		if(f.email.value == ""){
+		if(f.u_email.value == ""){
 			alert("이메일을 입력해주세요 ! ");
 			f.email.focus();
 			return false;
 		}
 		
-		if(f.birthday.value == ""){
+		if(f.u_birthday.value == ""){
 			alert("생일을 입력해주세요 ! ");
 			f.birthday.focus();
 			return false;
 		}
 		
-		if(f.phoneNumber.value == ""){
+		if(f.u_phoneNumber.value == ""){
 			alert("휴대폰번호를 입력해주세요 ! ");
 			f.phoneNumber.focus();
 			return false;
 		}
 		
-		if(f.address.value == ""){
+		if(f.u_address.value == ""){
 			alert("주소를 입력해주세요 ! ");
 			f.address.focus();
 			return false;
@@ -127,16 +127,17 @@ body{
             <div class="col-md-12">
                
                <form class="form-horizontal" name="registFrm" onsubmit="return registCheck()" action="registAction">
+               		<input type="hidden" value="<%=request.getAttribute("u_grade")%>" name="u_grade"/>
                   <div class="form-group">
-                     <label class="col-sm-3 control-label" for="inputId">아이디</label>
+                     <label class="col-sm-3 control-label" for="inputId" >아이디</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputId" name="id" type="text" placeholder="아이디">
+                        <input class="form-control" id="inputId" name="u_id" type="text" placeholder="아이디">
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputPassword" name="password" type="password" placeholder="비밀번호">
+                        <input class="form-control" id="inputPassword" name="u_pw" type="password" placeholder="비밀번호">
                      </div>
                   </div>
                   <div class="form-group">
@@ -149,37 +150,37 @@ body{
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">닉네임</label>
                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="NickName" name="nickname" placeholder="닉네임을 입력해주세요"/>
+                        <input type="text" class="form-control" id="NickName" name="u_nickname" placeholder="닉네임을 입력해주세요"/>
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputName">이름</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputName" name="name" type="text" placeholder="이름" />
+                        <input class="form-control" id="inputName" name="u_name" type="text" placeholder="이름" />
                      </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
                      <div class="col-sm-6">
-                        <input class="form-control" id="inputEmail" name="email" type="email" placeholder="Example@Example.com 형식으로 넣어주세요">
+                        <input class="form-control" id="inputEmail" name="u_email" type="email" placeholder="Example@Example.com 형식으로 넣어주세요">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="birthdate" class="col-sm-3 control-label">생년월일</label>
                      <div class="col-sm-6">
-                        <input type="date" class="form-control" id="birthdate" name="birthday" placeholder="19700101 형식으로 입력하세요." maxlength="8">
+                        <input type="date" class="form-control" id="birthdate" name="u_birthday" placeholder="19700101 형식으로 입력하세요." maxlength="8">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">휴대폰 번호</label>
                      <div class="col-sm-6">
-                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
+                        <input type="tel" class="form-control" id="phoneNumber" name="u_phoneNumber" placeholder="-를 제외하고 숫자만 입력하세요." maxlength="11">
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="phoneNumber" class="col-sm-3 control-label">주소</label>
                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="address" name="address" placeholder="주소를 입력해주세요"/>
+                        <input type="text" class="form-control" id="address" name="u_address" placeholder="주소를 입력해주세요"/>
                      </div>
                   </div>
                   
