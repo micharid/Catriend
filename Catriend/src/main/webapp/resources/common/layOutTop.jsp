@@ -34,12 +34,12 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 				if(login != null){
 				%>
 				<li><a href="myPage">마이페이지</a></li>
-				<li><a href="contact">로그아웃</a></li>
+				<li><a href="logoutAction">로그아웃</a></li>
 				<%}
 				else{
 				%>
-				<li><a href="Login">로그인</a></li>
-				<li><a href="Regist">회원가입</a></li>
+				<li><a href="loginPage">로그인</a></li>
+				<li><a href="regist">회원가입</a></li>
 				<%} %>
 				</li>
 			</ul>

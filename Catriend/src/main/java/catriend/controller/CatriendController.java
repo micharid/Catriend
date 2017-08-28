@@ -16,6 +16,7 @@ import catriend.command.CatsListCommand;
 import catriend.command.CatsViewCommand;
 import catriend.command.FreeBoarderListCommand;
 import catriend.command.LoginCommand;
+import catriend.command.LogoutCommand;
 import catriend.command.QnAListCommand;
 import catriend.model.Constant;
 import catriend.model.UsersDTO;
@@ -104,21 +105,6 @@ public class CatriendController {
 		model.addAttribute("msg", req.getParameter("msg"));
 		return "processing/catlistAction";
 	}
-
-	@RequestMapping("/login")
-	public String login(Model model, HttpServletRequest req, HttpSession session) {
-		command = new LoginCommand();
-		command.execute(model);
-
-		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
-		if (dto != null) {
-			return "redirect:mainPage";
-		} else {
-			// 로그인페이지에 loginError 변수 받아서 출력해줘야한다.
-			return "login";
-		}
-	}
-
 	@RequestMapping("/membermyPage")
 	public String membermyPage(Model model, HttpServletRequest req) {
 		return "membermyPage";
@@ -153,5 +139,36 @@ public class CatriendController {
 	public String catcontract(Model model, HttpServletRequest req) {
 		return "catcontract";
 	}
+	@RequestMapping("/loginPage")
+	public String loginPage(Model model, HttpServletRequest req) {
+		return "loginPage";
+	}
+	@RequestMapping("/loginAction")
+	public String loginAction(Model model, HttpServletRequest req, HttpSession session) {
+		command = new LoginCommand();
+		model.addAttribute("req", req);
+		command.execute(model);
+		System.out.println("1");
+		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser") != null ? (UsersDTO) session.getAttribute("loginUser") : null;
+		if (dto != null) {
+			System.out.println("2");
+			return "redirect:mainPage";
+		} else {
+			System.out.println("3");
+			// 로그인페이지에 loginError 변수 받아서 출력해줘야한다.
+			return "loginPage";
+		}
+	}
+	@RequestMapping("/logoutAction")
+	public String logoutAction(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		command = new LogoutCommand();
+		command.execute(model);
 
+		return "redirect:mainPage";
+	}
+	@RequestMapping("/regist")
+	public String regist(Model model, HttpServletRequest req) {
+		return "regist";
+	}
 }

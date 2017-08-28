@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="utf-8">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,16 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
 
-<title>SOLID - Bootstrap 3 Theme</title>
+<title>Cat`riend</title>
+
+<script>
+function confirmFunc(){
+	if( confirm(" 탈퇴하시겠습니까? \n\n 탈퇴를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다." ) )
+	{
+		location.href="userdeletesuccess.jsp";
+	}
+}
+</script>
 
 <!-- Bootstrap core CSS -->
 <link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
@@ -19,15 +28,16 @@
 <link href="./resources/assets/css/style.css" rel="stylesheet">
 <link href="./resources/assets/css/font-awesome.min.css" rel="stylesheet">
 
+
 </head>
 
 <body>
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
+	<%-- 다시업로드할땐 이렇게	<%@ include file="../../resources/common/layOutTop.jsp"%> --%>
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
 
 	<!-- *****************************************************************************************************************
 	 BLUE WRAP
@@ -36,223 +46,121 @@
 		<div class="container">
 			<div class="row">
 				<center>
-					<h3>MY PAGE</h3>
+					<h3>회원정보수정</h3>
 				</center>
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
 	</div>
-	<!-- /blue -->
+
 
 	<!-- *****************************************************************************************************************
-	 TITLE & CONTENT
+	 BLOG CONTENT
 	 ***************************************************************************************************************** -->
 
-	<div class="container mt">
+	<div class="container">
 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1 centered">
-				<div id="carousel-example-generic" class="carousel slide"
-					data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-example-generic" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-					</ol>
-
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<img src="./resources/assets/img/portfolio/1.jpg" alt="">
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-body text-center">
+						<div class="userimg">
+							<div><img class="center-block img-circle img-thumbnail" src="./resources/assets/img/profile.png" style="width: 225px! important; height:225px! important;"></div>
 						</div>
-						<div class="item">
-							<img src="./resources/assets/img/portfolio/2.jpg" alt="">
-						</div>
-						<div class="item">
-							<img src="./resources/assets/img/portfolio/3.jpg" alt="">
+						<h3 class="username text-bold">홍길동</h3>
+						<div class="text-center">
+							<a href="membermyPageindex.jsp">
+								<button class="btn" type="submit" style="background-color:#00b3fe; color:white;">마이페이지로</button>
+							</a>
 						</div>
 					</div>
 				</div>
-				<! --/Carousel -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="panel-title text-center">회원탈퇴</div>
+					</div>
+					<div class="panel-body text-center">
+						<button class="btn" type="button" style="background-color:#dfdfdf; color:black;" onclick="confirmFunc()">회원 탈퇴하기</button>
+					</div>
+				</div>
 			</div>
+			<div class="col-md-8">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="h4 text-center">내 정보 수정하기</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputContact1">이름</label>
+										<div class="col-sm-10">
+											<input class="form-control" "id="inputContact1" type="text" placeholder="" value="이름" disabled>										</div>
+									</div>
 
-			<div class="col-lg-5 col-lg-offset-1">
-				<div class="spacing"></div>
-				<h4>YOUR PROJECT NAME</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and
-					typesetting industry. Lorem Ipsum has been the industry's standard
-					dummy text ever since the 1500s, when an unknown printer took a
-					galley of type and scrambled it to make a type specimen book. It
-					has survived not only five centuries, but also the leap into
-					electronic typesetting, remaining essentially unchanged.</p>
-				<h4>Our Proposal</h4>
-				<p>It was popularised in the 1960s with the release of Letraset
-					sheets containing Lorem Ipsum passages, and more recently with
-					desktop publishing software like Aldus PageMaker including versions
-					of Lorem Ipsum.</p>
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputContact2">이메일</label>
+										<div class="col-sm-10">
+											<input class="form-control" id="inputContact2" type="text" placeholder="" value="이메일">
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputContact3">닉네임</label>
+										<div class="col-sm-10">
+											<input class="form-control" id="inputContact3" type="text" placeholder="" value="닉네임">
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputContact4">비밀번호입력</label>
+										<div class="col-sm-10">
+											<input class="form-control" id="inputContact4" type="password" placeholder="영문,숫자,특수문자를 조합하여 8자 이상으로 입력하세요.(최대20자리)" value="">
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputContact5">비밀번호확인</label>
+										<div class="col-sm-10">
+											<input class="form-control" id="inputContact5" type="password" placeholder="" value="">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputContact6">전화번호</label>
+										<div class="col-sm-10">
+											<input class="form-control" id="inputContact6" type="text" value="010-1234-5678">
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputContact7">생년월일</label>
+										<div class="col-sm-10">
+											<input class="form-control" id="inputContact7" type="text" value="1234-12-25" disabled>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="inputContact8">주소</label>
+										<div class="col-sm-10">
+											<input class="form-control" id="inputContact8" type="text" value="서울시 마포구 상암동 123-5번지 아무개빌라 201호">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+											<button class="btn" type="submit" style="background-color:#00b3fe; color:white;">수정하기</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
 			</div>
-
-			<div class="col-lg-4 col-lg-offset-1">
-				<div class="spacing"></div>
-				<h4>Project Details</h4>
-				<div class="hline"></div>
-				<p>
-					<b>Date:</b> April 18, 2014
-				</p>
-				<p>
-					<b>Author:</b> Marcel Newman
-				</p>
-				<p>
-					<b>Categories:</b> Illustration, Web Design, Wordpress
-				</p>
-				<p>
-					<b>Tagged:</b> Flat, UI, Development
-				</p>
-				<p>
-					<b>Client:</b> Wonder Corp.
-				</p>
-				<p>
-					<b>Website:</b> <a href="http://blacktie.co">http://blacktie.co</a>
-				</p>
-			</div>
-
 		</div>
-		<! --/row -->
 	</div>
-	<! --/container -->
-
-	<!-- *****************************************************************************************************************
-	 PORTFOLIO SECTION
-	 ***************************************************************************************************************** -->
-	<div id="portfoliowrap">
-		<div class="portfolio-centered">
-			<h3>Related Works.</h3>
-			<div class="recentitems portfolio">
-				<div class="portfolio-item graphic-design">
-					<div class="he-wrap tpl6">
-						<img src="./resources/assets/img/portfolio/9.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">A Graphic Design
-									Item</h3>
-								<a data-rel="prettyPhoto"
-									href="./resources/assets/img/portfolio/9.jpg"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-search"></i></a> <a href="single-project.html"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-link"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
-						<!-- he view -->
-					</div>
-					<!-- he wrap -->
-				</div>
-				<!-- end col-12 -->
-
-				<div class="portfolio-item web-design">
-					<div class="he-wrap tpl6">
-						<img src="./resources/assets/img/portfolio/2.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
-								<a data-rel="prettyPhoto"
-									href="./resources/assets/img/portfolio/2.jpg"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-search"></i></a> <a href="single-project.html"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-link"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
-						<!-- he view -->
-					</div>
-					<!-- he wrap -->
-				</div>
-				<!-- end col-12 -->
-
-				<div class="portfolio-item graphic-design">
-					<div class="he-wrap tpl6">
-						<img src="./resources/assets/img/portfolio/3.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">A Graphic Design
-									Item</h3>
-								<a data-rel="prettyPhoto"
-									href="./resources/assets/img/portfolio/3.jpg"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-search"></i></a> <a href="single-project.html"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-link"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
-						<!-- he view -->
-					</div>
-					<!-- he wrap -->
-				</div>
-				<!-- end col-12 -->
-
-				<div class="portfolio-item graphic-design">
-					<div class="he-wrap tpl6">
-						<img src="./resources/assets/img/portfolio/4.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">A Graphic Design
-									Item</h3>
-								<a data-rel="prettyPhoto"
-									href="./resources/assets/img/portfolio/4.jpg"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-search"></i></a> <a href="single-project.html"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-link"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
-						<!-- he view -->
-					</div>
-					<!-- he wrap -->
-				</div>
-				<!-- end col-12 -->
-
-				<div class="portfolio-item graphic-design">
-					<div class="he-wrap tpl6">
-						<img src="./resources/assets/img/portfolio/5.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">A Graphic Design
-									Item</h3>
-								<a data-rel="prettyPhoto"
-									href="./resources/assets/img/portfolio/5.jpg"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-search"></i></a> <a href="single-project.html"
-									class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-link"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
-						<!-- he view -->
-					</div>
-					<!-- he wrap -->
-				</div>
-				<!-- end col-12 -->
-
-
-			</div>
-			<!-- portfolio -->
-		</div>
-		<!-- portfolio container -->
-	</div>
-	<!--/Portfoliowrap -->
-
-
 
 	<!-- *****************************************************************************************************************
 	 FOOTER
 	 ***************************************************************************************************************** -->
-	<!-- Fixed navbar -->
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
@@ -271,87 +179,5 @@
 	<script src="./resources/assets/js/custom.js"></script>
 
 
-	<script>
-// Portfolio
-(function($) {
-	"use strict";
-	var $container = $('.portfolio'),
-		$items = $container.find('.portfolio-item'),
-		portfolioLayout = 'fitRows';
-		
-		if( $container.hasClass('portfolio-centered') ) {
-			portfolioLayout = 'masonry';
-		}
-				
-		$container.isotope({
-			filter: '*',
-			animationEngine: 'best-available',
-			layoutMode: portfolioLayout,
-			animationOptions: {
-			duration: 750,
-			easing: 'linear',
-			queue: false
-		},
-		masonry: {
-		}
-		}, refreshWaypoints());
-		
-		function refreshWaypoints() {
-			setTimeout(function() {
-			}, 1000);   
-		}
-				
-		$('nav.portfolio-filter ul a').on('click', function() {
-				var selector = $(this).attr('data-filter');
-				$container.isotope({ filter: selector }, refreshWaypoints());
-				$('nav.portfolio-filter ul a').removeClass('active');
-				$(this).addClass('active');
-				return false;
-		});
-		
-		function getColumnNumber() { 
-			var winWidth = $(window).width(), 
-			columnNumber = 1;
-		
-			if (winWidth > 1200) {
-				columnNumber = 5;
-			} else if (winWidth > 950) {
-				columnNumber = 4;
-			} else if (winWidth > 600) {
-				columnNumber = 3;
-			} else if (winWidth > 400) {
-				columnNumber = 2;
-			} else if (winWidth > 250) {
-				columnNumber = 1;
-			}
-				return columnNumber;
-			}       
-			
-			function setColumns() {
-				var winWidth = $(window).width(), 
-				columnNumber = getColumnNumber(), 
-				itemWidth = Math.floor(winWidth / columnNumber);
-				
-				$container.find('.portfolio-item').each(function() { 
-					$(this).css( { 
-					width : itemWidth + 'px' 
-				});
-			});
-		}
-		
-		function setPortfolio() { 
-			setColumns();
-			$container.isotope('reLayout');
-		}
-			
-		$container.imagesLoaded(function () { 
-			setPortfolio();
-		});
-		
-		$(window).on('resize', function () { 
-		setPortfolio();          
-	});
-})(jQuery);
-</script>
 </body>
 </html>

@@ -19,9 +19,12 @@ public class LoginCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-
-		UsersDTO dto = dao.loginProcess(req.getParameter("u_id"), req.getParameter("u_pass"));
+		
+		System.out.println(req.getParameter("u_id") + req.getParameter("u_pw"));
+		
+		UsersDTO dto = dao.loginProcess(req.getParameter("u_id"), req.getParameter("u_pw")) != null ? dao.loginProcess(req.getParameter("u_id"), req.getParameter("u_pw")) : null;
 		HttpSession session = req.getSession();
+		
 		if (dto != null) {
 			session.setAttribute("loginUser", dto);
 		} else {

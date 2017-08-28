@@ -97,12 +97,20 @@ public class UsersDAO {
 		}
 		sql += " ) Tb " + ") WHERE rNum BETWEEN ? AND ? ";
 
-		return (List<UsersDTO>) template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
+		return (List<UsersDTO>)template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}
 	
 	//유저 로그인시 필요메소드
-	public UsersDTO loginProcess(String u_id, String u_pass){
-		String sql = " SELECT * FROM users WHERE id= "+u_id+" AND pass="+u_pass;
-		return (UsersDTO) template.queryForObject(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
+	public UsersDTO loginProcess(String u_id, String u_pw){
+		String sql = " SELECT * FROM users WHERE u_id= '"+u_id+"' AND u_pw= '"+u_pw+"' ";
+		
+		try{
+			return (UsersDTO) template.queryForObject(sql,
+					new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
