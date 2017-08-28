@@ -26,8 +26,8 @@
 	background-position: left top;
 	padding-top: 95px;
 	margin-bottom: 60px;
-	-webkit-animation-duration: 10s;
-	animation-duration: 10s;
+	-webkit-animation-duration: 5s;
+	animation-duration: 2s;
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
 }

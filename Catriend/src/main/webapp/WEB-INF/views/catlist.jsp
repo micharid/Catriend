@@ -242,7 +242,9 @@
 					<a href="catProfile?c_index=<%=dto.getC_index()%>">
 						<div class="portfolio-item graphic-design">
 							<div class="he-wrap tpl6">
-								<img src="./resources/assets/img/portfolio/<%=dto.getC_index()%10 +1 %>.jpg" alt="">
+								<img
+									src="./resources/assets/img/portfolio/<%=dto.getC_index() % 10 + 1%>.jpg"
+									alt="">
 								<div class="he-view">
 									<div class="bg a0" data-animate="fadeIn">
 										<p id="catname"><%=dto.getC_name()%></p>
