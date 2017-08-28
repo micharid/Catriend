@@ -73,7 +73,7 @@
 					<a href="myfreeboardhistory" class="list-group-item active">자유게시판</a>
 					<!-- 소스코드로 active ajax방식으로 구현가능한지 확인해보기 -->
 					<a href="myreviewhistory" class="list-group-item">후기게시판</a>
-					<a class="btn btn-default list-group-item" href="membermyPageindex">마이 페이지로</a>
+					<a class="btn btn-default list-group-item" href="myPageindex">마이 페이지로</a>
 				</div>
 			</div>
 			<div class="col-md-10">
@@ -160,7 +160,7 @@
 							</nav>
 						</div>
 						<div class="col-md-12 text-center" style="margin-top:-15px;">
-							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='membermyPageindex'">마이페이지로</button>
+							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='myPageindex'">마이페이지로</button>
 						</div>
 					</div>
 				</div>

@@ -158,7 +158,7 @@
 							</nav>
 						</div>
 						<div class="col-md-12 text-center" style="margin-top:-15px;">
-							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='membermyPageindex'">마이페이지로</button>
+							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='myPageindex'">마이페이지로</button>
 						</div>
 
 			</div>

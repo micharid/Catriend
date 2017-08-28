@@ -176,6 +176,26 @@ public class CatriendController {
 	public String loginPage(Model model, HttpServletRequest req) {
 		return "loginPage";
 	}
+	
+	@RequestMapping("/myqnahistory")
+	public String myqnahistory(Model model, HttpServletRequest req) {
+		return "myqnahistory";
+	}
+	
+	@RequestMapping("/catcontractagreement")
+	public String catcontractagreement(Model model, HttpServletRequest req) {
+		return "catcontractagreement";
+	}
+
+	@RequestMapping("/catcontractpaypage")
+	public String catcontractpaypage(Model model, HttpServletRequest req) {
+		return "catcontractpaypage";
+	}
+	
+	@RequestMapping("/catcontractsuccess")
+	public String catcontractsuccess(Model model, HttpServletRequest req) {
+		return "catcontractsuccess";
+	}
 
 	@RequestMapping("/loginAction")
 	public String loginAction(Model model, HttpServletRequest req, HttpSession session) {

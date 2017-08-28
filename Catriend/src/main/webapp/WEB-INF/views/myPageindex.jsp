@@ -65,7 +65,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-4">
 				<div class="panel panel-default">
-					<a href="membermyPage">
+					<a href="myPage">
 						<div class="panel-body text-center" style="cursor:pointer">
 							<div class="tab1img"><img class="center-block" src="./resources/assets/img/setting.png" style="width:96px! important; height:96px! important;"></div>
 							<p style="font-size:1.2em">개인정보 수정하기</p>
