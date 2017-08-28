@@ -21,6 +21,13 @@
 <link href="./resources/assets/css/style.css" rel="stylesheet">
 <link href="./resources/assets/css/font-awesome.min.css"
 	rel="stylesheet">
+<script>
+function checkFrm(){
+	var f = document.commentFrm;
+	
+	return true;
+}
+</script>
 </head>
 
 <style>
@@ -143,19 +150,18 @@ textarea {
 						<div class="panel-footer">
 							<form name="cmt" action="#">
 								<p>
-									<textarea id="textAreaComment" cols="30" rows="5" title=""
+									<textarea id="textAreaComment" cols="30" rows="5" name=""
 										placeholder="댓글을 입력해 주세요"></textarea>
 								</p>
 								<table width="100%">
 									<tr>
 										<td align="right">
-											<button type="submit" class="btn btn-info" onclick="">
+											<button type="button" class="btn btn-info" onclick="">
 												댓글등록</button>
 										</td>
 									</tr>
 								</table>
 							</form>
-							<c:if test="${not empty FreeBoarderCommentLists}">
 							<table class="table">
 								<tr>
 									<th width="60%">내용</th>
@@ -168,11 +174,7 @@ textarea {
 								<!-- 댓글 반복 부분  s-->
 								<c:forEach items="${FreeBoarderCommentLists}" var="row">
 									<tr>
-										<td><c:if test="${row.fbc_depth gt 0}">
-												<c:forEach begin="0" end="${row.fbc_depth-1}" var="i" step="1">
-													&nbsp;&nbsp;&nbsp;&nbsp;<span class='glyphicon glyphicon-chevron-right'></span>&nbsp;&nbsp;&nbsp;&nbsp;
-												</c:forEach>
-											</c:if> ${row.fbc_content}</td>
+										<td>${row.fbc_content}</td>
 										<td>${row.u_id}</td>
 										<td>${row.fbc_date}</td>
 										<c:if test="${not empty loginUser}">
@@ -181,13 +183,27 @@ textarea {
 													<button type="button" class="btn btn-info" onclick="">삭제</button>
 												</c:if>
 												<button type="button" class="btn btn-info"
-													onclick="location.href='freeBoarderCommentWrite?fbc_index=${row.fbc_index}&fb_index=${dto.fb_index}&nowPage=${nowPage}';">답글</button></td>
+													onclick="location.href='freeBoarderCommentWrite?${row.fbc_index}&${dto.fb_index}';">답글</button></td>
 										</c:if>
 									</tr>
+									<c:if test="${fbc_index == row.fbc_index}">
+										<form action="freeBoarderCommentWriteAction" name="commentFrm" onsubmit="return checkFrm();" method="post">
+										<tr>
+											<td>
+											<input type="hidden" name="nowPage" value="${nowPage}"/>
+											<input type="hidden" name="fbc_index" value="${fbc_index}"/>
+											<input type="hidden" name="fb_index" value="${fb_index}"/>
+											<input type="hidden" name="u_id" value="${loginUser.u_id}"/>
+											<textarea id="textAreaComment" cols="30" rows="5"
+													name="fbc_content" placeholder="댓글을 입력해 주세요"></textarea></td>
+											<td><button type="submit" class="btn btn-info">
+													등록</button></td>
+										</tr>
+										</form>
+									</c:if>
 								</c:forEach>
 								<!-- 댓글 반복 부분  e-->
 							</table>
-							</c:if>
 						</div>
 					</div>
 				</div>

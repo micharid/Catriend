@@ -9,21 +9,24 @@ import org.springframework.ui.Model;
 import catriend.model.FreeBoarderCommentDAO;
 import catriend.model.FreeBoarderCommentDTO;
 
-public class FreeBoarderCommentInsertCommand implements CatCommand {
+public class FreeBoarderCommentReplyCommand implements CatCommand {
 	@Override
 	public void execute(Model model) {
 		FreeBoarderCommentDAO dao = new FreeBoarderCommentDAO();
 
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-
-		FreeBoarderCommentDTO dto = new FreeBoarderCommentDTO();
 		
+		int fbc_index = Integer.parseInt(req.getParameter("fbc_index"));
+		
+		System.out.println(fbc_index);
+		
+		FreeBoarderCommentDTO dto = dao.selectOne(fbc_index);
+
 		dto.setFbc_content(req.getParameter("fbc_content"));
 		dto.setU_id(req.getParameter("u_id"));
-		dto.setFb_index(Integer.parseInt(req.getParameter("fb_index")));
 
-		dao.InsertFreeBoarderComment(dto);
+		dao.ReplyFreeBoarderComment(dto);
 
 		System.out.println("FreeBoarderInsertCommand");
 	}

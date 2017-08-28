@@ -10,17 +10,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import catriend.command.CatBoarderHotListCommand;
 import catriend.command.CatBoarderListCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
-import catriend.command.CatsViewCommand;
 import catriend.command.FreeBoarderCommentListCommand;
+import catriend.command.FreeBoarderCommentReplyCommand;
 import catriend.command.FreeBoarderListCommand;
 import catriend.command.FreeBoarderViewCommand;
 import catriend.command.LoginCommand;
 import catriend.command.LogoutCommand;
-import catriend.command.QnAListCommand;
 import catriend.command.QnAQInsertCommand;
 import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
@@ -90,6 +88,7 @@ public class CatriendController {
 		command = new FreeBoarderViewCommand();
 		command.execute(model);
 
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
 		command = new FreeBoarderCommentListCommand();
 		command.execute(model);
 
@@ -176,31 +175,6 @@ public class CatriendController {
 	public String loginPage(Model model, HttpServletRequest req) {
 		return "loginPage";
 	}
-	
-	@RequestMapping("/myqnahistory")
-	public String myqnahistory(Model model, HttpServletRequest req) {
-		return "myqnahistory";
-	}
-	
-	@RequestMapping("/catcontractagreement")
-	public String catcontractagreement(Model model, HttpServletRequest req) {
-		return "catcontractagreement";
-	}
-
-	@RequestMapping("/catcontractpaypage")
-	public String catcontractpaypage(Model model, HttpServletRequest req) {
-		return "catcontractpaypage";
-	}
-	
-	@RequestMapping("/catcontractsuccess")
-	public String catcontractsuccess(Model model, HttpServletRequest req) {
-		return "catcontractsuccess";
-	}
-	
-	@RequestMapping("/catBoardView")
-	public String catBoardView(Model model, HttpServletRequest req) {
-		return "catBoardView";
-	}
 
 	@RequestMapping("/loginAction")
 	public String loginAction(Model model, HttpServletRequest req, HttpSession session) {
@@ -262,4 +236,38 @@ public class CatriendController {
 		command.execute(model);
 		return "redirect:mainPage";
 	}
+
+	@RequestMapping("/freeBoarderCommentWrite")
+	public String freeBoarderCommentWrite(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("fbc_index", req.getParameter("fbc_index"));
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
+
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+		return "freeBoarderCommentWrite";
+	}
+
+	@RequestMapping("/freeBoarderCommentWriteAction")
+	public String freeBoarderCommentWriteAction(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("fbc_index", req.getParameter("fbc_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("fbc_content", req.getParameter("fbc_content"));
+		command = new FreeBoarderCommentReplyCommand();
+		command.execute(model);
+
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
+
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+
+		return "freeBoardView";
+	}
+
 }
