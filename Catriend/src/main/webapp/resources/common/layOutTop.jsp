@@ -18,8 +18,8 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 		</div>
 		<div class="navbar-collapse collapse navbar-right">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="mainPage">HOME</a></li>
-				<li><a href="about">ABOUT</a></li>
+				<li class="active"><a href="mainPage">홈</a></li>
+				<li><a href="about">소개</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">게시판<b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -36,15 +36,15 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 
 
 						<li><a href="catlist ">고양이들</a></li>
-						<li><a href="catlist ">고양이들</a></li>
+						<li><a href="catlist ">나에게맞는고양이들</a></li>
 
 
 					</ul> 
-				<li><a href="contact">CONTACT</a></li>	
+				<li><a href="contact">Q&A</a></li>	
 				<%
 				if(login != null){
 				%>
-				<li><a href="myPage">마이페이지</a></li>
+				<li><a href="myPageindex">마이페이지</a></li>
 				<li><a href="logoutAction">로그아웃</a></li>
 				<%}
 				else{

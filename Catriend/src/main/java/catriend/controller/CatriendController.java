@@ -110,7 +110,7 @@ public class CatriendController {
 	public String myPage(Model model, HttpServletRequest req) {
 		return "myPage";
 	}
-
+	
 	@RequestMapping("/newFile")
 	public String newFile(Model model, HttpServletRequest req) {
 		return "newFile";
@@ -131,9 +131,9 @@ public class CatriendController {
 		return "membermyPage";
 	}
 
-	@RequestMapping("/membermyPageindex")
-	public String membermyPageindex(Model model, HttpServletRequest req) {
-		return "membermyPageindex";
+	@RequestMapping("/myPageindex")
+	public String myPageindex(Model model, HttpServletRequest req) {
+		return "myPageindex";
 	}
 
 	@RequestMapping("/mycontracthistory")
@@ -169,13 +169,10 @@ public class CatriendController {
 		command = new LoginCommand();
 		model.addAttribute("req", req);
 		command.execute(model);
-		System.out.println("1");
 		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser") != null ? (UsersDTO) session.getAttribute("loginUser") : null;
 		if (dto != null) {
-			System.out.println("2");
 			return "redirect:mainPage";
 		} else {
-			System.out.println("3");
 			// 로그인페이지에 loginError 변수 받아서 출력해줘야한다.
 			return "loginPage";
 		}
@@ -190,6 +187,7 @@ public class CatriendController {
 	}
 	@RequestMapping("/regist")
 	public String regist(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
 		return "regist";
 	}
 }

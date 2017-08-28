@@ -65,7 +65,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-4">
 				<div class="panel panel-default">
-					<a href="membermyPage2.jsp">
+					<a href="myPage">
 						<div class="panel-body text-center" style="cursor:pointer">
 							<div class="tab1img"><img class="center-block" src="./resources/assets/img/setting.png" style="width:96px! important; height:96px! important;"></div>
 							<p style="font-size:1.2em">개인정보 수정하기</p>
@@ -75,7 +75,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="panel panel-default">
-					<a href="myfreeboardhistory.jsp">
+					<a href="myfreeboardhistory">
 						<div class="panel-body text-center" style="cursor:pointer">
 							<div class="tab2img"><img class="center-block" src="./resources/assets/img/list.png" style="width:96px! important; height:96px! important;"></div>
 							<p style="font-size:1.2em">내가 작성한 글목록</p>
@@ -89,7 +89,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-4">
 				<div class="panel panel-default">
-					<a href="mycontracthistory.jsp">
+					<a href="mycontracthistory">
 						<div class="panel-body text-center" style="cursor:pointer">
 							<div class="tab3img"><img class="center-block" src="./resources/assets/img/contract.png" style="width:96px! important; height:96px! important;"></div>
 							<p style="font-size:1.2em">내가 계약한 내역</p>
