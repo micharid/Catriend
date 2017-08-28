@@ -70,6 +70,7 @@
 						</center>
 					</div>
 					<br />
+					<!-- 반복시작 -->
 					<div class="panel panel-default center-block" style="width:95%;">
 						<table class="table table-bordered">
 							<tr>
@@ -91,6 +92,7 @@
 							</tr>
 						</table>
 					</div>
+					<!-- 반복끝 -->
 					<div class="panel panel-default center-block" style="width:95%;">
 						<table class="table table-bordered">
 							<tr>
@@ -135,27 +137,29 @@
 					</div>
 				</div>
 				
-				<nav class="text-center">
-					<ul class="pagination">
-						<li><a href="#" aria-label="Previous"> <span
-								aria-hidden="true">&laquo;</span>
-						</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#" aria-label="Next"> <span
-								aria-hidden="true">&raquo;</span>
-						</a></li>
-					</ul>
-				</nav>
-
-				<div class="text-center">
-					<a href="membermyPageindex.jsp">
-						<button class="btn" type="button" style="background-color: #00b3fe; color: white;">마이페이지로</button>
-					</a>
-				</div>
+				<div class="pull-right" style="margin-top:-15px;">
+							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='catlist'">고양이보러가기</button>
+						</div>
+						<div class="col-md-12 text-center" style="margin-top:-15px;">
+							<nav>
+								<ul class="pagination">
+									<li><a href="#" aria-label="Previous"> <span
+											aria-hidden="true">&laquo;</span>
+									</a></li>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#" aria-label="Next"> <span
+											aria-hidden="true">&raquo;</span>
+									</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="col-md-12 text-center" style="margin-top:-15px;">
+							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='membermyPageindex'">마이페이지로</button>
+						</div>
 
 			</div>
 			<div class="col-md-1"></div>

@@ -55,7 +55,7 @@
 		<div class="container">
 			<div class="row">
 				<center>
-					<h3>내가 남긴 자유게시글</h3>
+					<h3>내가 문의한 질문내역</h3>
 				</center>
 			</div>
 		</div>
@@ -68,37 +68,31 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2">
-				<div class="list-group text-center">
-					<a href="myfreeboardhistory" class="list-group-item active">자유게시판</a>
-					<!-- 소스코드로 active ajax방식으로 구현가능한지 확인해보기 -->
-					<a href="myreviewhistory" class="list-group-item">후기게시판</a>
-					<a class="btn btn-default list-group-item" href="membermyPageindex">마이 페이지로</a>
-				</div>
-			</div>
+			<div class="col-md-1"></div>
 			<div class="col-md-10">
-				
 				<div class="panel panel-default">
 					<div class="panel-heading" style="font-size:1.5em; font-weight:700;">
 						<center>
-							자유게시판
+							1:1 Q&A
 						</center>
 					</div>
 					<div class="panel-body">
 						<table class="table table-hover table-bordered">
 							<tr style="text-align:center;">
 								<th style="width:5%;" class="text-center">NO</th>
-								<th style="width:80%;">글제목</th>
-								<th style="width:155%;" class="text-center">작성일</th>
+								<th style="width:70%;">글제목</th>
+								<th style="width:10%;" class="text-center">답변여부</th>
+								<th style="width:15%;" class="text-center">작성일</th>
 							</tr>
 							<!-- 반복시작 -->
 							<tr>
 								<td class="text-center">1</td>
 								<td>
 									<a href="#">
-										내가 작성한 자유게시판의 글을 불러오는 공간입니다.
+										내가 질문한 글을 불러오는 공간입니다.
 									</a>
 								</td>
+								<td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
 								<td class="text-center">2017-08-26</td>
 							</tr>
 							<!-- 반복끝 -->
@@ -106,41 +100,45 @@
 								<td class="text-center">1</td>
 								<td>
 									<a href="#">
-										내가 작성한 자유게시판의 글을 불러오는 공간입니다.
+										내가 질문한 글을 불러오는 공간입니다.
 									</a>
 								</td>
+								<td class="text-center"><span class="glyphicon glyphicon-remove"></span></td>
 								<td class="text-center">2017-08-26</td>
 							</tr>
 							<tr>
 								<td class="text-center">1</td>
 								<td>
 									<a href="#">
-										내가 작성한 자유게시판의 글을 불러오는 공간입니다.
+										내가 질문한 글을 불러오는 공간입니다.
 									</a>
 								</td>
+								<td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
 								<td class="text-center">2017-08-26</td>
 							</tr>
 							<tr>
 								<td class="text-center">1</td>
 								<td>
 									<a href="#">
-										내가 작성한 자유게시판의 글을 불러오는 공간입니다.
+										내가 질문한 글을 불러오는 공간입니다.
 									</a>
 								</td>
+								<td class="text-center"><span class="glyphicon glyphicon-remove"></span></td>
 								<td class="text-center">2017-08-26</td>
 							</tr>
 							<tr>
 								<td class="text-center">1</td>
 								<td>
 									<a href="#">
-										내가 작성한 자유게시판의 글을 불러오는 공간입니다.
+										내가 질문한 글을 불러오는 공간입니다.
 									</a>
 								</td>
+								<td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
 								<td class="text-center">2017-08-26</td>
 							</tr>
 						</table>
 						<div class="pull-right" style="margin-top:-15px;">
-							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='boardList'">게시판으로</button>
+							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='membermyPageindex'">질문하러가기</button>
 						</div>
 						<div class="col-md-12 text-center" style="margin-top:-15px;">
 							<nav>
@@ -165,6 +163,7 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-md-1"></div>
 		</div>
 	</div>
 	

@@ -152,7 +152,9 @@
 				</h4>
 				<h4>나이(age) : 1년</h4>
 				<h4>건강상태 : 양 호</h4>
+				
 				</p>
+				<button class="btn btn-default" style="width:100%;" onclick="location.href='catcontractagreement'">계약하기</button>
 
 				<div class="spacing"></div>
 
