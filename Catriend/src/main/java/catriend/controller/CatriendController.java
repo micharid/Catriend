@@ -196,6 +196,11 @@ public class CatriendController {
 	public String catcontractsuccess(Model model, HttpServletRequest req) {
 		return "catcontractsuccess";
 	}
+	
+	@RequestMapping("/catBoardView")
+	public String catBoardView(Model model, HttpServletRequest req) {
+		return "catBoardView";
+	}
 
 	@RequestMapping("/loginAction")
 	public String loginAction(Model model, HttpServletRequest req, HttpSession session) {
