@@ -13,10 +13,10 @@ public class PagingUtil {
 
 		// 처음페이지 & 이전페이지를 위한 로직
 		if (intTemp != 1) {
-			pagingStr += "<a href='" + page + "nowPage=1'><img src='./resources/images/paging1.gif'></a>";
+			pagingStr += "<a href='" + page + "nowPage=1'><span class='glyphicon glyphicon-backward'></span></a>";
 			pagingStr += "&nbsp;";
 			pagingStr += "<a href='" + page + "nowPage=" + (intTemp - blockPage)
-					+ "'><img src='./resources/images/paging2.gif'></a>";
+					+ "'><span class='glyphicon glyphicon-chevron-left'></span></a>";
 		}
 		// 페이지표시 제어를 위한 변수
 		int blockCount = 1;
@@ -39,10 +39,10 @@ public class PagingUtil {
 		// 다음 및 마지막 페이지를 위한 로직
 		if (intTemp <= totalPage) {
 			// intTemp로 바로 넣는이유는 위에서 while문의 끝에 intTemp가 출력후 +1 되므로 블록 보다 1증가되었다.
-			pagingStr += "<a href='" + page + "nowPage=" + intTemp + "'><img src='./resources/images/paging3.gif'></a>";
+			pagingStr += "<a href='" + page + "nowPage=" + intTemp + "'><span class='glyphicon glyphicon-chevron-right'></span></a>";
 			pagingStr += "&nbsp;";
 			pagingStr += "<a href='" + page + "nowPage=" + totalPage
-					+ "'><img src='./resources/images/paging4.gif'></a>";
+					+ "'><span class='glyphicon glyphicon-forward'></span></a>";
 		}
 
 		return pagingStr;

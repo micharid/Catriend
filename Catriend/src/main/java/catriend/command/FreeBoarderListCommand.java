@@ -27,7 +27,7 @@ public class FreeBoarderListCommand implements CatCommand {
 
 		// 페이지설정값(보이는 리스트갯수, 페이지갯수)
 		int pageSize = 4;
-		int blockPage = 2;
+		int blockPage = 3;
 		// 전체페이지수
 		int totalPage = (int) Math.ceil((double) totalRecordCount / pageSize);
 		// 현재페이지를 파라미터로 받기
@@ -47,7 +47,7 @@ public class FreeBoarderListCommand implements CatCommand {
 		// 페이지 처리를 위한 문자열 생성
 		String addQueryStr = "";
 		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
-				req.getContextPath() + "/BoardList?" + addQueryStr);
+				req.getContextPath() + "/freeBoardList?" + addQueryStr);
 
 		// DAO에서 list메소드로 목록가져오기
 		List<FreeBoarderDTO> listRows = dao.selectAll(paramMap);
@@ -59,8 +59,8 @@ public class FreeBoarderListCommand implements CatCommand {
 
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		// 리스트 레코드를 저장
-		model.addAttribute("listRows", listRows);
+		model.addAttribute("freelists", listRows);
 
-		System.out.println("execute()메소드 호출");
+		System.out.println("FreeBoarderListCommand");
 	}
 }

@@ -82,14 +82,7 @@ public class FreeBoarderCommentDAO {
 
 	// 전체정보
 	public List<FreeBoarderCommentDTO> selectAll(Map<String, Object> map) {
-		int start = Integer.parseInt(map.get("start").toString());
-		int end = Integer.parseInt(map.get("end").toString());
-		String sql = "";
-		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM cats ";
-		if (map.get("COLUMN") != null) {
-			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
-		}
-		sql += " ORDER BY c_type asc) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		String sql = " SELECT * FROM freeboardercomment ";
 		return (List<FreeBoarderCommentDTO>) template.query(sql,
 				new BeanPropertyRowMapper<FreeBoarderCommentDTO>(FreeBoarderCommentDTO.class));
 	}

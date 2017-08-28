@@ -14,7 +14,9 @@ import catriend.command.CatBoarderListCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.CatsViewCommand;
+import catriend.command.FreeBoarderCommentListCommand;
 import catriend.command.FreeBoarderListCommand;
+import catriend.command.FreeBoarderViewCommand;
 import catriend.command.LoginCommand;
 import catriend.command.LogoutCommand;
 import catriend.command.QnAListCommand;
@@ -57,17 +59,36 @@ public class CatriendController {
 
 	@RequestMapping("/boardWrite")
 	public String boardWrite(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
 		return "boardWrite";
 	}
 
-	@RequestMapping("/boardList")
-	public String boardList(Model model, HttpServletRequest req) {
-		return "boardList";
+	@RequestMapping("/freeBoardList")
+	public String freeBoardList(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new FreeBoarderListCommand();
+		command.execute(model);
+		return "freeBoardList";
+	}
+	@RequestMapping("/catBoardList")
+	public String catBoardList(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new CatBoarderListCommand();
+		command.execute(model);
+		return "catBoardList";
 	}
 
-	@RequestMapping("/boardView")
-	public String boardView(Model model, HttpServletRequest req) {
-		return "boardView";
+	@RequestMapping("/freeBoardView")
+	public String freeBoardView(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
+		
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+		
+		return "freeBoardView";
 	}
 
 	@RequestMapping("/onlineForm")

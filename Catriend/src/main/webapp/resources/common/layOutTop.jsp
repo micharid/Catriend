@@ -20,7 +20,16 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="mainPage">HOME</a></li>
 				<li><a href="about">ABOUT</a></li>
-				<li><a href="contact">CONTACT</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown">게시판<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+
+
+						<li><a href="freeBoardList ">자유게시판</a></li>
+						<li><a href="catBoardList ">후기게시판</a></li>
+
+
+					</ul>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">고양이들<b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -30,7 +39,9 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 						<li><a href="catlist ">고양이들</a></li>
 
 
-					</ul> <%
+					</ul> 
+				<li><a href="contact">CONTACT</a></li>	
+				<%
 				if(login != null){
 				%>
 				<li><a href="myPage">마이페이지</a></li>
