@@ -21,7 +21,7 @@
 <script>
 focusMethod = function getFocus() {           
 	  document.getElementById("inputname").focus();
-}
+}7
 
 function qnacheck()
 {

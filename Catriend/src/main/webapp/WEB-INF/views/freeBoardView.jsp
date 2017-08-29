@@ -56,6 +56,13 @@ textarea {
 	-webkit-appearance: none;
 }
 </style>
+<script type="text/javascript">
+	function deleteCheck(){
+		if (confirm(" 게시물을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.")) {
+	         location.href = "location.href='freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}';";
+	      }
+	}
+</script>
 
 <body>
 
@@ -130,7 +137,7 @@ textarea {
 									<button class="btn btn-info" type="button"
 										onclick="javascript:location.href='freeBoardUpdate?fb_index=${dto.fb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
 									<button class="btn btn-info" type="button"
-										onclick="location.href='freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
+										onclick="deleteCheck();">삭제하기</button>&nbsp;&nbsp;
 									<%
 										}
 									%>

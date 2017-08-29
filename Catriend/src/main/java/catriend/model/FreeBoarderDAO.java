@@ -60,7 +60,7 @@ public class FreeBoarderDAO {
 	// 자유게시물 변경
 	public int UpdateFreeBoarder(final FreeBoarderDTO dto) {
 
-		String sql = " UPDATE freeboarder " + " SET fb_title = ?, fb_content = ?, fb_file = ?, fb_date = ? "
+		String sql = " UPDATE freeboarder " + " SET fb_title = ?, fb_content = ?, fb_file = ?"
 				+ " WHERE fb_index = ? ";
 
 		return this.template.update(sql, new PreparedStatementSetter() {
@@ -71,8 +71,7 @@ public class FreeBoarderDAO {
 				psmt.setString(1, dto.getFb_title());
 				psmt.setString(2, dto.getFb_content());
 				psmt.setString(3, dto.getFb_file());
-				psmt.setDate(4, dto.getFb_date());
-				psmt.setInt(5, dto.getFb_index());
+				psmt.setInt(4, dto.getFb_index());
 			}
 		});
 	}
