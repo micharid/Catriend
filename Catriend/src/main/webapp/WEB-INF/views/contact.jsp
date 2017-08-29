@@ -21,17 +21,12 @@
 <script>
 focusMethod = function getFocus() {           
 	  document.getElementById("inputname").focus();
-}7
+}
 
 function qnacheck()
 {
 	var f = document.qnaFrm;
-	if(f.inputname.value=="")
-	{
-		alert("이름를 입력하세요.");
-		f.inputname.focus();
-		return false;
-	}
+
 	if(!f.inputsubject.value)
 	{
 		alert("제목을 입력하세요.");
@@ -261,18 +256,14 @@ function qnacheck()
 					<br />
 					운영시간 중에만 답변이 완료되므로 실시간이 아닌점 양해 부탁드립니다.
 				</p>
-				<form role="form" name="qnaFrm" method="post" onsubmit="return qnacheck();">
+				<form role="form" name="qnaFrm" method="post" onsubmit="return qnacheck();" action="qnaAction">
 					<div class="form-group">
-						<label for="inputname">성명</label>
-						<input type="text" class="form-control" id="inputname" name="inputname" />
+						<label for="q_title">문의 제목</label>
+						<input type="text" class="form-control" id="q_title" name="q_title" />
 					</div>
 					<div class="form-group">
-						<label for="inputsubject">제목</label>
-						<input type="text" class="form-control" id="inputsubject" name="inputsubject" />
-					</div>
-					<div class="form-group">
-						<label for="content">내용</label>
-						<textarea class="form-control" id="content" rows="3" name="content"></textarea>
+						<label for="q_content">문의 내용</label>
+						<textarea class="form-control" id="q_content" rows="3" name="q_content"></textarea>
 					</div>
 					<button type="submit" class="btn btn-theme">문의하기</button>
 					<!-- 관리자에게 문의글이 전송됨 -->
