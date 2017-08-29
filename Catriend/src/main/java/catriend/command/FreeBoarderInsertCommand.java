@@ -18,11 +18,16 @@ public class FreeBoarderInsertCommand implements CatCommand {
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
 		FreeBoarderDTO dto = new FreeBoarderDTO();
-
-		dto.setFb_title(req.getParameter("fb_title"));
-		dto.setFb_content(req.getParameter("fb_content"));
-		dto.setFb_file(req.getParameter("fb_file"));
-		dto.setU_id("u_id");
+		String fb_title = req.getParameter("fb_title");
+		String fb_content = req.getParameter("fb_content");
+		String fb_file = req.getParameter("fb_file");
+		String u_id = req.getParameter("u_id");
+		System.out.println(fb_title+","+fb_content+","+fb_file+","+u_id);
+		
+		dto.setFb_title(fb_title);
+		dto.setFb_content(fb_content);
+		dto.setFb_file(fb_file);
+		dto.setU_id(u_id);
 
 		dao.InsertFreeBoarder(dto);
 

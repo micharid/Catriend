@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import catriend.command.CatBoarderListCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
+import catriend.command.FreeBoarderCommentDeleteCommand;
+import catriend.command.FreeBoarderCommentInsertCommand;
 import catriend.command.FreeBoarderCommentListCommand;
 import catriend.command.FreeBoarderCommentReplyCommand;
+import catriend.command.FreeBoarderCommentUpdateCommand;
 import catriend.command.FreeBoarderDeleteCommand;
 import catriend.command.FreeBoarderInsertCommand;
 import catriend.command.FreeBoarderListCommand;
@@ -50,7 +53,15 @@ public class CatriendController {
 	public String about(Model model, HttpServletRequest req) {
 		return "about";
 	}
-
+	
+	@RequestMapping("/catBoardList")
+	public String catBoardList(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		command = new CatBoarderListCommand();
+		command.execute(model);
+		return "catBoardList";
+	}
+	
 	@RequestMapping("/catlist")
 	public String catlist(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
@@ -64,16 +75,22 @@ public class CatriendController {
 		return "catProfile";
 	}
 
-	@RequestMapping("/boardWrite")
-	public String boardWrite(Model model, HttpServletRequest req) {
+	@RequestMapping("/freeBoardWrite")
+	public String freeBoardWrite(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
 
-		return "boardWrite";
+		return "freeBoardWrite";
 	}
 
-	@RequestMapping("/boardWriteAction")
-	public String boardWriteAction(Model model, HttpServletRequest req) {
+	@RequestMapping("/freeBoardWriteAction")
+	public String freeBoardWriteAction(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
+		String fb_title = req.getParameter("fb_title");
+		String fb_content = req.getParameter("fb_content");
+		String fb_file = req.getParameter("fb_file");
+		String u_id = req.getParameter("u_id");
+		System.out.println(fb_title+","+fb_content+","+fb_file+","+u_id);
+		
 		command = new FreeBoarderInsertCommand();
 		command.execute(model);
 		command = new FreeBoarderListCommand();
@@ -82,22 +99,15 @@ public class CatriendController {
 		return "freeBoardList";
 	}
 
-	@RequestMapping("/catBoardList")
-	public String catBoardList(Model model, HttpServletRequest req) {
-		model.addAttribute("req", req);
-		command = new CatBoarderListCommand();
-		command.execute(model);
-		return "catBoardList";
-	}
-
 	@RequestMapping("/freeBoardList")
 	public String freeBoardList(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
 		command = new FreeBoarderListCommand();
 		command.execute(model);
+
 		return "freeBoardList";
 	}
-
+	
 	@RequestMapping("/freeBoardView")
 	public String freeBoardView(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
@@ -110,33 +120,6 @@ public class CatriendController {
 		command.execute(model);
 
 		return "freeBoardView";
-	}
-	
-	@RequestMapping("/freeBoardUpdate")
-	public String freeBoardUpadate(Model model, HttpServletRequest req) {
-		model.addAttribute("req", req);
-		FreeBoarderDAO dao = new FreeBoarderDAO();
-		FreeBoarderDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("fb_index")));
-		model.addAttribute("dto", dto);
-		
-		return "freeBoardUpdate";
-	}
-	@RequestMapping("/boardUpdateAction")
-	public String boardUpdateAction(Model model, HttpServletRequest req) {
-		model.addAttribute("req", req);
-		System.out.println("컨트롤 fb_title : " + req.getParameter("fb_title"));
-		command = new FreeBoarderUpdateCommand();
-		command.execute(model);
-		return "redirect:/freeBoardList";
-	}
-	
-	@RequestMapping("/freeBoardDelete")
-	public String freeBoardDelete(Model model, HttpServletRequest req) {
-		model.addAttribute("req", req);
-		command = new FreeBoarderDeleteCommand();
-		command.execute(model);
-
-		return "redirect:/freeBoardList";
 	}
 
 	@RequestMapping("/onlineForm")
@@ -180,11 +163,6 @@ public class CatriendController {
 		return "processing/catlistAction";
 	}
 
-	@RequestMapping("/membermyPage")
-	public String membermyPage(Model model, HttpServletRequest req) {
-		return "membermyPage";
-	}
-
 	@RequestMapping("/myPageindex")
 	public String myPageindex(Model model, HttpServletRequest req) {
 		return "myPageindex";
@@ -220,14 +198,41 @@ public class CatriendController {
 		return "loginPage";
 	}
 
+	@RequestMapping("/freeBoardUpdate")
+	public String freeBoardUpadate(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		FreeBoarderDAO dao = new FreeBoarderDAO();
+		FreeBoarderDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("fb_index")));
+		model.addAttribute("dto", dto);
+
+		return "freeBoardUpdate";
+	}
+
+	@RequestMapping("/boardUpdateAction")
+	public String boardUpdateAction(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		System.out.println("컨트롤 fb_title : " + req.getParameter("fb_title"));
+		command = new FreeBoarderUpdateCommand();
+		command.execute(model);
+		return "redirect:/freeBoardList";
+	}
+
+	@RequestMapping("/freeBoardDelete")
+	public String freeBoardDelete(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		command = new FreeBoarderDeleteCommand();
+		command.execute(model);
+
+		return "redirect:/freeBoardList";
+	}
+
 	@RequestMapping("/loginAction")
 	public String loginAction(Model model, HttpServletRequest req, HttpSession session) {
 		command = new LoginCommand();
 		model.addAttribute("req", req);
 		command.execute(model);
 		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser") != null
-				? (UsersDTO) session.getAttribute("loginUser")
-				: null;
+				? (UsersDTO) session.getAttribute("loginUser") : null;
 		if (dto != null) {
 			return "redirect:mainPage";
 		} else {
@@ -282,7 +287,7 @@ public class CatriendController {
 		return "redirect:mainPage";
 	}
 
-	@RequestMapping("/freeBoarderCommentWrite")
+	@RequestMapping("/freeBoarderCommentReply")
 	public String freeBoarderCommentWrite(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
@@ -292,11 +297,11 @@ public class CatriendController {
 
 		command = new FreeBoarderCommentListCommand();
 		command.execute(model);
-		return "freeBoarderCommentWrite";
+		return "freeBoarderCommentReply";
 	}
 
-	@RequestMapping("/freeBoarderCommentWriteAction")
-	public String freeBoarderCommentWriteAction(Model model, HttpServletRequest req) {
+	@RequestMapping("/freeBoarderCommentReplyAction")
+	public String freeBoarderCommentReplyAction(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
 		model.addAttribute("fbc_index", req.getParameter("fbc_index"));
@@ -315,4 +320,79 @@ public class CatriendController {
 		return "freeBoardView";
 	}
 
+	@RequestMapping("/freeBoarderCommentWriteAction")
+	public String freeBoarderCommentWriteAction(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("fbc_content", req.getParameter("fbc_content"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+
+		command = new FreeBoarderCommentInsertCommand();
+		command.execute(model);
+
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
+
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+
+		return "freeBoardView";
+	}
+
+	@RequestMapping("/freeBoarderCommentDelete")
+	public String freeBoarderCommentDelete(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+
+		command = new FreeBoarderCommentDeleteCommand();
+		command.execute(model);
+
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
+
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+
+		return "freeBoardView";
+	}
+
+	@RequestMapping("/freeBoarderCommentUpdate")
+	public String freeBoarderCommentUpdate(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+		model.addAttribute("fbc_index", req.getParameter("fbc_index"));
+
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
+
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+
+		return "freeBoarderCommentUpdate";
+	}
+
+	@RequestMapping("/freeBoarderCommentUpdateAction")
+	public String freeBoarderCommentUpdateAction(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("fbc_content", req.getParameter("fbc_content"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+
+		command = new FreeBoarderCommentUpdateCommand();
+		command.execute(model);
+
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
+
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+
+		return "freeBoardView";
+	}
 }

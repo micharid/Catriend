@@ -33,16 +33,17 @@ public class FreeBoarderCommentDAO {
 
 		String sql = "INSERT INTO "
 				+ " freeboardercomment (fbc_index, fbc_content, fbc_date, fbc_group, fbc_step, fbc_depth, u_id, fb_index) "
-				+ " VALUES (freeboardercomment_seq.nextval, ?, sysdate, ?, 0, 0, ?, ?)";
+				+ " VALUES (freeboardercomment_seq.nextval, ?, sysdate, freeboardercomment_seq.currval, 0, 0, ?, ?)";
 
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
-				psmt.setInt(1, dto.getFbc_group());
-				psmt.setString(2, dto.getFbc_content());
-				psmt.setString(3, dto.getU_id());
-				psmt.setInt(4, dto.getFb_index());
+				psmt.setString(1, dto.getFbc_content());
+				System.out.println(dto.getU_id());
+				psmt.setString(2, dto.getU_id());
+				System.out.println(dto.getU_id());
+				psmt.setInt(3, dto.getFb_index());
 			}
 		});
 
@@ -87,7 +88,7 @@ public class FreeBoarderCommentDAO {
 	// 삭제
 	public int DeleteFreeBoarderComment(int fbc_index) {
 
-		String sql = " DELETE FROM freeboardercomment WHERE fbc_index=" + fbc_index;
+		String sql = " DELETE FROM freeboardercomment WHERE fbc_index=" + fbc_index +" OR fbc_group= "+fbc_index;
 
 		return this.template.update(sql);
 	}
@@ -95,16 +96,14 @@ public class FreeBoarderCommentDAO {
 	// 정보변경
 	public int UpdateFreeBoarderComment(final FreeBoarderCommentDTO dto) {
 
-		String sql = " UPDATE freeboardercomment SET fbc_content = ?, fbc_date = ? WHERE fbc_index = ? ";
+		String sql = " UPDATE freeboardercomment SET fbc_content = ?, fbc_date = sysdate WHERE fbc_index = ? ";
 
 		return this.template.update(sql, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
 				psmt.setString(1, dto.getFbc_content());
-				psmt.setDate(2, dto.getFbc_date());
-				psmt.setInt(3, dto.getFbc_index());
-
+				psmt.setInt(2, dto.getFbc_index());
 			}
 		});
 	}
@@ -119,7 +118,7 @@ public class FreeBoarderCommentDAO {
 	// 전체정보
 	public List<FreeBoarderCommentDTO> selectAll(Map<String, Object> map) {
 		int fb_index = Integer.parseInt(map.get("fb_index").toString());
-		String sql = " SELECT * FROM freeboardercomment "+ " WHERE fbc_group = " + fb_index + " ORDER BY fbc_group DESC, fbc_step ASC ";
+		String sql = " SELECT * FROM freeboardercomment "+ " WHERE fb_index = " + fb_index + " ORDER BY fbc_group DESC, fbc_step ASC ";
 		return (List<FreeBoarderCommentDTO>) template.query(sql,
 				new BeanPropertyRowMapper<FreeBoarderCommentDTO>(FreeBoarderCommentDTO.class));
 	}

@@ -21,14 +21,10 @@ public class FreeBoarderCommentListCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
-		// 전체 레코드수를 카운드
-		int totalRecordCount = dao.getTotalFreeBoarderCommentCount();
 
 		// DAO에서 list메소드로 목록가져오기
 		List<FreeBoarderCommentDTO> listRows = dao.selectAll(paramMap);
 
-		model.addAttribute("totalRecordCount", totalRecordCount);
 		// 리스트 레코드를 저장
 		model.addAttribute("FreeBoarderCommentLists", listRows);
 

@@ -21,6 +21,27 @@
 <link href="./resources/assets/css/style.css" rel="stylesheet">
 <link href="./resources/assets/css/font-awesome.min.css"
 	rel="stylesheet">
+<script>
+	function checkUpdateFrm() {
+		var fr = document.updateCommentFrm;
+		if (f.fbc_comment.value == "") {
+			alert("내용을 입력하세요");
+			f.fbc_comment.focus();
+			return false;
+		}
+		return true;
+	}
+
+	function checkInsertFrm() {
+		var fi = document.insertCommentFrm;
+		if (f.fbc_comment.value == "") {
+			alert("내용을 입력하세요");
+			f.fbc_comment.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
 </head>
 
 <style>
@@ -56,13 +77,6 @@ textarea {
 	-webkit-appearance: none;
 }
 </style>
-<script type="text/javascript">
-	function deleteCheck() {
-		if (confirm(" 게시물을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.")) {
-			location.href = "freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}";
-		}
-	}
-</script>
 
 <body>
 
@@ -136,9 +150,10 @@ textarea {
 								<button class="btn btn-info" type="button"
 									onclick="javascript:location.href='freeBoardUpdate?fb_index=${dto.fb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
 								<button class="btn btn-info" type="button"
-									onclick="deleteCheck();">삭제하기</button>&nbsp;&nbsp; <%
- 	}
- %>
+									onclick="location.href='freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
+								<%
+									}
+								%>
 								<button class="btn btn-info" type="button"
 									onclick="location.href='freeBoardList?nowPage=${nowPage}';">리스트보기</button>
 							</td>
@@ -148,61 +163,86 @@ textarea {
 					<div class="panel-footer">
 						<form name="insertCommentFrm"
 							action="freeBoarderCommentWriteAction"
-							onsubmit="return checkInsertFrm();" method="post">
+							onsubmit="return checkInsertFrm();">
 							<input type="hidden" name="nowPage" value="${nowPage}" /> <input
 								type="hidden" name="fb_index" value="${fb_index}" /> <input
 								type="hidden" name="u_id" value="${loginUser.u_id}" />
+							<p>
+								<textarea id="textAreaComment" cols="30" rows="5"
+									name="fbc_content" placeholder="댓글을 입력해 주세요"></textarea>
+							</p>
 							<table width="100%">
 								<tr>
-									<td width="90%"><textarea id="textAreaComment" cols="30"
-											rows="5" name="fbc_content"></textarea></td>
-									<td width="10%">&nbsp;&nbsp;&nbsp;&nbsp;
+									<td align="right">
 										<button type="submit" class="btn btn-info">댓글등록</button>
 									</td>
 								</tr>
 							</table>
 						</form>
-						<c:if test="${not empty FreeBoarderCommentLists}">
-							<table class="table">
+						<table class="table">
+							<tr>
+								<th width="60%">내용</th>
+								<th width="10%">닉네임</th>
+								<th width="10%">작성일</th>
+								<c:if test="${not empty loginUser}">
+									<th width="25%"></th>
+								</c:if>
+							</tr>
+							<!-- 댓글 반복 부분  s-->
+							<c:forEach items="${FreeBoarderCommentLists}" var="row">
 								<tr>
-									<th width="60%">내용</th>
-									<th width="10%">닉네임</th>
-									<th width="10%">작성일</th>
-									<c:if test="${not empty loginUser}">
-										<th width="25%"></th>
-									</c:if>
-								</tr>
-								<!-- 댓글 반복 부분  s-->
-								<c:forEach items="${FreeBoarderCommentLists}" var="row">
-									<tr>
-										<td><c:if test="${row.fbc_depth gt 0}">
-												<c:forEach begin="0" end="${row.fbc_depth-1}" var="i"
-													step="1">
+									<c:choose>
+										<c:when test="${fbc_index == row.fbc_index}">
+											<form action="freeBoarderCommentUpdateAction"
+												name="updateCommentFrm" onsubmit="return checkUpdateFrm();"
+												method="post">
+												<tr>
+													<td colspan="3"><input type="hidden" name="nowPage"
+														value="${nowPage}" /> <input type="hidden"
+														name="fbc_index" value="${fbc_index}" /> <input
+														type="hidden" name="fb_index" value="${fb_index}" /> <input
+														type="hidden" name="u_id" value="${loginUser.u_id}" /> <input
+														type="hidden" name="fbc_index" value="${row.fbc_index}" />
+														<textarea id="textAreaComment" cols="30" rows="5"
+															name="fbc_content">${row.fbc_content}</textarea></td>
+													<td align="center"><button type="submit"
+															class="btn btn-info">수정</button></td>
+												</tr>
+											</form>
+										</c:when>
+										<c:otherwise>
+											<td><c:if test="${row.fbc_depth gt 0}">
+													<c:forEach begin="0" end="${row.fbc_depth-1}" var="i"
+														step="1">
 													&nbsp;&nbsp;&nbsp;&nbsp;<span
-														class='glyphicon glyphicon-chevron-right'></span>&nbsp;&nbsp;&nbsp;&nbsp;
+															class='glyphicon glyphicon-chevron-right'></span>&nbsp;&nbsp;&nbsp;&nbsp;
 												</c:forEach>
-											</c:if> ${row.fbc_content}</td>
-										<td>${row.u_id}</td>
-										<td>${row.fbc_date}</td>
-										<c:if test="${not empty loginUser}">
-											<td align="center"><c:if
-													test="${loginUser.u_id eq row.u_id}">
+												</c:if>${row.fbc_content}</td>
+											<td>${row.u_id}</td>
+											<td>${row.fbc_date}</td>
+											<c:if test="${not empty loginUser}">
+												<td align="center"><c:if
+														test="${loginUser.u_id eq row.u_id}">
+														<button type="button" class="btn btn-info"
+															onclick="location.href='freeBoarderCommentUpdate?fbc_index=${row.fbc_index}&fb_index=${dto.fb_index}&nowPage=${nowPage}';">수정</button>
+														<button type="button" class="btn btn-info"
+															onclick="location.href='freeBoarderCommentDelete?fbc_index=${row.fbc_index}&fb_index=${dto.fb_index}&nowPage=${nowPage}';">삭제</button>
+													</c:if>
 													<button type="button" class="btn btn-info"
-														onclick="location.href='freeBoarderCommentUpdate?fbc_index=${row.fbc_index}&fb_index=${dto.fb_index}&nowPage=${nowPage}';">수정</button>
-													<button type="button" class="btn btn-info"
-														onclick="location.href='freeBoarderCommentDelete?fbc_index=${row.fbc_index}&fb_index=${dto.fb_index}&nowPage=${nowPage}';">삭제</button>
-												</c:if>
-												<button type="button" class="btn btn-info"
-													onclick="location.href='freeBoarderCommentReply?fbc_index=${row.fbc_index}&fb_index=${dto.fb_index}&nowPage=${nowPage}';">답글</button></td>
-										</c:if>
-									</tr>
-								</c:forEach>
-								<!-- 댓글 반복 부분  e-->
-							</table>
-						</c:if>
+														onclick="location.href='freeBoarderCommentWrite?${row.fbc_index}&${dto.fb_index}';">답글</button></td>
+											</c:if>
+										</c:otherwise>
+									</c:choose>
+								</tr>
+							</c:forEach>
+							<!-- 댓글 반복 부분  e-->
+						</table>
 					</div>
 				</div>
 			</div>
+			<script>
+				document.updateCommentFrm.fbc_content.focus();
+			</script>
 		</div>
 	</div>
 

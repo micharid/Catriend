@@ -134,22 +134,22 @@ body {
 														<div class="panel-body">
 															<form name="writeFrm" method="post"
 																onsubmit="return checkWriteFrm()"
-																enctype="multipart/form-data" action="boardWriteAction">
+																action="freeBoardWriteAction">
 																<input type="hidden" value="${loginUser.u_id}"
 																	name="u_id">
 																<div class="form-group">
 																	<label>제목</label> <input class="form-control"
-																		name="title" type="text" name="fb_name" />
+																		type="text" name="fb_title" />
 
 																</div>
 																<div class="form-group">
 																	<label>첨부파일</label> <input type="file"
-																		name="attachedfile" style="width: 90%;" name="fb_file" />
+																		style="width: 90%;" name="fb_file" />
 
 																</div>
 																<div class="form-group">
 																	<label>내용</label>
-																	<textarea name="content" class="form-control" rows="3"
+																	<textarea class="form-control" rows="3"
 																		name="fb_content"></textarea>
 																</div>
 

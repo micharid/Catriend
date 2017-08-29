@@ -131,7 +131,7 @@ body {
 												<table width="100%">
 													<tr>
 														<td align="right">
-															<button type="button" class="btn btn-info" onclick="">
+															<button type="button" class="btn btn-info" onclick="location.href='freeBoardWrite'">
 																글쓰기</button>
 														</td>
 													</tr>

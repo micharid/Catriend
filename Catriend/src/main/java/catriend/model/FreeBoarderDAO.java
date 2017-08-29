@@ -36,7 +36,7 @@ public class FreeBoarderDAO {
 	public int InsertFreeBoarder(final FreeBoarderDTO dto) {
 
 		String sql = "INSERT INTO " + " freeboarder(fb_index, fb_title, fb_content, fb_file, fb_date, fb_likecount, u_id) "
-				+ " VALUES (freeboarder_seq.nextval, ?, ?, ?, sysdate, 0, ?)";
+				+ " VALUES (FREEBOADER_SEQ.nextval, ?, ?, ?, sysdate, 0, ?)";
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
