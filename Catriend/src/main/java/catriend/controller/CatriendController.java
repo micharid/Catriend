@@ -69,6 +69,16 @@ public class CatriendController {
 		command.execute(model);
 		return "catlist";
 	}
+	@RequestMapping("/mycatlist")
+	public String mycatlist(Model model, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		UsersDTO dto = (UsersDTO)session.getAttribute("loginUser");
+		model.addAttribute("u_grade", dto.getU_grade());
+		model.addAttribute("req", req);
+		command = new CatsListCommand();
+		command.execute(model);
+		return "mycatlist";
+	}
 
 	@RequestMapping("/catProfile")
 	public String catProfile(Model model, HttpServletRequest req) {

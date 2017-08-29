@@ -5,30 +5,14 @@
 <%
 	List<CatsDTO> listRows = (List<CatsDTO>) request.getAttribute("listRows");
 %>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
-
-<title>Cat`riend</title>
-
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="./resources/assets/css/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<!-- Bootstrap core CSS -->
-<link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="./resources/assets/css/style.css" rel="stylesheet">
-<link href="./resources/assets/css/font-awesome.min.css"
-	rel="stylesheet">
+<title>KapukAlas - Multipurpose template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
+<link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

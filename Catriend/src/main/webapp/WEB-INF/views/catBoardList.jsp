@@ -2,24 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="utf-8">
+<html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
-
-<title>SOLID - Bootstrap 3 Theme</title>
-
-<!-- Bootstrap core CSS -->
-<link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="./resources/assets/css/style.css" rel="stylesheet">
-<link href="./resources/assets/css/font-awesome.min.css"
-	rel="stylesheet">
+<title>KapukAlas - Multipurpose template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
+<link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
 
 <style>
@@ -173,18 +162,52 @@ body {
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
 
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="./resources/assets/js/bootstrap.min.js"></script>
-	<script src="./resources/assets/js/retina-1.1.0.js"></script>
-	<script src="./resources/assets/js/jquery.hoverdir.js"></script>
-	<script src="./resources/assets/js/jquery.hoverex.min.js"></script>
-	<script src="./resources/assets/js/jquery.prettyPhoto.js"></script>
-	<script src="./resources/assets/js/jquery.isotope.min.js"></script>
-	<script src="./resources/assets/js/custom.js"></script>
+	<script src="./resources/KapukAlas/js/jquery.js"></script>
+	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
+	<script>
+      $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+
+      $(function() {
+  //navbar affix
+  $('#nav').affix({
+    offset: {
+      top: $('header').height()
+    }
+  });
+});
+
+      $('#nav .navbar-nav li>a').click(function(){
+  var link = $(this).attr('href');
+  var posi = $(link).offset().top+20;
+  $('body,html').animate({scrollTop:posi},700);
+})
+
+
+      $( document ).ready(function() {
+    $("[rel='tooltip']").tooltip();    
+ 
+    $('.thumbnail').hover(
+        function(){
+            $(this).find('.caption').fadeIn(250);
+        },
+        function(){
+            $(this).find('.caption').fadeOut(205);
+        }
+    ); 
+});
+    </script>
 </body>
 </html>
-

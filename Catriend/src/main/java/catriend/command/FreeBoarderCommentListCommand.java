@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 
 import catriend.model.FreeBoarderCommentDAO;
 import catriend.model.FreeBoarderCommentDTO;
-import catriend.model.PagingUtil;
 
 public class FreeBoarderCommentListCommand implements CatCommand {
 	@Override

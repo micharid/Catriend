@@ -1,99 +1,89 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="utf-8">
+<html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
-
-<title>SOLID - Bootstrap 3 Theme</title>
-
-<!-- Bootstrap core CSS -->
-<link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="./resources/assets/css/style.css" rel="stylesheet">
-<link href="./resources/assets/css/font-awesome.min.css" rel="stylesheet">
-
-
-<style>
-.header ul {
-	list-style: none;
-}
-
-.header {
-	float: left;
-	width: 100%;
-	padding-right: 20px;
-	padding-left: 25px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-.header ul {
-	list-style: none;
-}
-
-.header ul li {
-	color: #808080;
-	padding-bottom: 3px;
-	font-size: 20px;
-	color: white;
-	display: inline-block;
-	padding-right: 10px;
-}
-</style>
-
-</style>
-
+<title>KapukAlas - Multipurpose template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
+<link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
+</head>
+<style>
+#blue {
+	background: #428BCA;
+	margin-bottom: 20px;
+}
+
+h2, h3, h4, h5, h6 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+}
+
+.col-lg-6 {
+	margin-top: 30px;
+}
+
+.ctitle {
+	color: #00b3fe;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+</style>
 
 <body>
-
-	<!-- Fixed navbar -->
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
-	<div id="blue">
-		<div class="container">
-
-			<div class="row">
-				<center>
-					<h3>About</h3>
-				</center>
-			</div>
-			<!-- /row -->
-
-
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /blue -->
-
-
-	<!-- *****************************************************************************************************************
-	 AGENCY ABOUT
-	 ***************************************************************************************************************** -->
 	<section id="about">
 		<div class="container mtb">
 			<div class="row">
+				<div class="col-md-3">
+					<span class="glyphicon glyphicon-send"></span> <br>
+					<h3>Awesome Feature</h3>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
+					consequat dolor vehicula.
+				</div>
+				<div class="col-md-3">
+					<span class="glyphicon glyphicon-heart"></span> <br>
+					<h3>Build with love</h3>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
+					consequat dolor vehicula.
+				</div>
+				<div class="col-md-3">
+					<span class="glyphicon glyphicon-phone"></span> <br>
+					<h3>Responsive Layout</h3>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
+					consequat dolor vehicula.
+				</div>
+				<div class="col-md-3">
+					<span class="glyphicon glyphicon-tint"></span> <br>
+					<h3>Customizeable</h3>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
+					consequat dolor vehicula.
+				</div>
+			</div>
+
+
+			<div class="row">
+
 				<center>
-					<h3 class="mb">More About Our Agency</h3>
+					<h3 class="mb" id="blue" style="color: #fff; padding: 10px;">More
+						About Our Agency</h3>
 				</center>
 				<div class="col-lg-6">
-					<img class="img-responsive" src="./resources/assets/img/OfficeCat.jpg" alt=""
+					<img class="img-responsive"
+						src="./resources/assets/img/OfficeCat.jpg" alt=""
 						style="width: 100%; height: 100%;">
 				</div>
 
-				<div class="col-lg-6">
+				<div class="col-lg-6 text" style="margin-top: 70px;">
 
 					<p>이곳은 고양이와 사람들이 친구가 될 수 있도록 기회를 제공해주는 곳입니다.</p>
 					<p>이곳에서는 고양이를 빌려주는 일을 하고 있습니다.일상생활의 스트레스와 외로움을 고양이로 잊어보는게 어떠세요?</p>
@@ -112,7 +102,7 @@
 
 
 					<p>
-						<a href="contact.jsp" class="btn btn-theme">Contact Us</a>
+						<a href="contact" class="btn btn-info">Contact Us</a>
 					</p>
 				</div>
 			</div>
@@ -127,21 +117,17 @@
 	<section id="contact">
 		<div class="container mtb">
 			<div class="row centered">
-				<h3 class="mb">OUR TEAM</h3>
+				<center>
+					<h3 class="mb" id="blue"
+						style="margin-bottom: 20px; color: #fff; padding: 10px;">OUR
+						TEAM</h3>
+				</center>
 
 				<div class="col-lg-3 col-md-3 col-sm-3">
 					<div class="he-wrap tpl6">
 						<img src="./resources/assets/img/teams/team1.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">Contact Me:</h3>
-								<a href="#" class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-envelope"></i></a> <a href="#" class="dmbutton a2"
-									data-animate="fadeInUp"><i class="fa fa-twitter"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
-						<!-- he view -->
+
+
 					</div>
 					<!-- he wrap -->
 					<h4>Kim ByungHoon</h4>
@@ -155,15 +141,7 @@
 				<div class="col-lg-3 col-md-3 col-sm-3">
 					<div class="he-wrap tpl6">
 						<img src="./resources/assets/img/teams/team2.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">Contact Me:</h3>
-								<a href="#" class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-envelope"></i></a> <a href="#" class="dmbutton a2"
-									data-animate="fadeInUp"><i class="fa fa-twitter"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
+
 						<!-- he view -->
 					</div>
 					<!-- he wrap -->
@@ -178,15 +156,7 @@
 				<div class="col-lg-3 col-md-3 col-sm-3">
 					<div class="he-wrap tpl6">
 						<img src="./resources/assets/img/teams/team3.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">Contact Me:</h3>
-								<a href="#" class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-envelope"></i></a> <a href="#" class="dmbutton a2"
-									data-animate="fadeInUp"><i class="fa fa-twitter"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
+
 						<!-- he view -->
 					</div>
 					<!-- he wrap -->
@@ -201,15 +171,7 @@
 				<div class="col-lg-3 col-md-3 col-sm-3">
 					<div class="he-wrap tpl6">
 						<img src="./resources/assets/img/teams/team4.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<h3 class="a1" data-animate="fadeInDown">Contact Me:</h3>
-								<a href="#" class="dmbutton a2" data-animate="fadeInUp"><i
-									class="fa fa-envelope"></i></a> <a href="#" class="dmbutton a2"
-									data-animate="fadeInUp"><i class="fa fa-twitter"></i></a>
-							</div>
-							<!-- he bg -->
-						</div>
+
 						<!-- he view -->
 					</div>
 					<!-- he wrap -->
@@ -226,54 +188,57 @@
 		</div>
 		<! --/container -->
 	</section>
-	<!-- *****************************************************************************************************************
-	 TESTIMONIALS
-	 ***************************************************************************************************************** -->
-	<div id="twrap">
-		<div class="container centered">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<i class="fa fa-comment-o"></i>
-					<p>Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry. Lorem Ipsum has been the industry's standard
-						dummy text ever since the 1500s, when an unknown printer took a
-						galley of type and scrambled it to make a type specimen book. It
-						has survived not only five centuries, but also the leap into
-						electronic typesetting, remaining essentially unchanged.</p>
-					<h4>
-						<br />Marcel Newman
-					</h4>
-					<p>WEB DESIGNER - BLACKTIE.CO</p>
-				</div>
-			</div>
-			<! --/row -->
-		</div>
-		<! --/container -->
-	</div>
-	<! --/twrap -->
 
-
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
 
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="./resources/assets/js/bootstrap.min.js"></script>
-	<script src="./resources/assets/js/retina-1.1.0.js"></script>
-	<script src="./resources/assets/js/jquery.hoverdir.js"></script>
-	<script src="./resources/assets/js/jquery.hoverex.min.js"></script>
-	<script src="./resources/assets/js/jquery.prettyPhoto.js"></script>
-	<script src="./resources/assets/js/jquery.isotope.min.js"></script>
-	<script src="./resources/assets/js/custom.js"></script>
+	<script src="./resources/KapukAlas/js/jquery.js"></script>
+	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
+	<script>
+      $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+
+      $(function() {
+  //navbar affix
+  $('#nav').affix({
+    offset: {
+      top: $('header').height()
+    }
+  });
+});
+
+      $('#nav .navbar-nav li>a').click(function(){
+  var link = $(this).attr('href');
+  var posi = $(link).offset().top+20;
+  $('body,html').animate({scrollTop:posi},700);
+})
 
 
+      $( document ).ready(function() {
+    $("[rel='tooltip']").tooltip();    
+ 
+    $('.thumbnail').hover(
+        function(){
+            $(this).find('.caption').fadeIn(250);
+        },
+        function(){
+            $(this).find('.caption').fadeOut(205);
+        }
+    ); 
+});
+    </script>
 </body>
 </html>

@@ -89,14 +89,15 @@ public class CatsDAO {
 
 	// 전체리스트
 	public List<CatsDTO> selectAll(Map<String, Object> map) {
-		int start = Integer.parseInt(map.get("start").toString());
-		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM cats ";
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ORDER BY c_type asc) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		sql += " ORDER BY c_type asc) Tb " + ") ";
+		if(map.get("u_grade") != null){
+		sql += "WHERE c_grade <= "+ Integer.parseInt(map.get("u_grade").toString());
+		}
 		return (List<CatsDTO>) template.query(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
 	}
 	
