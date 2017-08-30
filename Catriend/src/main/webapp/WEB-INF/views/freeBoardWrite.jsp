@@ -1,24 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="utf-8">
+<html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
-
-<title>SOLID - Bootstrap 3 Theme</title>
-
-<!-- Bootstrap core CSS -->
-<link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="./resources/assets/css/style.css" rel="stylesheet">
-<link href="./resources/assets/css/font-awesome.min.css"
-	rel="stylesheet">
+<title>KapukAlas - Multipurpose template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
+<link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
 <script>
 	function checkWriteFrm(){
@@ -36,11 +26,6 @@
 		
 	}
 </script>
-<style>
-body {
-	background: #ffc35b;
-}
-</style>
 
 <body>
 
@@ -113,7 +98,7 @@ body {
 
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">게시판</div>
+						<div class="panel-heading"><h3 style="text-align:center; color:black;">게시판</h3></div>
 						<div class="panel-body">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#free" data-toggle="tab">자유

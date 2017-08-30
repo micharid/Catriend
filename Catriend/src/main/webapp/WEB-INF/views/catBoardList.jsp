@@ -81,7 +81,7 @@
 
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading"><h3 style="text-align:center; color:white;">게시판</h3></div>
+						<div class="panel-heading"><h3 style="text-align:center; color:black;">게시판</h3></div>
 						<div class="panel-body">
 							<ul class="nav nav-tabs">
 								<li class=""><a href="freeBoardList">자유
@@ -118,7 +118,7 @@
 												<div class="row">
 													<c:forEach items="${afterlists}" var="row">
 														<div class="col-lg-3 col-md-6 col-sm-6 animate-box">
-															<a class="fh5co-card" href="#"> <img
+															<a class="fh5co-card" href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}"> <img
 																src="./resources/assets/img/notsign.png"
 																alt="Free HTML5 Bootstrap template"
 																class="img-responsive">

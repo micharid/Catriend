@@ -17,8 +17,6 @@
 	margin-bottom: 20px;
 }
 
-
-
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 500;
@@ -28,9 +26,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 </style>
 
 <body>
-<!-- top s -->
+	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-<!-- top e -->
+	<!-- top e -->
 
 	<section id="about" class="container">
 		<div class="row">
@@ -97,27 +95,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			</div>
 
 		</div>
-
 	</section>
 
-
-
-
-
-
 	<section id="portfolio">
-
 		<div class="container">
-
 			<div class="row">
 				<div id="blue" style="margin-top: 60px;">
-
 					<center>
 						<h3
 							style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">후기
 							게시판</h3>
 					</center>
-
 					<!-- /container -->
 				</div>
 				<div class="col-md-4">
@@ -196,16 +184,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 				</div>
 			</div>
 			<center>
-
-				<a href="catBoardList" class="btn btn-primary btn-lg" role="button">후기 게시판
-					바로가기</a>
+				<a href="catBoardList" class="btn btn-primary btn-lg" role="button">후기
+					게시판 바로가기</a>
 			</center>
 		</div>
 	</section>
 
-	
 
-<!-- bottom s -->
+
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
 	<script src="./resources/KapukAlas/js/jquery.js"></script>

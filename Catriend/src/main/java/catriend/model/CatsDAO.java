@@ -63,7 +63,8 @@ public class CatsDAO {
 
 	// 고양이 정보변경
 	public int UpdateCat(final CatsDTO dto) {
-		String sql = " UPDATE cats " + " SET c_keyword=?, c_health=?, c_grade=?, c_sday=?, c_eday=? c_detail=? c_state=?"
+		String sql = " UPDATE cats "
+				+ " SET c_keyword=?, c_health=?, c_grade=?, c_sday=?, c_eday=? c_detail=? c_state=?"
 				+ " WHERE c_index = ? ";
 		return this.template.update(sql, new PreparedStatementSetter() {
 
@@ -95,31 +96,37 @@ public class CatsDAO {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
 		sql += " ORDER BY c_type asc) Tb " + ") ";
-		if(map.get("u_grade") != null){
-		sql += "WHERE c_grade <= "+ Integer.parseInt(map.get("u_grade").toString());
+		if (map.get("u_grade") != null) {
+			sql += "WHERE c_grade <= " + Integer.parseInt(map.get("u_grade").toString());
 		}
 		return (List<CatsDTO>) template.query(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
 	}
-	
+
 	// 고양이 분류리스트
 	public List<CatsDTO> selectAllKeyword(Map<String, Object> map) {
 		int keyCount;
-		if(map.get("keyCount") != null){
+		if (map.get("keyCount") != null) {
 			keyCount = Integer.parseInt(map.get("keyCount").toString());
-		}
-		else{
+		} else {
 			keyCount = 0;
 		}
 		String sql = "SELECT * FROM cats ";
-		if(keyCount!=0){
+
+		if (keyCount != 0) {
 			sql += " WHERE ";
-			for(int i=0; i<keyCount; i++){
-				if(i==0){
-				sql += "c_keyword like '%"+map.get("str"+i)+"%'";
+			for (int i = 0; i < keyCount; i++) {
+				if (i == 0) {
+					sql += "c_keyword like '%" + map.get("str" + i) + "%' ";
+				} else {
+					sql += " OR c_keyword like '%" + map.get("str" + i) + "%' ";
 				}
-				else{
-				sql += " OR c_keyword like '%"+map.get("str"+i)+"%'";
-				}
+			}
+			if (map.get("u_grade") != null) {
+				sql += " AND c_grade <= " + Integer.parseInt(map.get("u_grade").toString());
+			}
+		} else {
+			if (map.get("u_grade") != null) {
+				sql += " WHERE c_grade <= " + Integer.parseInt(map.get("u_grade").toString());
 			}
 		}
 		sql += " ORDER BY c_type asc";

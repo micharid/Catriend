@@ -13,16 +13,9 @@
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="./resources/js/jquery-3.2.1.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="./resources/js/jquery-3.2.1.js"></script>
 
 <script>
-	$(function() {
-		$("input").checkboxradio();
-	});
 	//에러시 실행할 함수
 	function errFunc() {
 		alert("실패임 ㅜㅠ");
@@ -83,7 +76,7 @@
 	</div>
 	<!-- /blue -->
 
-	
+
 	<!-- *****************************************************************************************************************
 	 PORTFOLIO SECTION
 	 ***************************************************************************************************************** -->
@@ -183,45 +176,48 @@
 			</div>
 		</div>
 	</div>
-<div id="Display">
-	<%
-		if (listRows.size() == 0) {
-	%>
-	<div class="row" align="center">
-		<br /> <img src="./resources/assets/img/notsign.png" alt="Not" /><span
-			style="font-size: 1.3em;">등록된 글이 없습니다.</span> <br />
-	</div>
-	<%
-		} else {
-	%>
-	
-	<section id="portfolio">
-		<div class="container">
-			<div class="row">
+
+	<div id="Display">
+		<%
+			if (listRows.size() == 0) {
+		%>
+		<div class="row" align="center">
+			<br /> <img src="./resources/assets/img/notsign.png" alt="Not" /><span
+				style="font-size: 1.3em;">등록된 글이 없습니다.</span> <br />
+		</div>
+		<%
+			} else {
+		%>
+
+		<section id="portfolio">
+			<div class="container">
+				<div class="row">
 					<%
 						for (CatsDTO dto : listRows) {
 					%>
-				<div class="col-md-4">
-					<a href="catProfile?c_index=<%=dto.getC_index()%>">
-						<div class="thumbnail">
-							<div class="caption"><br /><br />
-										<p id="catname" style="font-size:1.8em;"><%=dto.getC_name()%></p>
-										<p><%=dto.getC_gender()%></p>
-										<p><%=dto.getC_keyword()%></p>
+					<div class="col-md-4">
+						<a href="catProfile?c_index=<%=dto.getC_index()%>">
+							<div class="thumbnail">
+								<div class="caption">
+									<br /> <br />
+									<p id="catname" style="font-size: 1.8em;"><%=dto.getC_name()%></p>
+									<p><%=dto.getC_gender()%></p>
+									<p><%=dto.getC_keyword()%></p>
+								</div>
+								<img
+									src="./resources/assets/img/portfolio/<%=dto.getC_index() % 10 + 1%>.jpg"
+									width="100%" height="100%">
 							</div>
-							<img src="./resources/assets/img/portfolio/<%=dto.getC_index() % 10 + 1%>.jpg" width="100%"
-								height="100%">
-						</div>
-					</a>
-				</div>
-				<%
-					}
+						</a>
+					</div>
+					<%
 						}
-				%>
+						}
+					%>
+				</div>
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
+	</div>
 
 	<!-- *****************************************************************************************************************
 	 FOOTER
@@ -233,49 +229,53 @@
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 	<script>
-      $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+		$(function() {
+			$('a[href*=#]:not([href=#])')
+					.click(
+							function() {
+								if (location.pathname.replace(/^\//, '') == this.pathname
+										.replace(/^\//, '')
+										&& location.hostname == this.hostname) {
+									var target = $(this.hash);
+									target = target.length ? target
+											: $('[name=' + this.hash.slice(1)
+													+ ']');
+									if (target.length) {
+										$('html,body').animate({
+											scrollTop : target.offset().top
+										}, 1000);
+										return false;
+									}
+								}
+							});
+		});
 
-      $(function() {
-  //navbar affix
-  $('#nav').affix({
-    offset: {
-      top: $('header').height()
-    }
-  });
-});
+		$(function() {
+			//navbar affix
+			$('#nav').affix({
+				offset : {
+					top : $('header').height()
+				}
+			});
+		});
 
-      $('#nav .navbar-nav li>a').click(function(){
-  var link = $(this).attr('href');
-  var posi = $(link).offset().top+20;
-  $('body,html').animate({scrollTop:posi},700);
-})
+		$('#nav .navbar-nav li>a').click(function() {
+			var link = $(this).attr('href');
+			var posi = $(link).offset().top + 20;
+			$('body,html').animate({
+				scrollTop : posi
+			}, 700);
+		})
 
+		$(document).ready(function() {
+			$("[rel='tooltip']").tooltip();
 
-      $( document ).ready(function() {
-    $("[rel='tooltip']").tooltip();    
- 
-    $('.thumbnail').hover(
-        function(){
-            $(this).find('.caption').fadeIn(250);
-        },
-        function(){
-            $(this).find('.caption').fadeOut(205);
-        }
-    ); 
-});
-    </script>
+			$('.thumbnail').hover(function() {
+				$(this).find('.caption').fadeIn(250);
+			}, function() {
+				$(this).find('.caption').fadeOut(205);
+			});
+		});
+	</script>
 </body>
 </html>

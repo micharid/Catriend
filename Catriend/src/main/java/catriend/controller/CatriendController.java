@@ -16,7 +16,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import catriend.command.AdminUserListCommand;
+import catriend.command.CatBoarderCommentListCommand;
 import catriend.command.CatBoarderListCommand;
+import catriend.command.CatBoarderViewCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.FreeBoarderCommentDeleteCommand;
@@ -69,6 +71,21 @@ public class CatriendController {
 		command = new CatBoarderListCommand();
 		command.execute(model);
 		return "catBoardList";
+	}
+	
+	@RequestMapping("/catBoardView")
+	public String catBoardView(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
+
+		return "catBoardView";
 	}
 	
 	@RequestMapping("/catlist")
@@ -217,7 +234,12 @@ public class CatriendController {
 		model.addAttribute("msg", req.getParameter("msg"));
 		return "processing/catlistAction";
 	}
-
+	@RequestMapping("/processing/mycatlistAction")
+	public String mycatlistAction(Model model, HttpServletRequest req) {
+		model.addAttribute("msg", req.getParameter("msg"));
+		return "processing/mycatlistAction";
+	}
+	
 	@RequestMapping("/myPageindex")
 	public String myPageindex(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");

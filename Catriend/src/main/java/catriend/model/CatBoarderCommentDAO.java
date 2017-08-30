@@ -70,14 +70,8 @@ public class CatBoarderCommentDAO {
 
 	// 전체정보
 	public List<CatBoarderCommentDTO> selectAll(Map<String, Object> map) {
-		int start = Integer.parseInt(map.get("start").toString());
-		int end = Integer.parseInt(map.get("end").toString());
-		String sql = "";
-		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM CatBoarderComment ";
-		if (map.get("COLUMN") != null) {
-			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
-		}
-		sql += " ORDER BY cbc_index DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		int cb_index = Integer.parseInt(map.get("cb_index").toString());
+		String sql = " SELECT * FROM CatBoarderComment "+ " WHERE cb_index = " + cb_index + " ORDER BY cbc_group DESC, cbc_step ASC ";
 		return (List<CatBoarderCommentDTO>) template.query(sql,
 				new BeanPropertyRowMapper<CatBoarderCommentDTO>(CatBoarderCommentDTO.class));
 	}
