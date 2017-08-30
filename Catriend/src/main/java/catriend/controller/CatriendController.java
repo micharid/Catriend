@@ -227,6 +227,12 @@ public class CatriendController {
 		return "loginPage";
 	}
 	
+	@RequestMapping("/myqnahistory")
+	public String myqnahistory(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
+		return "myqnahistory";
+	}
+	
 	@RequestMapping("/adminPageIndex")
 	public String adminPageIndex(Model model, HttpServletRequest req) {
 		return "adminPageIndex";

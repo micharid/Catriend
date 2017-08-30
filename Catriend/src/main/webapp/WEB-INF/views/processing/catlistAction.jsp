@@ -29,121 +29,50 @@
 	//DAO에서 list메소드로 목록가져오기
 	List<CatsDTO> listRows = dao.selectAllKeyword(paramMap);
 %>
+
 <%
-	if (listRows.size() == 0) {
-%>
+		if (listRows.size() == 0) {
+	%>
 <div class="row" align="center">
-	<br /> <img src="./resources/assets/img/notsign.png" alt="Not" width="100"
-		height="100" /><span style="font-size: 1.3em;">찾는 고양이가 없습니다.</span> <br />
+	<br /> <img src="./resources/assets/img/notsign.png" alt="Not" /><span
+		style="font-size: 1.3em;">등록된 글이 없습니다.</span> <br />
 </div>
 <%
-	} else {
-%>
+		} else {
+	%>
 
-<div id="portfoliowrap">
-	<div class="portfolio-centered">
-		<div class="recentitems portfolio">
+<section id="portfolio">
 
+	<div class="container">
+
+		<div class="row">
 			<%
-				for (CatsDTO dto : listRows) {
-			%>
-			<a href="catProfile?c_index=<%=dto.getC_index()%>">
-				<div class="portfolio-item graphic-design">
-					<div class="he-wrap tpl6">
-						<img src="./resources/assets/img/portfolio/<%=dto.getC_index()%10 +1 %>.jpg" alt="">
-						<div class="he-view">
-							<div class="bg a0" data-animate="fadeIn">
-								<p id="catname"><%=dto.getC_name()%></p>
-								<p><%=dto.getC_gender()%></p>
-								<p><%=dto.getC_keyword()%></p>
-							</div>
+						for (CatsDTO dto : listRows) {
+					%>
+			<div class="col-md-4">
+				<a href="catProfile?c_index=<%=dto.getC_index()%>">
+					<div class="thumbnail">
+						<div class="caption">
+							<br />
+							<br />
+							<p id="catname" style="font-size: 1.8em;"><%=dto.getC_name()%></p>
+							<p><%=dto.getC_gender()%></p>
+							<p><%=dto.getC_keyword()%></p>
 						</div>
+						<img
+							src="./resources/assets/img/portfolio/<%=dto.getC_index() % 10 + 1%>.jpg"
+							width="100%" height="100%">
 					</div>
-				</div>
-			</a>
+				</a>
+			</div>
 			<%
-				}
-				}
-			%>
+					}
+						}
+					
+				%>
+
 		</div>
+
 	</div>
-</div>
-<script>
-	(function($) {
-		"use strict";
-		var $container = $('.portfolio'), $items = $container
-				.find('.portfolio-item'), portfolioLayout = 'fitRows';
+</section>
 
-		if ($container.hasClass('portfolio-centered')) {
-			portfolioLayout = 'masonry';
-		}
-
-		$container.isotope({
-			filter : '*',
-			animationEngine : 'best-available',
-			layoutMode : portfolioLayout,
-			animationOptions : {
-				duration : 750,
-				easing : 'linear',
-				queue : false
-			},
-			masonry : {}
-		}, refreshWaypoints());
-
-		function refreshWaypoints() {
-			setTimeout(function() {
-			}, 1000);
-		}
-
-		$('nav.portfolio-filter ul a').on('click', function() {
-			var selector = $(this).attr('data-filter');
-			$container.isotope({
-				filter : selector
-			}, refreshWaypoints());
-			$('nav.portfolio-filter ul a').removeClass('active');
-			$(this).addClass('active');
-			return false;
-		});
-
-		function getColumnNumber() {
-			var winWidth = $(window).width(), columnNumber = 1;
-
-			if (winWidth > 1200) {
-				columnNumber = 5;
-			} else if (winWidth > 950) {
-				columnNumber = 4;
-			} else if (winWidth > 600) {
-				columnNumber = 3;
-			} else if (winWidth > 400) {
-				columnNumber = 2;
-			} else if (winWidth > 250) {
-				columnNumber = 1;
-			}
-			return columnNumber;
-		}
-
-		function setColumns() {
-			var winWidth = $(window).width(), columnNumber = getColumnNumber(), itemWidth = Math
-					.floor(winWidth / columnNumber);
-
-			$container.find('.portfolio-item').each(function() {
-				$(this).css({
-					width : itemWidth + 'px'
-				});
-			});
-		}
-
-		function setPortfolio() {
-			setColumns();
-			$container.isotope('reLayout');
-		}
-
-		$container.imagesLoaded(function() {
-			setPortfolio();
-		});
-
-		$(window).on('resize', function() {
-			setPortfolio();
-		});
-	})(jQuery);
-</script>

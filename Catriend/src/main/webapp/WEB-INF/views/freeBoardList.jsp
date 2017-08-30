@@ -11,11 +11,8 @@
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
 
-<style>
-body {
-	background: #ffc35b;
-}
-</style>
+
+
 
 <body>
 
@@ -88,7 +85,7 @@ body {
 
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">게시판</div>
+						<div class="panel-heading"><h3 style="text-align:center; color:white;">게시판</h3></div>
 						<div class="panel-body">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#free">자유
@@ -139,10 +136,10 @@ body {
 														<!--  게시판 반복 부분 s -->
 														<c:forEach items="${freelists}" var="row">
 															<tr>
-																<td>${totalRecordCount-row.rNum+1}</td>
+																<td>${row.rNum}</td>
 																<td><a href="freeBoardView?fb_index=${row.fb_index}&nowPage=${nowPage}">${row.fb_title}</a></td>
-																<td>${row.u_nickname}</td>
-																<td>${row.fb_hits}</td>
+																<td>${row.u_id}</td>
+																<td>${row.fb_likecount}</td>
 																<td>${row.fb_date}</td>
 															</tr>
 														</c:forEach>

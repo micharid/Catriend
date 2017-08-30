@@ -105,9 +105,7 @@ function qnacheck()
 			<div class="container mtb">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>자주묻는질문(F.A.Q.)</h2>
-						<p>자주 묻는 질문을 모아놓았습니다.</p>
-						<hr class="margin-vert-40">
+											
 						<div class="row">
 							<div class="col-md-8">
 								<div class="panel-group" id="accordion">
@@ -253,50 +251,6 @@ function qnacheck()
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-	<script>
-      $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
 
-      $(function() {
-  //navbar affix
-  $('#nav').affix({
-    offset: {
-      top: $('header').height()
-    }
-  });
-});
-
-      $('#nav .navbar-nav li>a').click(function(){
-  var link = $(this).attr('href');
-  var posi = $(link).offset().top+20;
-  $('body,html').animate({scrollTop:posi},700);
-})
-
-
-      $( document ).ready(function() {
-    $("[rel='tooltip']").tooltip();    
- 
-    $('.thumbnail').hover(
-        function(){
-            $(this).find('.caption').fadeIn(250);
-        },
-        function(){
-            $(this).find('.caption').fadeOut(205);
-        }
-    ); 
-});
-    </script>
 </body>
 </html>

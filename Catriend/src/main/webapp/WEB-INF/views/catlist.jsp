@@ -5,42 +5,19 @@
 <%
 	List<CatsDTO> listRows = (List<CatsDTO>) request.getAttribute("listRows");
 %>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
-
-<title>Cat`riend</title>
-
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="./resources/assets/css/style.css">
+<title>KapukAlas - Multipurpose template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
+<link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
+<script
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="./resources/js/jquery-3.2.1.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<!-- Bootstrap core CSS -->
-<link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="./resources/assets/css/style.css" rel="stylesheet">
-<link href="./resources/assets/css/font-awesome.min.css"
-	rel="stylesheet">
-
-<!-- Just for debugging purposes. Don't actually copy this line! -->
-<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-<script src="./resources/assets/js/modernizr.js"></script>
-
-
 
 <script>
 	$(function() {
@@ -106,22 +83,7 @@
 	</div>
 	<!-- /blue -->
 
-	<!-- *****************************************************************************************************************
-	 TITLE & CONTENT
-	 ***************************************************************************************************************** -->
-
-	<div class="container mtb">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 centered">
-				<h2>We create awesome designs to standout your site or product.
-					Check some of our latest works.</h2>
-				<br>
-				<div class="hline"></div>
-			</div>
-		</div>
-	</div>
-	<!-- /container -->
-
+	
 	<!-- *****************************************************************************************************************
 	 PORTFOLIO SECTION
 	 ***************************************************************************************************************** -->
@@ -221,7 +183,7 @@
 			</div>
 		</div>
 	</div>
-
+<div id="Display">
 	<%
 		if (listRows.size() == 0) {
 	%>
@@ -232,38 +194,34 @@
 	<%
 		} else {
 	%>
-	<div id="Display">
-		<div id="portfoliowrap">
-			<div class="portfolio-centered">
-				<div class="recentitems portfolio">
+	
+	<section id="portfolio">
+		<div class="container">
+			<div class="row">
 					<%
 						for (CatsDTO dto : listRows) {
 					%>
+				<div class="col-md-4">
 					<a href="catProfile?c_index=<%=dto.getC_index()%>">
-						<div class="portfolio-item graphic-design">
-							<div class="he-wrap tpl6">
-								<img
-									src="./resources/assets/img/portfolio/<%=dto.getC_index() % 10 + 1%>.jpg"
-									alt="">
-								<div class="he-view">
-									<div class="bg a0" data-animate="fadeIn">
-										<br /><br />
+						<div class="thumbnail">
+							<div class="caption"><br /><br />
 										<p id="catname" style="font-size:1.8em;"><%=dto.getC_name()%></p>
 										<p><%=dto.getC_gender()%></p>
 										<p><%=dto.getC_keyword()%></p>
-									</div>
-								</div>
 							</div>
+							<img src="./resources/assets/img/portfolio/<%=dto.getC_index() % 10 + 1%>.jpg" width="100%"
+								height="100%">
 						</div>
 					</a>
-					<%
-						}
-						}
-					%>
 				</div>
+				<%
+					}
+						}
+				%>
 			</div>
 		</div>
-	</div>
+	</section>
+</div>
 
 	<!-- *****************************************************************************************************************
 	 FOOTER

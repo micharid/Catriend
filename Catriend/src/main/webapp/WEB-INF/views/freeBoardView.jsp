@@ -31,9 +31,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 </style>
 
 <style>
-body {
-	background: #ffc35b;
-}
 
 .up {
 	width: 78px;
@@ -78,9 +75,7 @@ textarea {
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-	<!-- sectionAd s -->
-	<%@ include file="../../resources/common/sectionAd.jsp"%>
-	<!-- sectionAd e -->
+
 
 	<!-- *****************************************************************************************************************
 	 CONTACT WRAP

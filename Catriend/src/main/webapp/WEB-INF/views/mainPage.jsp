@@ -1,5 +1,7 @@
+<%@page import="catriend.model.UsersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +17,7 @@
 	margin-bottom: 20px;
 }
 
-h3 {
-	
-}
+
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -28,10 +28,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 </style>
 
 <body>
-	
-	<!-- bottom s -->
+<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-	<!-- bottom e -->
+<!-- top e -->
 
 	<section id="about" class="container">
 		<div class="row">
@@ -198,38 +197,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			</div>
 			<center>
 
-				<a href="" class="btn btn-primary btn-lg" role="button">후기 게시판
+				<a href="catBoardList" class="btn btn-primary btn-lg" role="button">후기 게시판
 					바로가기</a>
 			</center>
 		</div>
 	</section>
 
-	<section id="sponsor">
-		<div class="container">
-			<div class="row"></div>
-			<h3>Donec sed sapien</h3>
-			Morbi felis lectus, ultricies nec tellus eu, faucibus eleifend
-			lectus. In molestie augue leo, id imperdiet ante imperdiet at.
-			Quisque ultrices neque sit amet felis tincidunt tristique at sed
-			nisi. Class aptent taciti sociosqu ad litora torquent per conubia
-			nostra, per inceptos himenaeos. Ut suscipit ut massa in ultricies.
-			Nunc nec tincidunt nunc, ut consectetur lorem. Sed non justo nisl.
-			<center>
+	
 
-				<div class="skroler">
-					<a href="#top"><span class="glyphicon glyphicon-chevron-down"></span></a>
-				</div>
-			</center>
-		</div>
-	</section>
-
-	<!-- bottom s -->
+<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
-
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 	<script>
+	
       $(function() {
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {

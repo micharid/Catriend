@@ -10,12 +10,6 @@
 		aptent taciti sociosqu ad litora torquent per conubia nostra, per
 		inceptos himenaeos. Ut suscipit ut massa in ultricies. Nunc nec
 		tincidunt nunc, ut consectetur lorem. Sed non justo nisl.
-		<center>
-
-			<div class="skroler">
-				<a href="#top"><span class="glyphicon glyphicon-chevron-down"></span></a>
-			</div>
-		</center>
 	</div>
 </section>
 <footer>

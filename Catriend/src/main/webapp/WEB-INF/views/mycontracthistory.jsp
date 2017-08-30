@@ -1,35 +1,104 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<title>KapukAlas - Multipurpose template</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
-<link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
-<link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
+  <head>
+    <title>KapukAlas - Multipurpose template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
+    <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
+  </head>
+<style>
+#blue{
+    background: #428BCA;
+    margin-bottom:20px;
+   
+}
+h3{
+   
+    
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+
+
+
+img{
+	width:200px;
+} 
+</style>
+
+
+
+<script>
+   function confirmFunc() {
+      if (confirm(" 탈퇴하시겠습니까? \n\n 탈퇴를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.")) {
+         location.href = "userdeletesuccess";
+      }
+   }
+   
+   function check() {
+      var f = document.userFrm;
+      
+      if(f.u_pw.value != null) {
+         if(f.u_pw.value != f.u_pwCheck.value){
+            alert("비밀번호가 다릅니다");
+            f.u_pwCheck.focus();
+            return false;
+         }
+      }
+      return true;
+   }
+
+
+</script>
+
 </head>
 
 <body>
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
-	<%-- 다시업로드할땐 이렇게	<%@ include file="../../resources/common/layOutTop.jsp"%> --%>
+	<!-- Fixed navbar -->
+<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-	<!-- top e -->
+<!-- bottom e -->
 
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
-	<div id="blue">
-		<div class="container">
-			<div class="row">
-				<center>
-					<h3>내가 계약한 내역</h3>
-				</center>
-			</div>
-		</div>
-	</div>
+
+	
+<section id="about" class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <span class="glyphicon glyphicon-send"></span> <br>
+          <h3>Awesome Feature</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a tincidunt elit. Aliquam porta nibh at enim luctus, auctor consequat dolor vehicula.
+        </div>
+        <div class="col-md-3">
+          <span class="glyphicon glyphicon-heart"></span> <br>
+          <h3>Build with love</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a tincidunt elit. Aliquam porta nibh at enim luctus, auctor consequat dolor vehicula.
+        </div>
+        <div class="col-md-3">
+          <span class="glyphicon glyphicon-phone"></span> <br>
+          <h3>Responsive Layout</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a tincidunt elit. Aliquam porta nibh at enim luctus, auctor consequat dolor vehicula.
+        </div>
+        <div class="col-md-3">
+          <span class="glyphicon glyphicon-tint"></span> <br>
+          <h3>Customizeable</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a tincidunt elit. Aliquam porta nibh at enim luctus, auctor consequat dolor vehicula.
+        </div>
+      </div>
+  </section>
+
+	
 
 
 	<!-- *****************************************************************************************************************
@@ -38,7 +107,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-1"></div>
+		<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="panel panel-default">
 					<div class="panel-heading" style="font-size:1.5em; font-weight:700;">
@@ -144,60 +213,13 @@
 	</div>
 	
 	<br /><br />
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
-	<!-- bottom s -->
+<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
-	<!-- bottom e -->
+<!-- bottom e -->
 
-	<script src="./resources/KapukAlas/js/jquery.js"></script>
-	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-	<script>
-      $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+    <script src="./resources/KapukAlas/js/jquery.js"></script>
+    <script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 
-      $(function() {
-  //navbar affix
-  $('#nav').affix({
-    offset: {
-      top: $('header').height()
-    }
-  });
-});
-
-      $('#nav .navbar-nav li>a').click(function(){
-  var link = $(this).attr('href');
-  var posi = $(link).offset().top+20;
-  $('body,html').animate({scrollTop:posi},700);
-})
-
-
-      $( document ).ready(function() {
-    $("[rel='tooltip']").tooltip();    
- 
-    $('.thumbnail').hover(
-        function(){
-            $(this).find('.caption').fadeIn(250);
-        },
-        function(){
-            $(this).find('.caption').fadeOut(205);
-        }
-    ); 
-});
-    </script>
-</body>
+   
+  </body>
 </html>
