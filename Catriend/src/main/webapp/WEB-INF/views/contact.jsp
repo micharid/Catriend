@@ -33,7 +33,7 @@ h2, h3, h4, h5, h6 {
 
 <script>
 focusMethod = function getFocus() {           
-     document.qnaFrm.q_title.focus();
+     document.getElementById("inputname").focus();
 }
 
 function qnacheck()
@@ -63,36 +63,9 @@ function qnacheck()
 
 	<section id="about">
 		<div class="container mtb">
-			<div class="row">
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-send"></span> <br>
-					<h3>Awesome Feature</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
-					consequat dolor vehicula.
-				</div>
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-heart"></span> <br>
-					<h3>Build with love</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
-					consequat dolor vehicula.
-				</div>
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-phone"></span> <br>
-					<h3>Responsive Layout</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
-					consequat dolor vehicula.
-				</div>
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-tint"></span> <br>
-					<h3>Customizeable</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
-					consequat dolor vehicula.
-				</div>
-			</div>
+<!-- bottom s -->
+	<%@ include file="../../resources/common/sectionAd.jsp"%>
+<!-- bottom e -->
 
 
 
@@ -113,75 +86,55 @@ function qnacheck()
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse1">Collapsible Group 1</a>
+													href="#collapse1">자주묻는 답변1</a>
 											</h4>
 										</div>
 										<div id="collapse1" class="panel-collapse collapse in">
-											<div class="panel-body">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua. Ut enim ad
-												minim veniam, quis nostrud exercitation ullamco laboris nisi
-												ut aliquip ex ea commodo consequat.</div>
+											<div class="panel-body">답변1</div>
 										</div>
 									</div>
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse2">Collapsible Group 2</a>
+													href="#collapse2">자주묻는 답변2</a>
 											</h4>
 										</div>
 										<div id="collapse2" class="panel-collapse collapse">
-											<div class="panel-body">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua. Ut enim ad
-												minim veniam, quis nostrud exercitation ullamco laboris nisi
-												ut aliquip ex ea commodo consequat.</div>
+											<div class="panel-body">답변2</div>
 										</div>
 									</div>
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse3">Collapsible Group 3</a>
+													href="#collapse3">자주묻는 답변3</a>
 											</h4>
 										</div>
 										<div id="collapse3" class="panel-collapse collapse">
-											<div class="panel-body">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua. Ut enim ad
-												minim veniam, quis nostrud exercitation ullamco laboris nisi
-												ut aliquip ex ea commodo consequat.</div>
+											<div class="panel-body">답변3</div>
 										</div>
 									</div>
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse4">Collapsible Group 4</a>
+													href="#collapse4">자주묻는 답변4</a>
 											</h4>
 										</div>
 										<div id="collapse4" class="panel-collapse collapse">
-											<div class="panel-body">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua. Ut enim ad
-												minim veniam, quis nostrud exercitation ullamco laboris nisi
-												ut aliquip ex ea commodo consequat.</div>
+											<div class="panel-body">답변4</div>
 										</div>
 									</div>
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<h4 class="panel-title">
 												<a data-toggle="collapse" data-parent="#accordion"
-													href="#collapse5">Collapsible Group 5</a>
+													href="#collapse5">자주묻는 답변5</a>
 											</h4>
 										</div>
 										<div id="collapse5" class="panel-collapse collapse">
-											<div class="panel-body">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit, sed do eiusmod tempor
-												incididunt ut labore et dolore magna aliqua. Ut enim ad
-												minim veniam, quis nostrud exercitation ullamco laboris nisi
-												ut aliquip ex ea commodo consequat.</div>
+											<div class="panel-body">답변5</div>
 										</div>
 									</div>
 								</div>
@@ -251,6 +204,10 @@ function qnacheck()
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
+	
+<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->
 
 </body>
 </html>

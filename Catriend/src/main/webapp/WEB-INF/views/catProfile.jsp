@@ -10,6 +10,38 @@
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
 
+<style>
+textarea {
+	display: block;
+	width: 100%;
+	height: 42px;
+	padding: 4px 0 0 6px;
+	border: 0;
+	background: white;
+	font-size: 15px;
+	color: #24272B;
+	vertical-align: top;
+	-webkit-appearance: none;
+}
+
+.panel-heading{
+	    padding: 1px;
+}
+
+#blue{
+    background: #428BCA;
+    margin-bottom:20px;
+   
+}
+
+hr {
+    height: 2px;
+    color: #777777;
+    background-color: #777777;
+    border: none;
+}
+</style>
+
 <body>
 
 	<!-- Fixed navbar -->
@@ -20,18 +52,7 @@
 	<!-- *****************************************************************************************************************
 	 BLUE WRAP
 	 ***************************************************************************************************************** -->
-	<div id="blue">
-		<div class="container">
-			<div class="row">
-				<center>
-					<h3>캣 (상세보기)</h3>
-				</center>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /blue -->
+
 
 
 	<!-- *****************************************************************************************************************
@@ -40,6 +61,14 @@
 
 	<div class="container mtb">
 		<div class="row">
+	<div id="blue" style="margin-top:60px;">
+		
+					<center>
+						<h3 style=" font-size: 20px; line-height: 1.428571429; color: #fff; padding:10px;">MY PAGE</h3>
+					</center>
+		
+			<!-- /container -->
+	</div>
 
 			<!-- SINGLE POST -->
 			<div class="col-lg-8" style="margin: 15px 0 0 0;">
@@ -49,69 +78,51 @@
 					<%@ include file="./standard.jsp"%>
 					<!-- top e -->
 				</div>
+				<div class="panel panel-primary">
+				<div class="panel-heading">
+                            <center><h4 style="padding:0px;">한줄 댓글</h4></center>
+                </div>
+					<form action="">
+						<table class="table" style="margin-top:20px;">
+							<tr>
+								<td width="80%"><textarea id="textAreaComment" cols="30"
+										rows="5" title="" placeholder="댓글을 입력해 주세요"
+										style="resize: none;"></textarea></td>
+								<td width="20%"><button style="width: 100%;" type="button"
+										class="btn btn-warning" onclick="">댓글달기</button></td>
+							</tr>
+						</table>
+					</form>
+					<div class="panel-footer">
+						<table class="table table-condensed">
+							<tr algin="center">
+								<th width="20%">작성일자</th>
+								<th width="50%">내용</th>
+								<th width="20%">별점</th>
+								<th width="10%">닉네임</th>
+							</tr>
+							<!-- 반복부분  s -->
+							<tr>
+								<td>2017-08-30</td>
+								<td>너무너무 귀엽네요</td>
+								<td>★★★★☆</td>
+								<td>빵꾸똥꾸</td>
+							</tr>
+							<!-- 반복부분  e -->	
+											
+						</table>
+					
+						
+					</div>
+					
+				</div>
 
 
 
 
 
 
-				<a href="single-post.html"><h3 class="ctitle">Time to
-						change your apps.</h3></a>
-				<p>
-					<csmall>Posted: April 25, 2014.</csmall>
-					|
-					<csmall2>By: Admin - 3 Comments</csmall2>
-				</p>
-				<p>
-					<b>Lorem Ipsum</b> is simply dummy text of the printing and
-					typesetting industry. Lorem Ipsum has been the industry's standard
-					dummy text ever since the 1500s, when an unknown printer took a
-					galley of type and scrambled it to make a type specimen book.
-				</p>
-				<p>It has survived not only five centuries, but also the leap
-					into electronic typesetting, remaining essentially unchanged. It
-					was popularised in the 1960s with the release of Letraset sheets
-					containing Lorem Ipsum passages, and more recently with desktop
-					publishing software like Aldus PageMaker including versions of
-					Lorem Ipsum.</p>
-				<p>
-					Contrary to popular belief, <b>Lorem Ipsum is not simply random
-						text</b>. It has roots in a piece of classical Latin literature from
-					45 BC, making it over 2000 years old. Richard McClintock, a Latin
-					professor at <a href="#">Hampden-Sydney College</a> in Virginia,
-					looked up one of the more obscure Latin words, consectetur, from a
-					Lorem Ipsum passage, and going through the cites of the word in
-					classical literature, discovered the undoubtable source.
-				</p>
-				<p>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de
-					Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by
-					Cicero, written in 45 BC. This book is a treatise on the theory of
-					ethics, very popular during the Renaissance. The first line of
-					Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
-					section 1.10.32.</p>
-				<h4>Why do we use it?</h4>
-				<p>It is a long established fact that a reader will be
-					distracted by the readable content of a page when looking at its
-					layout. The point of using Lorem Ipsum is that it has a
-					more-or-less normal distribution of letters, as opposed to using
-					'Content here, content here', making it look like readable English.</p>
-				<blockquote>Many desktop publishing packages and web
-					page editors now use Lorem Ipsum as their default model text, and a
-					search for 'lorem ipsum' will uncover many web sites still in their
-					infancy. Various versions have evolved over the years, sometimes by
-					accident, sometimes on purpose (injected humour and the like).</blockquote>
-				<p>There are many variations of passages of Lorem Ipsum
-					available, but the majority have suffered alteration in some form,
-					by injected humour, or randomised words which don't look even
-					slightly believable.</p>
-				<div class="spacing"></div>
-				<h6>SHARE:</h6>
-				<p class="share">
-					<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i
-						class="fa fa-facebook"></i></a> <a href="#"><i
-						class="fa fa-tumblr"></i></a> <a href="#"><i
-						class="fa fa-google-plus"></i></a>
-				</p>
+
 
 			</div>
 			<!--/col-lg-8 -->
@@ -130,12 +141,13 @@
 				</h4>
 				<h4>나이(age) : 1년</h4>
 				<h4>건강상태 : 양 호</h4>
-				
+
 				</p>
-				<button class="btn btn-default" style="width:100%;" onclick="location.href='catcontractagreement'">계약하기</button>
+				<button class="btn btn-warning" style="width: 100%;"
+					onclick="location.href='catcontractagreement'">계약하기</button>
 
 				<div class="spacing"></div>
-
+				<hr />
 				<h4>스토리</h4>
 				<div class="hline"></div>
 				<p>
@@ -163,56 +175,20 @@
 						class="badge badge-theme pull-right">12</span>
 				</p>
 
-				<div class="spacing"></div>
 
-				<h4>Recent Posts</h4>
-				<div class="hline"></div>
-				<ul class="popular-posts">
-					<li><a href="#"><img src="./resources/assets/img/thumb01.jpg"
-							alt="Popular Post"></a>
-						<p>
-							<a href="#">Lorem ipsum dolor sit amet consectetur adipiscing
-								elit</a>
-						</p> <em>Posted on 02/21/14</em></li>
-					<li><a href="#"><img src="./resources/assets/img/thumb02.jpg"
-							alt="Popular Post"></a>
-						<p>
-							<a href="#">Lorem ipsum dolor sit amet consectetur adipiscing
-								elit</a>
-						</p> <em>Posted on 03/01/14</em>
-					<li><a href="#"><img src="./resources/assets/img/thumb03.jpg"
-							alt="Popular Post"></a>
-						<p>
-							<a href="#">Lorem ipsum dolor sit amet consectetur adipiscing
-								elit</a>
-						</p> <em>Posted on 05/16/14</em></li>
-					<li><a href="#"><img src="./resources/assets/img/thumb04.jpg"
-							alt="Popular Post"></a>
-						<p>
-							<a href="#">Lorem ipsum dolor sit amet consectetur adipiscing
-								elit</a>
-						</p> <em>Posted on 05/16/14</em></li>
-				</ul>
 
-				<div class="spacing"></div>
 
+
+
+
+				<hr style="color:blue"/>
 				<h4>Popular Tags</h4>
 				<div class="hline"></div>
 				<p>
-					<a class="btn btn-theme" href="#" role="button">Design</a> <a
-						class="btn btn-theme" href="#" role="button">Wordpress</a> <a
-						class="btn btn-theme" href="#" role="button">Flat</a> <a
-						class="btn btn-theme" href="#" role="button">Modern</a> <a
-						class="btn btn-theme" href="#" role="button">Wallpaper</a> <a
-						class="btn btn-theme" href="#" role="button">HTML5</a> <a
-						class="btn btn-theme" href="#" role="button">Pre-processor</a> <a
-						class="btn btn-theme" href="#" role="button">Developer</a> <a
-						class="btn btn-theme" href="#" role="button">Windows</a> <a
-						class="btn btn-theme" href="#" role="button">Phothosop</a> <a
-						class="btn btn-theme" href="#" role="button">UX</a> <a
-						class="btn btn-theme" href="#" role="button">Interface</a> <a
-						class="btn btn-theme" href="#" role="button">UI</a> <a
-						class="btn btn-theme" href="#" role="button">Blog</a>
+				
+				<!-- 분류 반복 s -->
+					<a class="btn btn-warning" href="#" role="button">Design</a>
+				<!-- 분류 반복 e -->
 				</p>
 			</div>
 		</div>
@@ -230,50 +206,9 @@
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-	<script>
-      $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->
 
-      $(function() {
-  //navbar affix
-  $('#nav').affix({
-    offset: {
-      top: $('header').height()
-    }
-  });
-});
-
-      $('#nav .navbar-nav li>a').click(function(){
-  var link = $(this).attr('href');
-  var posi = $(link).offset().top+20;
-  $('body,html').animate({scrollTop:posi},700);
-})
-
-
-      $( document ).ready(function() {
-    $("[rel='tooltip']").tooltip();    
- 
-    $('.thumbnail').hover(
-        function(){
-            $(this).find('.caption').fadeIn(250);
-        },
-        function(){
-            $(this).find('.caption').fadeOut(205);
-        }
-    ); 
-});
-    </script>
 </body>
 </html>

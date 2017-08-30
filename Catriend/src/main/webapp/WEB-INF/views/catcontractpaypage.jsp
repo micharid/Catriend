@@ -180,6 +180,9 @@ font-weight: 300;
 
 	<!-- 푸터 -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
+<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->
 
   </body>
 </html>

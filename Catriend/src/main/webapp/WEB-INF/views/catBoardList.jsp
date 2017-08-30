@@ -81,7 +81,7 @@
 
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading"><h3 style="text-align:center; color:black;">게시판</h3></div>
+						<div class="panel-heading"><h3 style="text-align:center; color:white;">게시판</h3></div>
 						<div class="panel-body">
 							<ul class="nav nav-tabs">
 								<li class=""><a href="freeBoardList">자유
@@ -118,7 +118,7 @@
 												<div class="row">
 													<c:forEach items="${afterlists}" var="row">
 														<div class="col-lg-3 col-md-6 col-sm-6 animate-box">
-															<a class="fh5co-card" href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}"> <img
+															<a class="fh5co-card" href="#"> <img
 																src="./resources/assets/img/notsign.png"
 																alt="Free HTML5 Bootstrap template"
 																class="img-responsive">
@@ -159,50 +159,8 @@
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-	<script>
-      $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-
-      $(function() {
-  //navbar affix
-  $('#nav').affix({
-    offset: {
-      top: $('header').height()
-    }
-  });
-});
-
-      $('#nav .navbar-nav li>a').click(function(){
-  var link = $(this).attr('href');
-  var posi = $(link).offset().top+20;
-  $('body,html').animate({scrollTop:posi},700);
-})
-
-
-      $( document ).ready(function() {
-    $("[rel='tooltip']").tooltip();    
- 
-    $('.thumbnail').hover(
-        function(){
-            $(this).find('.caption').fadeIn(250);
-        },
-        function(){
-            $(this).find('.caption').fadeOut(205);
-        }
-    ); 
-});
-    </script>
+<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->
 </body>
 </html>

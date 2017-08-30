@@ -17,6 +17,8 @@
 	margin-bottom: 20px;
 }
 
+
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 500;
@@ -26,41 +28,36 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 </style>
 
 <body>
-	<!-- top s -->
+<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-	<!-- top e -->
+<!-- top e -->
 
 	<section id="about" class="container">
 		<div class="row">
 			<div class="col-md-3">
-				<span class="glyphicon glyphicon-send"></span> <br>
-				<h3>Awesome Feature</h3>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a
-				tincidunt elit. Aliquam porta nibh at enim luctus, auctor consequat
-				dolor vehicula.
+				<span class="glyphicon glyphicon-user"></span> <br>
+				<h3>환 영</h3>
+				고양이와 친구가 되고싶은 분들
+				환영 합니다.
 			</div>
 			<div class="col-md-3">
 				<span class="glyphicon glyphicon-heart"></span> <br>
-				<h3>Build with love</h3>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a
-				tincidunt elit. Aliquam porta nibh at enim luctus, auctor consequat
-				dolor vehicula.
+				<h3>사 랑</h3>
+				우리 고양이 친구들 대부분이 유기묘입니다.사랑으로 보살펴주세요.
+				
 			</div>
 			<div class="col-md-3">
-				<span class="glyphicon glyphicon-phone"></span> <br>
-				<h3>Responsive Layout</h3>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a
-				tincidunt elit. Aliquam porta nibh at enim luctus, auctor consequat
-				dolor vehicula.
+				<span class="glyphicon glyphicon-film"></span> <br>
+				<h3>추 억</h3>
+				고양이친구들과의 추억을 다른분들에게 자랑해보세요.
 			</div>
 			<div class="col-md-3">
-				<span class="glyphicon glyphicon-tint"></span> <br>
-				<h3>Customizeable</h3>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a
-				tincidunt elit. Aliquam porta nibh at enim luctus, auctor consequat
-				dolor vehicula.
+				<span class="glyphicon glyphicon-envelope"></span> <br>
+				<h3>편 지</h3>
+				언제들지 연락주세요.저희 캣 랜드에서는 집사분들의 의견에 귀 기울이겠습니다.
 			</div>
 		</div>
+	
 		<div id="blue" style="width: 1170px;">
 
 			<center>
@@ -95,17 +92,27 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			</div>
 
 		</div>
+
 	</section>
 
+
+
+
+
+
 	<section id="portfolio">
+
 		<div class="container">
+
 			<div class="row">
 				<div id="blue" style="margin-top: 60px;">
+
 					<center>
 						<h3
 							style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">후기
 							게시판</h3>
 					</center>
+
 					<!-- /container -->
 				</div>
 				<div class="col-md-4">
@@ -184,64 +191,22 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 				</div>
 			</div>
 			<center>
-				<a href="catBoardList" class="btn btn-primary btn-lg" role="button">후기
-					게시판 바로가기</a>
+
+				<a href="catBoardList" class="btn btn-primary btn-lg" role="button">후기 게시판
+					바로가기</a>
 			</center>
 		</div>
 	</section>
 
+	
 
-
-	<!-- bottom s -->
+<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-	<script>
-	
-      $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-
-      $(function() {
-  //navbar affix
-  $('#nav').affix({
-    offset: {
-      top: $('header').height()
-    }
-  });
-});
-
-      $('#nav .navbar-nav li>a').click(function(){
-  var link = $(this).attr('href');
-  var posi = $(link).offset().top+20;
-  $('body,html').animate({scrollTop:posi},700);
-})
-
-
-      $( document ).ready(function() {
-    $("[rel='tooltip']").tooltip();    
- 
-    $('.thumbnail').hover(
-        function(){
-            $(this).find('.caption').fadeIn(250);
-        },
-        function(){
-            $(this).find('.caption').fadeOut(205);
-        }
-    ); 
-});
-    </script>
+<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->
 </body>
 </html>

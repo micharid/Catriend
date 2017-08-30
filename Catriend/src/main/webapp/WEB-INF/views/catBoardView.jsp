@@ -11,25 +11,11 @@
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
-<style>
-#blue {
-	background: #428BCA;
-	margin-bottom: 20px;
-}
-
-h3 {
-	
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 500;
-	line-height: 1.1;
-	color: inherit;
-}
-</style>
 
 <style>
+body {
+	background: #ffc35b;
+}
 
 .up {
 	width: 78px;
@@ -59,6 +45,7 @@ textarea {
 	-webkit-appearance: none;
 }
 </style>
+
 <body>
 
 	<!-- Fixed navbar -->
@@ -92,41 +79,41 @@ textarea {
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<center>
-								<h1>${dto.cb_title}</h1>
+								<h1>${dto.fb_title}</h1>
 							</center>
 						</div>
-						<table class="table" width="100%" cellspacing="0" cellpadding="2">
+						<table class="table table-bordered" width="100%" cellspacing="0" cellpadding="2">
 							<tr>
 								<td width="20%">닉네임</td>
 								<td width="20%">${dto.u_id}</td>
 
 								<td width="20%">작성일</td>
-								<td width="40%">${dto.cb_date}</td>
+								<td width="40%">${dto.fb_date}</td>
 							</tr>
 							<tr>
 								<td width="20%">조회수</td>
-								<td width="30%">${dto.cb_hits}</td>
+								<td width="30%">${dto.fb_hits}</td>
 
 								<td width="20%">추천수</td>
-								<td width="30%">${dto.cb_likecount}</td>
+								<td width="30%">${dto.fb_likecount}</td>
 							</tr>
 							<tr>
 								<td width="20%">제목</td>
-								<td width="80%" colspan="3">${dto.cb_title}</td>
+								<td width="80%" colspan="3">${dto.fb_title}</td>
 							</tr>
 							<tr>
 								<td>사진</td>
 								<td colspan="3" style="height: 300px; padding: 10px;">
-									<img class="center-block" src="./resources/assets/img/profile.png">${dto.cb_content}<!-- 수정요망 -->
+									<img class="center-block" src="./resources/assets/img/profile.png">${dto.fb_content}<!-- 수정요망 -->
 								</td>
 							</tr>
 							<tr>
 								<td>내용</td>
-								<td colspan="3" style="height: 150px; padding: 10px;" class="text-center">${dto.cb_content}</td>
+								<td colspan="3" style="height: 150px; padding: 10px;" class="text-center">내용테스트입니다 쌸라쌸라${dto.fb_content}</td>
 							</tr>
 							<tr>
 								<td width="20%">첨부파일</td>
-								<td width="80%" colspan="3">${dto.cb_file}</td>
+								<td width="80%" colspan="3">${dto.fb_file}</td>
 							</tr>
 							<tr>
 								<td colspan="4" style="text-align: center; padding: 10px 0;">
@@ -136,14 +123,14 @@ textarea {
 										if (login != null && login.getU_id().equals(u_id)) {
 									--%>
 									<button class="btn btn-info" type="button"
-										onclick="javascript:location.href='catBoardUpdate?cb_index=${dto.cb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
+										onclick="javascript:location.href='freeBoardUpdate?fb_index=${dto.fb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
 									<button class="btn btn-info" type="button"
-										onclick="location.href='catBoardDelete?cb_index=${dto.cb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
+										onclick="location.href='freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
 									<%--
 										}
 									--%>
 									<button class="btn btn-info" type="button"
-										onclick="location.href='catBoardList?nowPage=${nowPage}';">리스트보기</button>
+										onclick="location.href='freeBoardList?nowPage=${nowPage}';">리스트보기</button>
 								</td>
 							</tr>
 						</table>
@@ -170,7 +157,7 @@ textarea {
 										<th width="15%"></th>
 									</tr>
 									<!-- 댓글 반복 부분  s-->
-									<c:forEach items="${CatBoarderCommentLists}" var="row">
+									<c:forEach items="${FreeBoarderCommentLists}" var="row">
 										<tr>
 											<td>${row.u_id}</td>
 											<td>${row.fbc_content}</td>
@@ -201,50 +188,8 @@ textarea {
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-	<script>
-      $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-
-      $(function() {
-  //navbar affix
-  $('#nav').affix({
-    offset: {
-      top: $('header').height()
-    }
-  });
-});
-
-      $('#nav .navbar-nav li>a').click(function(){
-  var link = $(this).attr('href');
-  var posi = $(link).offset().top+20;
-  $('body,html').animate({scrollTop:posi},700);
-})
-
-
-      $( document ).ready(function() {
-    $("[rel='tooltip']").tooltip();    
- 
-    $('.thumbnail').hover(
-        function(){
-            $(this).find('.caption').fadeIn(250);
-        },
-        function(){
-            $(this).find('.caption').fadeOut(205);
-        }
-    ); 
-});
-    </script>
+<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->
 </body>
 </html>

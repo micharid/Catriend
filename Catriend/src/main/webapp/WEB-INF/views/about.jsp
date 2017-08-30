@@ -39,36 +39,9 @@ h2, h3, h4, h5, h6 {
 
 	<section id="about">
 		<div class="container mtb">
-			<div class="row">
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-send"></span> <br>
-					<h3>Awesome Feature</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
-					consequat dolor vehicula.
-				</div>
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-heart"></span> <br>
-					<h3>Build with love</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
-					consequat dolor vehicula.
-				</div>
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-phone"></span> <br>
-					<h3>Responsive Layout</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
-					consequat dolor vehicula.
-				</div>
-				<div class="col-md-3">
-					<span class="glyphicon glyphicon-tint"></span> <br>
-					<h3>Customizeable</h3>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-					a tincidunt elit. Aliquam porta nibh at enim luctus, auctor
-					consequat dolor vehicula.
-				</div>
-			</div>
+<!-- bottom s -->
+	<%@ include file="../../resources/common/sectionAd.jsp"%>
+<!-- bottom e -->
 
 
 			<div class="row">
@@ -195,54 +168,8 @@ h2, h3, h4, h5, h6 {
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-	<script>
-		$(function() {
-			$('a[href*=#]:not([href=#])')
-					.click(
-							function() {
-								if (location.pathname.replace(/^\//, '') == this.pathname
-										.replace(/^\//, '')
-										&& location.hostname == this.hostname) {
-									var target = $(this.hash);
-									target = target.length ? target
-											: $('[name=' + this.hash.slice(1)
-													+ ']');
-									if (target.length) {
-										$('html,body').animate({
-											scrollTop : target.offset().top
-										}, 1000);
-										return false;
-									}
-								}
-							});
-		});
-
-		$(function() {
-			//navbar affix
-			$('#nav').affix({
-				offset : {
-					top : $('header').height()
-				}
-			});
-		});
-
-		$('#nav .navbar-nav li>a').click(function() {
-			var link = $(this).attr('href');
-			var posi = $(link).offset().top + 20;
-			$('body,html').animate({
-				scrollTop : posi
-			}, 700);
-		})
-
-		$(document).ready(function() {
-			$("[rel='tooltip']").tooltip();
-
-			$('.thumbnail').hover(function() {
-				$(this).find('.caption').fadeIn(250);
-			}, function() {
-				$(this).find('.caption').fadeOut(205);
-			});
-		});
-	</script>
+<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->
 </body>
 </html>

@@ -89,7 +89,7 @@ textarea {
 							<h1>${dto.fb_title}</h1>
 						</center>
 					</div>
-					<table class="table" width="100%" cellspacing="0" cellpadding="2">
+					<table class="table table-bordered" width="100%" cellspacing="0" cellpadding="2">
 						<tr>
 							<td width="20%">닉네임</td>
 							<td width="20%">${dto.u_id}</td>
@@ -114,27 +114,12 @@ textarea {
 						</tr>
 						<tr>
 							<td width="20%">첨부파일</td>
-							<td width="80%" colspan="3">
-							<%
-								FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
-								String fb_file = dto.getFb_file();
-								if(fb_file != null){
-							%>
-								<img src="./resources/assets/img/boardImages/${dto.fb_file}" width="100%">
-							<%
-								}else{
-							%>
-								첨부파일 없음!
-							<%
-								}
-							%>
-							</td>
-							
+							<td width="80%" colspan="3">${dto.fb_file}</td>
 						</tr>
 						<tr>
 							<td colspan="4" style="text-align: center; padding: 10px 0;">
 								<%
-									dto = (FreeBoarderDTO) request.getAttribute("dto");
+									FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
 									String u_id = dto.getU_id();
 									if (login != null && login.getU_id().equals(u_id)) {
 								%>
@@ -159,7 +144,7 @@ textarea {
 								type="hidden" name="u_id" value="${loginUser.u_id}" />
 							<table width="100%">
 								<tr>
-									<td width="90%"><textarea id="textAreaComment" cols="30"
+									<td width="90%"><textarea id="textAreaComment" cols="30" style="resize:none;"
 											rows="5" name="fbc_content"></textarea></td>
 									<td width="10%">&nbsp;&nbsp;&nbsp;&nbsp;
 										<button type="submit" class="btn btn-info">댓글등록</button>
@@ -217,50 +202,8 @@ textarea {
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-	<script>
-      $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-
-      $(function() {
-  //navbar affix
-  $('#nav').affix({
-    offset: {
-      top: $('header').height()
-    }
-  });
-});
-
-      $('#nav .navbar-nav li>a').click(function(){
-  var link = $(this).attr('href');
-  var posi = $(link).offset().top+20;
-  $('body,html').animate({scrollTop:posi},700);
-})
-
-
-      $( document ).ready(function() {
-    $("[rel='tooltip']").tooltip();    
- 
-    $('.thumbnail').hover(
-        function(){
-            $(this).find('.caption').fadeIn(250);
-        },
-        function(){
-            $(this).find('.caption').fadeOut(205);
-        }
-    ); 
-});
-    </script>
+<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->
 </body>
 </html>
