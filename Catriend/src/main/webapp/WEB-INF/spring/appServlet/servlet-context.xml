@@ -53,8 +53,8 @@
 
 	<!-- 파일업로드 경로지정 -->
 	<!-- D:\\00Work\\GitHub\\ 부분만 실제 자신의 메타데이터 안의 Catriend 저장 경로로 설정해줘야함. -->
-	<beans:bean id="boardUploadPath" class="java.lang.String">
- 		<!--초희 : <beans:constructor-arg value="D:\\00Work\02WorkSpace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Catriend\\resources\\assets\\img\\boardImages"></beans:constructor-arg> -->
+	<!-- <beans:bean id="boardUploadPath" class="java.lang.String">
+ 		초희 : <beans:constructor-arg value="D:\\00Work\02WorkSpace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Catriend\\resources\\assets\\img\\boardImages"></beans:constructor-arg>
  		<beans:constructor-arg value="D:\\02WorkSpace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Catriend\\resources\\assets\\img\\boardImages"></beans:constructor-arg>
-	</beans:bean>
+	</beans:bean> -->
 </beans:beans>

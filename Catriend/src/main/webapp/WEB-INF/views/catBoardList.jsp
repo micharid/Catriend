@@ -10,30 +10,19 @@
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
-
-
+<style>
+.panel-default > .panel-heading {
+    color: #428BCA;
+    background-color: #428BCA;
+    border-color: #dddddd;
+}
+</style>
 <body>
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
-	<div id="blue">
-		<div class="container">
-			<div class="row">
-				<center>
-					<h3>게시판</h3>
-				</center>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /blue -->
 
 	<!-- *****************************************************************************************************************
 	 CONTACT WRAP

@@ -31,7 +31,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 </style>
 
 <style>
-
 .up {
 	width: 78px;
 	height: 78px;
@@ -89,7 +88,7 @@ textarea {
 							<h1>${dto.fb_title}</h1>
 						</center>
 					</div>
-					<table class="table table-bordered" width="100%" cellspacing="0" cellpadding="2">
+					<table class="table" width="100%" cellspacing="0" cellpadding="2">
 						<tr>
 							<td width="20%">닉네임</td>
 							<td width="20%">${dto.u_id}</td>
@@ -114,12 +113,24 @@ textarea {
 						</tr>
 						<tr>
 							<td width="20%">첨부파일</td>
-							<td width="80%" colspan="3">${dto.fb_file}</td>
+							<td width="80%" colspan="3">
+								<%
+									FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
+									String fb_file = dto.getFb_file();
+									if (fb_file != null) {
+								%> <img src="./resources/assets/img/boardImages/${dto.fb_file}"
+								width="100%"> <%
+ 	} else {
+ %> 첨부파일 없음! <%
+ 	}
+ %>
+							</td>
+
 						</tr>
 						<tr>
 							<td colspan="4" style="text-align: center; padding: 10px 0;">
 								<%
-									FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
+									dto = (FreeBoarderDTO) request.getAttribute("dto");
 									String u_id = dto.getU_id();
 									if (login != null && login.getU_id().equals(u_id)) {
 								%>
@@ -136,22 +147,25 @@ textarea {
 					</table>
 
 					<div class="panel-footer">
-						<form name="insertCommentFrm"
-							action="freeBoarderCommentWriteAction"
-							onsubmit="return checkInsertFrm();" method="post">
-							<input type="hidden" name="nowPage" value="${nowPage}" /> <input
-								type="hidden" name="fb_index" value="${fb_index}" /> <input
-								type="hidden" name="u_id" value="${loginUser.u_id}" />
-							<table width="100%">
-								<tr>
-									<td width="90%"><textarea id="textAreaComment" cols="30" style="resize:none;"
-											rows="5" name="fbc_content"></textarea></td>
-									<td width="10%">&nbsp;&nbsp;&nbsp;&nbsp;
-										<button type="submit" class="btn btn-info">댓글등록</button>
-									</td>
-								</tr>
-							</table>
-						</form>
+						<c:if test="${not empty loginUser}">
+							<form name="insertCommentFrm"
+								action="freeBoarderCommentWriteAction"
+								onsubmit="return checkInsertFrm();" method="post">
+								<input type="hidden" name="nowPage" value="${nowPage}" /> <input
+									type="hidden" name="fb_index" value="${fb_index}" /> <input
+									type="hidden" name="u_id" value="${loginUser.u_id}" />
+								<table width="100%">
+									<tr>
+										<td width="90%"><textarea id="textAreaComment" cols="30"
+												rows="5" name="fbc_content"></textarea></td>
+										<td width="10%">&nbsp;&nbsp;&nbsp;&nbsp;
+											<button type="submit" class="btn btn-info">댓글등록</button>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</c:if>
+						<span style="font-size: 1.4em;">Comment</span>
 						<c:if test="${not empty FreeBoarderCommentLists}">
 							<table class="table">
 								<tr>
@@ -202,8 +216,8 @@ textarea {
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 </body>
 </html>

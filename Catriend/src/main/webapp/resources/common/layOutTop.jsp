@@ -10,10 +10,8 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 		<div class="container">
 			<center>
 				<h1>Welcome to Cat`riend</h1>
-				<h3>ed non massa quis nisl tincidunt posuere sit amet vitae
-					sem.</h3>
 				
-				<%if(request.getAttribute("pageGroup") == "about" || request.getAttribute("pageGroup") == "mainPage"){ %>
+				<%if(request.getAttribute("pageGroup") == "about" || request.getAttribute("pageGroup") == "main"){ %>
 				<div class="skroler">
 					<a href="#about"><span class="glyphicon glyphicon-chevron-down"
 						style="color: #ffc35b;"></span></a>

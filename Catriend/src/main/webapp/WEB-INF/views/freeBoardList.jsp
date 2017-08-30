@@ -12,19 +12,12 @@
 </head>
 
 <style>
-
-
 .panel-default > .panel-heading {
     color: #428BCA;
     background-color: #428BCA;
     border-color: #dddddd;
 }
-
-
 </style>
-
-
-
 <body>
 
 	<!-- Fixed navbar -->
@@ -38,10 +31,9 @@
 	 ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
-			
 			<div class="row">
 
-
+				<div class="col-lg-12">가로이미지 들어갈 부분</div>
 				<div class="col-lg-4">
 
 
@@ -82,13 +74,13 @@
 
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 style="text-align: center; color: white;">게시판</h3>
-						</div>
+						<div class="panel-heading"><h3 style="text-align:center; color:white;">게시판</h3></div>
 						<div class="panel-body">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#free">자유 게시판</a></li>
-								<li class=""><a href="catBoardList">후기 게시판</a></li>
+								<li class="active"><a href="#free">자유
+										게시판</a></li>
+								<li class=""><a href="catBoardList">후기
+										게시판</a></li>
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane fade active in" id="free">
@@ -114,8 +106,8 @@
 												<table width="100%">
 													<tr>
 														<td align="right">
-															<button type="button" class="btn btn-info"
-																onclick="location.href='freeBoardWrite'">글쓰기</button>
+															<button type="button" class="btn btn-info" onclick="location.href='freeBoardWrite'">
+																글쓰기</button>
 														</td>
 													</tr>
 												</table>
@@ -133,11 +125,10 @@
 														<!--  게시판 반복 부분 s -->
 														<c:forEach items="${freelists}" var="row">
 															<tr>
-																<td>${row.rNum}</td>
-																<td><a
-																	href="freeBoardView?fb_index=${row.fb_index}&nowPage=${nowPage}">${row.fb_title}</a></td>
+																<td>${totalRecordCount - row.rNum +1}</td>
+																<td><a href="freeBoardView?fb_index=${row.fb_index}&nowPage=${nowPage}">${row.fb_title}</a></td>
 																<td>${row.u_id}</td>
-																<td>${row.fb_likecount}</td>
+																<td>${row.fb_hits}</td>
 																<td>${row.fb_date}</td>
 															</tr>
 														</c:forEach>
@@ -152,7 +143,7 @@
 										</div>
 									</div>
 								</div>
-
+								<div class="col-lg-12">가로이미지 들어갈 부분</div>
 							</div>
 						</div>
 					</div>

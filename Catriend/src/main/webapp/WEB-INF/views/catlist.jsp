@@ -13,16 +13,9 @@
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="./resources/js/jquery-3.2.1.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="./resources/js/jquery-3.2.1.js"></script>
 
 <script>
-	$(function() {
-		$("input").checkboxradio();
-	});
 	//에러시 실행할 함수
 	function errFunc() {
 		alert("실패임 ㅜㅠ");

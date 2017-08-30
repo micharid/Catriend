@@ -24,7 +24,7 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		model.addAttribute("pageGroup", "mainPage");
+		model.addAttribute("pageGroup", "main");
 		return "mainPage";
 	}
 	

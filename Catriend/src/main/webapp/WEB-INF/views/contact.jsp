@@ -205,9 +205,22 @@ function qnacheck()
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 	
-<!-- bottom s -->
-	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+<script>
+$(function() {
+	  //navbar affix
+	  $('#nav').affix({
+	    offset: {
+	      top: $('header').height()
+	    }
+	  });
+	});
+
+	      $('#nav .navbar-nav li>a').click(function(){
+	  var link = $(this).attr('href');
+	  var posi = $(link).offset().top+20;
+	  $('body,html').animate({scrollTop:posi},700);
+	})
+</script>
 
 </body>
 </html>
