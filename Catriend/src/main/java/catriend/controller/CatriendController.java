@@ -51,11 +51,13 @@ public class CatriendController {
 
 	@RequestMapping("/about")
 	public String about(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "about");
 		return "about";
 	}
 	
 	@RequestMapping("/catBoardList")
 	public String catBoardList(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		command = new CatBoarderListCommand();
 		command.execute(model);
@@ -64,6 +66,7 @@ public class CatriendController {
 	
 	@RequestMapping("/catlist")
 	public String catlist(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "cats");
 		model.addAttribute("req", req);
 		command = new CatsListCommand();
 		command.execute(model);
@@ -71,6 +74,7 @@ public class CatriendController {
 	}
 	@RequestMapping("/mycatlist")
 	public String mycatlist(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "cats");
 		HttpSession session = req.getSession();
 		UsersDTO dto = (UsersDTO)session.getAttribute("loginUser");
 		model.addAttribute("u_grade", dto.getU_grade());
@@ -82,11 +86,13 @@ public class CatriendController {
 
 	@RequestMapping("/catProfile")
 	public String catProfile(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "cats");
 		return "catProfile";
 	}
 
 	@RequestMapping("/freeBoardWrite")
 	public String freeBoardWrite(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 
 		return "freeBoardWrite";
@@ -94,6 +100,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoardWriteAction")
 	public String freeBoardWriteAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		String fb_title = req.getParameter("fb_title");
 		String fb_content = req.getParameter("fb_content");
@@ -111,6 +118,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoardList")
 	public String freeBoardList(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		command = new FreeBoarderListCommand();
 		command.execute(model);
@@ -120,6 +128,7 @@ public class CatriendController {
 	
 	@RequestMapping("/freeBoardView")
 	public String freeBoardView(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 
 		command = new FreeBoarderViewCommand();
@@ -134,11 +143,13 @@ public class CatriendController {
 
 	@RequestMapping("/onlineForm")
 	public String onlineForm(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "regist");
 		return "onlineForm";
 	}
 
 	@RequestMapping("/onlineFormAction")
 	public String onlineFormAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "regist");
 		return "onlineFormAction";
 	}
 
@@ -149,11 +160,13 @@ public class CatriendController {
 
 	@RequestMapping("/mainPage")
 	public String mainPage(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "home");
 		return "mainPage";
 	}
 
 	@RequestMapping("/myPage")
 	public String myPage(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
 		return "myPage";
 	}
 
@@ -175,21 +188,25 @@ public class CatriendController {
 
 	@RequestMapping("/myPageindex")
 	public String myPageindex(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
 		return "myPageindex";
 	}
 
 	@RequestMapping("/mycontracthistory")
 	public String mycontracthistory(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
 		return "mycontracthistory";
 	}
 
 	@RequestMapping("/myfreeboardhistory")
 	public String myfreeboardhistory(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
 		return "myfreeboardhistory";
 	}
 
 	@RequestMapping("/myreviewhistory")
 	public String myreviewhistory(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
 		return "myreviewhistory";
 	}
 
@@ -200,16 +217,19 @@ public class CatriendController {
 
 	@RequestMapping("/catcontract")
 	public String catcontract(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "cats");
 		return "catcontract";
 	}
 
 	@RequestMapping("/loginPage")
 	public String loginPage(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "login");
 		return "loginPage";
 	}
 
 	@RequestMapping("/freeBoardUpdate")
 	public String freeBoardUpadate(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		FreeBoarderDAO dao = new FreeBoarderDAO();
 		FreeBoarderDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("fb_index")));
@@ -220,6 +240,7 @@ public class CatriendController {
 
 	@RequestMapping("/boardUpdateAction")
 	public String boardUpdateAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		System.out.println("컨트롤 fb_title : " + req.getParameter("fb_title"));
 		command = new FreeBoarderUpdateCommand();
@@ -229,6 +250,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoardDelete")
 	public String freeBoardDelete(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		command = new FreeBoarderDeleteCommand();
 		command.execute(model);
@@ -238,6 +260,7 @@ public class CatriendController {
 
 	@RequestMapping("/loginAction")
 	public String loginAction(Model model, HttpServletRequest req, HttpSession session) {
+		model.addAttribute("pageGroup", "login");
 		command = new LoginCommand();
 		model.addAttribute("req", req);
 		command.execute(model);
@@ -262,6 +285,7 @@ public class CatriendController {
 
 	@RequestMapping("/regist")
 	public String regist(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "regist");
 		model.addAttribute("req", req);
 		System.out.println("컨트롤러 u_grade : " + req.getParameter("u_grade"));
 		model.addAttribute("u_grade", req.getParameter("u_grade"));
@@ -278,11 +302,13 @@ public class CatriendController {
 
 	@RequestMapping("/qna")
 	public String QnA(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "qna");
 		return "contact";
 	}
 
 	@RequestMapping("/qnaAction")
 	public String qnaAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "qna");
 		model.addAttribute("req", req);
 		command = new QnAQInsertCommand();
 		command.execute(model);
@@ -291,6 +317,7 @@ public class CatriendController {
 
 	@RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
 	public String userUpdate(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
 		model.addAttribute("req", req);
 		command = new UsersUpdateCommand();
 		command.execute(model);
@@ -299,6 +326,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoarderCommentReply")
 	public String freeBoarderCommentWrite(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
 		model.addAttribute("fbc_index", req.getParameter("fbc_index"));
@@ -312,6 +340,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoarderCommentReplyAction")
 	public String freeBoarderCommentReplyAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
 		model.addAttribute("fbc_index", req.getParameter("fbc_index"));
@@ -332,6 +361,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoarderCommentWriteAction")
 	public String freeBoarderCommentWriteAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
@@ -352,6 +382,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoarderCommentDelete")
 	public String freeBoarderCommentDelete(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
@@ -371,6 +402,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoarderCommentUpdate")
 	public String freeBoarderCommentUpdate(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
@@ -388,6 +420,7 @@ public class CatriendController {
 
 	@RequestMapping("/freeBoarderCommentUpdateAction")
 	public String freeBoarderCommentUpdateAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
 		model.addAttribute("nowPage", req.getParameter("nowPage"));

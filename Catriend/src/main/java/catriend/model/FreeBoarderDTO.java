@@ -13,11 +13,14 @@ public class FreeBoarderDTO {
 	private String u_id;
 
 	// 편의성을 위한 변수
+	private String u_nickname;
 	private int rNum;
 
 	// 기본생성자
 	public FreeBoarderDTO() {
 	}
+
+	
 
 	// 인자생성자
 	public FreeBoarderDTO(int fb_index, String fb_title, String fb_content, String fb_file, Date fb_date,
@@ -45,7 +48,6 @@ public class FreeBoarderDTO {
 
 	public FreeBoarderDTO(int fb_index, String fb_title, String fb_content, String fb_file, Date fb_date,
 			int fb_likecount, String u_id, int rNum) {
-		super();
 		this.fb_index = fb_index;
 		this.fb_title = fb_title;
 		this.fb_content = fb_content;
@@ -57,8 +59,23 @@ public class FreeBoarderDTO {
 	}
 
 	public FreeBoarderDTO(int fb_index, String fb_title, String fb_content, String fb_file, Date fb_date, int fb_hits,
+			int fb_likecount, String u_id, String u_nickname, int rNum) {
+		this.fb_index = fb_index;
+		this.fb_title = fb_title;
+		this.fb_content = fb_content;
+		this.fb_file = fb_file;
+		this.fb_date = fb_date;
+		this.fb_hits = fb_hits;
+		this.fb_likecount = fb_likecount;
+		this.u_id = u_id;
+		this.u_nickname = u_nickname;
+		this.rNum = rNum;
+	}
+
+
+
+	public FreeBoarderDTO(int fb_index, String fb_title, String fb_content, String fb_file, Date fb_date, int fb_hits,
 			int fb_likecount, String u_id, int rNum) {
-		super();
 		this.fb_index = fb_index;
 		this.fb_title = fb_title;
 		this.fb_content = fb_content;
@@ -71,6 +88,15 @@ public class FreeBoarderDTO {
 	}
 
 	// getter() / setter()
+	
+	public String getU_nickname() {
+		return u_nickname;
+	}
+
+	public void setU_nickname(String u_nickname) {
+		this.u_nickname = u_nickname;
+	}
+	
 	public int getFb_hits() {
 		return fb_hits;
 	}

@@ -139,10 +139,10 @@ body {
 														<!--  게시판 반복 부분 s -->
 														<c:forEach items="${freelists}" var="row">
 															<tr>
-																<td>${row.rNum}</td>
+																<td>${totalRecordCount-row.rNum+1}</td>
 																<td><a href="freeBoardView?fb_index=${row.fb_index}&nowPage=${nowPage}">${row.fb_title}</a></td>
-																<td>${row.u_id}</td>
-																<td>${row.fb_likecount}</td>
+																<td>${row.u_nickname}</td>
+																<td>${row.fb_hits}</td>
 																<td>${row.fb_date}</td>
 															</tr>
 														</c:forEach>

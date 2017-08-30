@@ -44,7 +44,6 @@ body {
 	 ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
-
 			<form action="onlineFormAction">
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
@@ -88,7 +87,7 @@ body {
 
 						</div>
 						<div class="panel-footer">
-							<button type="submit" class="btn btn-info">재출하기</button>
+							<button type="submit" class="btn btn-info">제출하기</button>
 						</div>
 					</div>
 				</div>

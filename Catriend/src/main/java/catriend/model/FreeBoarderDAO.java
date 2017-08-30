@@ -75,10 +75,26 @@ public class FreeBoarderDAO {
 			}
 		});
 	}
+	
+	//조회수 증가
+	public int hitsUp(final int fb_index){
+		String sql = " UPDATE freeboarder " + " SET fb_hits = fb_hits +1 "
+				+ " WHERE fb_index = ? ";
 
+		return this.template.update(sql, new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement psmt) throws SQLException {
+				// TODO Auto-generated method stub
+				psmt.setInt(1, fb_index);
+			}
+		});
+	}
+	
 	// 게시물 한개 정보 가져오기
 	public FreeBoarderDTO selectOne(int fb_index) {
-
+		hitsUp(fb_index);
+		
 		String sql = "SELECT * FROM freeboarder WHERE fb_index = " + fb_index;
 		return (FreeBoarderDTO) template.queryForObject(sql,
 				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
@@ -90,7 +106,8 @@ public class FreeBoarderDAO {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
-		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM freeboarder ";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT freeboarder.*, users.u_nickname FROM "
+				+ "freeboarder JOIN users ON freeboarder.u_id = users.u_id ";
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
