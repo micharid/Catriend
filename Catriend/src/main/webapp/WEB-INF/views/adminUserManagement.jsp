@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -96,63 +97,23 @@
 											<th style="width:" class="text-center info">아이디</th>
 											<th style="width:15%;" class="text-center info">가입일</th>
 										</tr>
-										<!-- 반복시작 -->
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td class="text-center">이름</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
-										<!-- 반복끝 -->
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td class="text-center">이름</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td class="text-center">이름</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td class="text-center">이름</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td class="text-center">이름</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
+										<!--  게시판 반복 부분 s -->
+										<c:forEach items="${adminuserlist}" var="row">
+											<tr>
+												<td class="text-center"><input type="checkbox" /></td>
+												<td class="text-center">${totalRecordCount-row.rNum+1}</td>
+												<td class="text-center">${row.u_name}</td>
+												<td class="text-center">${row.u_id}</td>
+												<td class="text-center">${row.u_birthday}</td>
+											</tr>
+										</c:forEach>
+										<!-- 게시판 반복 부분 e  -->									
 									</table>
 									<div class="pull-right" style="margin-top:-15px;">
 										<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='boardList'">삭제하기</button>
 									</div>
-									<div class="col-md-12 text-center" style="margin-top:-15px;">
-										<nav>
-											<ul class="pagination">
-												<li><a href="#" aria-label="Previous"> <span
-														aria-hidden="true">&laquo;</span>
-												</a></li>
-												<li><a href="#">1</a></li>
-												<li><a href="#">2</a></li>
-												<li><a href="#">3</a></li>
-												<li><a href="#">4</a></li>
-												<li><a href="#">5</a></li>
-												<li><a href="#" aria-label="Next"> <span
-														aria-hidden="true">&raquo;</span>
-												</a></li>
-											</ul>
-										</nav>
+									<div class="col-md-12 text-center" style="margin-top:10px;">
+										${pagingImg}
 									</div>
 								</div>
 							</div>

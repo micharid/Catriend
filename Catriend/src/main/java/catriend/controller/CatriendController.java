@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import catriend.command.AdminUserListCommand;
 import catriend.command.CatBoarderListCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
@@ -236,11 +237,6 @@ public class CatriendController {
 	@RequestMapping("/adminPageIndex")
 	public String adminPageIndex(Model model, HttpServletRequest req) {
 		return "adminPageIndex";
-	}
-	
-	@RequestMapping("/adminUserManagement")
-	public String adminUserManagement(Model model, HttpServletRequest req) {
-		return "adminUserManagement";
 	}
 	
 	@RequestMapping("/adminQnaManagement")
@@ -486,5 +482,15 @@ public class CatriendController {
 		command.execute(model);
 
 		return "freeBoardView";
+	}
+
+	@RequestMapping("/adminUserManagement")
+	public String adminUserManagement(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
+		model.addAttribute("req", req);
+		command = new AdminUserListCommand();
+		command.execute(model);
+
+		return "adminUserManagement";
 	}
 }

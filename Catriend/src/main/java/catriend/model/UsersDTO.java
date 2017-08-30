@@ -15,11 +15,14 @@ public class UsersDTO {
 	private int c_index;
 	private int u_grade;
 	
+	// 편의성을 위한 변수
+	private int rNum;
+	
 	public UsersDTO() {
 	}
 	
 	public UsersDTO(String u_id, String u_pw, String u_name, Date u_birthday, String u_phonenumber, String u_address,
-			String u_email, String u_nickname, int u_state, int c_index, int u_grade) {
+			String u_email, String u_nickname, int u_state, int c_index, int u_grade, int rNum) {
 		this.u_id = u_id;
 		this.u_pw = u_pw;
 		this.u_name = u_name;
@@ -98,5 +101,13 @@ public class UsersDTO {
 	public void setU_grade(int u_grade) {
 		this.u_grade = u_grade;
 	}
+	public int getrNum() {
+		return rNum;
+	}
+
+	public void setrNum(int rNum) {
+		this.rNum = rNum;
+	}
+	
 	
 }
