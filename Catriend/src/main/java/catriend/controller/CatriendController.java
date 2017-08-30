@@ -1,14 +1,19 @@
 package catriend.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import catriend.command.AdminUserListCommand;
 import catriend.command.CatBoarderListCommand;
@@ -33,6 +38,7 @@ import catriend.model.Constant;
 import catriend.model.FreeBoarderDAO;
 import catriend.model.FreeBoarderDTO;
 import catriend.model.UsersDTO;
+import fileUpload.UploadFileUtils;
 
 @Controller
 public class CatriendController {
@@ -99,16 +105,41 @@ public class CatriendController {
 		return "freeBoardWrite";
 	}
 
+	@Resource(name = "boardUploadPath") // servlet-context.xml 에서 생성한 Bean 폴더경로 주입
+	private String boardUploadPath;
+
+	
+	public ResponseEntity<String> uimageUpload(MultipartFile file) throws Exception {
+
+		System.out.println(file.getOriginalFilename());
+		System.out.println(file.getName());
+		System.out.println(file.getSize());
+		System.out.println(file.getContentType());
+		
+		return new ResponseEntity<String>(UploadFileUtils.uploadFile(boardUploadPath, file.getOriginalFilename(), file.getBytes()),HttpStatus.CREATED);
+		
+	}
+	
 	@RequestMapping("/freeBoardWriteAction")
-	public String freeBoardWriteAction(Model model, HttpServletRequest req) {
-		model.addAttribute("pageGroup", "board");
+	public String freeBoardWriteAction(Model model, HttpServletRequest req) throws Exception {
 		model.addAttribute("req", req);
+		
+		MultipartHttpServletRequest mf = (MultipartHttpServletRequest) req;
+		
+		
+		String fb_fileUpload = uimageUpload(mf.getFile("fb_file")).toString();
+		String[] fileStr = fb_fileUpload.split(",");
+
 		String fb_title = req.getParameter("fb_title");
 		String fb_content = req.getParameter("fb_content");
-		String fb_file = req.getParameter("fb_file");
+		String fb_file = fileStr[1];
+		if(fb_file.contains(".") == false) {
+			fb_file = null;
+		}
 		String u_id = req.getParameter("u_id");
-		System.out.println(fb_title+","+fb_content+","+fb_file+","+u_id);
-		
+		System.out.println(fb_title + "," + fb_content + "," + fb_file + "," + u_id);
+
+		model.addAttribute("fb_file", fb_file);
 		command = new FreeBoarderInsertCommand();
 		command.execute(model);
 		command = new FreeBoarderListCommand();

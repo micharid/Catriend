@@ -134,19 +134,23 @@ body {
 														<div class="panel-body">
 															<form name="writeFrm" method="post"
 																onsubmit="return checkWriteFrm()"
-																action="freeBoardWriteAction">
-																<input type="hidden" value="${loginUser.u_id}"
-																	name="u_id">
+																action="freeBoardWriteAction"
+																enctype="multipart/form-data">
+																
+																
+																<input type="hidden" value="${loginUser.u_id}" name="u_id">
+																
+																
 																<div class="form-group">
-																	<label>제목</label> <input class="form-control"
-																		type="text" name="fb_title" />
-
+																	<label>제목</label> <input class="form-control" type="text" name="fb_title" />
 																</div>
+																
+																
 																<div class="form-group">
-																	<label>첨부파일</label> <input type="file"
-																		style="width: 90%;" name="fb_file" />
-
+																	<label>첨부파일</label> <input type="file" style="width: 90%;" name="fb_file" />
 																</div>
+																
+																
 																<div class="form-group">
 																	<label>내용</label>
 																	<textarea class="form-control" rows="3"
@@ -155,8 +159,7 @@ body {
 
 
 																<button type="submit" class="btn btn-info">등록하기</button>
-																<button class="btn btn-danger" type="button"
-																	onclick="javascript:history.go(-1)">취소하기</button>
+																<button class="btn btn-danger" type="button" onclick="javascript:history.go(-1)">취소하기</button>
 
 															</form>
 														</div>

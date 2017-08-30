@@ -114,12 +114,27 @@ textarea {
 						</tr>
 						<tr>
 							<td width="20%">첨부파일</td>
-							<td width="80%" colspan="3">${dto.fb_file}</td>
+							<td width="80%" colspan="3">
+							<%
+								FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
+								String fb_file = dto.getFb_file();
+								if(fb_file != null){
+							%>
+								<img src="./resources/assets/img/boardImages/${dto.fb_file}" width="100%">
+							<%
+								}else{
+							%>
+								첨부파일 없음!
+							<%
+								}
+							%>
+							</td>
+							
 						</tr>
 						<tr>
 							<td colspan="4" style="text-align: center; padding: 10px 0;">
 								<%
-									FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
+									dto = (FreeBoarderDTO) request.getAttribute("dto");
 									String u_id = dto.getU_id();
 									if (login != null && login.getU_id().equals(u_id)) {
 								%>
