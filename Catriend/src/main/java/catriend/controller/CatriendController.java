@@ -226,6 +226,49 @@ public class CatriendController {
 		model.addAttribute("pageGroup", "login");
 		return "loginPage";
 	}
+	
+	@RequestMapping("/adminPageIndex")
+	public String adminPageIndex(Model model, HttpServletRequest req) {
+		return "adminPageIndex";
+	}
+	
+	@RequestMapping("/adminUserManagement")
+	public String adminUserManagement(Model model, HttpServletRequest req) {
+		return "adminUserManagement";
+	}
+	
+	@RequestMapping("/adminQnaManagement")
+	public String adminQnaManagement(Model model, HttpServletRequest req) {
+		return "adminQnaManagement";
+	}
+	
+	@RequestMapping("/adminQnaView")
+	public String adminQnaView(Model model, HttpServletRequest req) {
+		return "adminQnaView";
+	}
+	
+	@RequestMapping("/adminQnaWrite")
+	public String adminQnaWrite(Model model, HttpServletRequest req) {
+		return "adminQnaWrite";
+	}
+	
+	@RequestMapping("/adminQnaSuccess")
+	public String adminQnaSuccess(Model model, HttpServletRequest req) {
+		return "adminQnaSuccess";
+	}
+	
+	@RequestMapping("/adminFreeboardManagement")
+	public String adminFreeboardManagement(Model model, HttpServletRequest req) {
+		return "adminFreeboardManagement";
+	}
+	
+	@RequestMapping("/adminReviewboardManagement")
+	public String adminReviewboardManagement(Model model, HttpServletRequest req) {
+		return "adminReviewboardManagement";
+	}
+	
+	
+	
 
 	@RequestMapping("/freeBoardUpdate")
 	public String freeBoardUpadate(Model model, HttpServletRequest req) {
