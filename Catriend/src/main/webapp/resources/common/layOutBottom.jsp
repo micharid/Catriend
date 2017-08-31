@@ -10,8 +10,22 @@
 		aptent taciti sociosqu ad litora torquent per conubia nostra, per
 		inceptos himenaeos. Ut suscipit ut massa in ultricies. Nunc nec
 		tincidunt nunc, ut consectetur lorem. Sed non justo nisl.
+
+		<%
+			if (request.getAttribute("pageGroup") == "about" || request.getAttribute("pageGroup") == "main") {
+		%>
+		<center>
+			<div class="skroler">
+				<a href="#top"><span class="glyphicon glyphicon-chevron-up"
+					style="color: #ffc35b;"></span></a>
+			</div>
+		</center>
+		<%
+			}
+		%>
 	</div>
 </section>
+
 <footer>
 	<div class="container">
 		<div class="row">
