@@ -88,23 +88,37 @@ public class CatsDAO {
 		return (CatsDTO) template.queryForObject(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
 	}
 
-	// 전체리스트
+	//전체리스트(기존에 사용하던것 계속사용함)
 	public List<CatsDTO> selectAll(Map<String, Object> map) {
-		int start = Integer.parseInt(map.get("start").toString());
-		int end = Integer.parseInt(map.get("end").toString());
-		
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM cats ";
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ORDER BY c_type asc) Tb " + ") WHERE";
+		sql += " ORDER BY c_type asc) Tb " + ") ";
 		if (map.get("u_grade") != null) {
-			sql += " c_grade <= " + Integer.parseInt(map.get("u_grade").toString()) + " AND ";
+			sql += "WHERE c_grade <= " + Integer.parseInt(map.get("u_grade").toString());
 		}
-		sql += " rNum BETWEEN "+start+" AND "+end+" ";
 		return (List<CatsDTO>) template.query(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
 	}
+	
+	// 전체리스트(관리자페이지 리스트 불러오는용도)
+		public List<CatsDTO> selectAlladmin(Map<String, Object> map) {
+			int start = Integer.parseInt(map.get("start").toString());
+			int end = Integer.parseInt(map.get("end").toString());
+			
+			String sql = "";
+			sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM cats ";
+			if (map.get("COLUMN") != null) {
+				sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+			}
+			sql += " ORDER BY c_type asc) Tb " + ") WHERE";
+			if (map.get("u_grade") != null) {
+				sql += " c_grade <= " + Integer.parseInt(map.get("u_grade").toString()) + " AND ";
+			}
+			sql += " rNum BETWEEN "+start+" AND "+end+" ";
+			return (List<CatsDTO>) template.query(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
+		}
 
 	// 고양이 분류리스트
 	public List<CatsDTO> selectAllKeyword(Map<String, Object> map) {

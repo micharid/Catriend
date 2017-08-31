@@ -48,7 +48,7 @@ public class AdminCatListCommand implements CatCommand {
 				req.getContextPath() + "/adminCatManagement?" + addQueryStr);
 		
 		// DAO에서 list메소드로 목록가져오기
-		List<CatsDTO> listRows = dao.selectAll(paramMap);
+		List<CatsDTO> listRows = dao.selectAlladmin(paramMap);
 		
 		// 페이지 처리를 위한 저장
 		model.addAttribute("pagingImg", pagingImg);
