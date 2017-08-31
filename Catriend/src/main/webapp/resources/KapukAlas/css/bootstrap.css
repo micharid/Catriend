@@ -5283,7 +5283,7 @@ a.list-group-item.active > .badge,
 .thumbnail > img,
 .thumbnail a > img {
   display: block;
-  height: auto;
+  height: 264px;
   max-width: 100%;
   margin-right: auto;
   margin-left: auto;

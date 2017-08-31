@@ -202,7 +202,7 @@
 										<p><%=dto.getC_gender()%></p>
 										<p><%=dto.getC_keyword()%></p>
 							</div>
-							<img src="./resources/assets/img/catP/<%=dto.getC_index()%>.jpg" width="100%"
+							<img src="./resources/assets/img/catP/<%=dto.getC_index()-1%>.jpg" width="100%"
 								height="100%">
 						</div>
 					</a>
