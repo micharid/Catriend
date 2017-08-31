@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 								<tr>
 									<td class="text-center">${totalRecordCount - row.rNum +1}</td>
 									<td>${row.q_title}</a></td>
-									<td class="text-center">${row.u_id}</td>
+									<td class="text-center"></td>
 									<td class="text-center">${row.q_date}</td>
 								</tr>
 							</c:forEach>

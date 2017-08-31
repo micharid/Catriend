@@ -1934,11 +1934,11 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #ffffff;
+  color: black;
   vertical-align: middle;
-  background-color: #ffc35b;
+  background-color: white;
   background-image: none;
-  border: 3px solid #428BCA;
+  border: 1px solid #c8c8c8;
   border-radius: 4px;
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
           transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
