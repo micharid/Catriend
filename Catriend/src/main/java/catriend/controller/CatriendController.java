@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import catriend.command.AdminUserListCommand;
 import catriend.command.CatBoarderCommentListCommand;
+import catriend.command.CatBoarderDeleteCommand;
 import catriend.command.CatBoarderInsertCommand;
 import catriend.command.CatBoarderListCommand;
 import catriend.command.CatBoarderUpdateCommand;
@@ -204,6 +205,16 @@ public class CatriendController {
 		model.addAttribute("u_id", u_id);
 		command = new CatBoarderUpdateCommand();
 		command.execute(model);
+		return "redirect:/catBoardList";
+	}
+	
+	@RequestMapping("/catBoardDelete")
+	public String catBoardDelete(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new CatBoarderDeleteCommand();
+		command.execute(model);
+
 		return "redirect:/catBoardList";
 	}
 	
@@ -473,6 +484,8 @@ public class CatriendController {
 
 		return "redirect:/freeBoardList";
 	}
+	
+	
 
 	@RequestMapping("/loginAction")
 	public String loginAction(Model model, HttpServletRequest req, HttpSession session) {
