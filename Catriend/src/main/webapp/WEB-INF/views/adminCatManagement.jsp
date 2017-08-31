@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>관리자</title>
+<title>Simple Responsive Admin</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
@@ -88,51 +88,51 @@
 						<div class="panel panel-default" style="width:100%;">
 								<div class="panel-heading" style="font-size:1.5em; font-weight:700;">
 									<center>
-										자유게시판관리
+										고양이 관리
 									</center>
 								</div>
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
-										<tr style="text-align:center;">
-											<th style="width:5%;" class="text-center info">선택</th>
-											<th style="width:5%;" class="text-center info">NO</th>
-											<th style="width:70%" class="info">제목</th>
-											<th style="width:10%" class="text-center info">아이디</th>
-											<th style="width:10%;" class="text-center info">작성일</th>
+										<tr>
+											<th style="width:15%;" class="text-center">선택</th>
+											<th style="width:15%;" class="text-center">NO</th>
+											<th style="width:20%;" class="text-center">이름</th>
+											<th style="width:15%;" class="text-center">성별</th>
+											<th style="width:15%;" class="text-center">생일</th>
+											<th style="width:20%" class="text-center">고양이종</th>
 										</tr>
+<!-- 										<tr> -->
+<!-- 											<td class="text-center"><input type="checkbox"/></td> -->
+<!-- 											<td class="text-center">1</td> -->
+<!-- 											<td class="text-center">이름</td> -->
+<!-- 											<td class="text-center">성별</td> -->
+<!-- 											<td class="text-center">06-25</td> -->
+<!-- 											<td class="text-center">스코티쉬폴드</td> -->
+<!-- 										</tr> -->
 										
-										<!--  게시판 반복 부분 s -->
-										<c:forEach items="${adminfreeboardlist}" var="row">
+										<!--게시판 반복 부분 s-->
+										<c:forEach items="${AdminCatListCommand}" var="row">
 											<tr>
 												<td class="text-center"><input type="checkbox" /></td>
-												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
-												<td>${row.fb_title}</a></td>
-												<td class="text-center">${row.u_id}</td>
-												<td class="text-center">${row.fb_date}</td>
+												<td class="text-center"></td>
+												<td class="text-center">${row.c_name}</td>
+												<td class="text-center">${row.c_gender}</td>
+												<td class="text-center">${row.c_birthday}</td>
+												<td class="text-center">${row.c_type}</td>
 											</tr>
 										</c:forEach>
-										<!-- 게시판 반복 부분 e  -->
+										<!--게시판 반복 부분 e-->
 										
 									</table>
-									<div class="pull-right" style="margin-top:-15px;">
-										<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='boardList'">삭제하기</button>
+									
+									<div class="com-md-12 pull-right" style="margin-top:-15px;">
+										<button class="btn btn-success" type="submit" style="color:white;" onclick="location.href='boardList'">추가하기</button>
+										<button class="btn btn-info" type="submit" style="color:white;" onclick="location.href='boardList'">수정하기</button>
+										<button class="btn btn-danger" type="submit" style="color:white;" onclick="location.href='boardList'">삭제하기</button>
 									</div>
-									<div class="col-md-12 text-center" style="margin-top:-15px;">
-										<nav>
-											<ul class="pagination">
-												<li><a href="#" aria-label="Previous"> <span
-														aria-hidden="true">&laquo;</span>
-												</a></li>
-												<li><a href="#">1</a></li>
-												<li><a href="#">2</a></li>
-												<li><a href="#">3</a></li>
-												<li><a href="#">4</a></li>
-												<li><a href="#">5</a></li>
-												<li><a href="#" aria-label="Next"> <span
-														aria-hidden="true">&raquo;</span>
-												</a></li>
-											</ul>
-										</nav>
+									
+									<div class="col-md-12 text-center" style="margin-top:10px;">
+										${pagingImg}
 									</div>
 								</div>
 							</div>

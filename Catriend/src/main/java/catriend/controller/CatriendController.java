@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import catriend.command.AdminCatListCommand;
 import catriend.command.AdminFreeBoardListCommand;
 import catriend.command.AdminQnaListCommand;
 import catriend.command.AdminReviewListCommand;
@@ -847,5 +848,14 @@ public class CatriendController {
 		command.execute(model);
 
 		return "adminQnaManagement";
+	}
+	
+	@RequestMapping("/adminCatManagement")
+	public String adminCatManagement(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "cats");
+		model.addAttribute("req", req);
+		command = new AdminCatListCommand();
+		command.execute(model);
+		return "adminCatManagement";
 	}
 }

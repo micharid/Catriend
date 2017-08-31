@@ -57,6 +57,9 @@
 				<li>
 					<a href="adminReviewboardManagement"><i class="fa fa-list-alt "></i>후기게시판관리</a>
 				</li>
+				<li>
+					<a href="adminCatManagement"><i class="fa fa-paw "></i>고양이관리</a>
+				</li>
 			</ul>
 		</div>
 
@@ -128,6 +131,17 @@
 								<div class="panel-body text-center" style="cursor:pointer;">
 									<div class="img4"><img class="center-block" src="./resources/assets/adminPageTemplate/img/adminreviewboard.png" style="width: 110px ! important; height: 110px ! important;"></div>
 									<p style="font-size: 1.2em">후기게시판관리</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					
+					<div class="col-md-3">
+						<div class="panel panel-default">
+							<a href="adminReviewboardManagement" style="color:#428bca; text-decoration: none;">
+								<div class="panel-body text-center" style="cursor:pointer;">
+									<div class="img5"><img class="center-block" src="./resources/assets/adminPageTemplate/img/admincat.png" style="width: 110px ! important; height: 110px ! important;"></div>
+									<p style="font-size: 1.2em">고양이 관리</p>
 								</div>
 							</a>
 						</div>
