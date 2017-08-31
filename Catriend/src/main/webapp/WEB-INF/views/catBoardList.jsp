@@ -97,20 +97,12 @@
 
 													</table>
 												</form>
-												<table width="100%">
-													<tr>
-														<td align="right">
-															<button type="button" class="btn btn-info"
-																onclick="location.href='catBoardWrite'">글쓰기</button>
-														</td>
-													</tr>
-												</table>
 												<div class="row">
 													<c:forEach items="${afterlists}" var="row">
 														<div class="col-lg-3 col-md-6 col-sm-6 animate-box">
 															<a class="fh5co-card"
 																href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}">
-																<img src="./resources/assets/img/notsign.png"
+																<img src="./resources/assets/img/boardImages/${row.cb_file}"
 																alt="Free HTML5 Bootstrap template"
 																class="img-responsive">
 																<div class="fh5co-card-body">
