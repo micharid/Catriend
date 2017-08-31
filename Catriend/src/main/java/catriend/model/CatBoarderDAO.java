@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
@@ -24,8 +26,9 @@ public class CatBoarderDAO {
 		String sql = "SELECT count(*) FROM catboarder";
 
 		// 검색단어가 있을 경우 검색조건을 쿼리에 추가
-		if (map.get("WORD") != null) {
-			sql += " where " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
+		if (req.getParameter("searchWord") != null) {
+			sql += " WHERE " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
 		return template.queryForObject(sql, Integer.class);
 	}
@@ -99,12 +102,14 @@ public class CatBoarderDAO {
 	}
 
 	public List<CatBoarderDTO> selectAll(Map<String, Object> map) {
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
+		System.out.println("dao 메소드 검색 : " + req.getParameter("searchWord"));
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM catboarder ";
-		if (map.get("COLUMN") != null) {
-			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+		if (req.getParameter("searchWord") != null) {
+			sql += " WHERE " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
 		sql += " ORDER BY cb_index DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));

@@ -83,16 +83,18 @@
 									<div class="panel panel-default">
 										<div class="panel-body">
 											<div class="table-responsive">
-												<form method="get">
+												<form method="get" action="catBoardList">
 													<input type="hidden" name="nowPage" value="1" />
 													<table width="100%" style="text-align: center;">
 														<tr>
 															<td><select name="searchColumn">
-																	<option value="title">제목</option>
-																	<option value="name">작성자</option>
-																	<option value="content">내용</option>
-															</select> <input type="text" name="searchWord" /> <input
-																type="submit" value="검색하기" /></td>
+																	<option value="cb_title">제목</option>
+																	<option value="u_id">작성자</option>
+																	<option value="cb_content">내용</option>
+																</select> 
+																<input type="text" name="searchWord" /> 
+																<input type="submit" value="검색하기" />
+															</td>
 														</tr>
 
 													</table>

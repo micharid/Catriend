@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
@@ -21,12 +23,12 @@ public class FreeBoarderDAO {
 
 	// 자유게시물 총수 가져오기(검색가능)
 	public int getTotalFreeBoarderCount(Map<String, Object> map) {
-
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		String sql = "SELECT count(*) FROM freeboarder";
 
 		// 검색단어가 있을 경우 검색조건을 쿼리에 추가
-		if (map.get("WORD") != null) {
-			sql += " where " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+		if (req.getParameter("searchWord") != null) {
+			sql += " where " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
 
 		return this.template.queryForObject(sql, Integer.class);
@@ -102,14 +104,14 @@ public class FreeBoarderDAO {
 
 	// 자유게시물 전부가져오기(검색, 페이징)
 	public List<FreeBoarderDTO> selectAll(Map<String, Object> map) {
-
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT freeboarder.*, users.u_nickname FROM "
 				+ "freeboarder JOIN users ON freeboarder.u_id = users.u_id ";
-		if (map.get("COLUMN") != null) {
-			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+		if (req.getParameter("searchWord") != null) {
+			sql += " WHERE " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
 		sql += " ORDER BY fb_index DESC ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 

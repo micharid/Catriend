@@ -118,7 +118,7 @@ textarea {
 									String fb_file = dto.getFb_file();
 									if (fb_file != null) {
 								%> <img src="./resources/assets/img/boardImages/${dto.fb_file}"
-								width="100%"> <%
+								width="80%"> <%
  	} else {
  %> 첨부파일 없음! <%
  	}

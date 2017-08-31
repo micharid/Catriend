@@ -92,9 +92,9 @@
 													<table width="100%" style="text-align: center;">
 														<tr>
 															<td><select name="searchColumn">
-																	<option value="title">제목</option>
-																	<option value="name">작성자</option>
-																	<option value="content">내용</option>
+																	<option value="fb_title">제목</option>
+																	<option value="u_id">작성자</option>
+																	<option value="fb_content">내용</option>
 															</select> <input type="text" name="searchWord" /> <input
 																type="submit" value="검색하기" /></td>
 

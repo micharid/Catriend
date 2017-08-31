@@ -21,7 +21,8 @@ public class CatBoarderListCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-
+		System.out.println("커맨드 검색어 : " + req.getParameter("searchWord"));
+		
 		// 전체 레코드수를 카운드
 		int totalRecordCount = dao.getTotalCatBoarderCount(paramMap);
 

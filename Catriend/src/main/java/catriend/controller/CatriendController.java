@@ -91,6 +91,8 @@ public class CatriendController {
 	public String catBoardList(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		System.out.println("컨트롤러 검색어 : "+req.getParameter("searchWord"));
+		model.addAttribute(req);
 		command = new CatBoarderListCommand();
 		command.execute(model);
 		return "catBoardList";
