@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>고양이 계약</title>
+    <title>계약</title>
     
     <!-- datepicker 제이쿼리 임포트 -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

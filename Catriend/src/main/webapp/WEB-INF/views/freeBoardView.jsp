@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>KapukAlas - Multipurpose template</title>
+<title>게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
@@ -166,6 +166,11 @@ textarea {
 							</form>
 						</c:if>
 						<span style="font-size: 1.4em;">Comment</span>
+						<c:if test="${empty FreeBoarderCommentLists}">
+							<center>
+								<span>댓글이 없습니다.</span>
+							</center>
+						</c:if>
 						<c:if test="${not empty FreeBoarderCommentLists}">
 							<table class="table">
 								<tr>

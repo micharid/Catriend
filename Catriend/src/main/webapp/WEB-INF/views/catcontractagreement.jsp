@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>KapukAlas - Multipurpose template</title>
+<title>계약</title>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 

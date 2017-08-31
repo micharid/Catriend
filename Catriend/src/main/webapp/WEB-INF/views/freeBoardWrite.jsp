@@ -1,69 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="utf-8">
+<html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
-
-<title>SOLID - Bootstrap 3 Theme</title>
-
-<!-- Bootstrap core CSS -->
-<link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="./resources/assets/css/style.css" rel="stylesheet">
-<link href="./resources/assets/css/font-awesome.min.css"
-	rel="stylesheet">
+<title>KapukAlas - Multipurpose template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
+<link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
-<script>
-	function checkWriteFrm(){
-		var f = document.writeFrm;
-		if(f.title.value==""){
-			alert("제목을 입력하세요");
-			f.title.focus();
-			return false;
-		}
-		if(f.content.value==""){
-			alert("내용을 입력하세요");
-			f.content.focus();
-			return false;
-		}
-		
-	}
-</script>
+
 <style>
-body {
-	background: #ffc35b;
+.panel-default > .panel-heading {
+    color: #428BCA;
+    background-color: #428BCA;
+    border-color: #dddddd;
 }
 </style>
-
 <body>
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
-	<div id="blue">
-		<div class="container">
-			<div class="row">
-				<center>
-					<h3>게시판</h3>
-				</center>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /blue -->
 
 	<!-- *****************************************************************************************************************
 	 CONTACT WRAP
@@ -134,19 +94,23 @@ body {
 														<div class="panel-body">
 															<form name="writeFrm" method="post"
 																onsubmit="return checkWriteFrm()"
-																action="freeBoardWriteAction">
-																<input type="hidden" value="${loginUser.u_id}"
-																	name="u_id">
+																action="freeBoardWriteAction"
+																enctype="multipart/form-data">
+																
+																
+																<input type="hidden" value="${loginUser.u_id}" name="u_id">
+																
+																
 																<div class="form-group">
-																	<label>제목</label> <input class="form-control"
-																		type="text" name="fb_title" />
-
+																	<label>제목</label> <input class="form-control" type="text" name="fb_title" />
 																</div>
+																
+																
 																<div class="form-group">
-																	<label>첨부파일</label> <input type="file"
-																		style="width: 90%;" name="fb_file" />
-
+																	<label>첨부파일</label> <input type="file" style="width: 90%;" name="fb_file" />
 																</div>
+																
+																
 																<div class="form-group">
 																	<label>내용</label>
 																	<textarea class="form-control" rows="3"
@@ -155,8 +119,7 @@ body {
 
 
 																<button type="submit" class="btn btn-info">등록하기</button>
-																<button class="btn btn-danger" type="button"
-																	onclick="javascript:history.go(-1)">취소하기</button>
+																<button class="btn btn-danger" type="button" onclick="javascript:history.go(-1)">취소하기</button>
 
 															</form>
 														</div>
@@ -167,9 +130,6 @@ body {
 										</div>
 									</div>
 								</div>
-
-
-
 							</div>
 						</div>
 					</div>

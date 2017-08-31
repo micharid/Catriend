@@ -42,9 +42,7 @@
 	%>
 
 <section id="portfolio">
-
 	<div class="container">
-
 		<div class="row">
 			<%
 						for (CatsDTO dto : listRows) {
@@ -59,8 +57,7 @@
 							<p><%=dto.getC_gender()%></p>
 							<p><%=dto.getC_keyword()%></p>
 						</div>
-						<img
-							src="./resources/assets/img/portfolio/<%=dto.getC_index() % 10 + 1%>.jpg"
+						<img src="./resources/assets/img/catP/<%=dto.getC_index()%>.jpg"
 							width="100%" height="100%">
 					</div>
 				</a>
@@ -68,11 +65,13 @@
 			<%
 					}
 						}
-					
 				%>
-
 		</div>
-
 	</div>
 </section>
 
+<script src="./resources/KapukAlas/js/jquery.js"></script>
+<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
+<!-- bottom s -->
+<%@ include file="../../../resources/common/menuScript.jsp"%>
+<!-- bottom e -->

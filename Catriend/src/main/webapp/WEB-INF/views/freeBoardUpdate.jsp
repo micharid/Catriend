@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>KapukAlas - Multipurpose template</title>
+<title>게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
@@ -37,22 +37,6 @@ body {
    <!-- top s -->
    <%@ include file="../../resources/common/layOutTop.jsp"%>
    <!-- top e -->
-
-   <!-- *****************************************************************************************************************
-    BLUE WRAP
-    ***************************************************************************************************************** -->
-   <div id="blue">
-      <div class="container">
-         <div class="row">
-            <center>
-               <h3>게시판</h3>
-            </center>
-         </div>
-         <!-- /row -->
-      </div>
-      <!-- /container -->
-   </div>
-   <!-- /blue -->
 
    <!-- *****************************************************************************************************************
     CONTACT WRAP
@@ -142,7 +126,6 @@ body {
                                                    <textarea class="form-control" rows="3"
                                                       name="fb_content">${dto.fb_content}</textarea>
                                                 </div>
-
 
                                                 <button type="submit" class="btn btn-info">등록하기</button>
                                                 <button class="btn btn-danger" type="button"

@@ -10,7 +10,7 @@
 <meta name="author" content="">
 <link rel="shortcut icon" href="./resources/assets/ico/favicon.ico">
 
-<title>Cat`riend</title>
+<title>계약</title>
 
 <!-- Bootstrap core CSS -->
 <link href="./resources/assets/css/bootstrap.css" rel="stylesheet">
