@@ -95,7 +95,7 @@ public class CatsDAO {
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ORDER BY c_type asc) Tb " + ") ";
+		sql += " ORDER BY c_type desc) Tb " + ") ";
 		if (map.get("u_grade") != null) {
 			sql += "WHERE c_grade <= " + Integer.parseInt(map.get("u_grade").toString());
 		}
@@ -129,7 +129,7 @@ public class CatsDAO {
 				sql += " WHERE c_grade <= " + Integer.parseInt(map.get("u_grade").toString());
 			}
 		}
-		sql += " ORDER BY c_type asc";
+		sql += " ORDER BY c_type desc";
 		return (List<CatsDTO>) template.query(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
 	}
 }
