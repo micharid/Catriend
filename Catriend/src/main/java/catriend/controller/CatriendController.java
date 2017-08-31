@@ -1,5 +1,7 @@
 package catriend.controller;
 
+import java.io.File;
+
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +23,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import catriend.command.AdminUserListCommand;
 import catriend.command.CatBoarderCommentListCommand;
+import catriend.command.CatBoarderInsertCommand;
 import catriend.command.CatBoarderListCommand;
+import catriend.command.CatBoarderUpdateCommand;
 import catriend.command.CatBoarderViewCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
@@ -40,6 +44,8 @@ import catriend.command.LogoutCommand;
 import catriend.command.QnAQInsertCommand;
 import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
+import catriend.model.CatBoarderDAO;
+import catriend.model.CatBoarderDTO;
 import catriend.model.Constant;
 import catriend.model.FreeBoarderDAO;
 import catriend.model.FreeBoarderDTO;
@@ -95,6 +101,110 @@ public class CatriendController {
 		command.execute(model);
 
 		return "catBoardView";
+	}
+	
+	@RequestMapping("/catBoardWrite")
+	public String catBoardWrite(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+
+		return "catBoardWrite";
+	}
+	
+	@RequestMapping("/catBoardWriteAction")
+	public String catBoardWriteAction(Model model, HttpServletRequest req) throws Exception {
+		MultipartHttpServletRequest mf = (MultipartHttpServletRequest) req;
+
+		String cb_fileUpload = uimageUpload(mf.getFile("cb_file")).toString();
+		String[] fileStr = cb_fileUpload.split(",");
+
+		String cb_file = fileStr[1];
+		if (cb_file.contains(".") == false) {
+			File f = new File(boardUploadPath + "\\" + cb_file);
+			if (f.exists())
+				f.delete();
+
+			cb_file = null;
+		}
+
+		model.addAttribute("req", req);
+		model.addAttribute("cb_file", cb_file);
+
+		command = new CatBoarderInsertCommand();
+		command.execute(model);
+		command = new CatBoarderListCommand();
+		command.execute(model);
+
+		return "catBoardList";
+	}
+
+	@RequestMapping("/catBoardUpdate")
+	public String catBoardUpadate(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+
+		CatBoarderDAO dao = new CatBoarderDAO();
+		CatBoarderDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("cb_index")));
+		model.addAttribute("dto", dto);
+
+		return "catBoardUpdate";
+	}
+
+	@RequestMapping("/catBoardUpdateAction")
+	public String catBoardUpdateAction(Model model, HttpServletRequest req) throws Exception {
+		model.addAttribute("pageGroup", "board");
+		MultipartHttpServletRequest mf = (MultipartHttpServletRequest) req;
+		// DAO에서 fb_file 가져와서 null체크
+		String cb_Orifile = req.getParameter("fileName");
+		String cb_file;
+		String cb_fileUpload;
+		String[] fileStr;
+		
+		// 무조건 업로드(빈값도 됨)
+		cb_fileUpload = uimageUpload(mf.getFile("cb_file")).toString();
+		fileStr = cb_fileUpload.split(",");
+		cb_file = fileStr[1];
+		
+		// 이미지 첨부 없을때 들어오는 조건
+		if (cb_file.contains(".") == false) {
+			System.out.println("asa");
+			// 기존 이미지 있을때
+			if (cb_Orifile != null) {
+				File f = new File(boardUploadPath + "\\" + cb_file);
+				if (f.exists())
+					f.delete();
+				
+				cb_file = cb_Orifile;
+			} 
+			//기존 이미지 없을때
+			else {
+				File f = new File(boardUploadPath + "\\" + cb_file);
+				if (f.exists())
+					f.delete();
+				
+				cb_file = cb_Orifile;
+			}
+		}
+		//이미지 첨부있을때
+		else {
+			File f = new File(boardUploadPath + "\\" + cb_Orifile);
+			if (f.exists())
+				f.delete();
+			System.out.println(cb_file+";;;;;;");
+		}
+		HttpSession session = req.getSession();
+		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
+		String u_id = dto.getU_id();
+		System.out.println(u_id);
+
+		model.addAttribute("cb_file", cb_file);
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("u_id", u_id);
+		command = new CatBoarderUpdateCommand();
+		command.execute(model);
+		return "redirect:/catBoardList";
 	}
 	
 	@RequestMapping("/catlist")

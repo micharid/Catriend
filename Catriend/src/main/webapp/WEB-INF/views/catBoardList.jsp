@@ -11,10 +11,10 @@
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
 <style>
-.panel-default > .panel-heading {
-    color: #428BCA;
-    background-color: #428BCA;
-    border-color: #dddddd;
+.panel-default>.panel-heading {
+	color: #428BCA;
+	background-color: #428BCA;
+	border-color: #dddddd;
 }
 </style>
 <body>
@@ -70,11 +70,12 @@
 
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading"><h3 style="text-align:center; color:white;">게시판</h3></div>
+						<div class="panel-heading">
+							<h3 style="text-align: center; color: white;">게시판</h3>
+						</div>
 						<div class="panel-body">
 							<ul class="nav nav-tabs">
-								<li class=""><a href="freeBoardList">자유
-										게시판</a></li>
+								<li class=""><a href="freeBoardList">자유 게시판</a></li>
 								<li class="active"><a href="#after">후기 게시판</a></li>
 							</ul>
 							<div class="tab-content">
@@ -99,16 +100,17 @@
 												<table width="100%">
 													<tr>
 														<td align="right">
-															<button type="button" class="btn btn-info" onclick="">
-																글쓰기</button>
+															<button type="button" class="btn btn-info"
+																onclick="location.href='catBoardWrite'">글쓰기</button>
 														</td>
 													</tr>
 												</table>
 												<div class="row">
 													<c:forEach items="${afterlists}" var="row">
 														<div class="col-lg-3 col-md-6 col-sm-6 animate-box">
-															<a class="fh5co-card" href="#"> <img
-																src="./resources/assets/img/notsign.png"
+															<a class="fh5co-card"
+																href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}">
+																<img src="./resources/assets/img/notsign.png"
 																alt="Free HTML5 Bootstrap template"
 																class="img-responsive">
 																<div class="fh5co-card-body">
@@ -148,8 +150,8 @@
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 </body>
 </html>

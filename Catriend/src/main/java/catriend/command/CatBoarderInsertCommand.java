@@ -18,12 +18,21 @@ public class CatBoarderInsertCommand implements CatCommand {
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
 		CatBoarderDTO dto = new CatBoarderDTO();
-
-		dto.setCb_title(req.getParameter("cb_title"));
-		dto.setCb_content(req.getParameter("cb_content"));
-		dto.setCb_file(req.getParameter("cb_file"));
-		dto.setU_id(req.getParameter("u_id"));
-		dto.setC_index(Integer.parseInt(req.getParameter("c_index")));
+		String cb_title = req.getParameter("cb_title");
+		String cb_content = req.getParameter("cb_content");
+		String cb_file = null;
+		
+		if(paramMap.get("cb_file") != null) {
+			cb_file = paramMap.get("cb_file").toString();
+		}
+		
+		String u_id = req.getParameter("u_id");
+		System.out.println(cb_title+","+cb_content+","+cb_file+","+u_id);
+		
+		dto.setCb_title(cb_title);
+		dto.setCb_content(cb_content);
+		dto.setCb_file(cb_file);
+		dto.setU_id(u_id);
 
 		dao.InsertCatBoarder(dto);
 

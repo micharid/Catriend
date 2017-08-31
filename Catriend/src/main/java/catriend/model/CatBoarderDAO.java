@@ -61,6 +61,7 @@ public class CatBoarderDAO {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
+				System.out.println("DAO메소드 : "+dto.getCb_file());
 				psmt.setString(1, dto.getCb_title());
 				psmt.setString(2, dto.getCb_content());
 				psmt.setString(3, dto.getCb_file());
