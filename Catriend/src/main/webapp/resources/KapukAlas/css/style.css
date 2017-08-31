@@ -5,8 +5,14 @@ body {
 h1, h2, h3, h4, h5, h6, p {
 	font-family: 'Duru Sans', Open Sans Light;
 }
+.top{
+   width: 100%;
+    position: relative;
+    background: url(../img/mainTOP-iloveimg-resized.jpg) no-repeat top center;
+    background-size: cover;
+
+}
 header {
-	background:url(../img/mainTOP-iloveimg-resized.jpg) no-repeat;
 	height:700px;
 	width:100%;
 	padding-top:50px;

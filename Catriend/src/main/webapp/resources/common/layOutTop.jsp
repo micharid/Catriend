@@ -5,7 +5,7 @@
 <%
 UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.getAttribute("loginUser") : null;
 %>
-<section id="top">
+<section id="top" class="top">
 	<header>
 		<div class="container">
 			<center>
