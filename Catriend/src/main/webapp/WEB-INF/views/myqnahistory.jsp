@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -50,7 +51,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		<div id="blue" style="margin-top:60px;">
 		
 					<center>
-						<h3 style=" font-size: 20px; line-height: 1.428571429; color: #fff; padding:10px; margin-bottom:50px;">내가 질문한  목록</h3>
+						<h3 style=" font-size: 20px; line-height: 1.428571429; color: #fff; padding:10px; margin-bottom:50px;">내가 질문한 목록</h3>
 					</center>
 		
 			<!-- /container -->
@@ -72,58 +73,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 								<th style="width:10%;" class="text-center">답변여부</th>
 								<th style="width:15%;" class="text-center">작성일</th>
 							</tr>
-							<!-- 반복시작 -->
-							<tr>
-								<td class="text-center">1</td>
-								<td>
-									<a href="#">
-										내가 질문한 글을 불러오는 공간입니다.
-									</a>
-								</td>
-								<td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
-								<td class="text-center">2017-08-26</td>
-							</tr>
-							<!-- 반복끝 -->
-							<tr>
-								<td class="text-center">1</td>
-								<td>
-									<a href="#">
-										내가 질문한 글을 불러오는 공간입니다.
-									</a>
-								</td>
-								<td class="text-center"><span class="glyphicon glyphicon-remove"></span></td>
-								<td class="text-center">2017-08-26</td>
-							</tr>
-							<tr>
-								<td class="text-center">1</td>
-								<td>
-									<a href="#">
-										내가 질문한 글을 불러오는 공간입니다.
-									</a>
-								</td>
-								<td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
-								<td class="text-center">2017-08-26</td>
-							</tr>
-							<tr>
-								<td class="text-center">1</td>
-								<td>
-									<a href="#">
-										내가 질문한 글을 불러오는 공간입니다.
-									</a>
-								</td>
-								<td class="text-center"><span class="glyphicon glyphicon-remove"></span></td>
-								<td class="text-center">2017-08-26</td>
-							</tr>
-							<tr>
-								<td class="text-center">1</td>
-								<td>
-									<a href="#">
-										내가 질문한 글을 불러오는 공간입니다.
-									</a>
-								</td>
-								<td class="text-center"><span class="glyphicon glyphicon-ok"></span></td>
-								<td class="text-center">2017-08-26</td>
-							</tr>
+							<!--  게시판 반복 부분 s -->
+							<c:forEach items="${myqnalist}" var="row">
+								<tr>
+									<td class="text-center">${totalRecordCount - row.rNum +1}</td>
+									<td>${row.q_title}</a></td>
+									<td class="text-center">${row.u_id}</td>
+									<td class="text-center">${row.q_date}</td>
+								</tr>
+							</c:forEach>
+							<!-- 게시판 반복 부분 e  -->
 						</table>
 						<div class="pull-right" style="margin-top:-15px;">
 							<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='contact'">질문하러가기</button>

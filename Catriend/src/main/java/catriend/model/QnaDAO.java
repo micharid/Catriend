@@ -83,4 +83,10 @@ public class QnaDAO {
 
 		return (List<QnaDTO>) template.query(sql, new BeanPropertyRowMapper<QnaDTO>(QnaDTO.class));
 	}
+	
+	public List<QnaDTO> myqna(String u_id)
+	{
+		String sql = "select * from qna where u_id='"+ u_id +"'";
+		return (List<QnaDTO>) template.query(sql, new BeanPropertyRowMapper<QnaDTO>(QnaDTO.class));
+	}
 }

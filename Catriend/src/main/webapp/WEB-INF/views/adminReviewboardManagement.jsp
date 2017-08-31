@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -92,53 +93,23 @@
 										<tr style="text-align:center;">
 											<th style="width:5%;" class="text-center info">선택</th>
 											<th style="width:5%;" class="text-center info">NO</th>
-											<th style="width:60%" class="info">제목</th>
-											<th style="width:10%" class="text-center info">닉네임</th>
+											<th style="width:70%" class="info">제목</th>
 											<th style="width:10%" class="text-center info">아이디</th>
 											<th style="width:10%;" class="text-center info">작성일</th>
 										</tr>
-										<!-- 반복시작 -->
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td>제목</td>
-											<td class="text-center">닉네임</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
-										<!-- 반복끝 -->
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td>제목</td>
-											<td class="text-center">닉네임</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td>제목</td>
-											<td class="text-center">닉네임</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td>제목</td>
-											<td class="text-center">닉네임</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
-										<tr>
-											<td class="text-center"><input type="checkbox" /></td>
-											<td class="text-center">1</td>
-											<td>제목</td>
-											<td class="text-center">닉네임</td>
-											<td class="text-center">아이디</td>
-											<td class="text-center">2017-08-26</td>
-										</tr>
+										
+										<!--  게시판 반복 부분 s -->
+										<c:forEach items="${adminreviewlist}" var="row">
+											<tr>
+												<td class="text-center"><input type="checkbox" /></td>
+												<td class="text-center"></td>
+												<td>${row.cb_title}</a></td>
+												<td class="text-center">${row.u_id}</td>
+												<td class="text-center">${row.cb_date}</td>
+											</tr>
+										</c:forEach>
+										<!-- 게시판 반복 부분 e  -->
+										
 									</table>
 									<div class="pull-right" style="margin-top:-15px;">
 										<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='boardList'">삭제하기</button>

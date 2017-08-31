@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import catriend.command.AdminFreeBoardListCommand;
+import catriend.command.AdminQnaListCommand;
+import catriend.command.AdminReviewListCommand;
 import catriend.command.AdminUserListCommand;
 import catriend.command.CatBoarderCommentDeleteCommand;
 import catriend.command.CatBoarderCommentInsertCommand;
@@ -42,6 +45,7 @@ import catriend.command.FreeBoarderUpdateCommand;
 import catriend.command.FreeBoarderViewCommand;
 import catriend.command.LoginCommand;
 import catriend.command.LogoutCommand;
+import catriend.command.UserQnaListCommand;
 import catriend.command.QnAQInsertCommand;
 import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
@@ -550,20 +554,10 @@ public class CatriendController {
 		return "loginPage";
 	}
 	
-	@RequestMapping("/myqnahistory")
-	public String myqnahistory(Model model, HttpServletRequest req) {
-		model.addAttribute("pageGroup", "myInfo");
-		return "myqnahistory";
-	}
 	
 	@RequestMapping("/adminPageIndex")
 	public String adminPageIndex(Model model, HttpServletRequest req) {
 		return "adminPageIndex";
-	}
-	
-	@RequestMapping("/adminQnaManagement")
-	public String adminQnaManagement(Model model, HttpServletRequest req) {
-		return "adminQnaManagement";
 	}
 	
 	@RequestMapping("/adminQnaView")
@@ -579,16 +573,6 @@ public class CatriendController {
 	@RequestMapping("/adminQnaSuccess")
 	public String adminQnaSuccess(Model model, HttpServletRequest req) {
 		return "adminQnaSuccess";
-	}
-	
-	@RequestMapping("/adminFreeboardManagement")
-	public String adminFreeboardManagement(Model model, HttpServletRequest req) {
-		return "adminFreeboardManagement";
-	}
-	
-	@RequestMapping("/adminReviewboardManagement")
-	public String adminReviewboardManagement(Model model, HttpServletRequest req) {
-		return "adminReviewboardManagement";
 	}
 	
 	
@@ -816,5 +800,49 @@ public class CatriendController {
 		command.execute(model);
 
 		return "adminUserManagement";
+	}
+	
+	@RequestMapping("/myqnahistory")
+	public String myqnahistory(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "myInfo");
+		model.addAttribute("req", req);
+		
+		HttpSession session = req.getSession();
+		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
+		String u_id = dto.getU_id();
+		model.addAttribute("u_id", u_id);
+		command = new UserQnaListCommand();
+		command.execute(model);
+
+		return "myqnahistory";
+	}
+	
+	@RequestMapping("/adminFreeboardManagement")
+	public String adminFreeboardManagement(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new AdminFreeBoardListCommand();
+		command.execute(model);
+
+		return "adminFreeboardManagement";
+	}
+	
+	@RequestMapping("/adminReviewboardManagement")
+	public String adminReviewboardManagement(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new AdminReviewListCommand();
+		command.execute(model);
+		return "adminReviewboardManagement";
+	}
+	
+	@RequestMapping("/adminQnaManagement")
+	public String adminQnaManagement(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new AdminQnaListCommand();
+		command.execute(model);
+
+		return "adminQnaManagement";
 	}
 }

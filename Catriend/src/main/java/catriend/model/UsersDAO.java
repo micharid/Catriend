@@ -90,12 +90,15 @@ public class UsersDAO {
 
 	// 유저 전부가져오기(검색가능)
 	public List<UsersDTO> selectAll(Map<String, Object> map) {
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM users ";
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ) Tb " + ") WHERE rNum BETWEEN ? AND ? ";
+		sql += " ) Tb " + ") WHERE rNum BETWEEN "+start+" AND "+end+" ";
 
 		return (List<UsersDTO>) template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}
