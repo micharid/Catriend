@@ -45,7 +45,7 @@ public class UsersDAO {
 				psmt.setString(5, dto.getU_phonenumber());
 				psmt.setString(6, dto.getU_address());
 				psmt.setString(7, dto.getU_email());
-				psmt.setInt(8, 10);
+				psmt.setInt(8, dto.getU_grade());
 				psmt.setString(9, dto.getU_nickname());
 			}
 		});
