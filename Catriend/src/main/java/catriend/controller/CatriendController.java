@@ -51,6 +51,8 @@ import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
 import catriend.model.CatBoarderDAO;
 import catriend.model.CatBoarderDTO;
+import catriend.model.CatsDAO;
+import catriend.model.CatsDTO;
 import catriend.model.Constant;
 import catriend.model.FreeBoarderDAO;
 import catriend.model.FreeBoarderDTO;
@@ -97,6 +99,7 @@ public class CatriendController {
 	public String catBoardView(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
 
 		command = new CatBoarderViewCommand();
 		command.execute(model);
@@ -108,25 +111,28 @@ public class CatriendController {
 		return "catBoardView";
 	}
 	
+	@RequestMapping("/catcontractpaypage")
+	public String catcontractpaypage(Model model, HttpServletRequest req) {
+		return "catcontractpaypage";
+	}
 	
+	@RequestMapping("/catcontractagreement")
+	public String catcontractagreement(Model model, HttpServletRequest req) {
+		return "catcontractagreement";
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping("/catcontractsuccess")
+	public String catcontractsuccess(Model model, HttpServletRequest req) {
+		return "catcontractsuccess";
+	}
+
 	@RequestMapping("/catBoarderCommentReply")
 	public String catBoarderCommentReply(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		model.addAttribute("cb_index", req.getParameter("cb_index"));
 		model.addAttribute("cbc_index", req.getParameter("cbc_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		command = new CatBoarderViewCommand();
 		command.execute(model);
 
@@ -235,21 +241,10 @@ public class CatriendController {
 
 		return "catBoardView";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@RequestMapping("/catBoardWrite")
 	public String catBoardWrite(Model model, HttpServletRequest req) {
+		
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 
@@ -343,6 +338,7 @@ public class CatriendController {
 		String u_id = dto.getU_id();
 		System.out.println(u_id);
 
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		model.addAttribute("cb_file", cb_file);
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
@@ -355,6 +351,7 @@ public class CatriendController {
 	@RequestMapping("/catBoardDelete")
 	public String catBoardDelete(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		model.addAttribute("req", req);
 		command = new CatBoarderDeleteCommand();
 		command.execute(model);
@@ -385,6 +382,12 @@ public class CatriendController {
 	@RequestMapping("/catProfile")
 	public String catProfile(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "cats");
+		
+		CatsDAO dao = new CatsDAO();
+		CatsDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("c_index")));
+		System.out.println("캣 프로필 dto 불러 오기 : " + dto.getC_index());
+		
+		model.addAttribute("dto", dto);
 		return "catProfile";
 	}
 

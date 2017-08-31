@@ -61,7 +61,7 @@ public class CatBoarderDAO {
 
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
-				System.out.println("DAO메소드 : "+dto.getCb_file());
+				System.out.println("DAO메소드 : " + dto.getCb_file());
 				psmt.setString(1, dto.getCb_title());
 				psmt.setString(2, dto.getCb_content());
 				psmt.setString(3, dto.getCb_file());
@@ -76,8 +76,23 @@ public class CatBoarderDAO {
 		return template.update(sql);
 	}
 
+	// 조회수 증가
+	public int hitsUp(final int cb_index) {
+		String sql = " UPDATE catboarder " + " SET cb_hits = cb_hits +1 " + " WHERE cb_index = ? ";
+
+		return this.template.update(sql, new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement psmt) throws SQLException {
+				// TODO Auto-generated method stub
+				psmt.setInt(1, cb_index);
+			}
+		});
+	}
+
 	// 고양이 한마리 정보 가져오기
 	public CatBoarderDTO selectOne(int cb_index) {
+		hitsUp(cb_index);
 		String sql = "SELECT * FROM catboarder WHERE cb_index=" + cb_index;
 		return (CatBoarderDTO) template.queryForObject(sql,
 				new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
@@ -91,7 +106,7 @@ public class CatBoarderDAO {
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ORDER BY cb_index DESC) Tb " + ") WHERE rNum BETWEEN "+start+" AND "+end;
+		sql += " ORDER BY cb_index DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
 	}
 
@@ -103,7 +118,7 @@ public class CatBoarderDAO {
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ORDER BY cb_hits DESC) Tb " + ") WHERE rNum BETWEEN "+start+" AND "+end;
+		sql += " ORDER BY cb_hits DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
 	}
 }

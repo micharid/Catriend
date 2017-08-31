@@ -1,3 +1,4 @@
+<%@page import="catriend.model.CatsDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -64,7 +65,7 @@ hr {
 	<div id="blue" style="margin-top:60px;">
 		
 					<center>
-						<h3 style=" font-size: 20px; line-height: 1.428571429; color: #fff; padding:10px;">MY PAGE</h3>
+						<h3 style=" font-size: 20px; line-height: 1.428571429; color: #fff; padding:10px;">Cat Profile</h3>
 					</center>
 		
 			<!-- /container -->
@@ -133,14 +134,13 @@ hr {
 				<h4>고양이친구 프로필</h4>
 				<div class="hline"></div>
 				<p>
-				<h4>이름 : 나비</h4>
+				<h4>이름 : ${dto.c_name}</h4>
 				<h4>
 					종류 : <a
-						href="https://namu.wiki/w/%EB%9F%AC%EC%8B%9C%EC%95%88%20%EB%B8%94%EB%A3%A8">러시안
-						블루</a>
+						href="https://namu.wiki/w/${dto.c_type}">${dto.c_type}</a>
 				</h4>
-				<h4>나이(age) : 1년</h4>
-				<h4>건강상태 : 양 호</h4>
+				<h4> 생일 : ${dto.c_birthday}</h4>
+				<h4>건강상태 : ${dto.c_health}</h4>
 
 				</p>
 				<button class="btn btn-warning" style="width: 100%;"
@@ -182,12 +182,22 @@ hr {
 
 
 				<hr style="color:blue"/>
-				<h4>Popular Tags</h4>
+				<h4>키워드 입력 부분</h4>
 				<div class="hline"></div>
 				<p>
-				
+				<div style="font-size:2.5em;">누르면 네이버에 검색<br /></div>
 				<!-- 분류 반복 s -->
-					<a class="btn btn-warning" href="#" role="button">Design</a>
+				<%
+					CatsDTO dto = (CatsDTO)request.getAttribute("dto");
+					String keyword = dto.getC_keyword();
+					String[] keywordArr = keyword.split(",");
+					
+					for(String strArr : keywordArr){
+				%>
+					<a class="btn btn-success" style="margin-top:10px"href="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=<%=strArr%>&oquery=rjator&tqi=TjQ5pwpVuE4ssso0ieNssssss14-306639" role="button"><%=strArr%></a>
+				<%
+					}
+				%>
 				<!-- 분류 반복 e -->
 				</p>
 			</div>

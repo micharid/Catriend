@@ -83,8 +83,8 @@ public class CatsDAO {
 	}
 
 	// 고양이 한마리 정보 가져오기
-	public CatsDTO selectOne(int c_id) {
-		String sql = "SELECT * FROM cats WHERE c_index=" + c_id;
+	public CatsDTO selectOne(int c_index) {
+		String sql = "SELECT * FROM cats WHERE c_index=" + c_index;
 		return (CatsDTO) template.queryForObject(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
 	}
 
