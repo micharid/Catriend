@@ -10,22 +10,22 @@ import catriend.model.QnaDAO;
 import catriend.model.QnaDTO;
 
 public class QnAQInsertCommand implements CatCommand {
-	@Override
-	public void execute(Model model) {
-		// DAO 연결
-		QnaDAO dao = new QnaDAO();
-		// 파라미터 받기
-		Map<String, Object> paramMap = model.asMap();
-		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
+   @Override
+   public void execute(Model model) {
+      // DAO 연결
+      QnaDAO dao = new QnaDAO();
+      // 파라미터 받기
+      Map<String, Object> paramMap = model.asMap();
+      HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
-		QnaDTO dto = new QnaDTO();
+      QnaDTO dto = new QnaDTO();
 
-		dto.setQ_title(req.getParameter("q_title"));
-		dto.setQ_content(req.getParameter("q_content"));
-		dto.setU_id(req.getParameter("u_id"));
+      dto.setQ_title(req.getParameter("q_title"));
+      dto.setQ_content(req.getParameter("q_content"));
+      dto.setU_id(req.getParameter("u_id"));
+      System.out.println(dto.getQ_title()+","+dto.getQ_content()+","+dto.getU_id());
+      dao.InsertQnaQ(dto);
 
-		dao.InsertQnaQ(dto);
-
-		System.out.println("QnAQInsertCommand");
-	}
+      System.out.println("QnAQInsertCommand");
+   }
 }
