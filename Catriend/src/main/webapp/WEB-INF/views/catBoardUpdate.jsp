@@ -1,5 +1,4 @@
 <%@page import="catriend.model.CatBoarderDTO"%>
-<%@page import="catriend.model.FreeBoarderDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +10,14 @@
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
+
+<style>
+.panel-default>.panel-heading {
+	color: #428BCA;
+	background-color: #428BCA;
+	border-color: #dddddd;
+}
+</style>
 <script>
    function checkWriteFrm(){
       var f = document.writeFrm;
@@ -27,11 +34,6 @@
       
    }
 </script>
-<style>
-body {
-	background: #ffc35b;
-}
-</style>
 
 <body>
 
@@ -125,10 +127,12 @@ body {
 														<div class="panel-body">
 															<form name="writeFrm" method="post"
 																onsubmit="return checkWriteFrm()"
-																action="catBoardUpdateAction" enctype="multipart/form-data">
-																	<input type="hidden" value="${dto.cb_index}" name="cb_index"> 
-																	<input type="hidden" value="${dto.cb_file}" name="fileName"> 
-																	<input type="hidden" value="${nowPage}" name="nowPage">
+																action="catBoardUpdateAction"
+																enctype="multipart/form-data">
+																<input type="hidden" value="${dto.cb_index}"
+																	name="cb_index"> <input type="hidden"
+																	value="${dto.cb_file}" name="fileName"> <input
+																	type="hidden" value="${nowPage}" name="nowPage">
 
 																<div class="form-group">
 																	<label>제목</label> <input class="form-control"
@@ -141,16 +145,16 @@ body {
 																		CatBoarderDTO dto = (CatBoarderDTO)request.getAttribute("dto");
 					                                                	String img = dto.getCb_file();
 					                                                	if(img != null){
-					                                                %> 
-					                                                기존이미지 <br/>
-					                                                <img src="./resources/assets/img/boardImages/${dto.cb_file}"
+					                                                %>
+																	기존이미지 <br /> <img
+																		src="./resources/assets/img/boardImages/${dto.cb_file}"
 																		width="50%"> <br />
 																	<%
 																		}
-					                                                %> 
-					                                                <input type="file" style="width:90%;" name="cb_file"
-																		alt="${dto.cb_file}"/>
-																	
+					                                                %>
+																	<input type="file" style="width: 90%;" name="cb_file"
+																		alt="${dto.cb_file}" />
+
 																</div>
 
 																<div class="form-group">

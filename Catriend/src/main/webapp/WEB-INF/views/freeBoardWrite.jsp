@@ -12,10 +12,10 @@
 </head>
 
 <style>
-.panel-default > .panel-heading {
-    color: #428BCA;
-    background-color: #428BCA;
-    border-color: #dddddd;
+.panel-default>.panel-heading {
+	color: #428BCA;
+	background-color: #428BCA;
+	border-color: #dddddd;
 }
 </style>
 <body>
@@ -94,32 +94,31 @@
 														<div class="panel-body">
 															<form name="writeFrm" method="post"
 																onsubmit="return checkWriteFrm()"
-																action="freeBoardWriteAction"
-																enctype="multipart/form-data">
-																
-																
-																<input type="hidden" value="${loginUser.u_id}" name="u_id">
-																
-																
+																action="boardUpdateAction">
+																<input type="hidden"
+																	value="<%=request.getParameter("fb_index")%>"
+																	name="fb_index">
+
 																<div class="form-group">
-																	<label>제목</label> <input class="form-control" type="text" name="fb_title" />
+																	<label>제목</label> <input class="form-control"
+																		type="text" name="fb_title" value="${dto.fb_title}" />
 																</div>
-																
-																
+
 																<div class="form-group">
-																	<label>첨부파일</label> <input type="file" style="width: 90%;" name="fb_file" />
+																	<label>첨부파일</label> <input type="file"
+																		style="width: 90%;" name="fb_file"
+																		value="${dto.fb_file}" />
 																</div>
-																
-																
+
 																<div class="form-group">
 																	<label>내용</label>
 																	<textarea class="form-control" rows="3"
-																		name="fb_content"></textarea>
+																		name="fb_content">${dto.fb_content}</textarea>
 																</div>
 
-
 																<button type="submit" class="btn btn-info">등록하기</button>
-																<button class="btn btn-danger" type="button" onclick="javascript:history.go(-1)">취소하기</button>
+																<button class="btn btn-danger" type="button"
+																	onclick="javascript:history.go(-1)">취소하기</button>
 
 															</form>
 														</div>
@@ -150,8 +149,8 @@
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 </body>
 </html>
