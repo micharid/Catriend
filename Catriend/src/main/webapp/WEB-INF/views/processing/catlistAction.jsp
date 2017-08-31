@@ -71,7 +71,7 @@
 </section>
 
 <script src="./resources/KapukAlas/js/jquery.js"></script>
-<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
+	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 <!-- bottom s -->
-<%@ include file="../../../resources/common/menuScript.jsp"%>
+	<%@ include file="../../../resources/common/menuScript.jsp"%>
 <!-- bottom e -->

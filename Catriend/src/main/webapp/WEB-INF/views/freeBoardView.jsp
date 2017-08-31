@@ -75,7 +75,6 @@ textarea {
 	<!-- top e -->
 
 
-
 	<!-- *****************************************************************************************************************
 	 CONTACT WRAP
 	 ***************************************************************************************************************** -->
@@ -199,7 +198,7 @@ textarea {
 													<button type="button" class="btn btn-info"
 														onclick="location.href='freeBoarderCommentUpdate?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">수정</button>
 													<button type="button" class="btn btn-info"
-														onclick="location.href='freeBoarderCommentDelete?fbc_index=${row.fbc_index}&&fb_index=${row.fb_index}&nowPage=${nowPage}';">삭제</button>
+														onclick="location.href='freeBoarderCommentDelete?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">삭제</button>
 												</c:if>
 												<button type="button" class="btn btn-info"
 													onclick="location.href='freeBoarderCommentReply?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">답글</button></td>

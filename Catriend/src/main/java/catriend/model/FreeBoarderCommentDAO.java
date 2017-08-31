@@ -40,9 +40,7 @@ public class FreeBoarderCommentDAO {
 			@Override
 			public void setValues(PreparedStatement psmt) throws SQLException {
 				psmt.setString(1, dto.getFbc_content());
-				System.out.println(dto.getU_id());
 				psmt.setString(2, dto.getU_id());
-				System.out.println(dto.getU_id());
 				psmt.setInt(3, dto.getFb_index());
 			}
 		});

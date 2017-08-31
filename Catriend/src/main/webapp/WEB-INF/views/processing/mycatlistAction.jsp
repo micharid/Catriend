@@ -31,15 +31,15 @@
 	List<CatsDTO> listRows = dao.selectAllKeyword(paramMap);
 %>
 <%
-			if (listRows.size() == 0) {
-		%>
+		if (listRows.size() == 0) {
+	%>
 <div class="row" align="center">
 	<br /> <img src="./resources/assets/img/notsign.png" alt="Not" /><span
 		style="font-size: 1.3em;">등록된 글이 없습니다.</span> <br />
 </div>
 <%
-			} else {
-		%>
+		} else {
+	%>
 
 <section id="portfolio">
 	<div class="container">
@@ -51,27 +51,27 @@
 				<a href="catProfile?c_index=<%=dto.getC_index()%>">
 					<div class="thumbnail">
 						<div class="caption">
-							<br /> <br />
+							<br />
+							<br />
 							<p id="catname" style="font-size: 1.8em;"><%=dto.getC_name()%></p>
 							<p><%=dto.getC_gender()%></p>
 							<p><%=dto.getC_keyword()%></p>
 						</div>
-						<img
-							src="./resources/assets/img/portfolio/<%=dto.getC_index() % 10 + 1%>.jpg"
+						<img src="./resources/assets/img/catP/<%=dto.getC_index()%>.jpg"
 							width="100%" height="100%">
 					</div>
 				</a>
 			</div>
 			<%
+					}
 						}
-						}
-					%>
+				%>
 		</div>
 	</div>
 </section>
 
 <script src="./resources/KapukAlas/js/jquery.js"></script>
-<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
+	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 <!-- bottom s -->
-<%@ include file="../../../resources/common/menuScript.jsp"%>
+	<%@ include file="../../../resources/common/menuScript.jsp"%>
 <!-- bottom e -->

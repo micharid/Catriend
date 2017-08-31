@@ -13,10 +13,50 @@
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
 <style>
-.panel-default>.panel-heading {
-	color: #428BCA;
-	background-color: #428BCA;
-	border-color: #dddddd;
+#blue {
+	background: #428BCA;
+	margin-bottom: 20px;
+}
+
+h3 {
+	
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+}
+</style>
+
+<style>
+.up {
+	width: 78px;
+	height: 78px;
+	background: url('./resources/assets/img/up.PNG') 0 -244px no-repeat;
+}
+
+.up {
+	position: relative;
+	clear: both;
+	width: 619px;
+	padding: 40px 0 60px 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+textarea {
+	display: block;
+	width: 100%;
+	height: 42px;
+	padding: 4px 0 0 6px;
+	border: 0;
+	background: white;
+	font-size: 15px;
+	color: #24272B;
+	vertical-align: top;
+	-webkit-appearance: none;
 }
 </style>
 
@@ -26,23 +66,7 @@
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
-	<div id="blue">
-		<div class="container">
-			<div class="row">
-				<center>
-					<h3>후기 글쓰기</h3>
-				</center>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /blue -->
-
+	
 	<!-- *****************************************************************************************************************
 	 CONTACT WRAP
 	 ***************************************************************************************************************** -->
@@ -107,40 +131,69 @@
 						</table>
 
 						<div class="panel-footer">
-							<form name="cmt" action="#">
-								<p>
-									<textarea id="textAreaComment" cols="100%" rows="5" title=""
-										placeholder="댓글을 입력해 주세요"></textarea>
-								</p>
+						<c:if test="${not empty loginUser}">
+							<form name="insertCommentFrm"
+								action="catBoarderCommentWriteAction"
+								onsubmit="return checkInsertFrm();" method="post">
+								<input type="hidden" name="nowPage" value="${nowPage}" /> <input
+									type="hidden" name="cb_index" value="${cb_index}" /> <input
+									type="hidden" name="u_id" value="${loginUser.u_id}" />
 								<table width="100%">
 									<tr>
-										<td align="right">
-											<button type="button" class="btn btn-info" onclick="">
-												댓글등록</button>
+										<td width="90%"><textarea id="textAreaComment" cols="30"
+												rows="5" name="cbc_content"></textarea></td>
+										<td width="10%">&nbsp;&nbsp;&nbsp;&nbsp;
+											<button type="submit" class="btn btn-info">댓글등록</button>
 										</td>
 									</tr>
 								</table>
-								<table class="table">
-									<tr>
-										<th width="15%">닉네임</th>
-										<th width="60%">내용</th>
-										<th width="15%">작성일</th>
-										<th width="15%"></th>
-									</tr>
-									<!-- 댓글 반복 부분  s-->
-									<c:forEach items="${CatBoarderCommentLists}" var="row">
-										<tr>
-											<td>${row.u_id}</td>
-											<td>${row.cbc_content}</td>
-											<td>${row.cbc_date}</td>
-											<td><button type="button" class="btn btn-info"
-													onclick="">답글달기</button></td>
-										</tr>
-									</c:forEach>
-									<!-- 댓글 반복 부분  e-->
-								</table>
 							</form>
-						</div>
+						</c:if>
+						<span style="font-size: 1.4em;">Comment</span>
+						<c:if test="${empty CatBoarderCommentLists}">
+							<center>
+								<span>댓글이 없습니다.</span>
+							</center>
+						</c:if>
+						<c:if test="${not empty CatBoarderCommentLists}">
+							<table class="table">
+								<tr>
+									<th width="60%">내용</th>
+									<th width="10%">닉네임</th>
+									<th width="10%">작성일</th>
+									<c:if test="${not empty loginUser}">
+										<th width="25%"></th>
+									</c:if>
+								</tr>
+								<!-- 댓글 반복 부분  s-->
+								<c:forEach items="${CatBoarderCommentLists}" var="row">
+									<tr>
+										<td><c:if test="${row.cbc_depth gt 0}">
+												<c:forEach begin="0" end="${row.cbc_depth-1}" var="i"
+													step="1">
+													&nbsp;&nbsp;&nbsp;&nbsp;<span
+														class='glyphicon glyphicon-chevron-right'></span>&nbsp;&nbsp;&nbsp;&nbsp;
+												</c:forEach>
+											</c:if> ${row.cbc_content}</td>
+										<td>${row.u_id}</td>
+										<td>${row.cbc_date}</td>
+										<c:if test="${not empty loginUser}">
+											<td align="center"><c:if
+													test="${loginUser.u_id eq row.u_id}">
+													<button type="button" class="btn btn-info"
+														onclick="location.href='catBoarderCommentUpdate?cbc_index=${row.cbc_index}&cb_index=${row.cb_index}&nowPage=${nowPage}';">수정</button>
+													<button type="button" class="btn btn-info"
+														onclick="location.href='catBoarderCommentDelete?cbc_index=${row.cbc_index}&cb_index=${row.cb_index}&nowPage=${nowPage}';">삭제</button>
+												</c:if>
+												<button type="button" class="btn btn-info"
+													onclick="location.href='catBoarderCommentReply?cbc_index=${row.cbc_index}&cb_index=${row.cb_index}&nowPage=${nowPage}';">답글</button></td>
+										</c:if>
+									</tr>
+								</c:forEach>
+								<!-- 댓글 반복 부분  e-->
+							</table>
+						</c:if>
+					</div>
 					</div>
 				</div>
 		</div>

@@ -28,6 +28,6 @@ public class FreeBoarderCommentReplyCommand implements CatCommand {
 
 		dao.ReplyFreeBoarderComment(dto);
 
-		System.out.println("FreeBoarderInsertCommand");
+		System.out.println("FreeBoarderCommentReplyCommand");
 	}
 }

@@ -18,7 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import catriend.command.AdminUserListCommand;
+import catriend.command.CatBoarderCommentDeleteCommand;
+import catriend.command.CatBoarderCommentInsertCommand;
 import catriend.command.CatBoarderCommentListCommand;
+import catriend.command.CatBoarderCommentReplyCommand;
+import catriend.command.CatBoarderCommentUpdateCommand;
 import catriend.command.CatBoarderDeleteCommand;
 import catriend.command.CatBoarderInsertCommand;
 import catriend.command.CatBoarderListCommand;
@@ -99,6 +103,146 @@ public class CatriendController {
 
 		return "catBoardView";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping("/catBoarderCommentReply")
+	public String catBoarderCommentReply(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		model.addAttribute("cbc_index", req.getParameter("cbc_index"));
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
+		
+		return "catBoarderCommentReply";
+	}
+
+	@RequestMapping("/catBoarderCommentReplyAction")
+	public String catBoarderCommentReplyAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		model.addAttribute("cbc_index", req.getParameter("cbc_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("cbc_content", req.getParameter("cbc_content"));
+		command = new CatBoarderCommentReplyCommand();
+		command.execute(model);
+
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
+
+		return "catBoardView";
+	}
+
+	@RequestMapping("/catBoarderCommentWriteAction")
+	public String catBoarderCommentWriteAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("cbc_content", req.getParameter("cbc_content"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+
+		command = new CatBoarderCommentInsertCommand();
+		command.execute(model);
+
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
+
+		return "catBoardView";
+	}
+
+	@RequestMapping("/catBoarderCommentDelete")
+	public String catBoarderCommentDelete(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+
+		command = new CatBoarderCommentDeleteCommand();
+		command.execute(model);
+
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
+
+		return "catBoardView";
+	}
+
+	@RequestMapping("/catBoarderCommentUpdate")
+	public String catBoarderCommentUpdate(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+		model.addAttribute("cbc_index", req.getParameter("cbc_index"));
+
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
+
+		return "catBoarderCommentUpdate";
+	}
+
+	@RequestMapping("/catBoarderCommentUpdateAction")
+	public String catBoarderCommentUpdateAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("cbc_content", req.getParameter("cbc_content"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+
+		command = new CatBoarderCommentUpdateCommand();
+		command.execute(model);
+
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
+
+		return "catBoardView";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping("/catBoardWrite")
 	public String catBoardWrite(Model model, HttpServletRequest req) {
