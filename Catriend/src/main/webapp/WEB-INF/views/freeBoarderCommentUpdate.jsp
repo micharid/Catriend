@@ -10,34 +10,26 @@
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
-<script>
-	function checkUpdateFrm() {
-		var fr = document.updateCommentFrm;
-		if (f.fbc_comment.value == "") {
-			alert("내용을 입력하세요");
-			f.fbc_comment.focus();
-			return false;
-		}
-		return true;
-	}
-
-	function checkInsertFrm() {
-		var fi = document.insertCommentFrm;
-		if (f.fbc_comment.value == "") {
-			alert("내용을 입력하세요");
-			f.fbc_comment.focus();
-			return false;
-		}
-		return true;
-	}
-</script>
 </head>
-
 <style>
-body {
-	background: #ffc35b;
+#blue {
+	background: #428BCA;
+	margin-bottom: 20px;
 }
 
+h3 {
+	
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+}
+</style>
+
+<style>
 .up {
 	width: 78px;
 	height: 78px;
@@ -66,6 +58,28 @@ textarea {
 	-webkit-appearance: none;
 }
 </style>
+<script>
+	function checkUpdateFrm() {
+		var fr = document.updateCommentFrm;
+		if (f.fbc_comment.value == "") {
+			alert("내용을 입력하세요");
+			f.fbc_comment.focus();
+			return false;
+		}
+		return true;
+	}
+
+	function checkInsertFrm() {
+		var fi = document.insertCommentFrm;
+		if (f.fbc_comment.value == "") {
+			alert("내용을 입력하세요");
+			f.fbc_comment.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
 
 <body>
 
@@ -127,24 +141,35 @@ textarea {
 						</tr>
 						<tr>
 							<td width="20%">첨부파일</td>
-							<td width="80%" colspan="3">${dto.fb_file}</td>
+							<td width="80%" colspan="3">
+								<%
+									FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
+									String fb_file = dto.getFb_file();
+									if (fb_file != null) {
+								%> <img src="./resources/assets/img/boardImages/${dto.fb_file}"
+								width="100%"> <%
+ 	} else {
+ %> 첨부파일 없음! <%
+ 	}
+ %>
+							</td>
 						</tr>
 						<tr>
 							<td colspan="4" style="text-align: center; padding: 10px 0;">
 								<%
-									FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
+									dto = (FreeBoarderDTO) request.getAttribute("dto");
 									String u_id = dto.getU_id();
 									if (login != null && login.getU_id().equals(u_id)) {
 								%>
 								<button class="btn btn-info" type="button"
-									onclick="javascript:location.href='freeBoardUpdate?fb_index=${dto.fb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
+									onclick="javascript:location.href='freeBoardUpdate?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
 								<button class="btn btn-info" type="button"
-									onclick="location.href='freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
+									onclick="location.href='freeBoardDelete?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
 								<%
 									}
 								%>
 								<button class="btn btn-info" type="button"
-									onclick="location.href='freeBoardList?nowPage=${nowPage}';">리스트보기</button>
+									onclick="location.href='freeBoardList?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">리스트보기</button>
 							</td>
 						</tr>
 					</table>
@@ -218,7 +243,7 @@ textarea {
 															onclick="location.href='freeBoarderCommentDelete?fbc_index=${row.fbc_index}&fb_index=${dto.fb_index}&nowPage=${nowPage}';">삭제</button>
 													</c:if>
 													<button type="button" class="btn btn-info"
-														onclick="location.href='freeBoarderCommentWrite?${row.fbc_index}&${dto.fb_index}';">답글</button></td>
+														onclick="location.href='freeBoarderCommentReply?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">답글</button></td>
 											</c:if>
 										</c:otherwise>
 									</c:choose>
@@ -247,8 +272,8 @@ textarea {
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 </body>
 </html>
