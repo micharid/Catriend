@@ -55,6 +55,7 @@ import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
 import catriend.command.myCatBoardhistoryCommand;
 import catriend.command.myFreeBoardhistoryCommand;
+import catriend.command.myQnaBoardhistoryCommand;
 import catriend.model.CatBoarderDAO;
 import catriend.model.CatBoarderDTO;
 import catriend.model.CatsDAO;
@@ -575,8 +576,14 @@ public class CatriendController {
 	}
 
 	@RequestMapping("/mycatboardhistory")
-	public String myreviewhistory(Model model, HttpServletRequest req) {
+	public String mycatboardhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
+		model.addAttribute("req", req);
+		
+		HttpSession session = req.getSession();
+		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
+		model.addAttribute("u_id", user.getU_id());
+		
 		command = new myCatBoardhistoryCommand();
 		command.execute(model);
 		return "mycatboardhistory";
@@ -869,12 +876,11 @@ public class CatriendController {
 		model.addAttribute("req", req);
 		
 		HttpSession session = req.getSession();
-		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
-		String u_id = dto.getU_id();
-		model.addAttribute("u_id", u_id);
-		command = new UserQnaListCommand();
+		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
+		model.addAttribute("u_id", user.getU_id());
+		
+		command = new myQnaBoardhistoryCommand();
 		command.execute(model);
-
 		return "myqnahistory";
 	}
 	

@@ -12,6 +12,9 @@ public class CatBoarderDTO {
 	private int cb_likecount;
 	private String u_id;
 	private int c_index;
+	
+	// 편의성을 위한 변수
+	private int rNum;
 
 	// 기본생성자
 	public CatBoarderDTO() {
@@ -29,6 +32,23 @@ public class CatBoarderDTO {
 		this.u_id = u_id;
 		this.c_index = c_index;
 	}
+	
+
+	public CatBoarderDTO(int cb_index, String cb_title, String cb_content, String cb_file, Date cb_date, int cb_hits,
+			int cb_likecount, String u_id, int c_index, int rNum) {
+		super();
+		this.cb_index = cb_index;
+		this.cb_title = cb_title;
+		this.cb_content = cb_content;
+		this.cb_file = cb_file;
+		this.cb_date = cb_date;
+		this.cb_hits = cb_hits;
+		this.cb_likecount = cb_likecount;
+		this.u_id = u_id;
+		this.c_index = c_index;
+		this.rNum = rNum;
+	}
+
 
 	public CatBoarderDTO(int cb_index, String cb_title, String cb_content, String cb_file, Date cb_date, int cb_hits,
 			int cb_likecount, String u_id, int c_index) {
@@ -115,6 +135,14 @@ public class CatBoarderDTO {
 
 	public void setC_index(int c_index) {
 		this.c_index = c_index;
+	}
+	
+	public int getrNum() {
+		return rNum;
+	}
+
+	public void setrNum(int rNum) {
+		this.rNum = rNum;
 	}
 
 }

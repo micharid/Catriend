@@ -33,6 +33,19 @@ public class CatBoarderDAO {
 		return template.queryForObject(sql, Integer.class);
 	}
 
+	// 내 게시물 총 갯수 가져오기(검색)
+	public int getTotalMyCatBoarderCount(Map<String, Object> map) {
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
+		String sql = "SELECT count(*) FROM catboarder WHERE u_id='" + map.get("u_id") + "'";
+
+		// 검색단어가 있을 경우 검색조건을 쿼리에 추가
+		if (req.getParameter("searchWord") != null) {
+			sql += " AND " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
+		}
+		System.out.println(sql);
+		return this.template.queryForObject(sql, Integer.class);
+	}
+
 	// 입력
 	public int InsertCatBoarder(final CatBoarderDTO dto) {
 		String sql = "INSERT INTO " + " catboarder(cb_index, cb_title, cb_content, cb_file, u_id, c_index) "
@@ -124,6 +137,23 @@ public class CatBoarderDAO {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
 		sql += " ORDER BY cb_hits DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
+	}
+
+	// 내가 쓴글 가져오기
+	public List<CatBoarderDTO> mySelectAll(Map<String, Object> map) {
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		String sql = "";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT catboarder.*, users.u_nickname FROM "
+				+ "catboarder JOIN users ON catboarder.u_id = users.u_id WHERE catboarder.u_id = '"
+				+ map.get("u_id").toString() + "' ";
+		if (req.getParameter("searchWord") != null) {
+			sql += " AND  " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
+		}
+		sql += " ORDER BY cb_index DESC ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+
 		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
 	}
 }

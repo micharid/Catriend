@@ -7,21 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 
-import catriend.model.CatBoarderDAO;
-import catriend.model.CatBoarderDTO;
 import catriend.model.PagingUtil;
+import catriend.model.QnaDAO;
+import catriend.model.QnaDTO;
 
-public class myCatBoardhistoryCommand implements CatCommand {
+public class myQnaBoardhistoryCommand implements CatCommand {
 	@Override
 	public void execute(Model model) {
-
-		CatBoarderDAO dao = new CatBoarderDAO();
+		
+		
+		QnaDAO dao = new QnaDAO();
 
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-
+		
 		// 전체 레코드수를 카운드
-		int totalRecordCount = dao.getTotalMyCatBoarderCount(paramMap);
+		int totalRecordCount = dao.getTotalMygetTotalQna(paramMap);
 
 		// 페이지설정값(보이는 리스트갯수, 페이지갯수)
 		int pageSize = 10;
@@ -47,17 +48,16 @@ public class myCatBoardhistoryCommand implements CatCommand {
 			addQueryStr = String.format("searchColumn=%s&searchWord=%s&", req.getParameter("searchColumn"),
 					req.getParameter("searchWord"));
 		}
-		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
-				req.getContextPath() + "/mycatboardhistory?" + addQueryStr);
+		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage, req.getContextPath() + "/myqnahistory?" + addQueryStr);
 		System.out.println(pagingImg);
 		// DAO에서 list메소드로 목록가져오기
-		List<CatBoarderDTO> listRows = dao.mySelectAll(paramMap);
+		List<QnaDTO> listRows = dao.mySelectAll(paramMap);
 		// 페이지 처리를 위한 저장
 		model.addAttribute("pagingImg", pagingImg);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("nowPage", nowPage);
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		// 리스트 레코드를 저장
-		model.addAttribute("myCatList", listRows);
+		model.addAttribute("myQnaList", listRows);
 	}
 }

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>내게시판글</title>
+<title>내후기게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
@@ -25,15 +25,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	line-height: 1.1;
 	color: inherit;
 }
-
-a.list-group-item.active, a.list-group-item.active:hover {
-	background-color: #00b3fe;
-}
 </style>
-
-
-
-
 
 </head>
 
@@ -42,24 +34,12 @@ a.list-group-item.active, a.list-group-item.active:hover {
 	<!-- Fixed navbar -->
 	<!-- top s -->
 	<!-- Fixed navbar -->
-
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- bottom e -->
-
-
-
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/sectionAd.jsp"%>
 	<!-- bottom e -->
-
-
-
-
-
-
-
-
 	<!-- *****************************************************************************************************************
 	 BLOG CONTENT
 	 ***************************************************************************************************************** -->
@@ -80,7 +60,7 @@ a.list-group-item.active, a.list-group-item.active:hover {
 				<div class="list-group text-center">
 					<a href="myfreeboardhistory" class="list-group-item active">자유게시판</a>
 					<!-- 소스코드로 active ajax방식으로 구현가능한지 확인해보기 -->
-					<a href="myreviewhistory" class="list-group-item">후기게시판</a> <a
+					<a href="mycatboardhistory" class="list-group-item">후기게시판</a> <a
 						class="btn btn-default list-group-item" href="myPageindex">마이
 						페이지로</a>
 				</div>
@@ -90,7 +70,7 @@ a.list-group-item.active, a.list-group-item.active:hover {
 				<div class="panel panel-default">
 					<div class="panel-heading"
 						style="font-size: 1.5em; font-weight: 700;">
-						<center>자유게시판</center>
+						자유게시판
 					</div>
 					<form method="get">
 						<input type="hidden" name="nowPage" value="1" />
@@ -101,7 +81,6 @@ a.list-group-item.active, a.list-group-item.active:hover {
 										<option value="fb_content">내용</option>
 								</select> <input type="text" name="searchWord" /> <input type="submit"
 									value="검색하기" /></td>
-
 							</tr>
 						</table>
 					</form>
@@ -133,8 +112,8 @@ a.list-group-item.active, a.list-group-item.active:hover {
 								onclick="location.href='freeBoardList'">게시판으로</button>
 						</div>
 						<div class="col-md-12 text-center">
-								<!-- 페이지 처리 -->
-								${pagingImg}
+							<!-- 페이지 처리 -->
+							${pagingImg}
 						</div>
 						<div class="col-md-12 text-center">
 							<button class="btn" type="button"
