@@ -28,6 +28,7 @@ import catriend.command.CatBoarderCommentListCommand;
 import catriend.command.CatBoarderCommentReplyCommand;
 import catriend.command.CatBoarderCommentUpdateCommand;
 import catriend.command.CatBoarderDeleteCommand;
+import catriend.command.CatBoarderHotListCommand;
 import catriend.command.CatBoarderInsertCommand;
 import catriend.command.CatBoarderListCommand;
 import catriend.command.CatBoarderUpdateCommand;
@@ -489,6 +490,8 @@ public class CatriendController {
 	@RequestMapping("/mainPage")
 	public String mainPage(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "main");
+		CatCommand command = new CatBoarderHotListCommand();
+		command.execute(model);
 		return "mainPage";
 	}
 

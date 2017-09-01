@@ -1,7 +1,5 @@
 package com.ohsteward.Catriend;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -10,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import catriend.command.CatBoarderHotListCommand;
+import catriend.command.CatCommand;
 
 /**
  * Handles requests for the application home page.
@@ -25,6 +26,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		model.addAttribute("pageGroup", "main");
+		CatCommand command = new CatBoarderHotListCommand();
+		command.execute(model);
 		return "mainPage";
 	}
 	
