@@ -94,10 +94,11 @@
 														<div class="panel-body">
 															<form name="writeFrm" method="post"
 																onsubmit="return checkWriteFrm()"
-																action="boardUpdateAction">
+																action="freeBoardWriteAction"
+																enctype="multipart/form-data">
 																<input type="hidden"
-																	value="<%=request.getParameter("fb_index")%>"
-																	name="fb_index">
+																	value="<%=login.getU_id()%>"
+																	name="u_id">
 
 																<div class="form-group">
 																	<label>제목</label> <input class="form-control"

@@ -50,7 +50,7 @@
 					<ul class="list-group">
 						<c:forEach items="${CatBoarderHotList}" var="row">
 							<li class="list-group-item"><a
-								href="freeBoardView?fb_index=${row.cb_index}&nowPage=${nowPage}">${row.cb_title}</a></li>
+								href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}">${row.cb_title}</a></li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -89,8 +89,14 @@
 												<table width="100%">
 													<tr>
 														<td align="right">
+														<%
+															if(login != null){
+														%>
 															<button type="button" class="btn btn-info"
 																onclick="location.href='freeBoardWrite'">글쓰기</button>
+														<%
+															}
+														%>
 														</td>
 													</tr>
 												</table>

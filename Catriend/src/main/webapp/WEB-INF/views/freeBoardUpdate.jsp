@@ -111,7 +111,8 @@
 														<div class="panel-body">
 															<form name="writeFrm" method="post"
 																onsubmit="return checkWriteFrm()"
-																action="boardUpdateAction">
+																action="boardUpdateAction"
+																enctype="multipart/form-data">
 																<input type="hidden"
 																	value="<%=request.getParameter("fb_index")%>"
 																	name="fb_index">

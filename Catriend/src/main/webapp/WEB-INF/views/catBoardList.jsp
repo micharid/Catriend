@@ -48,7 +48,7 @@
 					<ul class="list-group">
 						<c:forEach items="${CatBoarderHotList}" var="row">
 							<li class="list-group-item"><a
-								href="freeBoardView?fb_index=${row.cb_index}&nowPage=${nowPage}">${row.cb_title}</a></li>
+								href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}">${row.cb_title}</a></li>
 						</c:forEach>
 					</ul>
 				</div>
