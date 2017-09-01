@@ -29,7 +29,12 @@ public class ContractDAO {
 		}
 		return template.queryForObject(sql, Integer.class);
 	}
-
+	
+	public int getTotalMyContract(Map<String, Object> map) {
+		String sql = " SELECT count(*) FROM contract WHERE u_id='"+map.get("u_id").toString()+"' ";
+		return template.queryForObject(sql, Integer.class);
+	}
+	
 	// 입력
 	public int InsertContract(final ContractDTO dto) {
 		String sql = "INSERT INTO " + " contract(ct_index, ct_sday, ct_eday, u_id, c_index) "
@@ -81,6 +86,17 @@ public class ContractDAO {
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
+		sql += " ORDER BY ct_index DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		return (List<ContractDTO>) template.query(sql, new BeanPropertyRowMapper<ContractDTO>(ContractDTO.class));
+	}
+	
+	public List<ContractDTO> mySelectAll(Map<String, Object> map) {
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		String sql = "";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT contract.*, cats.c_name, cats.c_gender, cats.c_birthday FROM contract "
+				+ " JOIN cats ON contract.c_index = cats.c_index"
+				+ " WHERE u_id='"+ map.get("u_id").toString()+"' ";
 		sql += " ORDER BY ct_index DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 		return (List<ContractDTO>) template.query(sql, new BeanPropertyRowMapper<ContractDTO>(ContractDTO.class));
 	}

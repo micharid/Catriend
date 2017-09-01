@@ -35,6 +35,7 @@ import catriend.command.CatBoarderUpdateCommand;
 import catriend.command.CatBoarderViewCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
+import catriend.command.ContractListCommand;
 import catriend.command.FreeBoarderCommentDeleteCommand;
 import catriend.command.FreeBoarderCommentInsertCommand;
 import catriend.command.FreeBoarderCommentListCommand;
@@ -54,7 +55,6 @@ import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
 import catriend.command.myCatBoardhistoryCommand;
 import catriend.command.myFreeBoardhistoryCommand;
-import catriend.command.mycontracthistoryCommand;
 import catriend.model.CatBoarderDAO;
 import catriend.model.CatBoarderDTO;
 import catriend.model.CatsDAO;
@@ -542,13 +542,19 @@ public class CatriendController {
 	@RequestMapping("/myPageindex")
 	public String myPageindex(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
+		System.out.println("myPageindex");
 		return "myPageindex";
 	}
 
 	@RequestMapping("/mycontracthistory")
 	public String mycontracthistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
-		command = new mycontracthistoryCommand();
+		model.addAttribute("req", req);
+		HttpSession session = req.getSession();
+		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
+		model.addAttribute("u_id", user.getU_id());
+		System.out.println("1");
+		command = new ContractListCommand();
 		command.execute(model);
 		return "mycontracthistory";
 	}

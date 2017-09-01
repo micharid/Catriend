@@ -114,83 +114,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 							게시판</h3>
 					</center>
 
-					<!-- /container -->
-					<!-- </div>
-				<div class="col-md-4">
-					<a href="">
-						<div class="thumbnail">
-							<div class="caption">Maecenas euismod vitae lacus id
-								blandit. Curabitur elementum ultrices nunc. Interdum et
-								malesuada fames ac ante ipsum primis in faucibus. Suspendisse
-								potenti.</div>
-							<img src="./resources/KapukAlas/img/gal/1.jpg" width="100%"
-								height="100%">
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4">
-					<a href="">
-						<div class="thumbnail">
-							<div class="caption">Maecenas euismod vitae lacus id
-								blandit. Curabitur elementum ultrices nunc. Interdum et
-								malesuada fames ac ante ipsum primis in faucibus. Suspendisse
-								potenti.</div>
-							<img src="./resources/KapukAlas/img/gal/2.jpg" width="100%"
-								height="100%">
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4">
-					<a href="">
-						<div class="thumbnail">
-							<div class="caption">Maecenas euismod vitae lacus id
-								blandit. Curabitur elementum ultrices nunc. Interdum et
-								malesuada fames ac ante ipsum primis in faucibus. Suspendisse
-								potenti.</div>
-							<img src="./resources/KapukAlas/img/gal/3.jpg" width="100%"
-								height="100%">
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<a href="">
-						<div class="thumbnail">
-							<div class="caption">Maecenas euismod vitae lacus id
-								blandit. Curabitur elementum ultrices nunc. Interdum et
-								malesuada fames ac ante ipsum primis in faucibus. Suspendisse
-								potenti.</div>
-							<img src="./resources/KapukAlas/img/gal/4.jpg" width="100%"
-								height="100%">
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4">
-					<a href="">
-						<div class="thumbnail">
-							<div class="caption">Maecenas euismod vitae lacus id
-								blandit. Curabitur elementum ultrices nunc. Interdum et
-								malesuada fames ac ante ipsum primis in faucibus. Suspendisse
-								potenti.</div>
-							<img src="./resources/KapukAlas/img/gal/5.jpg" width="100%"
-								height="100%">
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4">
-					<a href="">
-						<div class="thumbnail">
-							<div class="caption">Maecenas euismod vitae lacus id
-								blandit. Curabitur elementum ultrices nunc. Interdum et
-								malesuada fames ac ante ipsum primis in faucibus. Suspendisse
-								potenti.</div>
-							<img src="./resources/KapukAlas/img/gal/6.jpg" width="100%"
-								height="100%">
-						</div>
-					</a>
-				</div> -->
-
 					<%
 						if (CatBoarderHotList.size() == 0) {
 					%>
@@ -208,33 +131,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 								<%
 									for (CatBoarderDTO dto : CatBoarderHotList) {
 								%>
-								<%-- <div class="col-md-4">
-									<a href="catProfile?c_index=<%=dto.getC_index()%>">
-										<div class="thumbnail">
-											<div class="caption">
-												<br />
-												<br />
-												<p id="catname" style="font-size: 1.8em;"><%=dto.getC_name()%></p>
-												<p><%=dto.getC_gender()%></p>
-												<p><%=dto.getC_keyword()%></p>
-											</div>
-											<img
-												src="./resources/assets/img/catP/<%=dto.getC_index()%>.jpg"
-												width="100%" height="100%">
-										</div>
-									</a>
-								</div> --%>
+
 								<div class="col-md-4">
 									<a href="">
 										<div class="thumbnail">
 											<div class="caption"><%=dto.getCb_title()%></div>
-											<%if(dto.getCb_file() == null){%>
+											<%
+												if (dto.getCb_file() == null) {
+											%>
 											<img src="./resources/assets/img/notsign.png" width="100%"
 												height="100%">
-												<%}else{ %>
-											<img src="./resources/assets/img/boardImages/<%=dto.getCb_file()%>" width="100%"
-												height="100%">
-												<%} %>
+											<%
+												} else {
+											%>
+											<img
+												src="./resources/assets/img/boardImages/<%=dto.getCb_file()%>"
+												width="100%" height="100%">
+											<%
+												}
+											%>
 										</div>
 									</a>
 								</div>

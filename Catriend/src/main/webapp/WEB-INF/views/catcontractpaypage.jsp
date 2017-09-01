@@ -69,7 +69,7 @@ $.datepicker.setDefaults({
 						<table class="table table-bordered" style="width: 98%; margin-left: auto; margin-right: auto;">
 							<tr>
 								<td rowspan="3" width="200px;">
-									<div class="tab3img"><img class="center-block" src="./resources/assets/img/CatMade.jpg"></div>
+									<div class="tab3img"><img class="center-block" width="400px" src="./resources/assets/img/CatMade.jpg"></div>
 								</td>
 								<td style="vertical-align:middle;">이름 : 홍길동</td>
 							</tr>
@@ -78,7 +78,7 @@ $.datepicker.setDefaults({
 							</tr>
 							<tr>
 								<td style="vertical-align:middle;">나이 : 35살</td>
-							</tr>
+							</tr>   
 							<tr>
 								<td colspan="2" style="text-align: center;">IN : <input
 									type="text" id="datepickerin"

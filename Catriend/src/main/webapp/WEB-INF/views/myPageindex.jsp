@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			<div class="col-md-2"></div>
 			<div class="col-md-4">
 				<div class="panel panel-default">
-					<a href="mycontracthistory">
+					<a href="mycontracthistory?nowPage=1">
 						<div class="panel-body text-center" style="cursor:pointer">
 							<div class="tab3img"><img class="center-block" src="./resources/assets/img/contract.png" style="width:96px! important; height:96px! important;"></div>
 							<p style="font-size:1.2em">내가 계약한 내역</p>
