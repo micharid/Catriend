@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					<a href="myreviewhistory" class="list-group-item active">후기게시판</a>
 					<a class="btn btn-default list-group-item" href="myPageindex">마이 페이지로</a>
 				</div>
-			</div>
+			</div> 
 			<div class="col-md-10">
 				
 				<div class="panel panel-default">

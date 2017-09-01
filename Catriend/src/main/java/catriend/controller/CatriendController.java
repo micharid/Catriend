@@ -52,6 +52,9 @@ import catriend.command.UserQnaListCommand;
 import catriend.command.QnAQInsertCommand;
 import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
+import catriend.command.myCatBoardhistoryCommand;
+import catriend.command.myFreeBoardhistoryCommand;
+import catriend.command.mycontracthistoryCommand;
 import catriend.model.CatBoarderDAO;
 import catriend.model.CatBoarderDTO;
 import catriend.model.CatsDAO;
@@ -544,19 +547,25 @@ public class CatriendController {
 	@RequestMapping("/mycontracthistory")
 	public String mycontracthistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
+		command = new mycontracthistoryCommand();
+		command.execute(model);
 		return "mycontracthistory";
 	}
 
 	@RequestMapping("/myfreeboardhistory")
 	public String myfreeboardhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
+		command = new myFreeBoardhistoryCommand();
+		command.execute(model);
 		return "myfreeboardhistory";
 	}
 
-	@RequestMapping("/myreviewhistory")
+	@RequestMapping("/mycatboardhistory")
 	public String myreviewhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
-		return "myreviewhistory";
+		command = new myCatBoardhistoryCommand();
+		command.execute(model);
+		return "mycatboardhistory";
 	}
 
 	@RequestMapping("/userdeletesuccess")
