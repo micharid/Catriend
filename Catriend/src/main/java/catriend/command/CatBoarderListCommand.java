@@ -47,6 +47,9 @@ public class CatBoarderListCommand implements CatCommand {
 
 		// 페이지 처리를 위한 문자열 생성
 		String addQueryStr = "";
+		if(req.getParameter("searchWord") != null) {
+			addQueryStr = String.format("searchColumn=%s&searchWord=%s&",req.getParameter("searchColumn"), req.getParameter("searchWord"));
+		}
 		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
 				req.getContextPath() + "/catBoardList?" + addQueryStr);
 
