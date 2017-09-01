@@ -19,6 +19,17 @@ public class UsersDAO {
 		this.template = Constant.template;
 	}
 
+	// 아이디 중복체크
+	public int userEqual(String u_id) {
+		String query = " SELECT count(*) FROM users WHERE u_id = '" + u_id + "'";
+		return template.queryForObject(query, Integer.class);
+	}
+
+	public int nickEqual(String u_nick) {
+		String query = " SELECT count(*) FROM users WHERE u_nickname = '" + u_nick + "'";
+		return template.queryForObject(query, Integer.class);
+	}
+
 	// 유저 총수 가져오기(검색가능)
 	public int getTotalUserCount(Map<String, Object> map) {
 		String sql = "SELECT count(*) FROM users";
@@ -92,13 +103,13 @@ public class UsersDAO {
 	public List<UsersDTO> selectAll(Map<String, Object> map) {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
-		
+
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM users ";
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ) Tb " + ") WHERE rNum BETWEEN "+start+" AND "+end+" ";
+		sql += " ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end + " ";
 
 		return (List<UsersDTO>) template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}

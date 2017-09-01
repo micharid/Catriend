@@ -62,6 +62,7 @@ import catriend.model.CatsDTO;
 import catriend.model.Constant;
 import catriend.model.FreeBoarderDAO;
 import catriend.model.FreeBoarderDTO;
+import catriend.model.UsersDAO;
 import catriend.model.UsersDTO;
 import fileUpload.UploadFileUtils;
 
@@ -681,10 +682,30 @@ public class CatriendController {
 	@RequestMapping("registAction")
 	public String registAction(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
-		System.out.println(req.getParameter("u_id")+req.getParameter("u_name")+req.getParameter("u_birthday")+req.getParameter("u_nickname")+req.getParameter("u_pw")+req.getParameter("u_grade"));
+		System.out.println(req.getParameter("u_id")+req.getParameter("u_name")+req.getParameter("u_birthday")+req.getParameter("u_phonenumber")+req.getParameter("u_nickname")+req.getParameter("u_pw")+req.getParameter("u_grade"));
 		command = new UsersInsertCommand();
 		command.execute(model);
 		return "redirect:loginPage";
+	}
+	@RequestMapping("/processing/registcheck")
+	public String registcheck(Model model, HttpServletRequest req){
+		UsersDAO dao = new UsersDAO();
+		System.out.println(req.getParameter("id"));
+		int result = dao.userEqual(req.getParameter("id"));
+		System.out.println("결과값: "+result);
+		model.addAttribute("result", result);
+		return "processing/registcheck";
+	}
+	
+	@RequestMapping("/processing/nickCheck")
+	public String nickCheck(Model model, HttpServletRequest req){
+		UsersDAO dao = new UsersDAO();
+		System.out.println("닉네임 : "+req.getParameter("nickname"));
+		int resultSet = dao.nickEqual(req.getParameter("nickname"));
+		
+		System.out.println("결과값: "+resultSet);
+		model.addAttribute("resultSet", resultSet);
+		return "processing/nickCheck";
 	}
 
 	@RequestMapping("/qna")
