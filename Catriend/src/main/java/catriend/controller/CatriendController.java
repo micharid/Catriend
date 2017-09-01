@@ -555,6 +555,13 @@ public class CatriendController {
 	@RequestMapping("/myfreeboardhistory")
 	public String myfreeboardhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
+		model.addAttribute("req", req);
+		
+		HttpSession session = req.getSession();
+		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
+		model.addAttribute("u_id", user.getU_id());
+		
+		
 		command = new myFreeBoardhistoryCommand();
 		command.execute(model);
 		return "myfreeboardhistory";
@@ -674,9 +681,10 @@ public class CatriendController {
 	@RequestMapping("registAction")
 	public String registAction(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
+		System.out.println(req.getParameter("u_id")+req.getParameter("u_name")+req.getParameter("u_birthday")+req.getParameter("u_nickname")+req.getParameter("u_pw")+req.getParameter("u_grade"));
 		command = new UsersInsertCommand();
 		command.execute(model);
-		return "mainPage";
+		return "redirect:loginPage";
 	}
 
 	@RequestMapping("/qna")

@@ -33,6 +33,19 @@ public class FreeBoarderDAO {
 
 		return this.template.queryForObject(sql, Integer.class);
 	}
+	
+	// 내 게시물 총 갯수 가져오기(검색)
+	public int getTotalMyFreeBoarderCount(Map<String, Object> map) {
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
+		String sql = "SELECT count(*) FROM freeboarder WHERE u_id='"+ map.get("u_id") +"'";
+
+		// 검색단어가 있을 경우 검색조건을 쿼리에 추가
+		if (req.getParameter("searchWord") != null) {
+			sql += " AND " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
+		}
+		System.out.println(sql);
+		return this.template.queryForObject(sql, Integer.class);
+	}
 
 	// 자유게시물 입력
 	public int InsertFreeBoarder(final FreeBoarderDTO dto) {
@@ -127,6 +140,23 @@ public class FreeBoarderDAO {
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM freeboarder ";
 		sql += " ORDER BY fb_hits DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 		
+		return (List<FreeBoarderDTO>) template.query(sql,
+				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
+	}
+	
+	// 내가 쓴글 가져오기
+	public List<FreeBoarderDTO> mySelectAll(Map<String, Object> map) {
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		String sql = "";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT freeboarder.*, users.u_nickname FROM "
+				+ "freeboarder JOIN users ON freeboarder.u_id = users.u_id WHERE freeboarder.u_id = '"+ map.get("u_id").toString() +"' ";
+		if (req.getParameter("searchWord") != null) {
+			sql  += " AND  " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
+		}
+		sql += " ORDER BY fb_index DESC ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+
 		return (List<FreeBoarderDTO>) template.query(sql,
 				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
 	}

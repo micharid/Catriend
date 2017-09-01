@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="phoneNumber" class="col-sm-3 control-label">닉네임</label>
+									<label for="u_nickname" class="col-sm-3 control-label">닉네임</label>
 									<div class="col-sm-6">
 										<input type="text" class="form-control" id="u_nickname"
 											name="u_nickname" placeholder="닉네임을 입력해주세요" />
@@ -152,10 +152,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 											name="u_address" placeholder="주소를 입력해주세요" />
 									</div>
 								</div>
-
-
-
-
 
 								<div class="form-group">
 									<div class="col-sm-12 text-center">

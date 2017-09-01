@@ -4,7 +4,6 @@ public class PagingUtil {
 
 	public static String pagingImg(int totalRecordCount, int pageSize, int blockPage, int nowPage, String page) {
 		String pagingStr = "";
-
 		// 1.전체페이지 구하기
 		int totalPage = (int) (Math.ceil(((double) totalRecordCount / pageSize)));
 		// iniTemp는 해당 블록페이지 중 제일 첫번째 페이지 번호
