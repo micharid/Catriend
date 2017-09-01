@@ -31,40 +31,25 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="col-lg-12">가로이미지 들어갈 부분</div>
-				<div class="col-lg-4">
-					<h2>새로운 글</h2>
-					<ul class="list-group">
-
-						<li class="list-group-item">공지사항<span class="badge">99</span></li>
-						<li class="list-group-item active">자유게시판<span class="badge">5</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-					</ul>
-				</div>
+				<div class="col-lg-12"></div>
 				<!-- 인기글 -->
-				<div class="col-lg-4">
-					<h2>인기 글</h2>
+				<div class="col-lg-6">
+					<h2>자유게시판 인기 글</h2>
 					<ul class="list-group">
-
-						<li class="list-group-item">공지사항<span class="badge">99</span></li>
-						<li class="list-group-item active">자유게시판<span class="badge">5</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
+						<c:forEach items="${FreeBoarderHotList}" var="row">
+							<li class="list-group-item"><a
+								href="freeBoardView?fb_index=${row.fb_index}&nowPage=${nowPage}">${row.fb_title}</a></li>
+						</c:forEach>
 					</ul>
 				</div>
-				<!--  -->
-				<div class="col-lg-4">
-					<h2>인기 글</h2>
-					<ul class="list-group">
 
-						<li class="list-group-item">공지사항<span class="badge">99</span></li>
-						<li class="list-group-item active">자유게시판<span class="badge">5</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
+				<div class="col-lg-6">
+					<h2>후기게시판 인기 글</h2>
+					<ul class="list-group">
+						<c:forEach items="${CatBoarderHotList}" var="row">
+							<li class="list-group-item"><a
+								href="freeBoardView?fb_index=${row.cb_index}&nowPage=${nowPage}">${row.cb_title}</a></li>
+						</c:forEach>
 					</ul>
 				</div>
 
@@ -124,13 +109,12 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-12">가로이미지 들어갈 부분</div>
+							<div class="col-lg-12"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 

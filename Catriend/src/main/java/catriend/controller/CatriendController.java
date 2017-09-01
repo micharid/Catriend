@@ -41,6 +41,7 @@ import catriend.command.FreeBoarderCommentListCommand;
 import catriend.command.FreeBoarderCommentReplyCommand;
 import catriend.command.FreeBoarderCommentUpdateCommand;
 import catriend.command.FreeBoarderDeleteCommand;
+import catriend.command.FreeBoarderHotListCommand;
 import catriend.command.FreeBoarderInsertCommand;
 import catriend.command.FreeBoarderListCommand;
 import catriend.command.FreeBoarderUpdateCommand;
@@ -95,6 +96,12 @@ public class CatriendController {
 		System.out.println("컨트롤러 검색어 : "+req.getParameter("searchWord"));
 		model.addAttribute(req);
 		command = new CatBoarderListCommand();
+		command.execute(model);
+		
+		command = new FreeBoarderHotListCommand();
+		command.execute(model);
+		
+		command = new CatBoarderHotListCommand();
 		command.execute(model);
 		return "catBoardList";
 	}
@@ -451,7 +458,13 @@ public class CatriendController {
 		model.addAttribute("req", req);
 		command = new FreeBoarderListCommand();
 		command.execute(model);
-
+		
+		command = new FreeBoarderHotListCommand();
+		command.execute(model);
+		
+		command = new CatBoarderHotListCommand();
+		command.execute(model);
+		
 		return "freeBoardList";
 	}
 	
@@ -583,9 +596,6 @@ public class CatriendController {
 	public String adminQnaSuccess(Model model, HttpServletRequest req) {
 		return "adminQnaSuccess";
 	}
-	
-	
-	
 
 	@RequestMapping("/freeBoardUpdate")
 	public String freeBoardUpadate(Model model, HttpServletRequest req) {
@@ -617,8 +627,6 @@ public class CatriendController {
 
 		return "redirect:/freeBoardList";
 	}
-	
-	
 
 	@RequestMapping("/loginAction")
 	public String loginAction(Model model, HttpServletRequest req, HttpSession session) {

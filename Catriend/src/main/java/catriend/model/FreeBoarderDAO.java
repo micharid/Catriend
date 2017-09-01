@@ -118,4 +118,16 @@ public class FreeBoarderDAO {
 		return (List<FreeBoarderDTO>) template.query(sql,
 				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
 	}
+	
+	//조회순으로 가져오기
+	public List<FreeBoarderDTO> selectHotRecord(Map<String, Object> map) {
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		String sql = "";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM freeboarder ";
+		sql += " ORDER BY fb_hits DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		
+		return (List<FreeBoarderDTO>) template.query(sql,
+				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
+	}
 }
