@@ -31,7 +31,7 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right"	style="padding-top:10px; font-size: 1.4em;">
 			<li>
-				<a onclick="javascript:location.href='#';" style="cursor: pointer;">
+				<a onclick="javascript:location.href='logoutAction';" style="cursor: pointer;">
 					<font color="white">
 						<span class="glyphicon glyphicon-log-out"></span>&nbsp;로그아웃
 					</font>
@@ -95,7 +95,6 @@
 									<table class="table table-hover table-bordered">
 										<tr>
 											<th style="width:15%;" class="text-center">선택</th>
-											<th style="width:15%;" class="text-center">NO</th>
 											<th style="width:20%;" class="text-center">이름</th>
 											<th style="width:15%;" class="text-center">성별</th>
 											<th style="width:15%;" class="text-center">생일</th>
@@ -113,8 +112,7 @@
 										<!--게시판 반복 부분 s-->
 										<c:forEach items="${admincatlists}" var="row">
 											<tr>
-												<td class="text-center"><input type="checkbox" /></td>
-												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
+												<td class="text-center"><input type="checkbox" value="${row.c_index}"/></td>
 												<td class="text-center">${row.c_name}</td>
 												<td class="text-center">${row.c_gender}</td>
 												<td class="text-center">${row.c_birthday}</td>

@@ -31,7 +31,7 @@
 		</div>
 		<ul class="nav navbar-nav navbar-right"	style="padding-top:10px; font-size: 1.4em;">
 			<li>
-				<a onclick="javascript:location.href='#';" style="cursor: pointer;">
+				<a onclick="javascript:location.href='logoutAction';" style="cursor: pointer;">
 					<font color="white">
 						<span class="glyphicon glyphicon-log-out"></span>&nbsp;로그아웃
 					</font>

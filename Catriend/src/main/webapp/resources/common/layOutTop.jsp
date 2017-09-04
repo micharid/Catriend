@@ -98,7 +98,11 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 						<%}else{%>
 					
 					<li>
-						<%}%> <a href="myPageindex">마이페이지</a>
+						<%}%>
+						<%if(login.getU_grade() > 100){ %> <a href="adminPageIndex">관리자페이지</a>
+						<%} else { %>
+							<a href="myPageindex">마이페이지</a>
+						<%} %>
 					</li>
 					<li><a href="logoutAction">로그아웃</a></li>
 					<%}
