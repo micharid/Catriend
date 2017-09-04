@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6, p {
 .top{
    width: 100%;
     position: relative;
-    background: url(../img/main.gif) no-repeat top center;
+    background: url(../img/mainImage.gif) no-repeat top center;
     background-size: cover;
 
 }
