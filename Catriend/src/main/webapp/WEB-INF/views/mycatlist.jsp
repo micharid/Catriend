@@ -34,7 +34,7 @@
 			});
 
 			$.ajax({
-				url : 'processing/catlistAction',
+				url : 'processing/mycatlistAction',
 				dataType : "html",
 				type : "get",
 				contentType : "text/html;charset:utf-8",
