@@ -40,6 +40,7 @@ import catriend.command.CatsListCommand;
 import catriend.command.CatsViewCommand;
 import catriend.command.ContractInsertCommand;
 import catriend.command.ContractListCommand;
+import catriend.command.ContractSelectCheckCommand;
 import catriend.command.FreeBoarderCommentDeleteCommand;
 import catriend.command.FreeBoarderCommentInsertCommand;
 import catriend.command.FreeBoarderCommentListCommand;
@@ -281,6 +282,9 @@ public class CatriendController {
 
 	@RequestMapping("/catBoardWrite")
 	public String catBoardWrite(Model model, HttpServletRequest req) {
+		model.addAttribute("c_index", req.getParameter("c_index"));
+		System.out.println("캣보더 라이트 c_index : " + req.getParameter("c_index"));
+				
 
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
@@ -420,11 +424,17 @@ public class CatriendController {
 	@RequestMapping("/catProfile")
 	public String catProfile(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "cats");
-
+		model.addAttribute("req", req);
+		
+		System.out.println("컨트롤러 유저 아이디 : " + req.getParameter("u_id") + ", c_index : " + Integer.parseInt(req.getParameter("c_index")));
+		
+		command = new ContractSelectCheckCommand();
+		command.execute(model);
+				
 		CatsDAO dao = new CatsDAO();
 		CatsDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("c_index")));
 		System.out.println("캣 프로필 dto 불러 오기 : " + dto.getC_index());
-
+		
 		model.addAttribute("dto", dto);
 		return "catProfile";
 	}

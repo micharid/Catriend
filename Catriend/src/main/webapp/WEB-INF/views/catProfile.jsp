@@ -1,7 +1,10 @@
 <%@page import="catriend.model.CatsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%CatsDTO catdto = (CatsDTO)request.getAttribute("dto"); %>
+<%
+	CatsDTO catdto = (CatsDTO) request.getAttribute("dto");
+	int checkResult = Integer.parseInt(request.getAttribute("checkResult").toString());
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,22 +139,39 @@ hr {
 				</h4>
 				<h4>생일 : ${dto.c_birthday}</h4>
 				<h4>건강상태 : ${dto.c_health}</h4>
-				<%if(login != null && login.getU_grade() > catdto.getC_grade()){ %>
+				<%
+					if (login != null && login.getU_grade() >= catdto.getC_grade()) {
+				%>
 				<button class="btn btn-warning" style="width: 100%;"
 					onclick="location.href='catcontractagreement?c_index=${dto.c_index}'">계약하기</button>
-				<%}else if(login != null && login.getU_grade() < catdto.getC_grade()){
-					System.out.println(login.getU_grade() +", "+ catdto.getC_grade());
-					%>
-				<button class="btn btn-warning" disabled="disabled" style="width: 100%;">계약하기(쉬운 고양이들 먼저 경험해보고 오냥)</button>
-				<%}else{ %>
-				<button class="btn btn-warning" disabled="disabled" style="width: 100%;"
-					>계약하기(로그인해주세요)</button>
-				<%} %>
+				<%
+					} else if (login != null && login.getU_grade() < catdto.getC_grade()) {
+						System.out.println(login.getU_grade() + ", " + catdto.getC_grade());
+				%>
+				<button class="btn btn-warning" disabled="disabled"
+					style="width: 100%;">계약하기(쉬운 고양이들 먼저 경험해보고 오냥)</button>
+				<%
+					} else {
+				%>
+				<button class="btn btn-warning" disabled="disabled"
+					style="width: 100%;">계약하기(로그인해주세요)</button>
+				<%
+					}
+				%>
 				<div class="spacing"></div>
 				<hr />
 				<h4>스토리</h4>
 				<div class="hline"></div>
 				<p>
+				<%
+					if(checkResult != 0){
+				%>
+					<button class="btn btn-warning" style="width: 100%; margin-bottom:30px;"
+						onclick="location.href='catBoardWrite?c_index=${dto.c_index}'">후기
+						작성하기</button>
+				<%
+					}
+				%>
 					<button class="btn btn-warning" style="width: 100%;"
 						onclick="location.href='catBoardList?c_index=${dto.c_index}'">후기게시판</button>
 				</p>
@@ -165,11 +185,11 @@ hr {
 				</div>
 				<!-- 분류 반복 s -->
 				<%
-					CatsDTO dto = (CatsDTO)request.getAttribute("dto");
+					CatsDTO dto = (CatsDTO) request.getAttribute("dto");
 					String keyword = dto.getC_keyword();
 					String[] keywordArr = keyword.split(",");
-					
-					for(String strArr : keywordArr){
+
+					for (String strArr : keywordArr) {
 				%>
 				<a class="btn btn-success" style="margin-top: 10px"
 					href="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=<%=strArr%>&oquery=rjator&tqi=TjQ5pwpVuE4ssso0ieNssssss14-306639"

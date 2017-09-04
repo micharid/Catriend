@@ -74,7 +74,7 @@ public class ContractDAO {
 
 	// 계약 상세보기
 	public ContractDTO selectOne(int ct_index) {
-		String sql = "SELECT * FROM contract WHERE q_index=" + ct_index;
+		String sql = "SELECT * FROM contract WHERE ct_index=" + ct_index;
 		return (ContractDTO) template.queryForObject(sql, new BeanPropertyRowMapper<ContractDTO>(ContractDTO.class));
 	}
 
@@ -99,5 +99,14 @@ public class ContractDAO {
 				+ " WHERE u_id='"+ map.get("u_id").toString()+"' ";
 		sql += " ORDER BY ct_index DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 		return (List<ContractDTO>) template.query(sql, new BeanPropertyRowMapper<ContractDTO>(ContractDTO.class));
+	}
+	
+	public int selectCheck(String u_id, int c_indext) {
+		String sql = "select count(*) from (select c.c_index from users u inner join CONTRACT c " 
+				+	 "on u.u_id = c.u_id where c.u_id = '" + u_id +"') ct " 
+				+	 "inner join cats c " 
+				+	 "on ct.c_index = c.c_index where c.c_index = " + c_indext;
+		
+		return template.queryForObject(sql, Integer.class);
 	}
 }
