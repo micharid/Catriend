@@ -585,19 +585,26 @@ public class CatriendController {
 	public String myfreeboardhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
 		model.addAttribute("req", req);
-
+		
 		HttpSession session = req.getSession();
 		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
 		model.addAttribute("u_id", user.getU_id());
-
+		
+		
 		command = new myFreeBoardhistoryCommand();
 		command.execute(model);
 		return "myfreeboardhistory";
 	}
 
 	@RequestMapping("/mycatboardhistory")
-	public String myreviewhistory(Model model, HttpServletRequest req) {
+	public String mycatboardhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
+		model.addAttribute("req", req);
+		
+		HttpSession session = req.getSession();
+		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
+		model.addAttribute("u_id", user.getU_id());
+		
 		command = new myCatBoardhistoryCommand();
 		command.execute(model);
 		return "mycatboardhistory";
