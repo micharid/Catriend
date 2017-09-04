@@ -19,7 +19,7 @@ public class UserQnaListCommand implements CatCommand {
 		
 		List<QnaDTO> dto = dao.myqna(paramMap.get("u_id").toString());
 
-		model.addAttribute("myqnalist", dto);
+		model.addAttribute("myQnaList", dto);
 
 		System.out.println("UserQnaListCommand");
 	}
