@@ -7,6 +7,17 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자</title>
+<script>
+	function check(){
+		var f = document.Frm;
+		
+		if (confirm(" 게시물을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.") == true) {
+			return true;
+		}
+		
+		return false;
+	}
+</script>
 <!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
@@ -91,6 +102,7 @@
 										자유게시판관리
 									</center>
 								</div>
+								<form  name="Frm" action="freeBoardsDeletes" onsubmit="return check()">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr style="text-align:center;">
@@ -104,7 +116,7 @@
 										<!--  게시판 반복 부분 s -->
 										<c:forEach items="${adminfreeboardlist}" var="row">
 											<tr>
-												<td class="text-center"><input type="checkbox" /></td>
+												<td class="text-center"><input type="checkbox" name="select" value="${row.fb_index}"/></td>
 												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
 												<td><a href="freeBoardView?fb_index=${row.fb_index}&nowPage=${nowPage}">${row.fb_title}</a></td>
 												<td class="text-center">${row.u_id}</td>
@@ -115,12 +127,15 @@
 										
 									</table>
 									<div class="pull-right" style="margin-top:-15px;">
-										<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='boardList'">삭제하기</button>
+										<input class="btn" type="submit"
+											style="background-color: #00b3fe; color: white;"
+											value="삭제하기" />
 									</div>
 									<div class="col-md-12 text-center" style="margin-top:10px;">
 										${pagingImg}
 									</div>
 								</div>
+								</form>
 							</div>
 					</div>
 				</div>

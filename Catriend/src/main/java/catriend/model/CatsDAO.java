@@ -112,7 +112,7 @@ public class CatsDAO {
 			if (map.get("COLUMN") != null) {
 				sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 			}
-			sql += " ORDER BY c_type asc) Tb " + ") WHERE";
+			sql += " ORDER BY c_state desc) Tb " + ") WHERE";
 			if (map.get("u_grade") != null) {
 				sql += " c_grade <= " + Integer.parseInt(map.get("u_grade").toString()) + " AND ";
 			}

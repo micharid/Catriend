@@ -28,7 +28,7 @@ public class AdminUserListCommand implements CatCommand
 		
 		//페이지설정값(보이는 리스트갯수, 페이지갯수)
 		int pageSize = 10;
-		int blockPage = 5;
+		int blockPage = 10;
 		//전체페이지수
 		int totalPage = (int) Math.ceil((double) totalRecordCount / pageSize);
 		//현재페이지를 파라미터로 받기

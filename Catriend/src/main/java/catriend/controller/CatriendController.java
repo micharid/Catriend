@@ -33,8 +33,10 @@ import catriend.command.CatBoarderInsertCommand;
 import catriend.command.CatBoarderListCommand;
 import catriend.command.CatBoarderUpdateCommand;
 import catriend.command.CatBoarderViewCommand;
+import catriend.command.CatBoardsDeletesCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatContractListCommand;
+import catriend.command.CatsDeletesCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.CatsViewCommand;
 import catriend.command.ContractInsertCommand;
@@ -51,10 +53,13 @@ import catriend.command.FreeBoarderInsertCommand;
 import catriend.command.FreeBoarderListCommand;
 import catriend.command.FreeBoarderUpdateCommand;
 import catriend.command.FreeBoarderViewCommand;
+import catriend.command.FreeBoardsDeletesCommand;
 import catriend.command.LoginCommand;
 import catriend.command.LogoutCommand;
 import catriend.command.UserQnaListCommand;
+import catriend.command.UsersDeletesCommand;
 import catriend.command.QnAQInsertCommand;
+import catriend.command.QnAsDeletesCommand;
 import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
 import catriend.command.myCatBoardhistoryCommand;
@@ -677,6 +682,56 @@ public class CatriendController {
 		command.execute(model);
 
 		return "redirect:/freeBoardList";
+	}
+	
+	@RequestMapping("/catBoardsDeletes")
+	public String catBoardsDeletes(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new CatBoardsDeletesCommand();
+		command.execute(model);
+
+		return "redirect:/adminReviewboardManagement";
+	}
+	
+	@RequestMapping("/freeBoardsDeletes")
+	public String freeBoardsDeletes(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new FreeBoardsDeletesCommand();
+		command.execute(model);
+
+		return "redirect:/adminFreeboardManagement";
+	}
+	
+	@RequestMapping("/qnasDeletes")
+	public String qnasDeletes(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new QnAsDeletesCommand();
+		command.execute(model);
+
+		return "redirect:/adminQnaManagement";
+	}
+	
+	@RequestMapping("/usersDeletes")
+	public String usersDeletes(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new UsersDeletesCommand();
+		command.execute(model);
+
+		return "redirect:/adminUserManagement";
+	}
+	
+	@RequestMapping("/catsDeletes")
+	public String catsDeletes(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new CatsDeletesCommand();
+		command.execute(model);
+
+		return "redirect:/adminCatManagement";
 	}
 
 	@RequestMapping("/loginAction")

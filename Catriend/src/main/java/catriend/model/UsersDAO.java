@@ -109,7 +109,7 @@ public class UsersDAO {
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end + " ";
+		sql += "order by u_state desc ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end + " ";
 
 		return (List<UsersDTO>) template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}

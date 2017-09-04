@@ -7,6 +7,17 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
+<script>
+	function check(){
+		var f = document.Frm;
+		
+		if (confirm(" 유저를 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.") == true) {
+			return true;
+		}
+		
+		return false;
+	}
+</script>
 <!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
@@ -21,45 +32,41 @@
 	rel='stylesheet' type='text/css' />
 </head>
 <body>
-	
+
 
 
 	<div id="wrapper">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-header">
-		<img src="./resources/assets/adminPageTemplate/img/logo2.png" width="100" height="76" onclick="javascript:location.href='adminPageIndex';"	style="cursor: pointer;" />
-		</div>
-		<ul class="nav navbar-nav navbar-right"	style="padding-top:10px; font-size: 1.4em;">
-			<li>
-				<a onclick="javascript:location.href='logoutAction';" style="cursor: pointer;">
-					<font color="white">
-						<span class="glyphicon glyphicon-log-out"></span>&nbsp;로그아웃
+				<img src="./resources/assets/adminPageTemplate/img/logo2.png"
+					width="100" height="76"
+					onclick="javascript:location.href='adminPageIndex';"
+					style="cursor: pointer;" />
+			</div>
+			<ul class="nav navbar-nav navbar-right"
+				style="padding-top: 10px; font-size: 1.4em;">
+				<li><a onclick="javascript:location.href='logoutAction';"
+					style="cursor: pointer;"> <font color="white"> <span
+							class="glyphicon glyphicon-log-out"></span>&nbsp;로그아웃
 					</font>
-				</a>
-			</li>
-		</ul>
+				</a></li>
+			</ul>
 		</div>
 		<!-- /. NAV TOP  -->
 		<nav class="navbar-default navbar-side" role="navigation">
 		<div class="sidebar-collapse">
 			<ul class="nav" id="main-menu">
-				<li>
-					<a href="adminPageIndex"><i class="fa fa-home"></i>관리자홈으로</a>
+				<li><a href="adminPageIndex"><i class="fa fa-home"></i>관리자홈으로</a>
 				</li>
-				<li>
-					<a href="adminUserManagement"><i class="fa fa-user"></i>유저관리</a>
+				<li><a href="adminUserManagement"><i class="fa fa-user"></i>유저관리</a>
 				</li>
-				<li>
-					<a href="adminQnaManagement"><i class="fa fa-question "></i>질문관리</a>
+				<li><a href="adminQnaManagement"><i class="fa fa-question "></i>질문관리</a>
 				</li>
-				<li>
-					<a href="adminFreeboardManagement"><i class="fa fa-list-alt "></i>자유게시판관리</a>
-				</li>
-				<li>
-					<a href="adminReviewboardManagement"><i class="fa fa-list-alt "></i>후기게시판관리</a>
-				</li>
-				<li>
-					<a href="adminCatManagement"><i class="fa fa-paw "></i>고양이관리</a>
+				<li><a href="adminFreeboardManagement"><i
+						class="fa fa-list-alt "></i>자유게시판관리</a></li>
+				<li><a href="adminReviewboardManagement"><i
+						class="fa fa-list-alt "></i>후기게시판관리</a></li>
+				<li><a href="adminCatManagement"><i class="fa fa-paw "></i>고양이관리</a>
 				</li>
 			</ul>
 		</div>
@@ -85,41 +92,60 @@
 
 				<div class="row">
 					<div class="col-lg-12 ">
-						<div class="panel panel-default" style="width:100%;">
-								<div class="panel-heading" style="font-size:1.5em; font-weight:700;">
-									<center>
-										유저관리
-									</center>
-								</div>
+						<div class="panel panel-default" style="width: 100%;">
+							<div class="panel-heading"
+								style="font-size: 1.5em; font-weight: 700;">
+								<center>유저관리</center>
+							</div>
+							<form name="Frm" action="usersDeletes" onsubmit="return check()">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
-										<tr style="text-align:center;">
-											<th style="width:5%;" class="text-center info">선택</th>
-											<th style="width:5%;" class="text-center info">NO</th>
+										<tr style="text-align: center;">
+											<th style="width: 5%;" class="text-center info">선택</th>
+											<th style="width: 5%;" class="text-center info">NO</th>
+											<th style="width: 10%;" class="text-center info">유저상태</th>
 											<th style="width:" class="text-center info">이름</th>
 											<th style="width:" class="text-center info">아이디</th>
-											<th style="width:15%;" class="text-center info">가입일</th>
+											<th style="width: 15%;" class="text-center info">가입일</th>
 										</tr>
 										<!--  게시판 반복 부분 s -->
 										<c:forEach items="${adminuserlist}" var="row">
-											<tr>
-												<td class="text-center"><input type="checkbox" /></td>
+											
+												<c:choose>
+													<c:when test="${row.u_state eq 1}">
+															<tr>
+													</c:when>
+													<c:otherwise>
+														<tr style="background-color:gray;">
+													</c:otherwise>
+												</c:choose>
+												<td class="text-center"><input type="checkbox"
+													name="select" value="${row.u_id}" /></td>
 												<td class="text-center">${totalRecordCount-row.rNum+1}</td>
+												<td class="text-center"><c:choose>
+														<c:when test="${row.u_state eq 1}">
+															활성화
+														</c:when>
+														<c:otherwise>
+															탈퇴
+														</c:otherwise>
+													</c:choose></td>
 												<td class="text-center">${row.u_name}</td>
 												<td class="text-center">${row.u_id}</td>
 												<td class="text-center">${row.u_birthday}</td>
 											</tr>
 										</c:forEach>
-										<!-- 게시판 반복 부분 e  -->									
+										<!-- 게시판 반복 부분 e  -->
 									</table>
-									<div class="pull-right" style="margin-top:-15px;">
-										<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='boardList'">삭제하기</button>
+									<div class="pull-right" style="margin-top: -15px;">
+										<input class="btn" type="submit"
+											style="background-color: #00b3fe; color: white;" value="삭제하기"/ >
 									</div>
-									<div class="col-md-12 text-center" style="margin-top:10px;">
-										${pagingImg}
-									</div>
+									<div class="col-md-12 text-center" style="margin-top: 10px;">
+										${pagingImg}</div>
 								</div>
-							</div>
+							</form>
+						</div>
 					</div>
 				</div>
 
@@ -132,9 +158,7 @@
 
 
 			<div class="row">
-				<div class="col-lg-12">
-					&copy; 2017 Cat'riend
-				</div>
+				<div class="col-lg-12">&copy; 2017 Cat'riend</div>
 			</div>
 		</div>
 

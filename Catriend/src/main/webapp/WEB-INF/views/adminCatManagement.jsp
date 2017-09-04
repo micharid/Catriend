@@ -7,6 +7,17 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Simple Responsive Admin</title>
+<script>
+	function check(){
+		var f = document.Frm;
+		
+		if (confirm(" 유저를 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.") == true) {
+			return true;
+		}
+		
+		return false;
+	}
+</script>
 <!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
@@ -91,14 +102,16 @@
 										고양이 관리
 									</center>
 								</div>
+								<form  name="Frm" action="catsDeletes" onsubmit="return check()">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr>
-											<th style="width:15%;" class="text-center">선택</th>
-											<th style="width:20%;" class="text-center">이름</th>
+											<th style="width:5%;" class="text-center">선택</th>
+											<th style="width:10%;" class="text-center info">고양이상태</th>
+											<th  class="text-center">이름</th>
 											<th style="width:15%;" class="text-center">성별</th>
 											<th style="width:15%;" class="text-center">생일</th>
-											<th style="width:20%" class="text-center">고양이종</th>
+											<th style="width:15%" class="text-center">고양이종</th>
 										</tr>
 <!-- 										<tr> -->
 <!-- 											<td class="text-center"><input type="checkbox"/></td> -->
@@ -111,8 +124,23 @@
 										
 										<!--게시판 반복 부분 s-->
 										<c:forEach items="${admincatlists}" var="row">
-											<tr>
-												<td class="text-center"><input type="checkbox" value="${row.c_index}"/></td>
+											<c:choose>
+													<c:when test="${row.c_state eq 1}">
+															<tr>
+													</c:when>
+													<c:otherwise>
+														<tr style="background-color:gray;">
+													</c:otherwise>
+												</c:choose>
+												<td class="text-center"><input type="checkbox" value="${row.c_index}" name="select"/></td>
+												<td class="text-center"><c:choose>
+														<c:when test="${row.c_state eq 1}">
+															활성화
+														</c:when>
+														<c:otherwise>
+															비활성화
+														</c:otherwise>
+													</c:choose></td>
 												<td class="text-center">${row.c_name}</td>
 												<td class="text-center">${row.c_gender}</td>
 												<td class="text-center">${row.c_birthday}</td>
@@ -124,15 +152,17 @@
 									</table>
 									
 									<div class="com-md-12 pull-right" style="margin-top:-15px;">
-										<button class="btn btn-success" type="submit" style="color:white;" onclick="location.href='boardList'">추가하기</button>
-										<button class="btn btn-info" type="submit" style="color:white;" onclick="location.href='boardList'">수정하기</button>
-										<button class="btn btn-danger" type="submit" style="color:white;" onclick="location.href='boardList'">삭제하기</button>
+										<button class="btn btn-success" type="button" style="color:white;" onclick="">추가하기</button>
+										<input class="btn" type="submit"
+											style="background-color: #00b3fe; color: white;"
+											value="삭제하기" />
 									</div>
 									
 									<div class="col-md-12 text-center" style="margin-top:10px;">
 										${pagingImg}
 									</div>
 								</div>
+								</form>
 							</div>
 					</div>
 				</div>
