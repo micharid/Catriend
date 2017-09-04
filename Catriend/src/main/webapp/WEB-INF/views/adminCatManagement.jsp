@@ -111,10 +111,10 @@
 <!-- 										</tr> -->
 										
 										<!--게시판 반복 부분 s-->
-										<c:forEach items="${AdminCatListCommand}" var="row">
+										<c:forEach items="${admincatlists}" var="row">
 											<tr>
 												<td class="text-center"><input type="checkbox" /></td>
-												<td class="text-center"></td>
+												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
 												<td class="text-center">${row.c_name}</td>
 												<td class="text-center">${row.c_gender}</td>
 												<td class="text-center">${row.c_birthday}</td>

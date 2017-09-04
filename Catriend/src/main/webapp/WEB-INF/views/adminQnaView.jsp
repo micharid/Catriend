@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Simple Responsive Admin</title>
+<title>관리자 페이지</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
@@ -88,21 +88,28 @@
 									</center>
 								</div>
 								<div class="panel-body">
-									<table class="table table-bordered">
-										<tr>
-											<td colspan="2" style="text-align:center; font-size:1.3em;"><b>제목</b></td>
-										</tr>
-										<tr>
-											<td style="text-align:center;">아이디</td>
-											<td style="text-align:center;">작성일</td>
-										</tr>
-										<tr>
-											<td colspan="2" style="height:300px; text-align:center;">내용란</td>
-										</tr>
-									</table>
-									<div class="text-center" style="margin-top:-15px;">
-										<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='adminQnaWrite'">답변하기</button>
-									</div>
+									<form action="qnaReplyAction">
+									<input type="hidden" name="q_index" value="${dto.q_index}" />
+										<table class="table table-bordered">
+											<tr>
+												<td colspan="2" style="text-align:center; font-size:1.3em;"><b>${dto.q_title}</b></td>
+											</tr>
+											<tr>
+												<td style="text-align:center; width:50%;">${dto.u_id}</td>
+												<td style="text-align:center; width:50%;">${dto.q_date}</td>
+											</tr>
+											<tr>
+												<td colspan="2" style="height:300px; text-align:center;">${dto.q_content}</td>
+											</tr>
+											
+										</table>
+										<div>
+											<textarea name="q_answer" id="" cols="30" rows="10">${dto.q_answer}</textarea>
+										</div>
+										<div class="text-center">
+											<button class="btn" type="submit" style="background-color:#00b3fe; color:white;">답변하기</button>
+										</div>
+									</form>
 								</div>
 							</div>
 					</div>

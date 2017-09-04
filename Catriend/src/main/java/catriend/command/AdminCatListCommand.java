@@ -57,7 +57,7 @@ public class AdminCatListCommand implements CatCommand {
 		
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		// 리스트 레코드를 저장
-		model.addAttribute("AdminCatListCommand", listRows);
+		model.addAttribute("admincatlists", listRows);
 
 		System.out.println("AdminCatListCommand");
 	}

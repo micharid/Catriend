@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Simple Responsive Admin</title>
+<title>관리자 페이지</title>
 
 <style>
 textarea {
@@ -97,11 +97,11 @@ textarea {
 								<div class="panel-body">
 									<table class="table table-bordered">
 										<tr>
-											<td colspan="2" style="text-align:center; font-size:1.3em;"><b>제목(유저질문제목받아옴)</b></td>
+											<td colspan="2" style="text-align:center; font-size:1.3em;"><b>${dto.q_title}</b></td>
 										</tr>
 										<tr>
-											<td style="text-align:center; width:50%;">아이디(유저꺼받아옴)</td>
-											<td style="text-align:center; width:50%;">작성일(답변일자)</td>
+											<td style="text-align:center; width:50%;">${dto.u_id}</td>
+											<td style="text-align:center; width:50%;">${dto.q_date}</td>
 										</tr>
 										<tr>
 											<td colspan="2">

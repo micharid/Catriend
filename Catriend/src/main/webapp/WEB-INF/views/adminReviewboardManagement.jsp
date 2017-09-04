@@ -105,8 +105,8 @@
 										<c:forEach items="${adminreviewlist}" var="row">
 											<tr>
 												<td class="text-center"><input type="checkbox" /></td>
-												<td class="text-center"></td>
-												<td>${row.cb_title}</a></td>
+												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
+												<td><a href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}">${row.cb_title}</a></td>
 												<td class="text-center">${row.u_id}</td>
 												<td class="text-center">${row.cb_date}</td>
 											</tr>
@@ -117,22 +117,8 @@
 									<div class="pull-right" style="margin-top:-15px;">
 										<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='boardList'">삭제하기</button>
 									</div>
-									<div class="col-md-12 text-center" style="margin-top:-15px;">
-										<nav>
-											<ul class="pagination">
-												<li><a href="#" aria-label="Previous"> <span
-														aria-hidden="true">&laquo;</span>
-												</a></li>
-												<li><a href="#">1</a></li>
-												<li><a href="#">2</a></li>
-												<li><a href="#">3</a></li>
-												<li><a href="#">4</a></li>
-												<li><a href="#">5</a></li>
-												<li><a href="#" aria-label="Next"> <span
-														aria-hidden="true">&raquo;</span>
-												</a></li>
-											</ul>
-										</nav>
+									<div class="col-md-12 text-center" style="margin-top:10px;">
+										${pagingImg}
 									</div>
 								</div>
 							</div>

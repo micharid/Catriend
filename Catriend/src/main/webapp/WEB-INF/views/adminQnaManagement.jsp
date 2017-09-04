@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Simple Responsive Admin</title>
+<title>관리자 페이지</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
@@ -96,8 +96,9 @@
 										<tr style="text-align:center;">
 											<th style="width:5%;" class="text-center info">선택</th>
 											<th style="width:5%;" class="text-center info">NO</th>
-											<th style="width:70%" class="info">제목</th>
+											<th style="width:60%" class="info">제목</th>
 											<th style="width:10%" class="text-center info">아이디</th>
+											<th style="width:10%" class="text-center info">답변여부</th>
 											<th style="width:10%;" class="text-center info">작성일</th>
 										</tr>
 										
@@ -106,8 +107,16 @@
 											<tr>
 												<td class="text-center"><input type="checkbox" /></td>
 												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
-												<td>${row.q_title}</a></td>
+												<td><a href="adminQnaView?q_index=${row.q_index}&nowPage=${nowPage}">${row.q_title}</a></td>
 												<td class="text-center">${row.u_id}</td>
+												<td class="text-center">
+												<c:if test="${row.q_a_result == 1}">
+													<sqan class="glyphicon glyphicon-ok"></sqan>
+												</c:if>
+												<c:if test="${row.q_a_result == 0}">
+													<sqan class="glyphicon glyphicon-remove"></sqan>
+												</c:if>
+												</td>
 												<td class="text-center">${row.q_date}</td>
 											</tr>
 										</c:forEach>
@@ -117,22 +126,8 @@
 									<div class="pull-right" style="margin-top:-15px;">
 										<button class="btn" type="submit" style="background-color:#00b3fe; color:white;" onclick="location.href='boardList'">삭제하기</button>
 									</div>
-									<div class="col-md-12 text-center" style="margin-top:-15px;">
-										<nav>
-											<ul class="pagination">
-												<li><a href="#" aria-label="Previous"> <span
-														aria-hidden="true">&laquo;</span>
-												</a></li>
-												<li><a href="#">1</a></li>
-												<li><a href="#">2</a></li>
-												<li><a href="#">3</a></li>
-												<li><a href="#">4</a></li>
-												<li><a href="#">5</a></li>
-												<li><a href="#" aria-label="Next"> <span
-														aria-hidden="true">&raquo;</span>
-												</a></li>
-											</ul>
-										</nav>
+									<div class="col-md-12 text-center">
+										${pagingImg}
 									</div>
 								</div>
 							</div>
