@@ -36,7 +36,7 @@
 						<h3>고양이 계약이 완료되었습니다.</h3>
 						<div class="text-center">
 							<a href="mycontracthistory">
-								<button class="btn" type="submit" style="background-color:#00b3fe; color:white;">내가 계약한 내역 보기</button>
+								<button class="btn" type="button" style="background-color:#00b3fe; color:white;">내가 계약한 내역 보기</button>
 							</a>
 						</div>
 					</div>

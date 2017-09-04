@@ -49,7 +49,7 @@ public class ContractListCommand implements CatCommand {
 					req.getParameter("searchWord"));
 		}
 		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
-				req.getContextPath() + "/mycontrachistory?" + addQueryStr);
+				req.getContextPath() + "/mycontracthistory?" + addQueryStr);
 
 		List<ContractDTO> lists = dao.mySelectAll(paramMap);
 

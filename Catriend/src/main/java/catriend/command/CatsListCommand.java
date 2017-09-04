@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 
 import catriend.model.CatsDAO;
 import catriend.model.CatsDTO;
-import catriend.model.UsersDTO;
 
 public class CatsListCommand implements CatCommand {
 	@Override

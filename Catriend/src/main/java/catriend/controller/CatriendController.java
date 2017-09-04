@@ -35,6 +35,8 @@ import catriend.command.CatBoarderUpdateCommand;
 import catriend.command.CatBoarderViewCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatsListCommand;
+import catriend.command.CatsViewCommand;
+import catriend.command.ContractInsertCommand;
 import catriend.command.ContractListCommand;
 import catriend.command.FreeBoarderCommentDeleteCommand;
 import catriend.command.FreeBoarderCommentInsertCommand;
@@ -55,7 +57,6 @@ import catriend.command.UsersInsertCommand;
 import catriend.command.UsersUpdateCommand;
 import catriend.command.myCatBoardhistoryCommand;
 import catriend.command.myFreeBoardhistoryCommand;
-import catriend.command.myQnaBoardhistoryCommand;
 import catriend.model.CatBoarderDAO;
 import catriend.model.CatBoarderDTO;
 import catriend.model.CatsDAO;
@@ -79,12 +80,13 @@ public class CatriendController {
 		this.template = template;
 		Constant.template = this.template;
 	}
+
 	@Autowired
 	private ServletContext servletContext;
-	
-	//파일 업로드 경로 설정
+
+	// 파일 업로드 경로 설정
 	private String boardUploadPath;
-	
+
 	// 다형성을 위한
 	CatCommand command;
 
@@ -93,24 +95,24 @@ public class CatriendController {
 		model.addAttribute("pageGroup", "about");
 		return "about";
 	}
-	
+
 	@RequestMapping("/catBoardList")
 	public String catBoardList(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
-		System.out.println("컨트롤러 검색어 : "+req.getParameter("searchWord"));
+		System.out.println("컨트롤러 검색어 : " + req.getParameter("searchWord"));
 		model.addAttribute(req);
 		command = new CatBoarderListCommand();
 		command.execute(model);
-		
+
 		command = new FreeBoarderHotListCommand();
 		command.execute(model);
-		
+
 		command = new CatBoarderHotListCommand();
 		command.execute(model);
 		return "catBoardList";
 	}
-	
+
 	@RequestMapping("/catBoardView")
 	public String catBoardView(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
@@ -126,17 +128,34 @@ public class CatriendController {
 
 		return "catBoardView";
 	}
-	
+
 	@RequestMapping("/catcontractpaypage")
 	public String catcontractpaypage(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "cats");
+		model.addAttribute("req", req);
+		model.addAttribute("c_index", req.getParameter("c_index"));
+		command = new CatsViewCommand();
+		command.execute(model);
+
 		return "catcontractpaypage";
 	}
-	
+
+	@RequestMapping("/contractAction")
+	public String contractAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "cats");
+		model.addAttribute("req", req);
+		command = new ContractInsertCommand();
+		command.execute(model);
+		return "catcontractsuccess";
+	}
+
 	@RequestMapping("/catcontractagreement")
 	public String catcontractagreement(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "cats");
+		model.addAttribute("c_index", req.getParameter("c_index"));
 		return "catcontractagreement";
 	}
-	
+
 	@RequestMapping("/catcontractsuccess")
 	public String catcontractsuccess(Model model, HttpServletRequest req) {
 		return "catcontractsuccess";
@@ -154,7 +173,7 @@ public class CatriendController {
 
 		command = new CatBoarderCommentListCommand();
 		command.execute(model);
-		
+
 		return "catBoarderCommentReply";
 	}
 
@@ -260,13 +279,13 @@ public class CatriendController {
 
 	@RequestMapping("/catBoardWrite")
 	public String catBoardWrite(Model model, HttpServletRequest req) {
-		
+
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 
 		return "catBoardWrite";
 	}
-	
+
 	@RequestMapping("/catBoardWriteAction")
 	public String catBoardWriteAction(Model model, HttpServletRequest req) throws Exception {
 		MultipartHttpServletRequest mf = (MultipartHttpServletRequest) req;
@@ -316,12 +335,12 @@ public class CatriendController {
 		String cb_file;
 		String cb_fileUpload;
 		String[] fileStr;
-		
+
 		// 무조건 업로드(빈값도 됨)
 		cb_fileUpload = uimageUpload(mf.getFile("cb_file")).toString();
 		fileStr = cb_fileUpload.split(",");
 		cb_file = fileStr[1];
-		
+
 		// 이미지 첨부 없을때 들어오는 조건
 		if (cb_file.contains(".") == false) {
 			System.out.println("asa");
@@ -330,24 +349,24 @@ public class CatriendController {
 				File f = new File(boardUploadPath + "\\" + cb_file);
 				if (f.exists())
 					f.delete();
-				
+
 				cb_file = cb_Orifile;
-			} 
-			//기존 이미지 없을때
+			}
+			// 기존 이미지 없을때
 			else {
 				File f = new File(boardUploadPath + "\\" + cb_file);
 				if (f.exists())
 					f.delete();
-				
+
 				cb_file = cb_Orifile;
 			}
 		}
-		//이미지 첨부있을때
+		// 이미지 첨부있을때
 		else {
 			File f = new File(boardUploadPath + "\\" + cb_Orifile);
 			if (f.exists())
 				f.delete();
-			System.out.println(cb_file+";;;;;;");
+			System.out.println(cb_file + ";;;;;;");
 		}
 		HttpSession session = req.getSession();
 		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
@@ -363,7 +382,7 @@ public class CatriendController {
 		command.execute(model);
 		return "redirect:/catBoardList";
 	}
-	
+
 	@RequestMapping("/catBoardDelete")
 	public String catBoardDelete(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
@@ -374,7 +393,7 @@ public class CatriendController {
 
 		return "redirect:/catBoardList";
 	}
-	
+
 	@RequestMapping("/catlist")
 	public String catlist(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "cats");
@@ -383,11 +402,12 @@ public class CatriendController {
 		command.execute(model);
 		return "catlist";
 	}
+
 	@RequestMapping("/mycatlist")
 	public String mycatlist(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "cats");
 		HttpSession session = req.getSession();
-		UsersDTO dto = (UsersDTO)session.getAttribute("loginUser");
+		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
 		model.addAttribute("u_grade", dto.getU_grade());
 		model.addAttribute("req", req);
 		command = new CatsListCommand();
@@ -398,11 +418,11 @@ public class CatriendController {
 	@RequestMapping("/catProfile")
 	public String catProfile(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "cats");
-		
+
 		CatsDAO dao = new CatsDAO();
 		CatsDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("c_index")));
 		System.out.println("캣 프로필 dto 불러 오기 : " + dto.getC_index());
-		
+
 		model.addAttribute("dto", dto);
 		return "catProfile";
 	}
@@ -415,7 +435,6 @@ public class CatriendController {
 		return "freeBoardWrite";
 	}
 
-	
 	public ResponseEntity<String> uimageUpload(MultipartFile file) throws Exception {
 
 		boardUploadPath = servletContext.getRealPath("/resources/assets/img/boardImages");
@@ -424,25 +443,26 @@ public class CatriendController {
 		System.out.println(file.getName());
 		System.out.println(file.getSize());
 		System.out.println(file.getContentType());
-		
-		return new ResponseEntity<String>(UploadFileUtils.uploadFile(boardUploadPath, file.getOriginalFilename(), file.getBytes()),HttpStatus.CREATED);
-		
+
+		return new ResponseEntity<String>(
+				UploadFileUtils.uploadFile(boardUploadPath, file.getOriginalFilename(), file.getBytes()),
+				HttpStatus.CREATED);
+
 	}
-	
+
 	@RequestMapping("/freeBoardWriteAction")
 	public String freeBoardWriteAction(Model model, HttpServletRequest req) throws Exception {
 		model.addAttribute("req", req);
-		
+
 		MultipartHttpServletRequest mf = (MultipartHttpServletRequest) req;
-		
-		
+
 		String fb_fileUpload = uimageUpload(mf.getFile("fb_file")).toString();
 		String[] fileStr = fb_fileUpload.split(",");
 
 		String fb_title = req.getParameter("fb_title");
 		String fb_content = req.getParameter("fb_content");
 		String fb_file = fileStr[1];
-		if(fb_file.contains(".") == false) {
+		if (fb_file.contains(".") == false) {
 			fb_file = null;
 		}
 		String u_id = req.getParameter("u_id");
@@ -463,16 +483,16 @@ public class CatriendController {
 		model.addAttribute("req", req);
 		command = new FreeBoarderListCommand();
 		command.execute(model);
-		
+
 		command = new FreeBoarderHotListCommand();
 		command.execute(model);
-		
+
 		command = new CatBoarderHotListCommand();
 		command.execute(model);
-		
+
 		return "freeBoardList";
 	}
-	
+
 	@RequestMapping("/freeBoardView")
 	public String freeBoardView(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
@@ -534,12 +554,13 @@ public class CatriendController {
 		model.addAttribute("msg", req.getParameter("msg"));
 		return "processing/catlistAction";
 	}
+
 	@RequestMapping("/processing/mycatlistAction")
 	public String mycatlistAction(Model model, HttpServletRequest req) {
 		model.addAttribute("msg", req.getParameter("msg"));
 		return "processing/mycatlistAction";
 	}
-	
+
 	@RequestMapping("/myPageindex")
 	public String myPageindex(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
@@ -564,26 +585,19 @@ public class CatriendController {
 	public String myfreeboardhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
 		model.addAttribute("req", req);
-		
+
 		HttpSession session = req.getSession();
 		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
 		model.addAttribute("u_id", user.getU_id());
-		
-		
+
 		command = new myFreeBoardhistoryCommand();
 		command.execute(model);
 		return "myfreeboardhistory";
 	}
 
 	@RequestMapping("/mycatboardhistory")
-	public String mycatboardhistory(Model model, HttpServletRequest req) {
+	public String myreviewhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
-		model.addAttribute("req", req);
-		
-		HttpSession session = req.getSession();
-		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
-		model.addAttribute("u_id", user.getU_id());
-		
 		command = new myCatBoardhistoryCommand();
 		command.execute(model);
 		return "mycatboardhistory";
@@ -605,23 +619,22 @@ public class CatriendController {
 		model.addAttribute("pageGroup", "login");
 		return "loginPage";
 	}
-	
-	
+
 	@RequestMapping("/adminPageIndex")
 	public String adminPageIndex(Model model, HttpServletRequest req) {
 		return "adminPageIndex";
 	}
-	
+
 	@RequestMapping("/adminQnaView")
 	public String adminQnaView(Model model, HttpServletRequest req) {
 		return "adminQnaView";
 	}
-	
+
 	@RequestMapping("/adminQnaWrite")
 	public String adminQnaWrite(Model model, HttpServletRequest req) {
 		return "adminQnaWrite";
 	}
-	
+
 	@RequestMapping("/adminQnaSuccess")
 	public String adminQnaSuccess(Model model, HttpServletRequest req) {
 		return "adminQnaSuccess";
@@ -695,28 +708,31 @@ public class CatriendController {
 	@RequestMapping("registAction")
 	public String registAction(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
-		System.out.println(req.getParameter("u_id")+req.getParameter("u_name")+req.getParameter("u_birthday")+req.getParameter("u_phonenumber")+req.getParameter("u_nickname")+req.getParameter("u_pw")+req.getParameter("u_grade"));
+		System.out.println(req.getParameter("u_id") + req.getParameter("u_name") + req.getParameter("u_birthday")
+				+ req.getParameter("u_phonenumber") + req.getParameter("u_nickname") + req.getParameter("u_pw")
+				+ req.getParameter("u_grade"));
 		command = new UsersInsertCommand();
 		command.execute(model);
 		return "redirect:loginPage";
 	}
+
 	@RequestMapping("/processing/registcheck")
-	public String registcheck(Model model, HttpServletRequest req){
+	public String registcheck(Model model, HttpServletRequest req) {
 		UsersDAO dao = new UsersDAO();
 		System.out.println(req.getParameter("id"));
 		int result = dao.userEqual(req.getParameter("id"));
-		System.out.println("결과값: "+result);
+		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/registcheck";
 	}
-	
+
 	@RequestMapping("/processing/nickCheck")
-	public String nickCheck(Model model, HttpServletRequest req){
+	public String nickCheck(Model model, HttpServletRequest req) {
 		UsersDAO dao = new UsersDAO();
-		System.out.println("닉네임 : "+req.getParameter("nickname"));
+		System.out.println("닉네임 : " + req.getParameter("nickname"));
 		int resultSet = dao.nickEqual(req.getParameter("nickname"));
-		
-		System.out.println("결과값: "+resultSet);
+
+		System.out.println("결과값: " + resultSet);
 		model.addAttribute("resultSet", resultSet);
 		return "processing/nickCheck";
 	}
@@ -869,21 +885,22 @@ public class CatriendController {
 
 		return "adminUserManagement";
 	}
-	
+
 	@RequestMapping("/myqnahistory")
 	public String myqnahistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
 		model.addAttribute("req", req);
-		
+
 		HttpSession session = req.getSession();
-		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
-		model.addAttribute("u_id", user.getU_id());
-		
-		command = new myQnaBoardhistoryCommand();
+		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
+		String u_id = dto.getU_id();
+		model.addAttribute("u_id", u_id);
+		command = new UserQnaListCommand();
 		command.execute(model);
+
 		return "myqnahistory";
 	}
-	
+
 	@RequestMapping("/adminFreeboardManagement")
 	public String adminFreeboardManagement(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
@@ -893,7 +910,7 @@ public class CatriendController {
 
 		return "adminFreeboardManagement";
 	}
-	
+
 	@RequestMapping("/adminReviewboardManagement")
 	public String adminReviewboardManagement(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
@@ -902,7 +919,7 @@ public class CatriendController {
 		command.execute(model);
 		return "adminReviewboardManagement";
 	}
-	
+
 	@RequestMapping("/adminQnaManagement")
 	public String adminQnaManagement(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
@@ -912,7 +929,7 @@ public class CatriendController {
 
 		return "adminQnaManagement";
 	}
-	
+
 	@RequestMapping("/adminCatManagement")
 	public String adminCatManagement(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "cats");

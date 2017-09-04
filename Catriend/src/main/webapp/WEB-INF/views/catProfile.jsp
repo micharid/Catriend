@@ -1,6 +1,7 @@
-<%@page import="catriend.model.CatsDTO" %>
+<%@page import="catriend.model.CatsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%CatsDTO catdto = (CatsDTO)request.getAttribute("dto"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,21 +26,20 @@ textarea {
 	-webkit-appearance: none;
 }
 
-.panel-heading{
-	    padding: 1px;
+.panel-heading {
+	padding: 1px;
 }
 
-#blue{
-    background: #428BCA;
-    margin-bottom:20px;
-   
+#blue {
+	background: #428BCA;
+	margin-bottom: 20px;
 }
 
 hr {
-    height: 2px;
-    color: #777777;
-    background-color: #777777;
-    border: none;
+	height: 2px;
+	color: #777777;
+	background-color: #777777;
+	border: none;
 }
 </style>
 
@@ -62,14 +62,16 @@ hr {
 
 	<div class="container mtb">
 		<div class="row">
-	<div id="blue" style="margin-top:60px;">
-		
-					<center>
-						<h3 style=" font-size: 20px; line-height: 1.428571429; color: #fff; padding:10px;">Cat Profile</h3>
-					</center>
-		
-			<!-- /container -->
-	</div>
+			<div id="blue" style="margin-top: 60px;">
+
+				<center>
+					<h3
+						style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">Cat
+						Profile</h3>
+				</center>
+
+				<!-- /container -->
+			</div>
 
 			<!-- SINGLE POST -->
 			<div class="col-lg-8" style="margin: 15px 0 0 0;">
@@ -80,11 +82,13 @@ hr {
 					<!-- top e -->
 				</div>
 				<div class="panel panel-primary">
-				<div class="panel-heading">
-                            <center><h4 style="padding:0px;">한줄 댓글</h4></center>
-                </div>
+					<div class="panel-heading">
+						<center>
+							<h4 style="padding: 0px;">한줄 댓글</h4>
+						</center>
+					</div>
 					<form action="">
-						<table class="table" style="margin-top:20px;">
+						<table class="table" style="margin-top: 20px;">
 							<tr>
 								<td width="80%"><textarea id="textAreaComment" cols="30"
 										rows="5" title="" placeholder="댓글을 입력해 주세요"
@@ -96,7 +100,7 @@ hr {
 					</form>
 					<div class="panel-footer">
 						<table class="table table-condensed">
-							<tr algin="center">
+							<tr align="center">
 								<th width="20%">작성일자</th>
 								<th width="50%">내용</th>
 								<th width="20%">별점</th>
@@ -109,22 +113,14 @@ hr {
 								<td>★★★★☆</td>
 								<td>빵꾸똥꾸</td>
 							</tr>
-							<!-- 반복부분  e -->	
-											
+							<!-- 반복부분  e -->
+
 						</table>
-					
-						
+
+
 					</div>
-					
+
 				</div>
-
-
-
-
-
-
-
-
 			</div>
 			<!--/col-lg-8 -->
 
@@ -136,56 +132,37 @@ hr {
 				<p>
 				<h4>이름 : ${dto.c_name}</h4>
 				<h4>
-					종류 : <a
-						href="https://namu.wiki/w/${dto.c_type}">${dto.c_type}</a>
+					종류 : <a href="https://namu.wiki/w/${dto.c_type}">${dto.c_type}</a>
 				</h4>
-				<h4> 생일 : ${dto.c_birthday}</h4>
+				<h4>생일 : ${dto.c_birthday}</h4>
 				<h4>건강상태 : ${dto.c_health}</h4>
-
-				</p>
+				<%if(login != null && login.getU_grade() > catdto.getC_grade()){ %>
 				<button class="btn btn-warning" style="width: 100%;"
-					onclick="location.href='catcontractagreement'">계약하기</button>
-
+					onclick="location.href='catcontractagreement?c_index=${dto.c_index}'">계약하기</button>
+				<%}else if(login != null && login.getU_grade() < catdto.getC_grade()){
+					System.out.println(login.getU_grade() +", "+ catdto.getC_grade());
+					%>
+				<button class="btn btn-warning" disabled="disabled" style="width: 100%;">계약하기(쉬운 고양이들 먼저 경험해보고 오냥)</button>
+				<%}else{ %>
+				<button class="btn btn-warning" disabled="disabled" style="width: 100%;"
+					>계약하기(로그인해주세요)</button>
+				<%} %>
 				<div class="spacing"></div>
 				<hr />
 				<h4>스토리</h4>
 				<div class="hline"></div>
 				<p>
-					<a href="#"><i class="fa fa-angle-right"></i> 추 억 (후기게시판)</a> <span
-						class="badge badge-theme pull-right">9</span>
+					<button class="btn btn-warning" style="width: 100%;"
+						onclick="location.href='catBoardList?c_index=${dto.c_index}'">후기게시판</button>
 				</p>
-				<p>
-					<a href="#"><i class="fa fa-angle-right"></i> Photoshop</a> <span
-						class="badge badge-theme pull-right">3</span>
-				</p>
-				<p>
-					<a href="#"><i class="fa fa-angle-right"></i> Web Design</a> <span
-						class="badge badge-theme pull-right">11</span>
-				</p>
-				<p>
-					<a href="#"><i class="fa fa-angle-right"></i> Development</a> <span
-						class="badge badge-theme pull-right">5</span>
-				</p>
-				<p>
-					<a href="#"><i class="fa fa-angle-right"></i> Tips & Tricks</a> <span
-						class="badge badge-theme pull-right">7</span>
-				</p>
-				<p>
-					<a href="#"><i class="fa fa-angle-right"></i> Code Snippets</a> <span
-						class="badge badge-theme pull-right">12</span>
-				</p>
-
-
-
-
-
-
-
-				<hr style="color:blue"/>
+				<br />
+				<hr style="color: blue" />
 				<h4>키워드 입력 부분</h4>
 				<div class="hline"></div>
 				<p>
-				<div style="font-size:2.5em;">누르면 네이버에 검색<br /></div>
+				<div style="font-size: 2.5em;">
+					누르면 네이버에 검색<br />
+				</div>
 				<!-- 분류 반복 s -->
 				<%
 					CatsDTO dto = (CatsDTO)request.getAttribute("dto");
@@ -194,7 +171,9 @@ hr {
 					
 					for(String strArr : keywordArr){
 				%>
-					<a class="btn btn-success" style="margin-top:10px"href="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=<%=strArr%>&oquery=rjator&tqi=TjQ5pwpVuE4ssso0ieNssssss14-306639" role="button"><%=strArr%></a>
+				<a class="btn btn-success" style="margin-top: 10px"
+					href="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=<%=strArr%>&oquery=rjator&tqi=TjQ5pwpVuE4ssso0ieNssssss14-306639"
+					role="button"><%=strArr%></a>
 				<%
 					}
 				%>
@@ -216,9 +195,9 @@ hr {
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 
 </body>
 </html>

@@ -5,7 +5,8 @@
 <head>
 <title>계약</title>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
 <style>
@@ -13,120 +14,119 @@ textarea {
 	resize: none;
 }
 
-
 .funkyradio div {
-  clear: both;
-  overflow: hidden;
+	clear: both;
+	overflow: hidden;
 }
 
 .funkyradio label {
-  width: 30%;
-  border-radius: 3px;
-  border: 1px solid #D1D3D4;
-  font-weight: normal;
+	width: 30%;
+	border-radius: 3px;
+	border: 1px solid #D1D3D4;
+	font-weight: normal;
 }
 
-.funkyradio input[type="radio"]:empty,
-.funkyradio input[type="checkbox"]:empty {
-  display: none;
+.funkyradio input[type="radio"]:empty, .funkyradio input[type="checkbox"]:empty
+	{
+	display: none;
 }
 
-.funkyradio input[type="radio"]:empty ~ label,
-.funkyradio input[type="checkbox"]:empty ~ label {
-  position: relative;
-  line-height: 2.5em;
-  text-indent: 3.25em;
-  margin-top: 0;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+.funkyradio input[type="radio"]:empty ~ label, .funkyradio input[type="checkbox"]:empty 
+	~ label {
+	position: relative;
+	line-height: 2.5em;
+	text-indent: 3.25em;
+	margin-top: 0;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-.funkyradio input[type="radio"]:empty ~ label:before,
-.funkyradio input[type="checkbox"]:empty ~ label:before {
-  position: absolute;
-  display: block;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  content: '';
-  width: 2.5em;
-  background: #d8d8d8;
-  border-radius: 3px 0 0 3px;
+.funkyradio input[type="radio"]:empty ~ label:before, .funkyradio input[type="checkbox"]:empty 
+	~ label:before {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 2.5em;
+	background: #d8d8d8;
+	border-radius: 3px 0 0 3px;
 }
 
-.funkyradio input[type="radio"]:hover:not(:checked) ~ label,
-.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
-  color: #888;
+.funkyradio input[type="radio"]:hover:not (:checked ) ~ label,
+	.funkyradio input[type="checkbox"]:hover:not (:checked ) ~ label {
+	color: #888;
 }
 
-.funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
-.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
-  content: '\2714';
-  text-indent: .9em;
-  color: #C2C2C2;
+.funkyradio input[type="radio"]:hover:not (:checked ) ~ label:before,
+	.funkyradio input[type="checkbox"]:hover:not (:checked ) ~ label:before
+	{
+	content: '\2714';
+	text-indent: .9em;
+	color: #C2C2C2;
 }
 
-.funkyradio input[type="radio"]:checked ~ label,
-.funkyradio input[type="checkbox"]:checked ~ label {
-  color: #777;
+.funkyradio input[type="radio"]:checked ~ label, .funkyradio input[type="checkbox"]:checked 
+	~ label {
+	color: #777;
 }
 
-.funkyradio input[type="radio"]:checked ~ label:before,
-.funkyradio input[type="checkbox"]:checked ~ label:before {
-  content: '\2714';
-  text-indent: .9em;
-  color: #333;
-  background-color: #ccc;
+.funkyradio input[type="radio"]:checked ~ label:before, .funkyradio input[type="checkbox"]:checked 
+	~ label:before {
+	content: '\2714';
+	text-indent: .9em;
+	color: #333;
+	background-color: #ccc;
 }
 
-.funkyradio input[type="radio"]:focus ~ label:before,
-.funkyradio input[type="checkbox"]:focus ~ label:before {
-  box-shadow: 0 0 0 3px #999;
+.funkyradio input[type="radio"]:focus ~ label:before, .funkyradio input[type="checkbox"]:focus 
+	~ label:before {
+	box-shadow: 0 0 0 3px #999;
 }
 
 .funkyradio-default input[type="radio"]:checked ~ label:before,
-.funkyradio-default input[type="checkbox"]:checked ~ label:before {
-  color: #333;
-  background-color: #ccc;
+	.funkyradio-default input[type="checkbox"]:checked ~ label:before {
+	color: #333;
+	background-color: #ccc;
 }
 
 .funkyradio-primary input[type="radio"]:checked ~ label:before,
-.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #337ab7;
+	.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+	color: #fff;
+	background-color: #337ab7;
 }
 
 .funkyradio-success input[type="radio"]:checked ~ label:before,
-.funkyradio-success input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #5cb85c;
+	.funkyradio-success input[type="checkbox"]:checked ~ label:before {
+	color: #fff;
+	background-color: #5cb85c;
 }
 
 .funkyradio-danger input[type="radio"]:checked ~ label:before,
-.funkyradio-danger input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #d9534f;
+	.funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+	color: #fff;
+	background-color: #d9534f;
 }
 
 .funkyradio-warning input[type="radio"]:checked ~ label:before,
-.funkyradio-warning input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #f0ad4e;
+	.funkyradio-warning input[type="checkbox"]:checked ~ label:before {
+	color: #fff;
+	background-color: #f0ad4e;
 }
 
 .funkyradio-info input[type="radio"]:checked ~ label:before,
-.funkyradio-info input[type="checkbox"]:checked ~ label:before {
-  color: #fff;
-  background-color: #5bc0de;
+	.funkyradio-info input[type="checkbox"]:checked ~ label:before {
+	color: #fff;
+	background-color: #5bc0de;
 }
 
-#inputbox
-{
-	text-align:center;
-	color:black;
+#inputbox {
+	text-align: center;
+	color: black;
 }
 </style>
 
@@ -134,6 +134,20 @@ textarea {
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
+
+<script>
+	function checkAgree() {
+
+		var f = document.AgreeFrm;
+		
+		if(f.checkbox1.checked != true || f.checkbox2.checked != true || f.checkbox3.checked != true){
+			alert("약관에 동의해주세요");
+			return false;
+		}
+		
+		return true;
+	}
+</script>
 </head>
 
 <body>
@@ -167,8 +181,11 @@ textarea {
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<div class="panel panel-default center-block">
-					<span style="font-size:1.3em;"><b>구매이용약관</b></span>
-					<textarea class="form-control" rows="5" readonly style="cursor:text; background-color: #ffffff; padding:0; font-size:1.1em;"> 
+					<form action="catcontractpaypage" name="AgreeFrm" onsubmit="return checkAgree();">
+						<input type="hidden" name="c_index" value="${c_index}" /> <span
+							style="font-size: 1.3em;"><b>구매이용약관</b></span>
+						<textarea class="form-control" rows="5" readonly
+							style="cursor: text; background-color: #ffffff; padding: 0; font-size: 1.1em;"> 
  
 제1장 총칙
  
@@ -591,19 +608,18 @@ c. 그 외 회사가 정한 안전거래 이용규칙을 위반한 경우
 ■ 부칙
 제1조 (시행일) 이 약관은 2017년 8월 22일부터 시행합니다.
 </textarea>
-					<div class="funkyradio">
-						<div class="funkyradio-info">
-							<input type="checkbox" name="checkbox" id="checkbox1"/>
-							<label for="checkbox1">이용약관에 동의합니다.</label>
-							<button type="button" class="btn btn-default pull-right">전체보기</button>
+						<div class="funkyradio">
+							<div class="funkyradio-info">
+								<input type="checkbox" name="checkbox1" id="checkbox1" /> <label
+									for="checkbox1">이용약관에 동의합니다.</label>
+								<button type="button" class="btn btn-default pull-right">전체보기</button>
+							</div>
 						</div>
-					</div>
-					
-					<br />
-					<br />
-					
-					<span style="font-size:1.3em;"><b>전자금융거래 이용약관</b></span>
-					<textarea class="form-control" rows="5" readonly style="cursor:text; background-color: #ffffff; padding:0; font-size:1.1em;"> 
+
+						<br /> <br /> <span style="font-size: 1.3em;"><b>전자금융거래
+								이용약관</b></span>
+						<textarea class="form-control" rows="5" readonly
+							style="cursor: text; background-color: #ffffff; padding: 0; font-size: 1.1em;"> 
  
 제1장 총칙
  
@@ -1026,19 +1042,18 @@ c. 그 외 회사가 정한 안전거래 이용규칙을 위반한 경우
 ■ 부칙
 제1조 (시행일) 이 약관은 2017년 8월 22일부터 시행합니다.
 </textarea>
-					<div class="funkyradio">
-						<div class="funkyradio-info">
-							<input type="checkbox" name="checkbox" id="checkbox2"/>
-							<label for="checkbox2">이용약관에 동의합니다.</label>
-							<button type="button" class="btn btn-default pull-right">전체보기</button>
+						<div class="funkyradio">
+							<div class="funkyradio-info">
+								<input type="checkbox" name="checkbox2" id="checkbox2" /> <label
+									for="checkbox2">이용약관에 동의합니다.</label>
+								<button type="button" class="btn btn-default pull-right">전체보기</button>
+							</div>
 						</div>
-					</div>
-					
-					<br />
-					<br />
-					
-					<span style="font-size:1.3em;"><b>개인정보 수집 및 이용에 대한 안내</b></span>
-					<textarea class="form-control" rows="5" readonly style="cursor:text; background-color: #ffffff; padding:0; font-size:1.1em;"> 
+
+						<br /> <br /> <span style="font-size: 1.3em;"><b>개인정보
+								수집 및 이용에 대한 안내</b></span>
+						<textarea class="form-control" rows="5" readonly
+							style="cursor: text; background-color: #ffffff; padding: 0; font-size: 1.1em;"> 
 비회원 개인정보 수집/이용 약관
 비회원으로 서비스를 이용하는 경우, 수집/이용하는 개인정보는 다음과 같습니다.
 고객님께서는 동의를 거부할 권리가 있으며, 동의 거부 시 캣렌드 서비스 이용이 불가합니다.
@@ -1060,32 +1075,32 @@ c. 그 외 회사가 정한 안전거래 이용규칙을 위반한 경우
 비회원으로 서비스를 이용하는 경우 회원에게만 적용되는 사항을 제외한 나머지 부분에 대해서는 캣렌드 회원과 동일한 개인정보취급방침이 적용됩니다.
  
 </textarea>
-					<div class="funkyradio">
-						<div class="funkyradio-info">
-							<input type="checkbox" name="checkbox" id="checkbox3"/>
-							<label for="checkbox3">이용약관에 동의합니다.</label>
-							<button type="button" class="btn btn-default pull-right">전체보기</button>
+						<div class="funkyradio">
+							<div class="funkyradio-info">
+								<input type="checkbox" name="checkbox3" id="checkbox3" /> <label
+									for="checkbox3">이용약관에 동의합니다.</label>
+								<button type="button" class="btn btn-default pull-right">전체보기</button>
+							</div>
 						</div>
-					</div>
-					
-					<br />
-					
-					<input id="inputbox" class="form-control" type="text" placeholder="캣렌드 서비스 이용약관에 동의하십니까?" readonly>
-					<div class="text-center" style="margin-top:0.3em;">
-						<a href="catcontractpaypage">
-							<button class="btn btn-primary" style="width:110px;">동의함</button>
-						</a>
-						<a href=""><!-- 이전페이지로 -->
-							<button class="btn btn-danger" style="width:110px;">동의하지않음</button>
-						</a>
-					</div>
+
+						<br /> <input id="inputbox" class="form-control" type="text"
+							placeholder="캣렌드 서비스 이용약관에 동의하십니까?" readonly>
+						<div class="text-center" style="margin-top: 0.3em;">
+							<button type="submit" class="btn btn-primary"
+								style="width: 110px;">동의함</button>
+							<!-- 이전페이지로 -->
+							<button class="btn btn-danger"
+								onclick="javascript:history.back();" style="width: 110px;">동의하지않음</button>
+						</div>
+					</form>
 				</div>
 			</div>
 			<div class="col-md-2"></div>
 		</div>
 	</div>
-	
-	<br /><br />
+
+	<br />
+	<br />
 
 	<!-- *****************************************************************************************************************
 	 FOOTER
@@ -1096,8 +1111,8 @@ c. 그 외 회사가 정한 안전거래 이용규칙을 위반한 경우
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 </body>
 </html>
