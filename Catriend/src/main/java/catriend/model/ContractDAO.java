@@ -77,6 +77,12 @@ public class ContractDAO {
 		String sql = "SELECT * FROM contract WHERE ct_index=" + ct_index;
 		return (ContractDTO) template.queryForObject(sql, new BeanPropertyRowMapper<ContractDTO>(ContractDTO.class));
 	}
+	
+	public List<ContractDTO> CatContractList(Map<String, Object> map){
+		String sql = "SELECT * FROM contract WHERE c_index = "+Integer.parseInt(map.get("c_index").toString())
+				+ " AND ct_eday > sysdate ";
+		return (List<ContractDTO>) template.query(sql, new BeanPropertyRowMapper<ContractDTO>(ContractDTO.class));
+	}
 
 	public List<ContractDTO> selectAll(Map<String, Object> map) {
 		int start = Integer.parseInt(map.get("start").toString());

@@ -1,5 +1,11 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="catriend.model.ContractDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	List<ContractDTO> list = (List<ContractDTO>) request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +35,24 @@
 					onClose : function(selectedDate) {
 						$("#datepickerout").datepicker("option", "minDate",
 								selectedDate);
+					},
+					onSelect : function(dateText, inst){
+						for(var i=0; i< document.getElementById('rowCount').value; i++){
+							
+							var f = document.payFrm;
+							
+							var startdateOj = document.getElementsByClassName("ct_sday");
+							var enddateOj = document.getElementsByClassName("ct_eday");
+							
+							var startdate = new Date(startdateOj[i].value);
+							var enddate = new Date(enddateOj[i].value);
+							var pickdate = new Date(dateText);
+							
+							if(startdate <= pickdate && enddate >= pickdate){
+								alert('이미 계약한 사람이 있습니다. 다른 날을 선택해주세요~');
+								$("#datepickerin").datepicker("setDate", null);
+							}
+						}
 					}
 				});
 	});
@@ -47,7 +71,22 @@
 
 					onSelect : function(dateText, inst) {
 						// 일자 선택된 후 이벤트 발생
-
+						for(var i=0; i< document.getElementById('rowCount').value; i++){
+							
+							var f = document.payFrm;
+							
+							var startdateOj = document.getElementsByClassName("ct_sday");
+							var enddateOj = document.getElementsByClassName("ct_eday");
+							
+							var startdate = new Date(startdateOj[i].value);
+							var enddate = new Date(enddateOj[i].value);
+							var pickdate = new Date(dateText);
+							
+							if(startdate <= pickdate && enddate >= pickdate){
+								alert('이미 계약한 사람이 있습니다. 다른 날을 선택해주세요~');
+								$("#datepickerout").datepicker("setDate", null);
+							}
+						}
 						//alert(parseInt(diffDays($('#datepickerin').datepicker(), $('#datepickerout').datepicker())));
 						PayCheck();
 					}
@@ -120,7 +159,19 @@
 					<br />
 					<div class="paytable" style="margin-top: -10px;">
 						<form name="payFrm" action="contractAction">
-							<input type="hidden" name="u_id" value="<%=login.getU_id()%>" /> <input
+							<%
+								int i = 0;
+								for (ContractDTO row : list) {
+							%>
+							<input type="hidden" class="ct_sday"
+								value="<%=row.getCt_sday()%>" /> <input type="hidden"
+								class="ct_eday" value="<%=row.getCt_eday()%>" />
+							<%
+								i++;
+								}
+							%>
+							<input type="hidden" id="rowCount" value="<%=i%>" /> <input
+								type="hidden" name="u_id" value="<%=login.getU_id()%>" /> <input
 								type="hidden" name="c_index" value="${c_index}" />
 							<table class="table table-bordered"
 								style="width: 98%; margin-left: auto; margin-right: auto;">
@@ -138,6 +189,18 @@
 								</tr>
 								<tr>
 									<td style="vertical-align: middle;">생일 : ${dto.c_birthday}</td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align: center;">
+									<span>계약되어있는 날짜</span>
+									<%
+								for (ContractDTO row : list) {
+									%>
+									<br />
+									<span><%=row.getCt_sday()%></span> ~ <span><%=row.getCt_eday()%></span>
+									<%
+									}%>
+							</td>
 								</tr>
 								<tr>
 									<td colspan="2" style="text-align: center;">IN : <input
@@ -201,8 +264,8 @@
 								style="color: black;" value="0원" readonly /> <br />
 							<div align="center">
 								<input type="submit" class="btn btn-danger"
-									style="width: 110px;" value="결제하기" /> 
-								<input type="button" class="btn btn-default"
+									style="width: 110px;" value="결제하기" /> <input type="button"
+									class="btn btn-default"
 									onclick="location.href='catProfile?c_index=${dto.c_index}'"
 									style="width: 110px;" value="취소하기" />
 							</div>

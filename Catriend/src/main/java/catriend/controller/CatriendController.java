@@ -20,8 +20,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import catriend.command.AdminCatListCommand;
 import catriend.command.AdminFreeBoardListCommand;
 import catriend.command.AdminQnaListCommand;
-import catriend.command.AdminQnaReplyCommand;
-import catriend.command.AdminQnaViewCommand;
 import catriend.command.AdminReviewListCommand;
 import catriend.command.AdminUserListCommand;
 import catriend.command.CatBoarderCommentDeleteCommand;
@@ -36,6 +34,7 @@ import catriend.command.CatBoarderListCommand;
 import catriend.command.CatBoarderUpdateCommand;
 import catriend.command.CatBoarderViewCommand;
 import catriend.command.CatCommand;
+import catriend.command.CatContractListCommand;
 import catriend.command.CatsListCommand;
 import catriend.command.CatsViewCommand;
 import catriend.command.ContractInsertCommand;
@@ -138,6 +137,9 @@ public class CatriendController {
 		model.addAttribute("req", req);
 		model.addAttribute("c_index", req.getParameter("c_index"));
 		command = new CatsViewCommand();
+		command.execute(model);
+
+		command = new CatContractListCommand();
 		command.execute(model);
 
 		return "catcontractpaypage";
@@ -282,9 +284,6 @@ public class CatriendController {
 
 	@RequestMapping("/catBoardWrite")
 	public String catBoardWrite(Model model, HttpServletRequest req) {
-		model.addAttribute("c_index", req.getParameter("c_index"));
-		System.out.println("캣보더 라이트 c_index : " + req.getParameter("c_index"));
-				
 
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
@@ -425,16 +424,13 @@ public class CatriendController {
 	public String catProfile(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "cats");
 		model.addAttribute("req", req);
-		
-		System.out.println("컨트롤러 유저 아이디 : " + req.getParameter("u_id") + ", c_index : " + Integer.parseInt(req.getParameter("c_index")));
-		
 		command = new ContractSelectCheckCommand();
 		command.execute(model);
-				
+
 		CatsDAO dao = new CatsDAO();
 		CatsDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("c_index")));
 		System.out.println("캣 프로필 dto 불러 오기 : " + dto.getC_index());
-		
+
 		model.addAttribute("dto", dto);
 		return "catProfile";
 	}
@@ -597,26 +593,19 @@ public class CatriendController {
 	public String myfreeboardhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
 		model.addAttribute("req", req);
-		
+
 		HttpSession session = req.getSession();
 		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
 		model.addAttribute("u_id", user.getU_id());
-		
-		
+
 		command = new myFreeBoardhistoryCommand();
 		command.execute(model);
 		return "myfreeboardhistory";
 	}
 
 	@RequestMapping("/mycatboardhistory")
-	public String mycatboardhistory(Model model, HttpServletRequest req) {
+	public String myreviewhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
-		model.addAttribute("req", req);
-		
-		HttpSession session = req.getSession();
-		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
-		model.addAttribute("u_id", user.getU_id());
-		
 		command = new myCatBoardhistoryCommand();
 		command.execute(model);
 		return "mycatboardhistory";
@@ -642,6 +631,11 @@ public class CatriendController {
 	@RequestMapping("/adminPageIndex")
 	public String adminPageIndex(Model model, HttpServletRequest req) {
 		return "adminPageIndex";
+	}
+
+	@RequestMapping("/adminQnaView")
+	public String adminQnaView(Model model, HttpServletRequest req) {
+		return "adminQnaView";
 	}
 
 	@RequestMapping("/adminQnaWrite")
@@ -951,33 +945,5 @@ public class CatriendController {
 		command = new AdminCatListCommand();
 		command.execute(model);
 		return "adminCatManagement";
-	}
-	
-	@RequestMapping("/myqnaview")
-	public String myqnaview(Model model, HttpServletRequest req) {
-		return "myqnaview";
-	}
-	
-	@RequestMapping("/adminQnaView")
-	public String adminQnaView(Model model, HttpServletRequest req) {
-		model.addAttribute("pageGroup", "qna");
-		model.addAttribute("req", req);
-		command = new AdminQnaViewCommand();
-		command.execute(model);
-
-		return "adminQnaView";
-	}
-	
-	@RequestMapping("/qnaReplyAction")
-	public String qnaReplyAction(Model model, HttpServletRequest req) {
-		model.addAttribute("pageGroup", "qna");
-		model.addAttribute("req", req);
-		command = new AdminQnaReplyCommand();
-		command.execute(model);
-		
-		command = new AdminQnaListCommand();
-		command.execute(model);
-
-		return "adminQnaManagement";
 	}
 }
