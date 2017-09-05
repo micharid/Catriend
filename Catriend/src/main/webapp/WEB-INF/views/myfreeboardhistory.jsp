@@ -105,12 +105,12 @@ var isValidate = function(obj)
 							<!--  게시판 반복 부분 s -->
 							<c:forEach items="${myFreeList}" var="row">
 								<tr>
-									<td>${totalRecordCount - row.rNum +1}</td>
+									<td class="text-center">${totalRecordCount - row.rNum +1}</td>
 									<td><a
 										href="freeBoardView?fb_index=${row.fb_index}&nowPage=${nowPage}">${row.fb_title}</a></td>
-									<td>${row.u_id}</td>
-									<td>${row.fb_hits}</td>
-									<td>${row.fb_date}</td>
+									<td class="text-center">${row.u_id}</td>
+									<td class="text-center">${row.fb_hits}</td>
+									<td class="text-center">${row.fb_date}</td>
 								</tr>
 							</c:forEach>
 							<!-- 게시판 반복 부분 e  -->

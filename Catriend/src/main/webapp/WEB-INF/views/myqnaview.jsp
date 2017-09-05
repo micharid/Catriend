@@ -49,7 +49,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	<div class="container">
 		<div class="row">
 		<div id="blue" style="margin-top:60px;">
-		
 					<center>
 						<h3 style=" font-size: 20px; line-height: 1.428571429; color: #fff; padding:10px; margin-bottom:50px;">질문 보기</h3>
 					</center>
@@ -78,7 +77,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 							</tr>
 						</table>
 						<div>
-							<textarea name="q_answer" style="width:100%; height:300px;">답변내용 : ${dto.q_answer}</textarea>
+							<table class="table table-bordered">
+							<tr>
+								<td width="10%">답변내용 : </td>
+								<td class="text-center" width="90%">${dto.q_answer}</td>
+							</tr>
+						</table>
 						</div>
 						<div class="pull-right">
 							<button class="btn" style="background-color:#00b3fe; color:white;" onclick="location.href='contact'">질문하러가기</button>

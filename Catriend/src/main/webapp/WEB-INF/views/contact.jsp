@@ -206,7 +206,7 @@ var isValidate = function(obj)
                         <textarea class="form-control" id="q_content" rows="3"
                            name="q_content"></textarea>
                      </div>
-                     <button type="submit" class="btn btn-primary btn-sm" onclick="javascript:alert('문의글 등록되었습니다.');">문의하기</button>
+                     <button type="submit" class="btn btn-primary btn-sm">문의하기</button>
                      <!-- 관리자에게 문의글이 전송됨 -->
                      <!-- 관리자가 답변하면 관리자 / 유저 마이페이지/관리페이지에 기록됨 -->
                   </form>
