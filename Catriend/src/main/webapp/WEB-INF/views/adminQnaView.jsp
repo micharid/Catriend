@@ -14,6 +14,18 @@
 	}
 </style>
 
+<script>
+var isValidate = function(obj)
+{
+	if(obj.q_answer.value=="")
+	{
+		alert("답변을 입력하세요");
+		obj.q_answer.focus();
+		return false;
+	}
+}
+</script>
+
 <!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
@@ -99,7 +111,7 @@
 									</center>
 								</div>
 								<div class="panel-body">
-									<form action="qnaReplyAction">
+									<form action="qnaReplyAction" onsubmit="return isValidate(this);">
 									<input type="hidden" name="q_index" value="${dto.q_index}" />
 										<table class="table table-bordered">
 											<tr>

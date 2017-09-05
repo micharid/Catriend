@@ -77,8 +77,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 							<c:forEach items="${myQnaList}" var="row">
 								<tr>
 									<td class="text-center">${totalRecordCount - row.rNum +1}</td>
-									<td>${row.q_title}</a></td>
-									<td class="text-center"></td>
+									<td><a href="myqnaview?q_index=${row.q_index}&nowPage=${nowPage}">${row.q_title}</a></td>
+									<td class="text-center">
+										<c:if test="${row.q_a_result == 1}">
+											<sqan class="glyphicon glyphicon-ok"></sqan>
+										</c:if>
+										<c:if test="${row.q_a_result == 0}">
+											<sqan class="glyphicon glyphicon-remove"></sqan>
+										</c:if>
+									</td>
 									<td class="text-center">${row.q_date}</td>
 								</tr>
 							</c:forEach>

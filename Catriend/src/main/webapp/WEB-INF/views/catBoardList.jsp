@@ -17,6 +17,19 @@
 	border-color: #dddddd;
 }
 </style>
+
+<script>
+var isValidate = function(obj)
+{
+	if(obj.searchWord.value=="")
+	{
+		alert("검색내용을 입력하세요");
+		obj.searchWord.focus();
+		return false;
+	}
+}
+</script>
+
 <body>
 
 	<!-- Fixed navbar -->
@@ -68,7 +81,7 @@
 									<div class="panel panel-default">
 										<div class="panel-body">
 											<div class="table-responsive">
-												<form method="get" action="catBoardList">
+												<form method="get" action="catBoardList" onsubmit="return isValidate(this);">
 													<input type="hidden" name="nowPage" value="1" />
 													<table width="100%" style="text-align: center;">
 														<tr>

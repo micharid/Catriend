@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import catriend.model.QnaDAO;
 import catriend.model.QnaDTO;
 
-public class AdminQnaViewCommand implements CatCommand {
+public class MyQnaViewCommand implements CatCommand {
 	@Override
 	public void execute(Model model) {
 		// DAO 연결
@@ -24,6 +24,6 @@ public class AdminQnaViewCommand implements CatCommand {
 
 		model.addAttribute("dto", dto);
 
-		System.out.println("AdminQnaViewCommand");
+		System.out.println("MyQnaViewCommand");
 	}
 }

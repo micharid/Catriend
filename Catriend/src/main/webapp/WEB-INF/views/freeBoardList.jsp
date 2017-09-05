@@ -18,6 +18,19 @@
 	border-color: #dddddd;
 }
 </style>
+
+<script>
+var isValidate = function(obj)
+{
+	if(obj.searchWord.value=="")
+	{
+		alert("검색내용을 입력하세요");
+		obj.searchWord.focus();
+		return false;
+	}
+}
+</script>
+
 <body>
 
 	<!-- Fixed navbar -->
@@ -70,7 +83,7 @@
 									<div class="panel panel-default">
 										<div class="panel-body">
 											<div class="table-responsive">
-												<form method="get">
+												<form method="get" onsubmit="return isValidate(this);">
 													<input type="hidden" name="nowPage" value="1" />
 													<table width="100%" style="text-align: center;">
 														<tr>
@@ -103,23 +116,23 @@
 												<table class="table table-bordered table-hover">
 													<thead>
 														<tr>
-															<th>#</th>
+															<th style="width:10%;" class="text-center">NO</th>
 															<th>제목</th>
-															<th>작성자</th>
-															<th>조회수</th>
-															<th>작성일</th>
+															<th style="width:10%;" class="text-center">작성자</th>
+															<th style="width:10%;" class="text-center">조회수</th>
+															<th style="width:15%;" class="text-center">작성일</th>
 														</tr>
 													</thead>
 													<tbody>
 														<!--  게시판 반복 부분 s -->
 														<c:forEach items="${freelists}" var="row">
 															<tr>
-																<td>${totalRecordCount - row.rNum +1}</td>
+																<td class="text-center">${totalRecordCount - row.rNum +1}</td>
 																<td><a
 																	href="freeBoardView?fb_index=${row.fb_index}&nowPage=${nowPage}">${row.fb_title}</a></td>
-																<td>${row.u_id}</td>
-																<td>${row.fb_hits}</td>
-																<td>${row.fb_date}</td>
+																<td class="text-center">${row.u_id}</td>
+																<td class="text-center">${row.fb_hits}</td>
+																<td class="text-center">${row.fb_date}</td>
 															</tr>
 														</c:forEach>
 														<!-- 게시판 반복 부분 e  -->

@@ -27,6 +27,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 </style>
 
+<script>
+var isValidate = function(obj)
+{
+	if(obj.searchWord.value=="")
+	{
+		alert("검색내용을 입력하세요");
+		obj.searchWord.focus();
+		return false;
+	}
+}
+</script>
+
 </head>
 
 <body>
@@ -47,14 +59,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	<div class="container">
 		<div class="row">
 			<div id="blue" style="margin-top: 60px;">
-
 				<center>
-					<h3
-						style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">내가
-						작성한 글 목록</h3>
+					<h3 style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">
+						내가 작성한 글 목록
+					</h3>
 				</center>
-
-				<!-- /container -->
 			</div>
 			<div class="col-md-2">
 				<div class="list-group text-center">
@@ -72,7 +81,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 						style="font-size: 1.5em; font-weight: 700;">
 						자유게시판
 					</div>
-					<form method="get">
+					<form method="get" onsubmit="return isValidate(this);">
 						<input type="hidden" name="nowPage" value="1" />
 						<table width="100%" style="text-align: center;">
 							<tr>
@@ -87,11 +96,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					<div class="panel-body">
 						<table class="table table-hover table-bordered">
 							<tr style="text-align: center;">
-								<th width="5%">NO</th>
+								<th width="5%" class="text-center">NO</th>
 								<th width="50%">제목</th>
-								<th>작성자</th>
-								<th>조회수</th>
-								<th width="12%">작성일</th>
+								<th class="text-center">작성자</th>
+								<th class="text-center">조회수</th>
+								<th width="12%" class="text-center">작성일</th>
 							</tr>
 							<!--  게시판 반복 부분 s -->
 							<c:forEach items="${myFreeList}" var="row">

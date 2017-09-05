@@ -105,8 +105,10 @@ h2, h3, h4, h5, h6 {
 					<!-- he wrap -->
 					<h4>Kim ByungHoon</h4>
 					<h5 class="ctitle">CEO</h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry.</p>
+					<p>
+						안녕하세요?
+						<br />캣렌드를 운영하고 있는 김병훈 입니다. 잘 부탁드립니다^^.
+					</p>
 					<div class="hline"></div>
 				</div>
 				<! --/col-lg-3 -->
@@ -120,8 +122,10 @@ h2, h3, h4, h5, h6 {
 					<!-- he wrap -->
 					<h4>Kim JaeMin</h4>
 					<h5 class="ctitle">CEO</h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry.</p>
+					<p>
+						안녕하세요?
+						<br />캣렌드를 운영하고 있는 김재민 입니다. 잘 부탁드립니다^^.
+					</p>
 					<div class="hline"></div>
 				</div>
 				<! --/col-lg-3 -->
@@ -135,8 +139,10 @@ h2, h3, h4, h5, h6 {
 					<!-- he wrap -->
 					<h4>Kim JinSoo</h4>
 					<h5 class="ctitle">CEO</h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry.</p>
+					<p>
+						안녕하세요?
+						<br />캣렌드를 운영하고 있는 김진수 입니다. 잘 부탁드립니다^^.
+					</p>
 					<div class="hline"></div>
 				</div>
 				<! --/col-lg-3 -->
@@ -150,8 +156,10 @@ h2, h3, h4, h5, h6 {
 					<!-- he wrap -->
 					<h4>Park choHee</h4>
 					<h5 class="ctitle">CEO</h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry.</p>
+					<p>
+						안녕하세요?
+						<br />캣렌드를 운영하고 있는 박초희 입니다. 잘 부탁드립니다^^.
+					</p>
 					<div class="hline"></div>
 				</div>
 				<! --/col-lg-3 -->

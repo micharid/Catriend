@@ -97,6 +97,26 @@ style
 }
 </style>
 
+<script>
+var checkForm = function(obj)
+{
+	//아이디검증
+	if(obj.u_id.value=="")
+	{
+		alert("아이디를 입력하세요");
+		obj.u_id.focus();
+		return false;
+	}
+	//패스워드 검증
+	if(obj.u_pw.value=="")
+	{
+		alert("패스워드를 입력하세요");
+		obj.u_pw.focus();
+		return false;
+	}
+}
+</script>
+
 <body>
 
 	<!-- top s -->
@@ -112,7 +132,7 @@ style
 					<div class="form">
 						<span style="color: red;">${loginError}</span>
 						<form class="login-form" action="loginAction" name="loginFrm"
-							onsubmit="return checkForm();">
+							onsubmit="return checkForm(this);">
 							<input type="text" placeholder="userid" name="u_id" /> <input
 								type="password" placeholder="password" name="u_pw" /> <input
 								type="submit" value="로그인" />

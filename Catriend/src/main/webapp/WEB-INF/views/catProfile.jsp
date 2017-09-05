@@ -46,6 +46,18 @@ hr {
 }
 </style>
 
+<script>
+var isValidate = function(obj)
+{
+	if(obj.textAreaComment.value=="")
+	{
+		alert("댓글내용을 입력하세요");
+		obj.textAreaComment.focus();
+		return false;
+	}
+}
+</script>
+
 <body>
 
 	<!-- Fixed navbar -->
@@ -91,7 +103,7 @@ hr {
 							<h4 style="padding: 0px;">한줄 댓글</h4>
 						</center>
 					</div>
-					<form action="">
+					<form action="" onsubmit="return isValidate(this);">
 						<table class="table" style="margin-top: 20px;">
 							<tr>
 								<td width="80%"><textarea id="textAreaComment" cols="30"

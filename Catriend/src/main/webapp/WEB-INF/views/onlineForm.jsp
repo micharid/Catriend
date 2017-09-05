@@ -10,7 +10,333 @@
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
 
+<script type="text/javascript">
+var isValidate = function(obj)
+{
+	var isTest1 = false;
+	for(var i=0; i<obj.test1.length; i++)
+	{
+		if(obj.test1[i].checked==true)
+		{
+			isTest1 = true;
+			break; 
+		}
+	}
+	if(isTest1==false)
+	{
+		alert("문제1의 답을 선택하세요");
+		obj.test1[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest2 = false;
+	for(var i=0; i<obj.test2.length; i++)
+	{
+		if(obj.test2[i].checked==true)
+		{
+			isTest2 = true;
+			break; 
+		}
+	}
+	if(isTest2==false)
+	{
+		alert("문제2의 답을 선택하세요");
+		obj.test2[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest3 = false;
+	for(var i=0; i<obj.test3.length; i++)
+	{
+		if(obj.test3[i].checked==true)
+		{
+			isTest3 = true;
+			break; 
+		}
+	}
+	if(isTest3==false)
+	{
+		alert("문제3의 답을 선택하세요");
+		obj.test3[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest4 = false;
+	for(var i=0; i<obj.test4.length; i++)
+	{
+		if(obj.test4[i].checked==true)
+		{
+			isTest4 = true;
+			break; 
+		}
+	}
+	if(isTest4==false)
+	{
+		alert("문제4의 답을 선택하세요");
+		obj.test4[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest5 = false;
+	for(var i=0; i<obj.test5.length; i++)
+	{
+		if(obj.test5[i].checked==true)
+		{
+			isTest5 = true;
+			break; 
+		}
+	}
+	if(isTest5==false)
+	{
+		alert("문제5의 답을 선택하세요");
+		obj.test5[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest6 = false;
+	for(var i=0; i<obj.test6.length; i++)
+	{
+		if(obj.test6[i].checked==true)
+		{
+			isTest6 = true;
+			break; 
+		}
+	}
+	if(isTest6==false)
+	{
+		alert("문제6의 답을 선택하세요");
+		obj.test6[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest7 = false;
+	for(var i=0; i<obj.test7.length; i++)
+	{
+		if(obj.test7[i].checked==true)
+		{
+			isTest7 = true;
+			break; 
+		}
+	}
+	if(isTest7==false)
+	{
+		alert("문제7의 답을 선택하세요");
+		obj.test7[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest8 = false;
+	for(var i=0; i<obj.test8.length; i++)
+	{
+		if(obj.test8[i].checked==true)
+		{
+			isTest8 = true;
+			break; 
+		}
+	}
+	if(isTest8==false)
+	{
+		alert("문제8의 답을 선택하세요");
+		obj.test8[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest9 = false;
+	for(var i=0; i<obj.test9.length; i++)
+	{
+		if(obj.test9[i].checked==true)
+		{
+			isTest9 = true;
+			break; 
+		}
+	}
+	if(isTest9==false)
+	{
+		alert("문제9의 답을 선택하세요");
+		obj.test9[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest10 = false;
+	for(var i=0; i<obj.test10.length; i++)
+	{
+		if(obj.test10[i].checked==true)
+		{
+			isTest10 = true;
+			break; 
+		}
+	}
+	if(isTest10==false)
+	{
+		alert("문제10의 답을 선택하세요");
+		obj.test10[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest11 = false;
+	for(var i=0; i<obj.test11.length; i++)
+	{
+		if(obj.test11[i].checked==true)
+		{
+			isTest11 = true;
+			break; 
+		}
+	}
+	if(isTest11==false)
+	{
+		alert("문제11의 답을 선택하세요");
+		obj.test11[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest12 = false;
+	for(var i=0; i<obj.test12.length; i++)
+	{
+		if(obj.test12[i].checked==true)
+		{
+			isTest12 = true;
+			break; 
+		}
+	}
+	if(isTest12==false)
+	{
+		alert("문제12의 답을 선택하세요");
+		obj.test12[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest13 = false;
+	for(var i=0; i<obj.test13.length; i++)
+	{
+		if(obj.test13[i].checked==true)
+		{
+			isTest13 = true;
+			break; 
+		}
+	}
+	if(isTest13==false)
+	{
+		alert("문제13의 답을 선택하세요");
+		obj.test13[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest14 = false;
+	for(var i=0; i<obj.test14.length; i++)
+	{
+		if(obj.test14[i].checked==true)
+		{
+			isTest14 = true;
+			break; 
+		}
+	}
+	if(isTest14==false)
+	{
+		alert("문제14의 답을 선택하세요");
+		obj.test14[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest15 = false;
+	for(var i=0; i<obj.test15.length; i++)
+	{
+		if(obj.test15[i].checked==true)
+		{
+			isTest15 = true;
+			break; 
+		}
+	}
+	if(isTest15==false)
+	{
+		alert("문제15의 답을 선택하세요");
+		obj.test15[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest16 = false;
+	for(var i=0; i<obj.test16.length; i++)
+	{
+		if(obj.test16[i].checked==true)
+		{
+			isTest16 = true;
+			break; 
+		}
+	}
+	if(isTest16==false)
+	{
+		alert("문제16의 답을 선택하세요");
+		obj.test16[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest17 = false;
+	for(var i=0; i<obj.test17.length; i++)
+	{
+		if(obj.test17[i].checked==true)
+		{
+			isTest17 = true;
+			break; 
+		}
+	}
+	if(isTest17==false)
+	{
+		alert("문제17의 답을 선택하세요");
+		obj.test17[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest18 = false;
+	for(var i=0; i<obj.test18.length; i++)
+	{
+		if(obj.test18[i].checked==true)
+		{
+			isTest18 = true;
+			break; 
+		}
+	}
+	if(isTest18==false)
+	{
+		alert("문제18의 답을 선택하세요");
+		obj.test18[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest19 = false;
+	for(var i=0; i<obj.test19.length; i++)
+	{
+		if(obj.test19[i].checked==true)
+		{
+			isTest19 = true;
+			break; 
+		}
+	}
+	if(isTest19==false)
+	{
+		alert("문제19의 답을 선택하세요");
+		obj.test19[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
+	var isTest20 = false;
+	for(var i=0; i<obj.test20.length; i++)
+	{
+		if(obj.test20[i].checked==true)
+		{
+			isTest20 = true;
+			break; 
+		}
+	}
+	if(isTest20==false)
+	{
+		alert("문제20의 답을 선택하세요");
+		obj.test20[0].focus();
+		return false;
+	}
+	//////////////////////////////////////////
 
+	return true;
+}
+</script>
 
 <body>
 
@@ -25,7 +351,7 @@
     ***************************************************************************************************************** -->
    <div class="row">
       <div class="container">
-         <form action="onlineFormAction">
+         <form action="onlineFormAction" onsubmit="return isValidate(this);">
             <div class="col-lg-12">
                <div class="panel panel-primary">
                   <div class="panel-heading">

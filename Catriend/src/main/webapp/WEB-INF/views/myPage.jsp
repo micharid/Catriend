@@ -45,7 +45,50 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
       return true;
    }
 
-
+   var check = function(obj)
+   {
+		if(obj.u_email.value=="")
+		{
+			alert("이메일을 입력하세요");
+			obj.u_email.focus();
+			return false;
+		}
+		
+		if(obj.u_nickname.value=="")
+		{
+			alert("닉네임을 입력하세요");
+			obj.u_nickname.focus();
+			return false;
+		}
+		
+		if(obj.u_pw.value=="")
+		{
+			alert("비밀번호를 입력하세요");
+			obj.u_pw.focus();
+			return false;
+		}
+		
+		if(obj.u_pwCheck.value=="")
+		{
+			alert("비밀번호 확인을 입력하세요");
+			obj.u_pwCheck.focus();
+			return false;
+		}
+		
+		if(obj.u_phonenumber.value=="")
+		{
+			alert("전화번호를 입력하세요");
+			obj.u_phonenumber.focus();
+			return false;
+		}
+		
+		if(obj.u_address.value=="")
+		{
+			alert("주소를 입력하세요");
+			obj.u_address.focus();
+			return false;
+		}
+   }
 </script>
 
 </head>
@@ -124,7 +167,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 						<div class="row">
 							<div class="col-lg-12">
 								<form class="form-horizontal" name="userFrm" action="userUpdate"
-									onsubmit="return check();" method="post">
+									onsubmit="return check(this);" method="post">
 									<input type="hidden" name="u_grade"
 										value="${loginUser.u_grade}"> <input type="hidden"
 										name="u_id" value="${loginUser.u_id}">

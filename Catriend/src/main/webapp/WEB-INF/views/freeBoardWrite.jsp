@@ -18,6 +18,25 @@
 	border-color: #dddddd;
 }
 </style>
+
+<script>
+var checkWriteFrm = function(obj)
+{
+	if(obj.fb_title.value=="")
+	{
+		alert("제목을 입력하세요");
+		obj.fb_title.focus();
+		return false;
+	}
+	if(obj.fb_content.value=="")
+	{
+		alert("내용을 입력하세요");
+		obj.fb_content.focus();
+		return false;
+	}
+}
+</script>
+
 <body>
 
 	<!-- Fixed navbar -->
@@ -93,7 +112,7 @@
 
 														<div class="panel-body">
 															<form name="writeFrm" method="post"
-																onsubmit="return checkWriteFrm()"
+																onsubmit="return checkWriteFrm(this)"
 																action="freeBoardWriteAction"
 																enctype="multipart/form-data">
 																<input type="hidden"

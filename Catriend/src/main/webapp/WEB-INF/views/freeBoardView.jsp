@@ -67,6 +67,16 @@ textarea {
 			location.href = "freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}";
 		}
 	}
+	
+	var checkInsertFrm = function(obj)
+	{
+		if(obj.fbc_content.value=="")
+		{
+			alert("댓글내용을 입력하세요");
+			obj.fbc_content.focus();
+			return false;
+		}
+	}
 </script>
 
 <body>
@@ -179,7 +189,7 @@ textarea {
 						<c:if test="${not empty loginUser}">
 							<form name="insertCommentFrm"
 								action="freeBoarderCommentWriteAction"
-								onsubmit="return checkInsertFrm();" method="post">
+								onsubmit="return checkInsertFrm(this);" method="post">
 								<input type="hidden" name="nowPage" value="${nowPage}" /> <input
 									type="hidden" name="fb_index" value="${fb_index}" /> <input
 									type="hidden" name="u_id" value="${loginUser.u_id}" />

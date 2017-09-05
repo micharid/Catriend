@@ -59,16 +59,6 @@ textarea {
 }
 </style>
 <script>
-	function checkUpdateFrm() {
-		var fr = document.updateCommentFrm;
-		if (f.fbc_comment.value == "") {
-			alert("내용을 입력하세요");
-			f.fbc_comment.focus();
-			return false;
-		}
-		return true;
-	}
-
 	function checkInsertFrm() {
 		var fi = document.insertCommentFrm;
 		if (f.fbc_comment.value == "") {
@@ -77,6 +67,15 @@ textarea {
 			return false;
 		}
 		return true;
+	}
+	var checkUpdateFrm = function(obj)
+	{
+		if(obj.fbc_content.value=="")
+		{
+			alert("댓글내용을 입력하세요");
+			obj.fbc_content.focus();
+			return false;
+		}
 	}
 </script>
 </head>
@@ -177,7 +176,7 @@ textarea {
 					<div class="panel-footer">
 						<form name="insertCommentFrm"
 							action="freeBoarderCommentWriteAction"
-							onsubmit="return checkInsertFrm();">
+							onsubmit="return checkInsertFrm(this);">
 							<input type="hidden" name="nowPage" value="${nowPage}" /> <input
 								type="hidden" name="fb_index" value="${fb_index}" /> <input
 								type="hidden" name="u_id" value="${loginUser.u_id}" />
@@ -208,7 +207,7 @@ textarea {
 									<c:choose>
 										<c:when test="${fbc_index == row.fbc_index}">
 											<form action="freeBoarderCommentUpdateAction"
-												name="updateCommentFrm" onsubmit="return checkUpdateFrm();"
+												name="updateCommentFrm" onsubmit="return checkUpdateFrm(this);"
 												method="post">
 												<tr>
 													<td colspan="3"><input type="hidden" name="nowPage"

@@ -39,7 +39,7 @@
 					<div class="col-md-1">
 						<span class="glyphicon glyphicon-map-marker"></span>
 					</div>
-					<div class="col-md-10">대한민국 고양시 냐옹구 캣동 캣랜드건물 1004호</div>
+					<div class="col-md-10">대한민국 고양시 냐옹구 캣동 123-5번지 캣렌드타워  1004호</div>
 				</div>
 				<br>
 				<div class="row">
@@ -86,5 +86,5 @@
 </footer>
 
 <footer id="copyright">
-	<p>Copright by @andreyyann 2014, All right reserved.</p>
+	<p>Copyright by Cat'riend 2017, All right reserved.</p>
 </footer>

@@ -20,6 +20,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import catriend.command.AdminCatListCommand;
 import catriend.command.AdminFreeBoardListCommand;
 import catriend.command.AdminQnaListCommand;
+import catriend.command.AdminQnaReplyCommand;
+import catriend.command.AdminQnaViewCommand;
 import catriend.command.AdminReviewListCommand;
 import catriend.command.AdminUserListCommand;
 import catriend.command.CatBoarderCommentDeleteCommand;
@@ -60,6 +62,7 @@ import catriend.command.FreeBoarderViewCommand;
 import catriend.command.FreeBoardsDeletesCommand;
 import catriend.command.LoginCommand;
 import catriend.command.LogoutCommand;
+import catriend.command.MyQnaViewCommand;
 import catriend.command.UserQnaListCommand;
 import catriend.command.UsersDeletesCommand;
 import catriend.command.QnAQInsertCommand;
@@ -727,11 +730,6 @@ public class CatriendController {
 		return "adminPageIndex";
 	}
 
-	@RequestMapping("/adminQnaView")
-	public String adminQnaView(Model model, HttpServletRequest req) {
-		return "adminQnaView";
-	}
-
 	@RequestMapping("/adminQnaWrite")
 	public String adminQnaWrite(Model model, HttpServletRequest req) {
 		return "adminQnaWrite";
@@ -1092,5 +1090,38 @@ public class CatriendController {
 		command.execute(model);
 		System.out.println("컨트롤2 sort : " + req.getParameter("sort"));
 		return "adminCatManagement";
+	}
+	
+	@RequestMapping("/myqnaview")
+	public String myqnaview(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "qna");
+		model.addAttribute("req", req);
+		command = new MyQnaViewCommand();
+		command.execute(model);
+
+		return "myqnaview";
+	}
+	
+	@RequestMapping("/qnaReplyAction")
+	public String qnaReplyAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "qna");
+		model.addAttribute("req", req);
+		command = new AdminQnaReplyCommand();
+		command.execute(model);
+		
+		command = new AdminQnaListCommand();
+		command.execute(model);
+
+		return "adminQnaManagement";
+	}
+	
+	@RequestMapping("/adminQnaView")
+	public String adminQnaView(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "qna");
+		model.addAttribute("req", req);
+		command = new AdminQnaViewCommand();
+		command.execute(model);
+
+		return "adminQnaView";
 	}
 }

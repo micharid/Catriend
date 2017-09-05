@@ -123,6 +123,23 @@
 		showMonthAfterYear : true,
 		yearSuffix : '년'
 	});
+	
+	var isValidate = function(obj)
+	{
+		if(obj.ct_sday.value=="")
+		{
+			alert("고양이를 데려갈 날을 입력하세요");
+			obj.ct_sday.focus();
+			return false;
+		}
+		
+		if(obj.ct_eday.value=="")
+		{
+			alert("고양이를 돌려줄 날을 입력하세요");
+			obj.ct_eday.focus();
+			return false;
+		}
+	}
 </script>
 
 <style>
@@ -158,7 +175,7 @@
 				<div class="panel panel-default">
 					<br />
 					<div class="paytable" style="margin-top: -10px;">
-						<form name="payFrm" action="contractAction">
+						<form name="payFrm" action="contractAction" onsubmit="return isValidate(this);">
 							<%
 								int i = 0;
 								for (ContractDTO row : list) {
@@ -214,7 +231,7 @@
 									<td colspan="2" style="height: 100px;">
 										<div id="payway" style="width: 100%;">
 											<div id="paychoose" style="width: 100%;">
-												<input type="radio" name="pay" id="pay" /><label for="pay">신용카드(일반)</label>
+												<input type="radio" name="pay" id="pay" checked="checked"/><label for="pay">신용카드(일반)</label>
 											</div>
 											<div id="paychoose2" style="width: 100%;">
 												<table class="table table-bordered">

@@ -71,14 +71,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 								<td colspan="2" class="text-center">${dto.q_title}</td>
 							</tr>
 							<tr>
-								<td style="width:50%;" class="text-center">${dto.q_date}</td>
-								<td style="width:50%;" class="text-center"></td>
+								<td class="text-center">작성일 : ${dto.q_date}</td>
 							</tr>
 							<tr>
 								<td colspan="2" style="height:300px; text-align:center;">${dto.q_content}</td>
 							</tr>
 						</table>
-						<div class="pull-right" style="margin-top:-15px;">
+						<div>
+							<textarea name="q_answer" style="width:100%; height:300px;">답변내용 : ${dto.q_answer}</textarea>
+						</div>
+						<div class="pull-right">
 							<button class="btn" style="background-color:#00b3fe; color:white;" onclick="location.href='contact'">질문하러가기</button>
 						</div>
 						<div class="col-md-12 text-center">

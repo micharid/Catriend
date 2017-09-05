@@ -612,7 +612,6 @@ c. 그 외 회사가 정한 안전거래 이용규칙을 위반한 경우
 							<div class="funkyradio-info">
 								<input type="checkbox" name="checkbox1" id="checkbox1" /> <label
 									for="checkbox1">이용약관에 동의합니다.</label>
-								<button type="button" class="btn btn-default pull-right">전체보기</button>
 							</div>
 						</div>
 
@@ -1046,7 +1045,6 @@ c. 그 외 회사가 정한 안전거래 이용규칙을 위반한 경우
 							<div class="funkyradio-info">
 								<input type="checkbox" name="checkbox2" id="checkbox2" /> <label
 									for="checkbox2">이용약관에 동의합니다.</label>
-								<button type="button" class="btn btn-default pull-right">전체보기</button>
 							</div>
 						</div>
 
@@ -1079,7 +1077,6 @@ c. 그 외 회사가 정한 안전거래 이용규칙을 위반한 경우
 							<div class="funkyradio-info">
 								<input type="checkbox" name="checkbox3" id="checkbox3" /> <label
 									for="checkbox3">이용약관에 동의합니다.</label>
-								<button type="button" class="btn btn-default pull-right">전체보기</button>
 							</div>
 						</div>
 

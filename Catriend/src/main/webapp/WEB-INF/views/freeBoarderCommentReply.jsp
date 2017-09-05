@@ -78,6 +78,16 @@ textarea {
 		}
 		return true;
 	}
+	
+	var checkReplyFrm = function(obj)
+	{
+		if(obj.fbc_content.value=="")
+		{
+			alert("댓글내용을 입력하세요");
+			obj.fbc_content.focus();
+			return false;
+		}
+	}
 </script>
 </head>
 
@@ -177,7 +187,7 @@ textarea {
 					<div class="panel-footer">
 						<form name="insertCommentFrm"
 							action="freeBoarderCommentWriteAction"
-							onsubmit="return checkInsertFrm();">
+							onsubmit="return checkInsertFrm(this);">
 							<input type="hidden" name="nowPage" value="${nowPage}" /> <input
 								type="hidden" name="fb_index" value="${fb_index}" /> <input
 								type="hidden" name="u_id" value="${loginUser.u_id}" />
@@ -228,7 +238,7 @@ textarea {
 								</tr>
 								<c:if test="${fbc_index == row.fbc_index}">
 									<form action="freeBoarderCommentReplyAction"
-										name="replyCommentFrm" onsubmit="return checkReplyFrm();"
+										name="replyCommentFrm" onsubmit="return checkReplyFrm(this);"
 										method="post">
 										<tr>
 											<td colspan="3"><input type="hidden" name="nowPage"
