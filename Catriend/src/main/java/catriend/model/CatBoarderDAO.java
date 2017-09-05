@@ -87,9 +87,18 @@ public class CatBoarderDAO {
 		});
 	}
 
-	public int CatBoarderLikeUp(int cb_index) {
-		String sql = "UPDATE catboarder SET cb_like=cb_like+1 " + " WHERE cb_index = " + cb_index;
-		return template.update(sql);
+	//좋아요 유저등록
+	public void likeUp(int cb_index, String u_id) {
+		String sql = " UPDATE catboarder SET cb_like=cb_like||'@u_" + u_id + "' WHERE cb_index = " + cb_index;
+
+		template.update(sql);
+	}
+
+	// 좋아요 유저 삭제
+	public void likeRemove(int cb_index, String cb_like) {
+		String sql = " UPDATE catboarder SET cb_like='" + cb_like + "' WHERE cb_index = " + cb_index;
+
+		template.update(sql);
 	}
 
 	// 조회수 증가

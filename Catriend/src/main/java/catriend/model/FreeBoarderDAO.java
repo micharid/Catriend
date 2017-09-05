@@ -90,7 +90,19 @@ public class FreeBoarderDAO {
 			}
 		});
 	}
+	//좋아요 유저등록
+	public void likeUp(int fb_index, String u_id){
+		String sql = " UPDATE freeboarder SET fb_like=fb_like||'@u_"+u_id+"' WHERE fb_index = "+fb_index;
+		
+		template.update(sql);
+	}
 	
+	//좋아요 유저 삭제
+	public void likeRemove(int fb_index, String fb_like){
+		String sql = " UPDATE freeboarder SET fb_like='"+fb_like+"' WHERE fb_index = "+fb_index;
+		
+		template.update(sql);
+	}
 	//조회수 증가
 	public int hitsUp(final int fb_index){
 		String sql = " UPDATE freeboarder " + " SET fb_hits = fb_hits +1 "

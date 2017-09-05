@@ -1,8 +1,10 @@
 <%@page import="catriend.model.CatBoarderDTO"%>
-<%@page import="catriend.model.FreeBoarderDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+CatBoarderDTO dto = (CatBoarderDTO) request.getAttribute("dto");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,10 +76,8 @@ textarea {
 		<div class="container">
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<center>
-								<h1>${dto.cb_title}</h1>
-							</center>
+						<div class="panel-heading" align="center">
+							<h1>${dto.cb_title}</h1>
 						</div>
 						<table class="table" width="100%" cellspacing="0" cellpadding="2">
 							<tr>
@@ -92,7 +92,13 @@ textarea {
 								<td width="30%">${dto.cb_hits}</td>
 
 								<td width="20%">추천수</td>
-								<td width="30%">${dto.cb_like}</td>
+								<td width="30%">
+								<%
+								String likeUsers = dto.getCb_like();
+								String[] userlist = likeUsers.split("@u_");
+								%>
+								<%=userlist.length-1%>
+								</td>
 							</tr>
 							<tr>
 								<td width="20%">제목</td>
@@ -109,11 +115,31 @@ textarea {
 								<td colspan="3" style="height: 150px; padding: 10px;"
 									class="text-center">${dto.cb_content}</td>
 							</tr>
-
+							<%
+						boolean result=false;
+						if(login != null){
+							for(String user : userlist){
+								if(login.getU_id().equals(user)) result=true;	
+							}
+						}
+						if(login != null && !result){%>
+						<tr align="center">
+							<td colspan="4">
+								<button class="btn btn-info" type="button" onclick="location.href='catBoardlikeUpAction?cb_index=${dto.cb_index}&u_id=<%=login.getU_id()%>&nowPage=${nowPage}'">좋아요 <span class="glyphicon glyphicon-thumbs-up"></span></button>
+							</td>
+						</tr>
+						<%} 
+						if(login != null && result){
+						%>
+						<tr align="center">
+							<td colspan="4">
+								<button class="btn btn-danger" type="button" onclick="location.href='catBoardlikeRemoveAction?cb_index=${dto.cb_index}&u_id=<%=login.getU_id()%>&cb_like=${dto.cb_like}&nowPage=${nowPage}'">좋아요 취소<span class="glyphicon glyphicon-remove-sign"></span></button>
+							</td>
+						</tr>
+						<%} %>
 							<tr>
 								<td colspan="4" style="text-align: center; padding: 10px 0;">
 									<%
-										CatBoarderDTO dto = (CatBoarderDTO) request.getAttribute("dto");
 										String u_id = dto.getU_id();
 										if (login != null && login.getU_id().equals(u_id)) {
 									%>

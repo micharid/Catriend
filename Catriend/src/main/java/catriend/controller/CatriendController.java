@@ -30,6 +30,8 @@ import catriend.command.CatBoarderCommentUpdateCommand;
 import catriend.command.CatBoarderDeleteCommand;
 import catriend.command.CatBoarderHotListCommand;
 import catriend.command.CatBoarderInsertCommand;
+import catriend.command.CatBoarderLikeRemoveCommand;
+import catriend.command.CatBoarderLikeUpCommand;
 import catriend.command.CatBoarderListCommand;
 import catriend.command.CatBoarderUpdateCommand;
 import catriend.command.CatBoarderViewCommand;
@@ -50,6 +52,8 @@ import catriend.command.FreeBoarderCommentUpdateCommand;
 import catriend.command.FreeBoarderDeleteCommand;
 import catriend.command.FreeBoarderHotListCommand;
 import catriend.command.FreeBoarderInsertCommand;
+import catriend.command.FreeBoarderLikeRemoveCommand;
+import catriend.command.FreeBoarderLikeUpCommand;
 import catriend.command.FreeBoarderListCommand;
 import catriend.command.FreeBoarderUpdateCommand;
 import catriend.command.FreeBoarderViewCommand;
@@ -125,17 +129,56 @@ public class CatriendController {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
-
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		
 		command = new CatBoarderViewCommand();
 		command.execute(model);
-
-		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		
 		command = new CatBoarderCommentListCommand();
 		command.execute(model);
 
 		return "catBoardView";
 	}
+	
+	@RequestMapping("/catBoardlikeUpAction")
+	public String catBoardlikeUpAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+		
+		command = new CatBoarderLikeUpCommand();
+		command.execute(model);
+		
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+		
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
 
+		return "catBoardView";
+	}
+	
+	@RequestMapping("/catBoardlikeRemoveAction")
+	public String catBoardlikeRemoveAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("cb_index", req.getParameter("cb_index"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+		model.addAttribute("cb_like", req.getParameter("cb_like"));
+		
+		command = new CatBoarderLikeRemoveCommand();
+		command.execute(model);
+		
+		command = new CatBoarderViewCommand();
+		command.execute(model);
+		
+		command = new CatBoarderCommentListCommand();
+		command.execute(model);
+
+		return "catBoardView";
+	}
+	
 	@RequestMapping("/catcontractpaypage")
 	public String catcontractpaypage(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "cats");
@@ -527,7 +570,46 @@ public class CatriendController {
 
 		return "freeBoardView";
 	}
+	
+	@RequestMapping("/freeBoardlikeUpAction")
+	public String likeUpAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+		
+		command = new FreeBoarderLikeUpCommand();
+		command.execute(model);
+		
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
 
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+
+		return "freeBoardView";
+	}
+	
+	@RequestMapping("/freeBoardlikeRemoveAction")
+	public String likeRemoveAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("u_id", req.getParameter("u_id"));
+		model.addAttribute("fb_like", req.getParameter("fb_like"));
+		
+		command = new FreeBoarderLikeRemoveCommand();
+		command.execute(model);
+		
+		command = new FreeBoarderViewCommand();
+		command.execute(model);
+
+		command = new FreeBoarderCommentListCommand();
+		command.execute(model);
+
+		return "freeBoardView";
+	}
+	
 	@RequestMapping("/onlineForm")
 	public String onlineForm(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "regist");
