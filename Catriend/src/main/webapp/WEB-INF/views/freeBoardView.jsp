@@ -59,6 +59,7 @@ textarea {
 	color: #24272B;
 	vertical-align: top;
 	-webkit-appearance: none;
+	resize:none;
 }
 </style>
 <script type="text/javascript">

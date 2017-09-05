@@ -103,7 +103,7 @@ public class UsersDAO {
 
 	// 유저 정보가져오기
 	public UsersDTO selectOne(String u_id) {
-		String sql = "SELECT * FROM users WHERE u_id= '" + u_id + "' WHERE u_state = 1 ";
+		String sql = "SELECT * FROM users WHERE u_id= '" + u_id + "' AND u_state = 1 ";
 		return (UsersDTO) template.queryForObject(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}
 

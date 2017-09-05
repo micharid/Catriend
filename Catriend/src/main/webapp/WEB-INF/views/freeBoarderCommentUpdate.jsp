@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	line-height: 1.1;
 	color: inherit;
 }
+textarea
+{
+	resize:none;
+}
 </style>
 
 <style>
@@ -128,7 +132,7 @@ textarea {
 							<td width="30%">${dto.fb_hits}</td>
 
 							<td width="20%">추천수</td>
-							<td width="30%">${dto.fb_likecount}</td>
+							<td width="30%">${dto.fb_like}</td>
 						</tr>
 						<tr>
 							<td width="20%">제목</td>
