@@ -50,7 +50,7 @@ public class FreeBoarderDAO {
 	// 자유게시물 입력
 	public int InsertFreeBoarder(final FreeBoarderDTO dto) {
 
-		String sql = "INSERT INTO " + " freeboarder(fb_index, fb_title, fb_content, fb_file, fb_date, fb_likecount, u_id) "
+		String sql = "INSERT INTO " + " freeboarder(fb_index, fb_title, fb_content, fb_file, fb_date, fb_like, u_id) "
 				+ " VALUES (FREEBOADER_SEQ.nextval, ?, ?, ?, sysdate, 0, ?)";
 		return template.update(sql, new PreparedStatementSetter() {
 

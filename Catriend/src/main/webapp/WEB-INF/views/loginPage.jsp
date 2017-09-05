@@ -117,7 +117,7 @@ style
 								type="password" placeholder="password" name="u_pw" /> <input
 								type="submit" value="로그인" />
 							<p class="message">
-								Not registered? <a href="#">Create an account</a>
+								Not registered? <a href="onlineForm">Create an account</a>
 							</p>
 						</form>
 					</div>

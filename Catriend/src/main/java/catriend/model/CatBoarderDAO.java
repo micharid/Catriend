@@ -88,7 +88,7 @@ public class CatBoarderDAO {
 	}
 
 	public int CatBoarderLikeUp(int cb_index) {
-		String sql = "UPDATE catboarder SET cb_LikeCount=cb_LikeCount+1 " + " WHERE cb_index = " + cb_index;
+		String sql = "UPDATE catboarder SET cb_like=cb_like+1 " + " WHERE cb_index = " + cb_index;
 		return template.update(sql);
 	}
 

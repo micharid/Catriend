@@ -100,7 +100,7 @@ textarea {
 							<td width="30%">${dto.fb_hits}</td>
 
 							<td width="20%">추천수</td>
-							<td width="30%">${dto.fb_likecount}</td>
+							<td width="30%">${dto.fb_like}</td>
 						</tr>
 						<tr>
 							<td width="20%">제목</td>

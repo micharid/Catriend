@@ -9,7 +9,7 @@ public class CatBoarderDTO {
 	private String cb_file;
 	private Date cb_date;
 	private int cb_hits;
-	private int cb_likecount;
+	private String cb_like;
 	private String u_id;
 	private int c_index;
 	
@@ -22,20 +22,20 @@ public class CatBoarderDTO {
 
 	// 인자생성자
 	public CatBoarderDTO(int cb_index, String cb_title, String cb_content, String cb_file, Date cb_date,
-			int cb_likecount, String u_id, int c_index) {
+			String cb_like, String u_id, int c_index) {
 		this.cb_index = cb_index;
 		this.cb_title = cb_title;
 		this.cb_content = cb_content;
 		this.cb_file = cb_file;
 		this.cb_date = cb_date;
-		this.cb_likecount = cb_likecount;
+		this.cb_like = cb_like;
 		this.u_id = u_id;
 		this.c_index = c_index;
 	}
 	
 
 	public CatBoarderDTO(int cb_index, String cb_title, String cb_content, String cb_file, Date cb_date, int cb_hits,
-			int cb_likecount, String u_id, int c_index, int rNum) {
+			String cb_like, String u_id, int c_index, int rNum) {
 		super();
 		this.cb_index = cb_index;
 		this.cb_title = cb_title;
@@ -43,7 +43,7 @@ public class CatBoarderDTO {
 		this.cb_file = cb_file;
 		this.cb_date = cb_date;
 		this.cb_hits = cb_hits;
-		this.cb_likecount = cb_likecount;
+		this.cb_like = cb_like;
 		this.u_id = u_id;
 		this.c_index = c_index;
 		this.rNum = rNum;
@@ -51,7 +51,7 @@ public class CatBoarderDTO {
 
 
 	public CatBoarderDTO(int cb_index, String cb_title, String cb_content, String cb_file, Date cb_date, int cb_hits,
-			int cb_likecount, String u_id, int c_index) {
+			String cb_like, String u_id, int c_index) {
 		super();
 		this.cb_index = cb_index;
 		this.cb_title = cb_title;
@@ -59,7 +59,7 @@ public class CatBoarderDTO {
 		this.cb_file = cb_file;
 		this.cb_date = cb_date;
 		this.cb_hits = cb_hits;
-		this.cb_likecount = cb_likecount;
+		this.cb_like = cb_like;
 		this.u_id = u_id;
 		this.c_index = c_index;
 	}
@@ -113,12 +113,12 @@ public class CatBoarderDTO {
 		this.cb_date = cb_date;
 	}
 
-	public int getCb_likecount() {
-		return cb_likecount;
+	public String getCb_like() {
+		return cb_like;
 	}
 
-	public void setCb_likecount(int cb_likecount) {
-		this.cb_likecount = cb_likecount;
+	public void setCb_like(String cb_like) {
+		this.cb_like = cb_like;
 	}
 
 	public String getU_id() {

@@ -92,7 +92,7 @@ textarea {
 								<td width="30%">${dto.cb_hits}</td>
 
 								<td width="20%">추천수</td>
-								<td width="30%">${dto.cb_likecount}</td>
+								<td width="30%">${dto.cb_like}</td>
 							</tr>
 							<tr>
 								<td width="20%">제목</td>

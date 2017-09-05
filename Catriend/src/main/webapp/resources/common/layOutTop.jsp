@@ -7,17 +7,15 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 %>
 <section id="top" class="top">
 	<header>
-		<div class="container">
-			<center>
-				<h1>Welcome to Cat`riend</h1>
-				
-				<%if(request.getAttribute("pageGroup") == "about" || request.getAttribute("pageGroup") == "main"){ %>
-				<div class="skroler">
-					<a href="#about"><span class="glyphicon glyphicon-chevron-down"
-						style="color: #ffc35b;"></span></a>
-				</div>
-				<%} %>
-			</center>
+		<div class="container" align="center">
+			<h1>Welcome to Cat`riend</h1>
+
+			<%if(request.getAttribute("pageGroup") == "about" || request.getAttribute("pageGroup") == "main"){ %>
+			<div class="skroler">
+				<a href="#about"><span class="glyphicon glyphicon-chevron-down"
+					style="color: #ffc35b;"></span></a>
+			</div>
+			<%} %>
 		</div>
 	</header>
 </section>
@@ -39,8 +37,6 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-				</ul>
 				<ul class="nav navbar-nav navbar-right">
 
 					<%if(request.getAttribute("pageGroup") == "about"){ %><li
@@ -55,26 +51,27 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 						<%}else{%>
 					
 					<li class="dropdown">
-						<%}%> <a href="#" class="dropdown-toggle" data-toggle="dropdown">게시판<b
+						<%}%> <a href="" class="dropdown-toggle" data-toggle="dropdown">게시판<b
 							class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="freeBoardList ">자유게시판</a></li>
 							<li><a href="catBoardList ">후기게시판</a></li>
 						</ul> <%
                      if(login != null){
-                  %> <%if(request.getAttribute("pageGroup") == "cats"){ %>
+						if(request.getAttribute("pageGroup") == "cats"){ %>
 					
 					<li class="dropdown active">
 						<%}else{%>
 					
 					<li class="dropdown">
-						<%}%> <a href="#" class="dropdown-toggle" data-toggle="dropdown">고양이들<b
+						<%}%> <a href="" class="dropdown-toggle" data-toggle="dropdown">고양이들<b
 							class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="catlist ">고양이들</a></li>
 							<li><a href="mycatlist ">나에게맞는고양이들</a></li>
 						</ul> <%}
-               else{%> <%if(request.getAttribute("pageGroup") == "cats"){ %>
+               			else{
+            	 			 if(request.getAttribute("pageGroup") == "cats"){ %>
 					
 					<li class="active">
 						<%}else{%>
@@ -98,11 +95,8 @@ UsersDTO login = session.getAttribute("loginUser") != null ? (UsersDTO)session.g
 						<%}else{%>
 					
 					<li>
-						<%}%>
-						<%if(login.getU_grade() > 100){ %> <a href="adminPageIndex">관리자페이지</a>
-						<%} else { %>
-							<a href="myPageindex">마이페이지</a>
-						<%} %>
+						<%}%> <%if(login.getU_grade() > 100){ %> <a href="adminPageIndex">관리자페이지</a>
+						<%} else { %> <a href="myPageindex">마이페이지</a> <%} %>
 					</li>
 					<li><a href="logoutAction">로그아웃</a></li>
 					<%}
