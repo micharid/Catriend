@@ -32,10 +32,10 @@ public class UsersDAO {
 
 	// 유저 총수 가져오기(검색가능)
 	public int getTotalUserCount(Map<String, Object> map) {
-		String sql = "SELECT count(*) FROM users";
+		String sql = "SELECT count(*) FROM users WHERE u_state = 1 ";
 		// 검색단어가 있을 경우 검색조건을 쿼리에 추가
 		if (map.get("WORD") != null) {
-			sql += " where " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+			sql += " AND " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
 		return template.queryForObject(sql, Integer.class);
 	}
@@ -113,11 +113,11 @@ public class UsersDAO {
 		int end = Integer.parseInt(map.get("end").toString());
 
 		String sql = "";
-		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM users ";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM users WHERE u_state = 1 ";
 		if (map.get("COLUMN") != null) {
-			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+			sql += " AND " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += "order by u_state desc ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end + " ";
+		sql += "order by u_name asc ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end + " ";
 
 		return (List<UsersDTO>) template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}

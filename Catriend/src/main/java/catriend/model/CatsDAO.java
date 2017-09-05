@@ -21,10 +21,10 @@ public class CatsDAO {
 
 	// 고양이 총수 가져오기(검색가능)
 	public int getTotalCatsCount(Map<String, Object> map) {
-		String sql = " SELECT count(*) FROM cats ";
+		String sql = " SELECT count(*) FROM cats WHERE c_state = 1 ";
 		// 검색단어가 있을 경우 검색조건을 쿼리에 추가
 		if (map.get("WORD") != null) {
-			sql += " where " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+			sql += " AND " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
 		return template.queryForObject(sql, Integer.class);
 	}
@@ -32,8 +32,8 @@ public class CatsDAO {
 	// 고양이 입력
 	public int InsertCat(final CatsDTO dto) {
 		String sql = "INSERT INTO " + " cats(c_index, c_name, c_birthday, c_gender, "
-				+ " c_type, c_keyword, c_grade, c_comeday, c_detail) "
-				+ " VALUES (cats_seq.nextval, ?, ?, ?, ?, ?, ?, sysdate,?)";
+				+ " c_type, c_keyword, c_grade, c_comeday) "
+				+ " VALUES (cats_seq.nextval, ?, ?, ?, ?, ?, ?, sysdate)";
 		return template.update(sql, new PreparedStatementSetter() {
 
 			@Override
@@ -41,10 +41,9 @@ public class CatsDAO {
 				psmt.setString(1, dto.getC_name());
 				psmt.setDate(2, dto.getC_birthday());
 				psmt.setString(3, dto.getC_gender());
-				psmt.setString(5, dto.getC_type());
-				psmt.setString(6, dto.getC_keyword());
-				psmt.setInt(7, dto.getC_grade());
-				psmt.setString(8, dto.getC_detail());
+				psmt.setString(4, dto.getC_type());
+				psmt.setString(5, dto.getC_keyword());
+				psmt.setInt(6, dto.getC_grade());
 			}
 		});
 	}
@@ -91,9 +90,9 @@ public class CatsDAO {
 	//전체리스트(기존에 사용하던것 계속사용함)
 	public List<CatsDTO> selectAll(Map<String, Object> map) {
 		String sql = "";
-		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM cats ";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM cats WHERE c_state = 1 ";
 		if (map.get("COLUMN") != null) {
-			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+			sql += " AND " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
 		sql += " ORDER BY c_type asc) Tb " + ") ";
 		if (map.get("u_grade") != null) {
@@ -104,15 +103,23 @@ public class CatsDAO {
 	
 	// 전체리스트(관리자페이지 리스트 불러오는용도)
 		public List<CatsDTO> selectAlladmin(Map<String, Object> map) {
+			System.out.println("dao sort : " + map.get("sort").toString());
 			int start = Integer.parseInt(map.get("start").toString());
 			int end = Integer.parseInt(map.get("end").toString());
+			String order = map.get("order").toString() != null ?  map.get("order").toString() : "c_type";
+			if(Integer.parseInt(map.get("sort").toString()) % 2 == 1) {
+				order += " desc ";
+			}
+			else {
+				order += " asc ";
+			}
 			
 			String sql = "";
-			sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM cats ";
+			sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM cats WHERE c_state = 1 ";
 			if (map.get("COLUMN") != null) {
-				sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
+				sql += " AND " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 			}
-			sql += " ORDER BY c_state desc) Tb " + ") WHERE";
+			sql += " ORDER BY " + order + ") Tb " + ") WHERE";
 			if (map.get("u_grade") != null) {
 				sql += " c_grade <= " + Integer.parseInt(map.get("u_grade").toString()) + " AND ";
 			}

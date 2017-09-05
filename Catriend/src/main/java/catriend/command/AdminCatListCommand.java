@@ -19,7 +19,8 @@ public class AdminCatListCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+		String order = req.getParameter("order") != null ? req.getParameter("order") : null;
+		int sort = Integer.parseInt(paramMap.get("sort").toString()) + 1;
 		//전체 레코드수를 카운트
 		int totalRecordCount = dao.getTotalCatsCount(paramMap);
 		
@@ -41,6 +42,10 @@ public class AdminCatListCommand implements CatCommand {
 		paramMap.put("totalCount", totalRecordCount);
 		paramMap.put("pageSize", pageSize);
 		paramMap.put("blockPage", blockPage);
+		paramMap.put("order", order);
+		paramMap.put("sort", sort);
+		
+		System.out.println("커맨드 sort : " + req.getParameter("sort"));
 		
 		// 페이지 처리를 위한 문자열 생성
 		String addQueryStr = "";
@@ -54,6 +59,7 @@ public class AdminCatListCommand implements CatCommand {
 		model.addAttribute("pagingImg", pagingImg);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("nowPage", nowPage);
+		model.addAttribute("sort", sort);
 		
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		// 리스트 레코드를 저장

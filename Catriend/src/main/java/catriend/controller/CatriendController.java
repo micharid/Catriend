@@ -1084,10 +1084,13 @@ public class CatriendController {
 
 	@RequestMapping("/adminCatManagement")
 	public String adminCatManagement(Model model, HttpServletRequest req) {
+		System.out.println("컨트롤1 sort : " + req.getParameter("sort"));
 		model.addAttribute("pageGroup", "cats");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", req.getParameter("sort"));
 		command = new AdminCatListCommand();
 		command.execute(model);
+		System.out.println("컨트롤2 sort : " + req.getParameter("sort"));
 		return "adminCatManagement";
 	}
 }

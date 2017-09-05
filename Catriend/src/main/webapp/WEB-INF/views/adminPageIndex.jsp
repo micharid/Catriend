@@ -138,7 +138,7 @@
 					
 					<div class="col-md-3">
 						<div class="panel panel-default">
-							<a href="adminCatManagement" style="color:#428bca; text-decoration: none;">
+							<a href="adminCatManagement?order=c_type&sort=1" style="color:#428bca; text-decoration: none;">
 								<div class="panel-body text-center" style="cursor:pointer;">
 									<div class="img5"><img class="center-block" src="./resources/assets/adminPageTemplate/img/admincat.png" style="width: 110px ! important; height: 110px ! important;"></div>
 									<p style="font-size: 1.2em">고양이 관리</p>
