@@ -66,7 +66,7 @@
 						class="fa fa-list-alt "></i>자유게시판관리</a></li>
 				<li><a href="adminReviewboardManagement"><i
 						class="fa fa-list-alt "></i>후기게시판관리</a></li>
-				<li><a href="adminCatManagement"><i class="fa fa-paw "></i>고양이관리</a>
+				<li><a href="adminCatManagement?order=c_type&sort=1"><i class="fa fa-paw "></i>고양이관리</a>
 				</li>
 			</ul>
 		</div>
