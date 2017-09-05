@@ -39,6 +39,14 @@ public class UsersDAO {
 		}
 		return template.queryForObject(sql, Integer.class);
 	}
+	
+	//점수 증가
+	public void gradeUp(String u_id){
+		String sql = " UPDATE users SET u_grade = u_grade+5 WHERE u_id = '"+u_id+"' AND u_grade < 100;";
+		
+		template.update(sql);
+	}
+	
 
 	// 유저 입력
 	public int InsertUser(final UsersDTO dto) {

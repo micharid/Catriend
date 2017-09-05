@@ -156,6 +156,13 @@ public class CatriendController {
 		model.addAttribute("req", req);
 		command = new ContractInsertCommand();
 		command.execute(model);
+		
+		HttpSession session = req.getSession();
+		UsersDTO dto = (UsersDTO)session.getAttribute("loginUser");
+		UsersDAO dao = new UsersDAO();
+		//등급 증가
+		dao.gradeUp(dto.getU_id());
+		
 		return "catcontractsuccess";
 	}
 

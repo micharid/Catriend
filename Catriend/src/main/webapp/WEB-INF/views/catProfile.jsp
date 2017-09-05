@@ -79,12 +79,13 @@ hr {
 			<!-- SINGLE POST -->
 			<div class="col-lg-8" style="margin: 15px 0 0 0;">
 				<!-- Blog Post 1 -->
-				<div>
-					<!-- top s -->
-					<%@ include file="./standard.jsp"%>
-					<!-- top e -->
+				<div align="center">
+					<!-- s -->
+					<%-- <%@ include file="./standard.jsp"%> --%>
+					<img src="./resources/assets/img/catP/${dto.c_index}.jpg" alt="이미지가없습니다." width="500px"/>
+					<!-- e -->
 				</div>
-				<div class="panel panel-primary">
+				<!-- <div class="panel panel-primary">
 					<div class="panel-heading">
 						<center>
 							<h4 style="padding: 0px;">한줄 댓글</h4>
@@ -109,21 +110,21 @@ hr {
 								<th width="20%">별점</th>
 								<th width="10%">닉네임</th>
 							</tr>
-							<!-- 반복부분  s -->
+							반복부분  s
 							<tr>
 								<td>2017-08-30</td>
 								<td>너무너무 귀엽네요</td>
 								<td>★★★★☆</td>
 								<td>빵꾸똥꾸</td>
 							</tr>
-							<!-- 반복부분  e -->
+							반복부분  e
 
 						</table>
 
 
 					</div>
 
-				</div>
+				</div> -->
 			</div>
 			<!--/col-lg-8 -->
 
@@ -143,13 +144,13 @@ hr {
 					if (login != null && login.getU_grade() >= catdto.getC_grade()) {
 				%>
 				<button class="btn btn-warning" style="width: 100%;"
-					onclick="location.href='catcontractagreement?c_index=${dto.c_index}'">계약하기</button>
+					onclick="location.href='catcontractagreement?c_index=${dto.c_index}'">계약하기 <%=login.getU_grade() %> / ${dto.c_grade}</button>
 				<%
 					} else if (login != null && login.getU_grade() < catdto.getC_grade()) {
 						System.out.println(login.getU_grade() + ", " + catdto.getC_grade());
 				%>
 				<button class="btn btn-warning" disabled="disabled"
-					style="width: 100%;">계약하기(쉬운 고양이들 먼저 경험해보고 오냥)</button>
+					style="width: 100%;">계약하기(쉬운 고양이들 경험해보고 오냥) <%=login.getU_grade() %> / ${dto.c_grade}</button>
 				<%
 					} else {
 				%>
