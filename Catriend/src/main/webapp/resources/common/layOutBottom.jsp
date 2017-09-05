@@ -78,7 +78,7 @@
 			</div>
 			<div class="col-md-3">
 				<h4>더 자세히..</h4>
-					<a href="about" class="btn btn-warning" role="button">후기 게시판
+					<a href="about" class="btn btn-warning" role="button">소개 게시판
 						바로가기</a>
 			</div>
 		</div>

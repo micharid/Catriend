@@ -139,8 +139,14 @@ textarea {
 									onclick="deleteCheck();">삭제하기</button>&nbsp;&nbsp; <%
  	}
  %>
-								<button class="btn btn-info" type="button"
+ 								<%if(login.getU_grade() > 100){ %>	
+									<button class="btn btn-primary text-center" type="button" onclick="location.href='adminFreeboardManagement';">관리자 자유게시판 목록으로</button>
+									<button class="btn btn-info" type="button"
+									onclick="location.href='freeBoardList?nowPage=${nowPage}';">자유게시판 리스트보기</button>
+								<%} else { %>
+								<button class="btn btn-info text-center" type="button"
 									onclick="location.href='freeBoardList?nowPage=${nowPage}';">리스트보기</button>
+								<%} %>
 							</td>
 						</tr>
 					</table>

@@ -6,6 +6,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
+
+<style>
+	textarea
+	{
+		resize:none;
+	}
+</style>
+
 <!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
@@ -57,6 +65,9 @@
 				<li>
 					<a href="adminReviewboardManagement"><i class="fa fa-list-alt "></i>후기게시판관리</a>
 				</li>
+				<li>
+					<a href="adminCatManagement"><i class="fa fa-paw "></i>고양이관리</a>
+				</li>
 			</ul>
 		</div>
 
@@ -104,9 +115,9 @@
 											
 										</table>
 										<div>
-											<textarea name="q_answer" id="" cols="30" rows="10">${dto.q_answer}</textarea>
+											<textarea name="q_answer" style="width:100%; height:300px;" placeholder="답변을 입력해주세요.">${dto.q_answer}</textarea>
 										</div>
-										<div class="text-center">
+										<div class="text-center" style="margin-top:10px;">
 											<button class="btn" type="submit" style="background-color:#00b3fe; color:white;">답변하기</button>
 										</div>
 									</form>
