@@ -46,7 +46,7 @@ var isValidate = function(obj)
 	<div id="wrapper">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-header">
-		<img src="./resources/assets/adminPageTemplate/img/logo2.png" width="100" height="76" onclick="javascript:location.href='adminPageIndex';"	style="cursor: pointer;" />
+		<img src="./resources/assets/adminPageTemplate/img/logo2.png" width="100" height="76" onclick="javascript:location.href='mainPage';"	style="cursor: pointer;" />
 		</div>
 		<ul class="nav navbar-nav navbar-right"	style="padding-top:10px; font-size: 1.4em;">
 			<li>

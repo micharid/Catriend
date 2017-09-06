@@ -17,13 +17,13 @@ public class UsersDeletesCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+
 		String[] u_ids = req.getParameterValues("select");
-		
-		for (String arrStr : u_ids) {
-			dao.DeleteUser(arrStr);
+		if (u_ids != null) {
+			for (String arrStr : u_ids) {
+				dao.DeleteUser(arrStr);
+			}
 		}
-		
 		System.out.println("UsersDeletesCommand");
 	}
 }

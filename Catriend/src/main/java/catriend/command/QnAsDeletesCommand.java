@@ -20,12 +20,12 @@ public class QnAsDeletesCommand implements CatCommand {
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 		
 		String[] q_indexs = req.getParameterValues("select");
-		
-		for (String arrStr : q_indexs) {
-			int q_index = Integer.parseInt(arrStr);
-			dao.DeleteQna(q_index);
+		if(q_indexs != null){
+			for (String arrStr : q_indexs) {
+				int q_index = Integer.parseInt(arrStr);
+				dao.DeleteQna(q_index);
+			}
 		}
-		
 		System.out.println("QnAsDeletesCommand");
 	}
 }

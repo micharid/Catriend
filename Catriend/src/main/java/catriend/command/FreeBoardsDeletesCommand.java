@@ -17,14 +17,14 @@ public class FreeBoardsDeletesCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+
 		String[] fb_indexs = req.getParameterValues("select");
-		
-		for (String arrStr : fb_indexs) {
-			int fb_index = Integer.parseInt(arrStr);
-			dao.DeleteFreeBoarder(fb_index);
+		if (fb_indexs != null) {
+			for (String arrStr : fb_indexs) {
+				int fb_index = Integer.parseInt(arrStr);
+				dao.DeleteFreeBoarder(fb_index);
+			}
 		}
-		
 		System.out.println("CatBoardsDeletesCommand");
 	}
 }

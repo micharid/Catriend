@@ -31,7 +31,6 @@
 		}
 		if (isCatChk == false) {
 			alert("고양이 한마리 이상이 선택되어야 삭제가 가능합니다.");
-			obj.select[0].focus();
 			return false;
 		}
 		confirm("고양이를 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.");
@@ -59,7 +58,7 @@
 			<div class="navbar-header">
 				<img src="./resources/assets/adminPageTemplate/img/logo2.png"
 					width="100" height="76"
-					onclick="javascript:location.href='adminPageIndex';"
+					onclick="javascript:location.href='mainPage';"
 					style="cursor: pointer;" />
 			</div>
 			<ul class="nav navbar-nav navbar-right"
