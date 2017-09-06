@@ -59,8 +59,21 @@ textarea {
 	color: #24272B;
 	vertical-align: top;
 	-webkit-appearance: none;
+	resize:none;
 }
 </style>
+
+<script>
+	var checkInsertFrm = function(obj)
+	{
+		if(obj.cbc_content.value=="")
+		{
+			alert("댓글내용을 입력하세요");
+			obj.cbc_content.focus();
+			return false;
+		}
+	}
+</script>
 
 <body>
 
@@ -159,7 +172,7 @@ textarea {
 						<c:if test="${not empty loginUser}">
 							<form name="insertCommentFrm"
 								action="catBoarderCommentWriteAction"
-								onsubmit="return checkInsertFrm();" method="post">
+								onsubmit="return checkInsertFrm(this);" method="post">
 								<input type="hidden" name="nowPage" value="${nowPage}" /> <input
 									type="hidden" name="cb_index" value="${cb_index}" /> <input
 									type="hidden" name="u_id" value="${loginUser.u_id}" />

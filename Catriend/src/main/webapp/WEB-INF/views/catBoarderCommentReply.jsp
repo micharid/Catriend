@@ -56,6 +56,7 @@ textarea {
 	color: #24272B;
 	vertical-align: top;
 	-webkit-appearance: none;
+	resize:none;
 }
 </style>
 <script>
@@ -77,6 +78,16 @@ textarea {
 			return false;
 		}
 		return true;
+	}
+	
+	var checkReplyFrm = function(obj)
+	{
+		if(obj.cbc_content.value=="")
+		{
+			alert("댓글내용을 입력하세요");
+			obj.cbc_content.focus();
+			return false;
+		}
 	}
 </script>
 </head>
@@ -228,7 +239,7 @@ textarea {
 								</tr>
 								<c:if test="${cbc_index == row.cbc_index}">
 									<form action="catBoarderCommentReplyAction"
-										name="replyCommentFrm" onsubmit="return checkReplyFrm();"
+										name="replyCommentFrm" onsubmit="return checkReplyFrm(this);"
 										method="post">
 										<tr>
 											<td colspan="3"><input type="hidden" name="nowPage"

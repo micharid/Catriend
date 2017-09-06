@@ -129,7 +129,7 @@
 											<th style="width: 10%;" class="text-center info">유저상태</th>
 											<th style="width:" class="text-center info">이름</th>
 											<th style="width:" class="text-center info">아이디</th>
-											<th style="width: 15%;" class="text-center info">가입일</th>
+											<th style="width: 15%;" class="text-center info">생년월일</th>
 										</tr>
 										<!--  게시판 반복 부분 s -->
 										<c:forEach items="${adminuserlist}" var="row">

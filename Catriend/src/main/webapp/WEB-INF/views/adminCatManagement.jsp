@@ -115,7 +115,7 @@
 								style="font-size: 1.5em; font-weight: 700;">
 								<center>고양이 관리 ${sort}</center>
 							</div>
-							<form name="Frm" action="catsDeletes" onsubmit="return check()">
+							<form name="Frm" action="catsDeletes" onsubmit="return check(this)">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr>
@@ -158,11 +158,10 @@
 									</table>
 
 									<div class="com-md-12 pull-right" style="margin-top: -15px;">
-										<button class="btn btn-success" type="button"
-											style="color: white;"
-											onclick="location.href='catWrite?sort=${sort}&order=${order}'">추가하기</button>
-										<input class="btn" type="submit"
-											style="background-color: #00b3fe; color: white;" value="삭제하기" />
+										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
+										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
+										<button class="btn btn-success" type="button" style="color: white;"	onclick="location.href='catWrite?sort=${sort}&order=${order}'">추가하기</button>
+										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기" />
 									</div>
 
 									<div class="col-md-12 text-center" style="margin-top: 10px;">
