@@ -112,8 +112,7 @@ textarea {
 							</tr>
 							<tr>
 								<td>내용</td>
-								<td colspan="3" style="height: 150px; padding: 10px;"
-									class="text-center">${dto.cb_content}</td>
+								<td colspan="3" style="height: 150px; padding: 10px;">${dto.cb_content}</td>
 							</tr>
 							<%
 						boolean result=false;
