@@ -8,14 +8,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
 <script>
-	function check(){
-		var f = document.Frm;
-		
-		if (confirm(" 게시물을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.") == true) {
-			return true;
+	function check_all()
+	{
+		for(i=0; i < Frm.select.length; i++)
+		{
+			Frm.select[i].checked = true;
 		}
-		
-		return false;
+	}
+	
+	function uncheck_all() {
+		for(i=0; i < Frm.select.length; i++) {
+			Frm.select[i].checked = false;
+		}
+	}
+	
+	var check = function(obj)
+	{
+		var isFreeChk = false;
+		for(var i=0; i<obj.select.length; i++)
+		{
+			if(obj.select[i].checked==true)
+			{
+				isFreeChk = true;
+				break; 
+			}
+		}
+		if(isFreeChk==false)
+		{
+			alert("한개 이상의 게시글이 선택되어야 삭제가 가능합니다.");
+			obj.select[0].focus();
+			return false;
+		}
+		confirm("게시글을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.");
 	}
 </script>
 <!-- BOOTSTRAP STYLES-->
@@ -102,7 +126,7 @@
 										자유게시판관리
 									</center>
 								</div>
-								<form  name="Frm" action="freeBoardsDeletes" onsubmit="return check()">
+								<form  name="Frm" action="freeBoardsDeletes" onsubmit="return check(this)">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr style="text-align:center;">
@@ -127,9 +151,9 @@
 										
 									</table>
 									<div class="pull-right" style="margin-top:-15px;">
-										<input class="btn" type="submit"
-											style="background-color: #00b3fe; color: white;"
-											value="삭제하기" />
+										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
+										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
+										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기" />
 									</div>
 									<div class="col-md-12 text-center" style="margin-top:10px;">
 										${pagingImg}

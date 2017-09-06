@@ -9,14 +9,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
 <script>
-	function check() {
-		var f = document.Frm;
-
-		if (confirm(" 유저를 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.") == true) {
-			return true;
+	function check_all()
+	{
+		for(i=0; i < Frm.select.length; i++)
+		{
+			Frm.select[i].checked = true;
 		}
-
-		return false;
+	}
+	
+	function uncheck_all() {
+		for(i=0; i < Frm.select.length; i++) {
+			Frm.select[i].checked = false;
+		}
+	}
+	
+	var check = function(obj)
+	{
+		var isCatChk = false;
+		for(var i=0; i<obj.select.length; i++)
+		{
+			if(obj.select[i].checked==true)
+			{
+				isCatChk = true;
+				break; 
+			}
+		}
+		if(isCatChk==false)
+		{
+			alert("고양이 한마리 이상이 선택되어야 삭제가 가능합니다.");
+			obj.select[0].focus();
+			return false;
+		}
+		confirm("고양이를 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.");
 	}
 </script>
 <!-- BOOTSTRAP STYLES-->
@@ -98,7 +122,7 @@
 								style="font-size: 1.5em; font-weight: 700;">
 								<center>고양이 관리 ${sort}</center>
 							</div>
-							<form name="Frm" action="catsDeletes" onsubmit="return check()">
+							<form name="Frm" action="catsDeletes" onsubmit="return check(this)">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr>
@@ -139,10 +163,10 @@
 									</table>
 
 									<div class="com-md-12 pull-right" style="margin-top: -15px;">
-										<button class="btn btn-success" type="button"
-											style="color: white;" onclick="location.href='catWrite'">추가하기</button>
-										<input class="btn" type="submit"
-											style="background-color: #00b3fe; color: white;" value="삭제하기" />
+										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
+										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
+										<button class="btn btn-success" type="button" style="color: white;" onclick="location.href='catWrite'">추가하기</button>
+										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기" />
 									</div>
 
 									<div class="col-md-12 text-center" style="margin-top: 10px;">

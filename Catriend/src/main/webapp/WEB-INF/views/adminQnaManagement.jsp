@@ -8,14 +8,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
 <script>
-	function check(){
-		var f = document.Frm;
-		
-		if (confirm(" 게시물을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.") == true) {
-			return true;
+	function check_all()
+	{
+		for(i=0; i < Frm.select.length; i++)
+		{
+			Frm.select[i].checked = true;
 		}
-		
-		return false;
+	}
+	
+	function uncheck_all() {
+		for(i=0; i < Frm.select.length; i++) {
+			Frm.select[i].checked = false;
+		}
+	}
+	
+	var check = function(obj)
+	{
+		var isQnaChk = false;
+		for(var i=0; i<obj.select.length; i++)
+		{
+			if(obj.select[i].checked==true)
+			{
+				isQnaChk = true;
+				break; 
+			}
+		}
+		if(isQnaChk==false)
+		{
+			alert("한개 이상의 질문이 선택되어야 삭제가 가능합니다.");
+			obj.select[0].focus();
+			return false;
+		}
+		confirm("질문을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.");
 	}
 </script>
 <!-- BOOTSTRAP STYLES-->
@@ -102,7 +126,7 @@
 										질문글 답변/관리
 									</center>
 								</div>
-							<form  name="Frm" action="qnasDeletes" onsubmit="return check()">
+							<form  name="Frm" action="qnasDeletes" onsubmit="return check(this)">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr style="text-align:center;">
@@ -136,9 +160,9 @@
 										
 									</table>
 									<div class="pull-right" style="margin-top: -15px;">
-										<input class="btn" type="submit"
-											style="background-color: #00b3fe; color: white;"
-											value="삭제하기" />
+										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
+										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
+										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기" />
 									</div>
 									<div class="col-md-12 text-center">
 										${pagingImg}

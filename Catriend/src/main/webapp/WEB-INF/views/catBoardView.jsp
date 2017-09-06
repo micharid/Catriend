@@ -79,7 +79,7 @@ textarea {
 						<div class="panel-heading" align="center">
 							<h1>${dto.cb_title}</h1>
 						</div>
-						<table class="table" width="100%" cellspacing="0" cellpadding="2">
+						<table class="table table-bordered" width="100%" cellspacing="0" cellpadding="2">
 							<tr>
 								<td width="20%">닉네임</td>
 								<td width="20%">${dto.u_id}</td>
