@@ -184,7 +184,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 										<label class="col-sm-2 control-label" for="inputContact2">이메일</label>
 										<div class="col-sm-10">
 											<input class="form-control" id="inputContact2" type="text"
-												name="u_email" placeholder="" value="${loginUser.u_email}">
+												name="u_email" placeholder="" value="${loginUser.u_email}" disabled>
 										</div>
 									</div>
 
