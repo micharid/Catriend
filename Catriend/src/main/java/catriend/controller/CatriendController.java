@@ -112,7 +112,7 @@ public class CatriendController {
 	
 	private String from ="kjs34160@gmail.com";
 	private String subject ="안녕하세요 캣랜드 입니다.";
-	
+	  
 	@RequestMapping(value = "/mail")
 	public String sendMail(Model model,HttpServletRequest req){
 		UsersDAO dao = new UsersDAO();

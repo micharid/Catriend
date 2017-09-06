@@ -233,8 +233,7 @@ style
 			<div class="login-page">
 				<div class="form">
 					<span style="color: red;">${loginError}</span>
-					<form class="login-form" action="mail" name="loginFrm"
-						onsubmit="return checkForm();">
+					<form class="login-form" action="mail" name="loginFrm">
 						<input type="text" placeholder="아이디를 입력하세요." name="u_id" id="u_id"
 							oninput="checkId()" required class="id" /> <input type="text"
 							placeholder="E - mail 을 입력하세요." name="u_email" id="u_email"
