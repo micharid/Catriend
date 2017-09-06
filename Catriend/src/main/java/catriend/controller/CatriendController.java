@@ -1,6 +1,9 @@
 package catriend.controller;
 
+
 import java.io.File;
+import java.util.List;
+import java.util.Map;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
@@ -44,7 +47,9 @@ import catriend.command.CatBoardsDeletesCommand;
 import catriend.command.CatCommand;
 import catriend.command.CatContractListCommand;
 import catriend.command.CatsDeletesCommand;
+import catriend.command.CatsInsertCommand;
 import catriend.command.CatsListCommand;
+import catriend.command.CatsUpdateCommand;
 import catriend.command.CatsViewCommand;
 import catriend.command.ContractInsertCommand;
 import catriend.command.ContractListCommand;
@@ -603,7 +608,14 @@ public class CatriendController {
 		return new ResponseEntity<String>(
 				UploadFileUtils.uploadFile(boardUploadPath, file.getOriginalFilename(), file.getBytes()),
 				HttpStatus.CREATED);
+	}
+	
+	public ResponseEntity<String> aimageUpload(MultipartFile file, String c_index) throws Exception {
 
+		boardUploadPath = servletContext.getRealPath("/resources/assets/img/catP");
+		return new ResponseEntity<String>(
+				UploadFileUtils.uploadCat(boardUploadPath, c_index, file.getBytes()),
+				HttpStatus.CREATED);
 	}
 
 	@RequestMapping("/freeBoardWriteAction")
@@ -1180,6 +1192,93 @@ public class CatriendController {
 		command.execute(model);
 		System.out.println("컨트롤2 sort : " + req.getParameter("sort"));
 		return "adminCatManagement";
+	}
+	
+	@RequestMapping("/catWrite")
+	public String catWrite(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("sort", req.getParameter("sort"));
+		model.addAttribute("order", req.getParameter("order"));
+
+		return "catWrite";
+	}
+	
+	@RequestMapping("/catWriteAction")
+	public String catWriteAction(Model model, HttpServletRequest req) throws Exception {
+		model.addAttribute("req", req);
+		model.addAttribute("sort", 0);
+		model.addAttribute("order", req.getParameter("order"));
+
+		command = new CatsInsertCommand();
+		command.execute(model);
+		
+		command = new AdminCatListCommand();
+		command.execute(model);
+		
+		MultipartHttpServletRequest mf = (MultipartHttpServletRequest) req;
+		Map<String, Object> paramMap = model.asMap();
+		List<CatsDTO> lastIndex = (List<CatsDTO>) paramMap.get("admincatlists");
+		
+		int c_index=0;
+		for (CatsDTO catsDTO : lastIndex) {
+			if(c_index < catsDTO.getC_index())
+				c_index = catsDTO.getC_index();
+			System.out.println("켓 인덱스 : " + catsDTO.getC_index());
+		}
+		System.out.println("ddddddd :"+c_index);
+		String c_Orifile = mf.getFile("c_file").getOriginalFilename();
+		System.out.println("파일 이름 : " +c_Orifile);
+		int i = c_Orifile.indexOf(".");
+		System.out.println("아아앙아아 "+i);
+		System.out.println("수 : " + c_Orifile.substring(i));
+		String filetype = c_Orifile.substring(i).toLowerCase();
+		
+		String file = String.valueOf(c_index)+filetype;
+		System.out.println("파일 이름2342 : " + file);
+		String elkrndasg = aimageUpload(mf.getFile("c_file"), file).toString();
+		System.out.println("파일 이름22 : " + elkrndasg);
+
+		return "redirect:/adminCatManagement";
+	}
+	
+	@RequestMapping("/adminCatViewManagement")
+	public String adminCatViewManagement(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("c_index", req.getParameter("c_index"));
+		
+		command = new CatsViewCommand();
+		command.execute(model);
+
+		return "adminCatViewManagement";
+	}
+	
+	@RequestMapping("/adminCatUpdateManagement")
+	public String adminCatUpdateManagement(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("c_index", req.getParameter("c_index"));
+		
+		command = new CatsViewCommand();
+		command.execute(model);
+
+		return "adminCatUpdateManagement";
+	}
+	
+	@RequestMapping("/catUpdateAction")
+	public String catUpdateAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("c_index", req.getParameter("c_index"));
+		
+		command = new CatsUpdateCommand();
+		command.execute(model);
+
+		return "redirect:/adminCatViewManagement";
 	}
 	
 	@RequestMapping("/myqnaview")

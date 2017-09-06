@@ -24,6 +24,15 @@ public class UploadFileUtils {
     	return savedName;
  
 	}
+	
+	public static String uploadCat(String uploadPath, String originalName, byte[] fileData) throws Exception { //파일 업로드 
+    	String savedName = originalName;  // uid 와 기존 파일명을 합친후 저장
+    	File target = new File(uploadPath,savedName);
+    	FileCopyUtils.copy(fileData, target); //원본파일 생성
+
+    	return savedName;
+ 
+	}
  
     private static String calcPath(String uploadPath) {  //오늘 날짜의 폴더 생성을 위해 날짜 계산 
         Calendar cal = Calendar.getInstance();

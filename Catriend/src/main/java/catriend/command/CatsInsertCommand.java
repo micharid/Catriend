@@ -21,33 +21,22 @@ public class CatsInsertCommand implements CatCommand {
 
 		CatsDTO dto = new CatsDTO();
 
-		dto.setC_name(req.getParameter("c_name"));
-		dto.setC_gender(req.getParameter("c_gender"));
-		dto.setC_type(req.getParameter("c_type"));
-		dto.setC_keyword(req.getParameter("c_keyword"));
-		dto.setC_health(req.getParameter("c_health"));
-		dto.setC_grade(Integer.parseInt(req.getParameter("c_grade")));
-		dto.setC_detail(req.getParameter("c_detail"));
-
-		String comeStr = req.getParameter("c_comeday");
-		String sdayStr = req.getParameter("c_sday");
-		String edayStr = req.getParameter("c_eday");
+		String birtgstr = req.getParameter("c_birthday");
 		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd");
-
-		java.sql.Date c_comeday = null;
-		java.sql.Date c_sday = null;
-		java.sql.Date c_eday = null;
-
+		java.sql.Date c_birthday = null;
 		try {
-			c_comeday = new java.sql.Date(simple.parse(comeStr).getTime());
-			c_sday = new java.sql.Date(simple.parse(sdayStr).getTime());
-			c_eday = new java.sql.Date(simple.parse(edayStr).getTime());
+			c_birthday = new java.sql.Date(simple.parse(birtgstr).getTime());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		dto.setC_comeday(c_comeday);
-		dto.setC_sday(c_sday);
-		dto.setC_eday(c_eday);
+		
+		dto.setC_name(req.getParameter("c_name"));
+		dto.setC_birthday(c_birthday);
+		dto.setC_gender(req.getParameter("c_gender"));
+		dto.setC_type(req.getParameter("c_type"));
+		dto.setC_keyword(req.getParameter("c_keyword"));
+		dto.setC_grade(Integer.parseInt(req.getParameter("c_grade")));
 
 		dao.InsertCat(dto);
 

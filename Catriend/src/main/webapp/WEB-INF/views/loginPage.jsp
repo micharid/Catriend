@@ -154,7 +154,9 @@ var checkForm = function(obj)
 	<!-- *****************************************************************************************************************
 	 TEEAM MEMBERS
 	 ***************************************************************************************************************** -->
-
+<script type="text/javascript">
+	document.loginFrm.u_id.focus();
+</script>
 
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>

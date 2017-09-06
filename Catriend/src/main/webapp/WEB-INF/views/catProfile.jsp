@@ -47,15 +47,13 @@ hr {
 </style>
 
 <script>
-var isValidate = function(obj)
-{
-	if(obj.textAreaComment.value=="")
-	{
-		alert("댓글내용을 입력하세요");
-		obj.textAreaComment.focus();
-		return false;
+	var isValidate = function(obj) {
+		if (obj.textAreaComment.value == "") {
+			alert("댓글내용을 입력하세요");
+			obj.textAreaComment.focus();
+			return false;
+		}
 	}
-}
 </script>
 
 <body>
@@ -93,50 +91,10 @@ var isValidate = function(obj)
 				<!-- Blog Post 1 -->
 				<div align="center">
 					<!-- s -->
-					<%-- <%@ include file="./standard.jsp"%> --%>
-					<img src="./resources/assets/img/catP/${dto.c_index}.jpg" alt="이미지가없습니다." width="500px"/>
+					<img src="./resources/assets/img/catP/${dto.c_index}.jpg"
+						alt="이미지가없습니다." width="500px" />
 					<!-- e -->
 				</div>
-				<!-- <div class="panel panel-primary">
-					<div class="panel-heading">
-						<center>
-							<h4 style="padding: 0px;">한줄 댓글</h4>
-						</center>
-					</div>
-					<form action="" onsubmit="return isValidate(this);">
-						<table class="table" style="margin-top: 20px;">
-							<tr>
-								<td width="80%"><textarea id="textAreaComment" cols="30"
-										rows="5" title="" placeholder="댓글을 입력해 주세요"
-										style="resize: none;"></textarea></td>
-								<td width="20%"><button style="width: 100%;" type="button"
-										class="btn btn-warning" onclick="">댓글달기</button></td>
-							</tr>
-						</table>
-					</form>
-					<div class="panel-footer">
-						<table class="table table-condensed">
-							<tr align="center">
-								<th width="20%">작성일자</th>
-								<th width="50%">내용</th>
-								<th width="20%">별점</th>
-								<th width="10%">닉네임</th>
-							</tr>
-							반복부분  s
-							<tr>
-								<td>2017-08-30</td>
-								<td>너무너무 귀엽네요</td>
-								<td>★★★★☆</td>
-								<td>빵꾸똥꾸</td>
-							</tr>
-							반복부분  e
-
-						</table>
-
-
-					</div>
-
-				</div> -->
 			</div>
 			<!--/col-lg-8 -->
 
@@ -156,13 +114,21 @@ var isValidate = function(obj)
 					if (login != null && login.getU_grade() >= catdto.getC_grade()) {
 				%>
 				<button class="btn btn-warning" style="width: 100%;"
-					onclick="location.href='catcontractagreement?c_index=${dto.c_index}'">계약하기 <%=login.getU_grade() %> / ${dto.c_grade}</button>
+					onclick="location.href='catcontractagreement?c_index=${dto.c_index}'">
+					계약하기
+					<%=login.getU_grade()%>
+					/ ${dto.c_grade}
+				</button>
 				<%
 					} else if (login != null && login.getU_grade() < catdto.getC_grade()) {
 						System.out.println(login.getU_grade() + ", " + catdto.getC_grade());
 				%>
 				<button class="btn btn-warning" disabled="disabled"
-					style="width: 100%;">계약하기(쉬운 고양이들 경험해보고 오냥) <%=login.getU_grade() %> / ${dto.c_grade}</button>
+					style="width: 100%;">
+					계약하기(쉬운 고양이들 경험해보고 오냥)
+					<%=login.getU_grade()%>
+					/ ${dto.c_grade}
+				</button>
 				<%
 					} else {
 				%>
@@ -176,15 +142,16 @@ var isValidate = function(obj)
 				<h4>스토리</h4>
 				<div class="hline"></div>
 				<p>
-				<%
-					if(checkResult != 0){
-				%>
-					<button class="btn btn-warning" style="width: 100%; margin-bottom:30px;"
+					<%
+						if (checkResult != 0) {
+					%>
+					<button class="btn btn-warning"
+						style="width: 100%; margin-bottom: 30px;"
 						onclick="location.href='catBoardWrite?c_index=${dto.c_index}'">후기
 						작성하기</button>
-				<%
-					}
-				%>
+					<%
+						}
+					%>
 					<button class="btn btn-warning" style="width: 100%;"
 						onclick="location.href='catBoardList?c_index=${dto.c_index}'">후기게시판</button>
 				</p>

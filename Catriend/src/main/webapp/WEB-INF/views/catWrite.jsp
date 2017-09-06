@@ -8,38 +8,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
 <script>
-	function check_all()
-	{
-		for(i=0; i < Frm.select.length; i++)
-		{
-			Frm.select[i].checked = true;
-		}
-	}
-	
-	function uncheck_all() {
-		for(i=0; i < Frm.select.length; i++) {
-			Frm.select[i].checked = false;
-		}
-	}
-	
-	var check = function(obj)
-	{
-		var isReviewChk = false;
-		for(var i=0; i<obj.select.length; i++)
-		{
-			if(obj.select[i].checked==true)
-			{
-				isReviewChk = true;
-				break; 
-			}
-		}
-		if(isReviewChk==false)
-		{
-			alert("한개 이상의 후기글이 선택되어야 삭제가 가능합니다.");
-			obj.select[0].focus();
-			return false;
-		}
-		confirm("후기글을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.");
+	function checkWriteFrm(){
+		var f = document.writeFrm;
+		
+		if(f.c_name.value == ""){alert("이름을 입력해주세요");f.c_name.focus();return false;}
+		if(f.c_birthday.value == ""){alert("생일을 입력해주세요");f.c_birthday.focus();return false;}
+		if(f.c_gender.value == ""){alert("성별을 입력해주세요");f.c_gender.focus();return false;}
+		if(f.c_type.value == ""){alert("품종을 입력해주세요");f.c_type.focus();return false;}
+		if(f.c_keyword.value == ""){alert("키워드를 입력해주세요");f.c_keyword.focus();return false;}
+		if(f.c_grade.value == ""){alert("등급을 입력해주세요");f.c_grade.focus();return false;}
+		return true;
 	}
 </script>
 <!-- BOOTSTRAP STYLES-->
@@ -90,7 +68,7 @@
 						class="fa fa-list-alt "></i>자유게시판관리</a></li>
 				<li><a href="adminReviewboardManagement"><i
 						class="fa fa-list-alt "></i>후기게시판관리</a></li>
-				<li><a href="adminCatManagement?order=c_index&sort=1"><i class="fa fa-paw "></i>고양이관리</a>
+				<li><a href="adminCatManagement"><i class="fa fa-paw "></i>고양이관리</a>
 				</li>
 			</ul>
 		</div>
@@ -119,43 +97,48 @@
 						<div class="panel panel-default" style="width: 100%;">
 							<div class="panel-heading"
 								style="font-size: 1.5em; font-weight: 700;">
-								<center>후기게시판관리</center>
+								<center>고양이 관리</center>
 							</div>
-							<form  name="Frm" action="catBoardsDeletes" onsubmit="return check(this)">
-								<div class="panel-body">
-									<table class="table table-hover table-bordered">
-										<tr style="text-align: center;">
-											<th style="width: 5%;" class="text-center info">선택</th>
-											<th style="width: 5%;" class="text-center info">NO</th>
-											<th style="width: 70%" class="info">제목</th>
-											<th style="width: 10%" class="text-center info">아이디</th>
-											<th style="width: 10%;" class="text-center info">작성일</th>
-										</tr>
-
-										<!--  게시판 반복 부분 s -->
-										<c:forEach items="${adminreviewlist}" var="row">
-											<tr>
-												<td class="text-center"><input type="checkbox"
-													name="select" value="${row.cb_index}"/></td>
-												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
-												<td><a
-													href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}">${row.cb_title}</a></td>
-												<td class="text-center">${row.u_id}</td>
-												<td class="text-center">${row.cb_date}</td>
-											</tr>
-										</c:forEach>
-										<!-- 게시판 반복 부분 e  -->
-
-									</table>
-									<div class="pull-right" style="margin-top: -15px;">
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
-										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기" />
+							<div class="panel-body">
+								<form name="writeFrm" method="post"
+									onsubmit="return checkWriteFrm()" action="catWriteAction?sort=${sort}" enctype="multipart/form-data">
+									<input type="hid den" name="sort" value="${sort}">
+									<input type="hid den" name="order" value="${order}">
+									<div class="form-group">
+										<label>이름</label> <input class="form-control" type="text"
+											name="c_name" placeholder="고양이 이름을 입력해주세요" />
 									</div>
-									<div class="col-md-12 text-center" style="margin-top: 10px;">
-										${pagingImg}</div>
-								</div>
-							</form>
+									<div class="form-group">
+										<label>생일</label> <input class="form-control" type="date"
+											name="c_birthday" />
+									</div>
+									<div class="form-group">
+										<label>성별</label> <input class="form-control" type="text"
+											name="c_gender" placeholder="고양이의 성별을 입력해주세여" />
+									</div>
+									<div class="form-group">
+										<label>품종</label> <input class="form-control" type="text"
+											name="c_type" placeholder="고양이의 종류를 입력해주세요" />
+									</div>
+									<div class="form-group">
+										<label>키워드</label> <input class="form-control" type="text"
+											name="c_keyword" placeholder="키워드는 한키워드 다음 ,(콤마)를 필히 붙혀주세요" />
+									</div>
+									<div class="form-group">
+										<label>등급</label> <input class="form-control" type="text"
+											name="c_grade" placeholder="고양이의 등급을 입력해주세요" />
+									</div>
+									<div class="form-group">
+										<label>고양이 사진</label> <input class="form-control" type="file"
+											name="c_file"/>
+									</div>
+
+									<button type="submit" class="btn btn-info">등록하기</button>
+									<button class="btn btn-danger" type="button"
+										onclick="javascript:history.go(-1)">취소하기</button>
+
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>

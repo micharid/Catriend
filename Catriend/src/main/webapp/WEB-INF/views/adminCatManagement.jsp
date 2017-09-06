@@ -9,33 +9,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
 <script>
-	function check_all()
-	{
-		for(i=0; i < Frm.select.length; i++)
-		{
+	function check_all() {
+		for (i = 0; i < Frm.select.length; i++) {
 			Frm.select[i].checked = true;
 		}
 	}
-	
+
 	function uncheck_all() {
-		for(i=0; i < Frm.select.length; i++) {
+		for (i = 0; i < Frm.select.length; i++) {
 			Frm.select[i].checked = false;
 		}
 	}
-	
-	var check = function(obj)
-	{
+
+	var check = function(obj) {
 		var isCatChk = false;
-		for(var i=0; i<obj.select.length; i++)
-		{
-			if(obj.select[i].checked==true)
-			{
+		for (var i = 0; i < obj.select.length; i++) {
+			if (obj.select[i].checked == true) {
 				isCatChk = true;
-				break; 
+				break;
 			}
 		}
-		if(isCatChk==false)
-		{
+		if (isCatChk == false) {
 			alert("고양이 한마리 이상이 선택되어야 삭제가 가능합니다.");
 			obj.select[0].focus();
 			return false;
@@ -91,8 +85,8 @@
 						class="fa fa-list-alt "></i>자유게시판관리</a></li>
 				<li><a href="adminReviewboardManagement"><i
 						class="fa fa-list-alt "></i>후기게시판관리</a></li>
-				<li><a href="adminCatManagement?order=c_type&sort=1"><i class="fa fa-paw "></i>고양이관리</a>
-				</li>
+				<li><a href="adminCatManagement?order=c_index&sort=1"><i
+						class="fa fa-paw "></i>고양이관리</a></li>
 			</ul>
 		</div>
 
@@ -122,13 +116,14 @@
 								style="font-size: 1.5em; font-weight: 700;">
 								<center>고양이 관리 ${sort}</center>
 							</div>
-							<form name="Frm" action="catsDeletes" onsubmit="return check(this)">
+							<form name="Frm" action="catsDeletes" onsubmit="return check()">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr>
 											<th style="width: 5%;" class="text-center">선택</th>
 											<th width="10%" class="text-center"><a
-												href="adminCatManagement?order=c_index&sort=${sort}">고양이 고유 번호</a></th>
+												href="adminCatManagement?order=c_index&sort=${sort}">고양이
+													고유 번호</a></th>
 											<th class="text-center"><a
 												href="adminCatManagement?order=c_name&sort=${sort}">이름</a></th>
 											<th style="width: 15%;" class="text-center"><a
@@ -136,7 +131,7 @@
 											<th style="width: 15%;" class="text-center"><a
 												href="adminCatManagement?order=c_birthday&sort=${sort}">생일</a></th>
 											<th style="width: 15%" class="text-center"><a
-												href="adminCatManagement?order=c_type&sort=${sort}">고양이종</a></th>
+												href="adminCatManagement?order=c_type&sort=${sort}">고양이종류</a></th>
 										</tr>
 
 										<c:forEach items="${admincatlists}" var="row">
@@ -152,7 +147,8 @@
 											<td class="text-center"><input type="checkbox"
 												value="${row.c_index}" name="select" /></td>
 											<td class="text-center">${row.c_index}</td>
-											<td class="text-center">${row.c_name}</td>
+											<td class="text-center"><a
+												href="adminCatViewManagement?c_index=${row.c_index}&nowPage=${nowPage}">${row.c_name}</a></td>
 											<td class="text-center">${row.c_gender}</td>
 											<td class="text-center">${row.c_birthday}</td>
 											<td class="text-center">${row.c_type}</td>
@@ -163,10 +159,11 @@
 									</table>
 
 									<div class="com-md-12 pull-right" style="margin-top: -15px;">
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
-										<button class="btn btn-success" type="button" style="color: white;" onclick="location.href='catWrite'">추가하기</button>
-										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기" />
+										<button class="btn btn-success" type="button"
+											style="color: white;"
+											onclick="location.href='catWrite?sort=${sort}&order=${order}'">추가하기</button>
+										<input class="btn" type="submit"
+											style="background-color: #00b3fe; color: white;" value="삭제하기" />
 									</div>
 
 									<div class="col-md-12 text-center" style="margin-top: 10px;">

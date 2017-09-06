@@ -2,44 +2,21 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
 <script>
-	function check_all()
-	{
-		for(i=0; i < Frm.select.length; i++)
-		{
-			Frm.select[i].checked = true;
+	function check() {
+		var f = document.Frm;
+
+		if (confirm(" 유저를 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.") == true) {
+			return true;
 		}
-	}
-	
-	function uncheck_all() {
-		for(i=0; i < Frm.select.length; i++) {
-			Frm.select[i].checked = false;
-		}
-	}
-	
-	var check = function(obj)
-	{
-		var isReviewChk = false;
-		for(var i=0; i<obj.select.length; i++)
-		{
-			if(obj.select[i].checked==true)
-			{
-				isReviewChk = true;
-				break; 
-			}
-		}
-		if(isReviewChk==false)
-		{
-			alert("한개 이상의 후기글이 선택되어야 삭제가 가능합니다.");
-			obj.select[0].focus();
-			return false;
-		}
-		confirm("후기글을 삭제 하시겠습니까? \n\n 삭제를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.");
+
+		return false;
 	}
 </script>
 <!-- BOOTSTRAP STYLES-->
@@ -90,8 +67,8 @@
 						class="fa fa-list-alt "></i>자유게시판관리</a></li>
 				<li><a href="adminReviewboardManagement"><i
 						class="fa fa-list-alt "></i>후기게시판관리</a></li>
-				<li><a href="adminCatManagement?order=c_index&sort=1"><i class="fa fa-paw "></i>고양이관리</a>
-				</li>
+				<li><a href="adminCatManagement?order=c_index&sort=1"><i
+						class="fa fa-paw "></i>고양이관리</a></li>
 			</ul>
 		</div>
 
@@ -119,43 +96,32 @@
 						<div class="panel panel-default" style="width: 100%;">
 							<div class="panel-heading"
 								style="font-size: 1.5em; font-weight: 700;">
-								<center>후기게시판관리</center>
+								<center>고양이 관리</center>
 							</div>
-							<form  name="Frm" action="catBoardsDeletes" onsubmit="return check(this)">
-								<div class="panel-body">
-									<table class="table table-hover table-bordered">
-										<tr style="text-align: center;">
-											<th style="width: 5%;" class="text-center info">선택</th>
-											<th style="width: 5%;" class="text-center info">NO</th>
-											<th style="width: 70%" class="info">제목</th>
-											<th style="width: 10%" class="text-center info">아이디</th>
-											<th style="width: 10%;" class="text-center info">작성일</th>
-										</tr>
 
-										<!--  게시판 반복 부분 s -->
-										<c:forEach items="${adminreviewlist}" var="row">
-											<tr>
-												<td class="text-center"><input type="checkbox"
-													name="select" value="${row.cb_index}"/></td>
-												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
-												<td><a
-													href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}">${row.cb_title}</a></td>
-												<td class="text-center">${row.u_id}</td>
-												<td class="text-center">${row.cb_date}</td>
-											</tr>
-										</c:forEach>
-										<!-- 게시판 반복 부분 e  -->
 
-									</table>
-									<div class="pull-right" style="margin-top: -15px;">
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
-										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기" />
-									</div>
-									<div class="col-md-12 text-center" style="margin-top: 10px;">
-										${pagingImg}</div>
-								</div>
-							</form>
+
+							<img src="./resources/assets/img/catP/${dto.c_index}.jpg"
+								alt="이미지가없습니다." width="500px" />
+							<h4>고양이친구 프로필</h4>
+							<div class="hline"></div>
+							<p>
+							<h4>이름 : ${dto.c_name}</h4>
+							<h4>
+								종류 : <a href="https://namu.wiki/w/${dto.c_type}">${dto.c_type}</a>
+							</h4>
+							<h4>생일 : ${dto.c_birthday}</h4>
+							<h4>성별 : ${dto.c_gender}</h4>
+							<h4>등급 : ${dto.c_grade}</h4>
+							<h4>건강상태 : ${dto.c_health}</h4>
+							<h4>세부사항 : ${dto.c_detail}</h4>
+							<h4>키워드 : ${dto.c_keyword}</h4>
+							<h4>인수인계 : ${dto.c_comeday}</h4>
+							<h4>보낸 날 : ${dto.c_sday}</h4>
+							<h4>받은 날 : ${dto.c_eday}</h4>
+
+							<button type="button"
+								onclick="location.href='adminCatUpdateManagement?c_index=${dto.c_index}'">수정하기</button>
 						</div>
 					</div>
 				</div>
@@ -166,14 +132,10 @@
 		</div>
 		<!-- /. PAGE WRAPPER  -->
 		<div class="footer">
-
-
 			<div class="row">
 				<div class="col-lg-12">&copy; 2017 Cat'riend</div>
 			</div>
 		</div>
-
-
 		<!-- /. WRAPPER  -->
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
