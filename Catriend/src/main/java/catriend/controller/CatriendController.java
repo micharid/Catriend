@@ -165,11 +165,12 @@ public class CatriendController {
 		UsersDAO dao = new UsersDAO();
 		System.out.println(req.getParameter("email"));
 		
-		int result = dao.userEqual3(req.getParameter("id"),req.getParameter("email"));
+		int result = dao.findEqual(req.getParameter("id"),req.getParameter("email"));
 		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/findEqualCheck";
 	}
+	
 	
 	
 	@RequestMapping("/processing/findEmailCheck")
@@ -178,7 +179,7 @@ public class CatriendController {
 		
 		UsersDAO dao = new UsersDAO();
 		System.out.println(req.getParameter("email"));
-		int result = dao.userEqual2(req.getParameter("email"));
+		int result = dao.userEmail(req.getParameter("email"));
 		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/findEmailCheck";
@@ -976,6 +977,16 @@ public class CatriendController {
 		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/registcheck";
+	}
+	
+	@RequestMapping("/processing/emailCheck")
+	public String emailCheck(Model model, HttpServletRequest req) {
+		UsersDAO dao = new UsersDAO();
+		System.out.println(req.getParameter("email"));
+		int result = dao.userEmail(req.getParameter("email"));
+		System.out.println("결과값: " + result);
+		model.addAttribute("result", result);
+		return "processing/emailCheck";
 	}
 
 	@RequestMapping("/processing/nickCheck")

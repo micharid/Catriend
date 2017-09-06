@@ -31,15 +31,16 @@ public class UsersDAO {
 		return template.queryForObject(query, Integer.class);
 	}
 
-	public int userEqual3(String u_id, String u_email) {
+	public int findEqual(String u_id, String u_email) {
 		String query = " SELECT count(u_email) FROM users WHERE u_id = '" + u_id + "' and u_email = '" + u_email + "'";
 		return template.queryForObject(query, Integer.class);
 	}
 
-	public int userEqual2(String u_email) {
+	public int userEmail(String u_email) {
 		String query = " SELECT count(*) FROM users WHERE u_email = '" + u_email + "'";
 		return template.queryForObject(query, Integer.class);
 	}
+	
 
 	// 아이디 중복체크
 	public int userEqual(String u_id) {

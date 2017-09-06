@@ -66,7 +66,38 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			}
 		});
 	}
+	
+	//아이디 체크하여 가입버튼 비활성화, 중복확인.
+	function checkEmail() {
+		var f = document.registFrm.u_email.value;
+		$.ajax({
+			data : {
+				email : f
+			},
+			url : "processing/emailCheck",
+			success : function(data) {
+				if (f == '' && data == 0) {
 
+					$("#rBtn").prop("disabled", true);
+					$("#rBtn").css("background-color", "#aaaaaa");
+					$("#u_email").css("background-color", "#FFCECE");
+					signupCheck();
+					
+				} else if (data == 0) {
+
+					$("#u_email").css("background-color", "#B0F6AC");
+					signupCheck();
+					
+				} else if (data == 1) {
+
+					$("#rBtn").prop("disabled", true);
+					$("#rBtn").css("background-color", "#aaaaaa");
+					$("#u_email").css("background-color", "#FFCECE");
+					
+				}
+			}
+		});
+	}
 	function checkPwd() {
 		var inputed = document.registFrm.pass.value;
 		var reinputed = document.registFrm.cPass.value;
@@ -88,26 +119,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			$("#rBtn").prop("disabled", true);
 			$("#rBtn").css("background-color", "#aaaaaa");
 			$("#cPass").css("background-color", "#FFCECE");
+			
 
 		}
 	}
 	//닉네임과 이메일 입력하지 않았을 경우 가입버튼 비활성화
 	function signupCheck() {
-		var nickname = document.registFrm.nickname.value;
+		
+		
 		var name = document.registFrm.name.value;
-		var email = document.registFrm.email.value;
 		var birthD = document.registFrm.birthD.value;
 		var pNumber = document.registFrm.pNumber.value;
 		var add = document.registFrm.add.value;
 
-		if (nickname == "" || name == "" || email == "" || birthD == ""
-				|| pNumber == "" || add == "") {
+		if (name == "" || birthD == ""	|| pNumber == "" || add == "") {
 			$("#rBtn").prop("disabled", true);
 			$("#rBtn").css("background-color", "#aaaaaa");
-		} else {
-			$("#rBtn").prop("disabled", false);
-			$("#rBtn").css("background-color", "#4CAF50");
 		}
+		
 	}
 </script>
 
@@ -146,6 +175,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					$("#rBtn").prop("disabled", true);
 					$("#rBtn").css("background-color", "#aaaaaa");
 					$("#nickname").css("background-color", "#FFCECE");
+					
 					nickCheck = 0;
 				}
 			}
@@ -175,7 +205,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			</div>
 			<div class="col-md-3">
 				<span class="glyphicon glyphicon-film"></span> <br>
-				<h3>추 억</h3>
+				<h3>추 억</h3>  
 				고양이친구들과의 추억을 다른분들에게 자랑해보세요.
 			</div>
 			<div class="col-md-3">
@@ -252,8 +282,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 								<div class="form-group">
 									<label class="col-sm-3 control-label" for="email">이메일</label>
 									<div class="col-sm-6">
-										<input class="form-control" id="email" name="u_email"
-											oninput="signupCheck()" type="email"
+										<input class="form-control" id="u_email" name="u_email"
+											oninput="checkEmail()" type="email"
 											placeholder="Example@Example.com 형식으로 넣어주세요">
 									</div>
 								</div>
@@ -290,7 +320,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 										</button>
 
 
-										<button class="btn btn-danger" type="button">
+										<button class="btn btn-danger" type="reset">
 											가입취소 <i class="fa fa-times spaceLeft"></i>
 										</button>
 									</div>
