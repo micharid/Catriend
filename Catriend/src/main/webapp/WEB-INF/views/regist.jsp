@@ -25,6 +25,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	line-height: 1.1;
 	color: inherit;
 }
+
 </style>
 
 <script>
@@ -225,14 +226,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 				언제들지 연락주세요.저희 캣 랜드에서는 집사분들의 의견에 귀 기울이겠습니다.
 			</div>
 		</div>
-		<div id="blue" style="width: 1170px;">
-
-			<center>
-				<h3
-					style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">회원가입</h3>
-			</center>
-
-			<!-- /container -->
+		<div id="blue" style="width: 1170px;" align="center">
+			<h3 style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">회원가입</h3>
 		</div>
 
 
@@ -253,7 +248,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 									<label class="col-sm-3 control-label" for="inputId">아이디</label>
 									<div class="col-sm-6">
 										<input class="form-control" id="u_id" required class="id"
-											oninput="checkId()" name="u_id" type="text" placeholder="아이디">
+											oninput="checkId()" name="u_id" type="text" value="" placeholder="아이디">
 
 									</div>
 								</div>
@@ -261,7 +256,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 									<label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
 									<div class="col-sm-6">
 										<input class="form-control" id="pass" name="u_pw" required
-											class="pass" oninput="checkPwd()" type="password"
+											class="pass" oninput="checkPwd()" type="password" value=""
 											placeholder="비밀번호" />
 									</div>
 								</div>

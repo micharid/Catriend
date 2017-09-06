@@ -1936,7 +1936,7 @@ output {
   line-height: 1.428571429;
   color: black;
   vertical-align: middle;
-  background-color: white;
+  background-color: #f2f2f2;
   background-image: none;
   border: 1px solid #c8c8c8;
   border-radius: 4px;
@@ -1949,20 +1949,20 @@ output {
 }
 
 .form-control:-moz-placeholder {
-  color: #ffffff;
+  color: black;
 }
 
 .form-control::-moz-placeholder {
-  color: #ffffff;
+  color: black;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #ffffff;
+  color: black;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #ffffff;
+  color: black;
 }
 
 .form-control[disabled],
