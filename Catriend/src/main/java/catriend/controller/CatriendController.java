@@ -2,6 +2,7 @@ package catriend.controller;
 
 import java.io.File;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -103,7 +106,94 @@ public class CatriendController {
 
 	// 다형성을 위한
 	CatCommand command;
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	private String from ="kjs34160@gmail.com";
+	private String subject ="안녕하세요 캣랜드 입니다.";
+	
+	@RequestMapping(value = "/mail")
+	public String sendMail(Model model,HttpServletRequest req){
+		UsersDAO dao = new UsersDAO();
+		UsersDTO user = dao.selectOne(req.getParameter("u_id"));
+		
+		try{
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+			messageHelper.setTo(user.getU_email());//받는 이메일에다가 보내기
+			messageHelper.setText("귀하의 변경된 비밀번호는 "+user.getU_pw()+"입니다.");//내용
+			messageHelper.setFrom(from);
+			messageHelper.setSubject("안녕하세요 캣랜드 입니다.");
+			
+			mailSender.send(message);
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		
+		model.addAttribute("pageGroup", "main");
+		CatCommand command = new CatBoarderHotListCommand();
+		command.execute(model);
+		
+		return "mainPage";
+	}
+	
+	@RequestMapping("/processing/emailsend")
+	public String emailsend(Model model, HttpServletRequest req) {
+		System.out.print("email값 : " +req.getParameter("email"));
+		
+		UsersDAO dao = new UsersDAO();
+		System.out.println(req.getParameter("email"));
+		
+		int result = dao.passUpdate(req.getParameter("id"));
+		System.out.println("결과값: " + result);
+		model.addAttribute("result", result);
+		return "processing/emailsend";
+	}
 
+	
+	@RequestMapping("/processing/findEqualCheck")
+	public String findEqualCheck(Model model, HttpServletRequest req) {
+		System.out.print("email값 : " +req.getParameter("email"));
+		
+		UsersDAO dao = new UsersDAO();
+		System.out.println(req.getParameter("email"));
+		
+		int result = dao.userEqual3(req.getParameter("id"),req.getParameter("email"));
+		System.out.println("결과값: " + result);
+		model.addAttribute("result", result);
+		return "processing/findEqualCheck";
+	}
+	
+	
+	@RequestMapping("/processing/findEmailCheck")
+	public String findEmailCheck(Model model, HttpServletRequest req) {
+		System.out.print("email값 : " +req.getParameter("email"));
+		
+		UsersDAO dao = new UsersDAO();
+		System.out.println(req.getParameter("email"));
+		int result = dao.userEqual2(req.getParameter("email"));
+		System.out.println("결과값: " + result);
+		model.addAttribute("result", result);
+		return "processing/findEmailCheck";
+	}
+	
+	@RequestMapping("/processing/findIdCheck")
+	public String findIdCheck(Model model, HttpServletRequest req) {
+		UsersDAO dao = new UsersDAO();
+		System.out.println(req.getParameter("id"));
+		int result = dao.userEqual(req.getParameter("id"));
+		System.out.println("결과값: " + result);
+		model.addAttribute("result", result);
+		return "processing/findIdCheck";
+	}
+	
+	@RequestMapping("/findPass")
+	public String findPass(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "login");
+		return "findPass";
+	}
 	@RequestMapping("/about")
 	public String about(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "about");

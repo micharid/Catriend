@@ -139,6 +139,9 @@ var checkForm = function(obj)
 							<p class="message">
 								Not registered? <a href="onlineForm">Create an account</a>
 							</p>
+							<p class="message">
+								forgot password? <a href="findPass">Click here</a>
+							</p>
 						</form>
 					</div>
 				</div>

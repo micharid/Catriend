@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,10 +14,31 @@ public class UsersDAO {
 	// Spring-JDBC 사용
 	JdbcTemplate template;
 
+	// 패스워드 랜덤생성변수
+	Random rnd = new Random();
+
 	// 기본생성자
 	public UsersDAO() {
 		// Spring-JDBC사용
 		this.template = Constant.template;
+	}
+
+	public int passUpdate(String u_id) {
+		rnd.setSeed(System.currentTimeMillis());
+
+		int newpass = rnd.nextInt(999999) + 1;
+		String query = " update users set u_pw = '" + newpass + "' where u_id = '" + u_id + "'";
+		return template.queryForObject(query, Integer.class);
+	}
+
+	public int userEqual3(String u_id, String u_email) {
+		String query = " SELECT count(u_email) FROM users WHERE u_id = '" + u_id + "' and u_email = '" + u_email + "'";
+		return template.queryForObject(query, Integer.class);
+	}
+
+	public int userEqual2(String u_email) {
+		String query = " SELECT count(*) FROM users WHERE u_email = '" + u_email + "'";
+		return template.queryForObject(query, Integer.class);
 	}
 
 	// 아이디 중복체크
@@ -39,14 +61,13 @@ public class UsersDAO {
 		}
 		return template.queryForObject(sql, Integer.class);
 	}
-	
-	//점수 증가
-	public void gradeUp(String u_id){
-		String sql = " UPDATE users SET u_grade = u_grade+5 WHERE u_id = '"+u_id+"' AND u_grade < 100";
-		
+
+	// 점수 증가
+	public void gradeUp(String u_id) {
+		String sql = " UPDATE users SET u_grade = u_grade+5 WHERE u_id = '" + u_id + "' AND u_grade < 100";
+
 		template.update(sql);
 	}
-	
 
 	// 유저 입력
 	public int InsertUser(final UsersDTO dto) {
