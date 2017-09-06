@@ -31,6 +31,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	//     아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
 	var idCheck = 0;
 	var pwdCheck = 0;
+	var emailCheck = 0;
+	var nickCheck = 0;
 
 	//아이디 체크하여 가입버튼 비활성화, 중복확인.
 	function checkId() {
@@ -52,8 +54,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					$("#u_id").css("background-color", "#B0F6AC");
 					idCheck = 1;
 					if (idCheck == 1 && pwdCheck == 1) {
-						$("#rBtn").prop("disabled", false);
-						$("#rBtn").css("background-color", "#4CAF50");
+						
 						signupCheck();
 					}
 				} else if (data == 1) {
@@ -77,19 +78,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			url : "processing/emailCheck",
 			success : function(data) {
 				if (f == '' && data == 0) {
-
+					
 					$("#rBtn").prop("disabled", true);
 					$("#rBtn").css("background-color", "#aaaaaa");
 					$("#u_email").css("background-color", "#FFCECE");
+					emailCheck = 0;
 					signupCheck();
 					
 				} else if (data == 0) {
 
 					$("#u_email").css("background-color", "#B0F6AC");
+					emailCheck = 1;
 					signupCheck();
 					
 				} else if (data == 1) {
-
+					emailCheck = 0;
 					$("#rBtn").prop("disabled", true);
 					$("#rBtn").css("background-color", "#aaaaaa");
 					$("#u_email").css("background-color", "#FFCECE");
@@ -133,8 +136,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		var add = document.registFrm.add.value;
 
 		if (name == "" || birthD == ""	|| pNumber == "" || add == "") {
-			$("#rBtn").prop("disabled", true);
-			$("#rBtn").css("background-color", "#aaaaaa");
+			
+				$("#rBtn").prop("disabled", true);
+				$("#rBtn").css("background-color", "#aaaaaa");
+			
+			
+		}else{
+			if(idCheck == 1 && pwdCheck == 1 && emailCheck ==1 && nickCheck == 1){
+				$("#rBtn").prop("disabled", false);
+				$("#rBtn").css("background-color", "#4CAF50");
+			}
+			
 		}
 		
 	}
@@ -166,8 +178,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					$("#nickname").css("background-color", "#B0F6AC");
 					nickCheck = 1;
 					if (nickCheck == 1 && pwdCheck == 1) {
-						$("#rBtn").prop("disabled", false);
-						$("#rBtn").css("background-color", "#4CAF50");
+						
 						signupCheck();
 					}
 				} else if (data == 1) {
