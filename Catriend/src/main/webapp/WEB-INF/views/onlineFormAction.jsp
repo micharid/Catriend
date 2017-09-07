@@ -29,7 +29,6 @@
 	
 
 	request.setAttribute("u_grade", u_grade);
-	System.out.println("온라인폼엑션 u_grade : "+u_grade);
 	
 	PrintWriter script = response.getWriter();
 	script.println("<script>");

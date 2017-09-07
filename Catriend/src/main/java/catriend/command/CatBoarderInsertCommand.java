@@ -22,14 +22,13 @@ public class CatBoarderInsertCommand implements CatCommand {
 		String cb_content = req.getParameter("cb_content");
 		String c_index = req.getParameter("c_index");
 		String cb_file = null;
-		
-		if(paramMap.get("cb_file") != null) {
+
+		if (paramMap.get("cb_file") != null) {
 			cb_file = paramMap.get("cb_file").toString();
 		}
-		
+
 		String u_id = req.getParameter("u_id");
-		System.out.println(cb_title+","+cb_content+","+cb_file+","+u_id);
-		
+
 		dto.setCb_title(cb_title);
 		dto.setCb_content(cb_content);
 		dto.setCb_file(cb_file);

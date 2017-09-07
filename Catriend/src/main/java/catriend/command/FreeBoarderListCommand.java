@@ -21,7 +21,6 @@ public class FreeBoarderListCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		System.out.println("프리보더리스트 커멘드 검색 : " + req.getParameter("searchWord"));
 
 		// 전체 레코드수를 카운드
 		int totalRecordCount = dao.getTotalFreeBoarderCount(paramMap);
@@ -47,8 +46,9 @@ public class FreeBoarderListCommand implements CatCommand {
 
 		// 페이지 처리를 위한 문자열 생성
 		String addQueryStr = "";
-		if(req.getParameter("searchWord") != null) {
-			addQueryStr = String.format("searchColumn=%s&searchWord=%s&",req.getParameter("searchColumn"), req.getParameter("searchWord"));
+		if (req.getParameter("searchWord") != null) {
+			addQueryStr = String.format("searchColumn=%s&searchWord=%s&", req.getParameter("searchColumn"),
+					req.getParameter("searchWord"));
 		}
 		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
 				req.getContextPath() + "/freeBoardList?" + addQueryStr);

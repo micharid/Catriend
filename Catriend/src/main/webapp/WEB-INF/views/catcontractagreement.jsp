@@ -32,7 +32,7 @@ textarea {
 }
 
 .funkyradio input[type="radio"]:empty ~ label, .funkyradio input[type="checkbox"]:empty 
-	~ label {
+	 ~ label {
 	position: relative;
 	line-height: 2.5em;
 	text-indent: 3.25em;
@@ -45,7 +45,7 @@ textarea {
 }
 
 .funkyradio input[type="radio"]:empty ~ label:before, .funkyradio input[type="checkbox"]:empty 
-	~ label:before {
+	 ~ label:before {
 	position: absolute;
 	display: block;
 	top: 0;
@@ -71,12 +71,12 @@ textarea {
 }
 
 .funkyradio input[type="radio"]:checked ~ label, .funkyradio input[type="checkbox"]:checked 
-	~ label {
+	 ~ label {
 	color: #777;
 }
 
 .funkyradio input[type="radio"]:checked ~ label:before, .funkyradio input[type="checkbox"]:checked 
-	~ label:before {
+	 ~ label:before {
 	content: '\2714';
 	text-indent: .9em;
 	color: #333;
@@ -84,7 +84,7 @@ textarea {
 }
 
 .funkyradio input[type="radio"]:focus ~ label:before, .funkyradio input[type="checkbox"]:focus 
-	~ label:before {
+	 ~ label:before {
 	box-shadow: 0 0 0 3px #999;
 }
 
@@ -131,7 +131,6 @@ textarea {
 </style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 
@@ -139,12 +138,13 @@ textarea {
 	function checkAgree() {
 
 		var f = document.AgreeFrm;
-		
-		if(f.checkbox1.checked != true || f.checkbox2.checked != true || f.checkbox3.checked != true){
+
+		if (f.checkbox1.checked != true || f.checkbox2.checked != true
+				|| f.checkbox3.checked != true) {
 			alert("약관에 동의해주세요");
 			return false;
 		}
-		
+
 		return true;
 	}
 </script>
@@ -158,9 +158,6 @@ textarea {
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
 	<div id="blue">
 		<div class="container">
 			<div class="row">
@@ -171,17 +168,13 @@ textarea {
 		</div>
 	</div>
 
-
-	<!-- *****************************************************************************************************************
-	 BLOG CONTENT
-	 ***************************************************************************************************************** -->
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<div class="panel panel-default center-block">
-					<form action="catcontractpaypage" name="AgreeFrm" onsubmit="return checkAgree();">
+					<form action="catcontractpaypage" name="AgreeFrm"
+						onsubmit="return checkAgree();">
 						<input type="hidden" name="c_index" value="${c_index}" /> <span
 							style="font-size: 1.3em;"><b>구매이용약관</b></span>
 						<textarea class="form-control" rows="5" readonly
@@ -1099,9 +1092,6 @@ c. 그 외 회사가 정한 안전거래 이용규칙을 위반한 경우
 	<br />
 	<br />
 
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->

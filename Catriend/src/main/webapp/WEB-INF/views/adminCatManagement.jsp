@@ -90,7 +90,6 @@
 		</div>
 
 		</nav>
-		<!-- /. NAV SIDE  -->
 		<div id="page-wrapper">
 			<div id="page-inner">
 				<div class="row">
@@ -98,7 +97,6 @@
 						<h2>관리자 페이지</h2>
 					</div>
 				</div>
-				<!-- /. ROW  -->
 				<hr />
 				<div class="row">
 					<div class="col-lg-12 ">
@@ -115,7 +113,8 @@
 								style="font-size: 1.5em; font-weight: 700;">
 								<center>고양이 관리 ${sort}</center>
 							</div>
-							<form name="Frm" action="catsDeletes" onsubmit="return check(this)">
+							<form name="Frm" action="catsDeletes"
+								onsubmit="return check(this)">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr>
@@ -158,10 +157,15 @@
 									</table>
 
 									<div class="com-md-12 pull-right" style="margin-top: -15px;">
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
-										<button class="btn btn-success" type="button" style="color: white;"	onclick="location.href='catWrite?sort=${sort}&order=${order}'">추가하기</button>
-										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기" />
+										<input class="btn btn-primary" type="button"
+											style="color: white;" value="전체선택" onclick="check_all();"/ >
+										<input class="btn btn-primary" type="button"
+											style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
+										<button class="btn btn-success" type="button"
+											style="color: white;"
+											onclick="location.href='catWrite?sort=${sort}&order=${order}'">추가하기</button>
+										<input class="btn" type="submit"
+											style="background-color: #00b3fe; color: white;" value="삭제하기" />
 									</div>
 
 									<div class="col-md-12 text-center" style="margin-top: 10px;">
@@ -172,21 +176,15 @@
 					</div>
 				</div>
 
-				<!-- /. ROW  -->
 			</div>
-			<!-- /. PAGE INNER  -->
 		</div>
-		<!-- /. PAGE WRAPPER  -->
 		<div class="footer">
-
 
 			<div class="row">
 				<div class="col-lg-12">&copy; 2017 Cat'riend</div>
 			</div>
 		</div>
 
-
-		<!-- /. WRAPPER  -->
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
 		<script src="./resources/assets/adminPageTemplate/js/jquery-1.10.2.js"></script>

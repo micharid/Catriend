@@ -14,17 +14,15 @@
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
-	<%-- 다시업로드할땐 이렇게	<%@ include file="../../resources/common/layOutTop.jsp"%> --%>
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-	<br /><br /><br /><br /><br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 
-
-	<!-- *****************************************************************************************************************
-	 BLOG CONTENT
-	 ***************************************************************************************************************** -->
-	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
@@ -32,11 +30,15 @@
 				<div class="panel panel-default">
 					<div class="panel-body text-center">
 						<div class="successimg">
-							<img class="center-block" src="./resources/assets/img/success.png" style="width: 225px! important; height:225px! important;">
+							<img class="center-block"
+								src="./resources/assets/img/success.png"
+								style="width: 225px ! important; height: 225px ! important;">
 						</div>
 						<h3>회원탈퇴가 완료되었습니다.</h3>
 						<div class="text-center">
-								<button class="btn" type="button" onclick="location.href='mainPage'" style="background-color:#00b3fe; color:white;">메인페이지로</button>
+							<button class="btn" type="button"
+								onclick="location.href='mainPage'"
+								style="background-color: #00b3fe; color: white;">메인페이지로</button>
 						</div>
 					</div>
 				</div>
@@ -44,21 +46,17 @@
 			<div class="col-md-1"></div>
 		</div>
 	</div>
-	
-	<br />
-	
 
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
+	<br />
+
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 </body>
 </html>

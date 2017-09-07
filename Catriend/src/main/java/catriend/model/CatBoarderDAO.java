@@ -125,7 +125,6 @@ public class CatBoarderDAO {
 
 	public List<CatBoarderDTO> selectAll(Map<String, Object> map) {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
-		System.out.println("dao 메소드 검색 : " + req.getParameter("searchWord"));
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
@@ -161,8 +160,6 @@ public class CatBoarderDAO {
 			sql += " AND " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
 		sql += " ORDER BY cb_hits DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
-
-		System.out.println("마이셀렉트올 : " + sql);
 
 		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
 	}

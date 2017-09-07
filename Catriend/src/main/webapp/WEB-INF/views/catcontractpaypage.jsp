@@ -9,13 +9,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>후기게시판</title>
+<title>계약</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
-
-<title>계약</title>
 
 <!-- datepicker 제이쿼리 임포트 -->
 <link rel="stylesheet"
@@ -161,12 +159,8 @@
 					<h3>계약하기</h3>
 				</center>
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
 	</div>
-	<!-- /blue -->
-
 
 	<div class="container">
 		<div class="row">

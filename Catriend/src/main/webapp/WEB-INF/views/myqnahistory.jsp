@@ -6,7 +6,6 @@
 <head>
 <title>질문내역</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -34,28 +33,23 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
-	<!-- Fixed navbar -->
-	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-	<!-- bottom e -->
+	<!-- top e -->
 
 
 
-	<!-- bottom s -->
+	<!-- top s -->
 	<%@ include file="../../resources/common/sectionAd.jsp"%>
-	<!-- bottom e -->
+	<!-- top e -->
 
 	<div class="container">
 		<div class="row">
 			<div id="blue" style="margin-top: 60px;">
-
 				<center>
 					<h3
 						style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px; margin-bottom: 50px;">내가
 						질문한 목록</h3>
 				</center>
-
-				<!-- /container -->
 			</div>
 
 			<div class="col-md-1"></div>
@@ -77,15 +71,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 							<c:forEach items="${myQnaList}" var="row">
 								<tr>
 									<td class="text-center">${totalRecordCount - row.rNum +1}</td>
-									<td><a href="myqnaview?q_index=${row.q_index}&nowPage=${nowPage}">${row.q_title}</a></td>
-									<td class="text-center">
-										<c:if test="${row.q_a_result == 1}">
+									<td><a
+										href="myqnaview?q_index=${row.q_index}&nowPage=${nowPage}">${row.q_title}</a></td>
+									<td class="text-center"><c:if
+											test="${row.q_a_result == 1}">
 											<sqan class="glyphicon glyphicon-ok"></sqan>
-										</c:if>
-										<c:if test="${row.q_a_result == 0}">
+										</c:if> <c:if test="${row.q_a_result == 0}">
 											<sqan class="glyphicon glyphicon-remove"></sqan>
-										</c:if>
-									</td>
+										</c:if></td>
 									<td class="text-center">${row.q_date}</td>
 								</tr>
 							</c:forEach>
@@ -114,17 +107,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		</div>
 	</div>
 
-		<br />
-		<br />
-		<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
+	<br />
+	<br />
 
-		<!-- bottom s -->
-		<%@ include file="../../resources/common/layOutBottom.jsp"%>
-		<!-- bottom e -->
-		<!-- bottom s -->
-		<%@ include file="../../resources/common/menuScript.jsp"%>
-		<!-- bottom e -->
+	<!-- bottom s -->
+	<%@ include file="../../resources/common/layOutBottom.jsp"%>
+	<!-- bottom e -->
+	<!-- bottom s -->
+	<%@ include file="../../resources/common/menuScript.jsp"%>
+	<!-- bottom e -->
 </body>
 </html>

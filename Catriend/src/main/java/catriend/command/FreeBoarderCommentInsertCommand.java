@@ -18,11 +18,11 @@ public class FreeBoarderCommentInsertCommand implements CatCommand {
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
 		FreeBoarderCommentDTO dto = new FreeBoarderCommentDTO();
-		
+
 		String fbc_content = req.getParameter("fbc_content");
 		String u_id = req.getParameter("u_id");
 		int fb_index = Integer.parseInt(req.getParameter("fb_index"));
-		
+
 		dto.setFbc_content(fbc_content);
 		dto.setU_id(u_id);
 		dto.setFb_index(fb_index);

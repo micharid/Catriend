@@ -1,27 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>마이페이지</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
-    <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
-  </head>
+<head>
+<title>마이페이지</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
+<link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
+</head>
 <style>
-#blue{
-    background: #428BCA;
-    margin-bottom:20px;
-   
+#blue {
+	background: #428BCA;
+	margin-bottom: 20px;
 }
 
-
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    line-height: 1.1;
-    color: inherit;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
 }
 </style>
 
@@ -101,42 +98,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 </head>
 
 <body>
-
-	
-<!-- bottom s -->
+	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-<!-- bottom e -->
+	<!-- top e -->
 
-	
-<!-- bottom s -->
+	<!-- top s -->
 	<%@ include file="../../resources/common/sectionAd.jsp"%>
-<!-- bottom e -->
-
-
-
-
+	<!-- top e -->
 </head>
 
 <body>
-
-
-
-
-	<!-- *****************************************************************************************************************
-    BLOG CONTENT
-    ***************************************************************************************************************** -->
-
 	<div class="container">
 		<div class="row">
-		
-	<div id="blue" style="margin-top:60px;">
-		
-					<center>
-						<h3 style=" font-size: 20px; line-height: 1.428571429; color: #fff; padding:10px;">회원정보</h3>
-					</center>
-		
-			<!-- /container -->
-	</div>
+
+			<div id="blue" style="margin-top: 60px;">
+				<center>
+					<h3
+						style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">회원정보</h3>
+				</center>
+			</div>
 			<div class="col-md-4">
 				<div class="panel panel-default">
 					<div class="panel-body text-center">
@@ -162,7 +142,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					</div>
 					<div class="panel-body text-center">
 						<form action="leaveuserAction">
-							<input type="hidden" name="u_id" value="${loginUser.u_id}"/>
+							<input type="hidden" name="u_id" value="${loginUser.u_id}" />
 							<button class="btn" type="submit"
 								style="background-color: #dfdfdf; color: black;"
 								onclick="confirmFunc()">회원 탈퇴하기</button>
@@ -194,7 +174,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 										<label class="col-sm-2 control-label" for="inputContact2">이메일</label>
 										<div class="col-sm-10">
 											<input class="form-control" id="inputContact2" type="text"
-												name="u_email" placeholder="" value="${loginUser.u_email}" disabled>
+												name="u_email" placeholder="" value="${loginUser.u_email}"
+												disabled>
 										</div>
 									</div>
 
@@ -255,10 +236,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 												style="background-color: #00b3fe; color: white;">수정하기</button>
 										</div>
 									</div>
-
 								</form>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -266,15 +245,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		</div>
 	</div>
 
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 
-    <script src="./resources/KapukAlas/js/jquery.js"></script>
-    <script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<script src="./resources/KapukAlas/js/jquery.js"></script>
+	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 
-  </body>
+</body>
 </html>

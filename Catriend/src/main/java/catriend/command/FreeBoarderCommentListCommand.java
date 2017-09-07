@@ -3,8 +3,6 @@ package catriend.command;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.ui.Model;
 
 import catriend.model.FreeBoarderCommentDAO;
@@ -19,7 +17,6 @@ public class FreeBoarderCommentListCommand implements CatCommand {
 
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
-		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
 		// DAO에서 list메소드로 목록가져오기
 		List<FreeBoarderCommentDTO> listRows = dao.selectAll(paramMap);

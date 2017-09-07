@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 
-import catriend.model.CatBoarderDAO;
 import catriend.model.FreeBoarderDAO;
 
 public class FreeBoardsDeletesCommand implements CatCommand {

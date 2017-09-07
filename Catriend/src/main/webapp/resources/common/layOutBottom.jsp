@@ -29,8 +29,7 @@
 			<div class="col-md-3">
 				<h4>Cat`riend</h4>
 				<p>우리 캣 랜드에서는 외롭고, 일상에 지친 현대인과</p>
-				<p>반려동물에 대한 접근성이
-				부족해 분양을 받기가 고민되는 사람들에게</p>
+				<p>반려동물에 대한 접근성이 부족해 분양을 받기가 고민되는 사람들에게</p>
 				<p>고양이와 친구가 될 수 있는 기회를 제공하고있습니다.</p>
 			</div>
 			<div class="col-md-3">
@@ -62,24 +61,20 @@
 					<div class="col-md-1">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</div>
-					<div class="col-md-10">
-						자격 조건
-					</div>
+					<div class="col-md-10">자격 조건</div>
 				</div>
 				<br>
 				<div class="row">
 					<div class="col-md-1">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</div>
-					<div class="col-md-10">
-						주의 사항
-					</div>
+					<div class="col-md-10">주의 사항</div>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<h4>더 자세히..</h4>
-					<a href="about" class="btn btn-warning" role="button">소개 게시판
-						바로가기</a>
+				<a href="about" class="btn btn-warning" role="button">소개 게시판
+					바로가기</a>
 			</div>
 		</div>
 	</div>

@@ -119,12 +119,11 @@ public class QnaDAO {
 
 		return (List<QnaDTO>) template.query(sql, new BeanPropertyRowMapper<QnaDTO>(QnaDTO.class));
 	}
-	
+
 	// 질문 답변 업데이트
 	public void AnswerQna(final QnaDTO dto) {
 
-		String sql = " UPDATE qna " + " SET q_answer = ?, q_a_result=1"
-				+ " WHERE q_index = ? ";
+		String sql = " UPDATE qna " + " SET q_answer = ?, q_a_result=1" + " WHERE q_index = ? ";
 
 		this.template.update(sql, new PreparedStatementSetter() {
 

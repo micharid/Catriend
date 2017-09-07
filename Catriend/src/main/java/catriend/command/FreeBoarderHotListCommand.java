@@ -3,12 +3,7 @@ package catriend.command;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.ui.Model;
-
-import catriend.model.CatBoarderDAO;
-import catriend.model.CatBoarderDTO;
 import catriend.model.FreeBoarderDAO;
 import catriend.model.FreeBoarderDTO;
 
@@ -20,7 +15,6 @@ public class FreeBoarderHotListCommand implements CatCommand {
 
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
-		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
 		int start = 1;
 		int end = 6;

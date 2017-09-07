@@ -5,7 +5,6 @@
 <head>
 <title>회원가입</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -25,7 +24,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	line-height: 1.1;
 	color: inherit;
 }
-
 </style>
 
 <script>
@@ -55,7 +53,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					$("#u_id").css("background-color", "#B0F6AC");
 					idCheck = 1;
 					if (idCheck == 1 && pwdCheck == 1) {
-						
+
 						signupCheck();
 					}
 				} else if (data == 1) {
@@ -68,7 +66,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			}
 		});
 	}
-	
+
 	//아이디 체크하여 가입버튼 비활성화, 중복확인.
 	function checkEmail() {
 		var f = document.registFrm.u_email.value;
@@ -79,25 +77,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			url : "processing/emailCheck",
 			success : function(data) {
 				if (f == '' && data == 0) {
-					
+
 					$("#rBtn").prop("disabled", true);
 					$("#rBtn").css("background-color", "#aaaaaa");
 					$("#u_email").css("background-color", "#FFCECE");
 					emailCheck = 0;
 					signupCheck();
-					
+
 				} else if (data == 0) {
 
 					$("#u_email").css("background-color", "#B0F6AC");
 					emailCheck = 1;
 					signupCheck();
-					
+
 				} else if (data == 1) {
 					emailCheck = 0;
 					$("#rBtn").prop("disabled", true);
 					$("#rBtn").css("background-color", "#aaaaaa");
 					$("#u_email").css("background-color", "#FFCECE");
-					
+
 				}
 			}
 		});
@@ -123,33 +121,31 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			$("#rBtn").prop("disabled", true);
 			$("#rBtn").css("background-color", "#aaaaaa");
 			$("#cPass").css("background-color", "#FFCECE");
-			
 
 		}
 	}
 	//닉네임과 이메일 입력하지 않았을 경우 가입버튼 비활성화
 	function signupCheck() {
-		
-		
+
 		var name = document.registFrm.name.value;
 		var birthD = document.registFrm.birthD.value;
 		var pNumber = document.registFrm.pNumber.value;
 		var add = document.registFrm.add.value;
 
-		if (name == "" || birthD == ""	|| pNumber == "" || add == "") {
-			
-				$("#rBtn").prop("disabled", true);
-				$("#rBtn").css("background-color", "#aaaaaa");
-			
-			
-		}else{
-			if(idCheck == 1 && pwdCheck == 1 && emailCheck ==1 && nickCheck == 1){
+		if (name == "" || birthD == "" || pNumber == "" || add == "") {
+
+			$("#rBtn").prop("disabled", true);
+			$("#rBtn").css("background-color", "#aaaaaa");
+
+		} else {
+			if (idCheck == 1 && pwdCheck == 1 && emailCheck == 1
+					&& nickCheck == 1) {
 				$("#rBtn").prop("disabled", false);
 				$("#rBtn").css("background-color", "#4CAF50");
 			}
-			
+
 		}
-		
+
 	}
 </script>
 
@@ -179,7 +175,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					$("#nickname").css("background-color", "#B0F6AC");
 					nickCheck = 1;
 					if (nickCheck == 1 && pwdCheck == 1) {
-						
+
 						signupCheck();
 					}
 				} else if (data == 1) {
@@ -187,7 +183,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					$("#rBtn").prop("disabled", true);
 					$("#rBtn").css("background-color", "#aaaaaa");
 					$("#nickname").css("background-color", "#FFCECE");
-					
+
 					nickCheck = 0;
 				}
 			}
@@ -217,7 +213,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			</div>
 			<div class="col-md-3">
 				<span class="glyphicon glyphicon-film"></span> <br>
-				<h3>추 억</h3>  
+				<h3>추 억</h3>
 				고양이친구들과의 추억을 다른분들에게 자랑해보세요.
 			</div>
 			<div class="col-md-3">
@@ -227,7 +223,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			</div>
 		</div>
 		<div id="blue" style="width: 1170px;" align="center">
-			<h3 style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">회원가입</h3>
+			<h3
+				style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">회원가입</h3>
 		</div>
 
 
@@ -248,7 +245,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 									<label class="col-sm-3 control-label" for="inputId">아이디</label>
 									<div class="col-sm-6">
 										<input class="form-control" id="u_id" required class="id"
-											oninput="checkId()" name="u_id" type="text" value="" placeholder="아이디">
+											oninput="checkId()" name="u_id" type="text" value=""
+											placeholder="아이디">
 
 									</div>
 								</div>
@@ -326,20 +324,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 										</button>
 
 										<a href="mainPage">
-										<button class="btn btn-danger" type="button">
-											가입취소 <i class="fa fa-times spaceLeft"></i>
-										</button>
+											<button class="btn btn-danger" type="button">
+												가입취소 <i class="fa fa-times spaceLeft"></i>
+											</button>
 										</a>
 									</div>
 								</div>
 							</form>
-
 						</div>
 					</article>
 				</div>
 				<div class="col-sm-2"></div>
 			</div>
-
 			<br />
 		</div>
 	</section>

@@ -106,7 +106,6 @@ public class CatsDAO {
 
 	// 전체리스트(관리자페이지 리스트 불러오는용도)
 	public List<CatsDTO> selectAlladmin(Map<String, Object> map) {
-		System.out.println("dao sort : " + map.get("sort").toString());
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		String order = map.get("order").toString() != null ? map.get("order").toString() : "c_index";

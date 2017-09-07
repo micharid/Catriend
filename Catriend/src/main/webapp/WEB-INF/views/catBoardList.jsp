@@ -19,15 +19,13 @@
 </style>
 
 <script>
-var isValidate = function(obj)
-{
-	if(obj.searchWord.value=="")
-	{
-		alert("검색내용을 입력하세요");
-		obj.searchWord.focus();
-		return false;
+	var isValidate = function(obj) {
+		if (obj.searchWord.value == "") {
+			alert("검색내용을 입력하세요");
+			obj.searchWord.focus();
+			return false;
+		}
 	}
-}
 </script>
 
 <body>
@@ -36,10 +34,6 @@ var isValidate = function(obj)
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
-	<!-- *****************************************************************************************************************
-	 CONTACT WRAP
-	 ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
 			<div class="row">
@@ -81,7 +75,8 @@ var isValidate = function(obj)
 									<div class="panel panel-default">
 										<div class="panel-body">
 											<div class="table-responsive">
-												<form method="get" action="catBoardList" onsubmit="return isValidate(this);">
+												<form method="get" action="catBoardList"
+													onsubmit="return isValidate(this);">
 													<input type="hidden" name="nowPage" value="1" />
 													<table width="100%" style="text-align: center;">
 														<tr>
@@ -89,10 +84,8 @@ var isValidate = function(obj)
 																	<option value="cb_title">제목</option>
 																	<option value="u_id">작성자</option>
 																	<option value="cb_content">내용</option>
-																</select> 
-																<input type="text" name="searchWord" /> 
-																<input type="submit" value="검색하기" />
-															</td>
+															</select> <input type="text" name="searchWord" /> <input
+																type="submit" value="검색하기" /></td>
 														</tr>
 
 													</table>
@@ -102,7 +95,8 @@ var isValidate = function(obj)
 														<div class="col-lg-3 col-md-6 col-sm-6 animate-box">
 															<a class="fh5co-card"
 																href="catBoardView?cb_index=${row.cb_index}&nowPage=${nowPage}">
-																<img src="./resources/assets/img/boardImages/${row.cb_file}"
+																<img
+																src="./resources/assets/img/boardImages/${row.cb_file}"
 																alt="Free HTML5 Bootstrap template"
 																class="img-responsive">
 																<div class="fh5co-card-body">
@@ -129,11 +123,6 @@ var isValidate = function(obj)
 			</div>
 		</div>
 	</div>
-
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>

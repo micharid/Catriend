@@ -6,7 +6,6 @@
 <head>
 <title>게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -20,15 +19,13 @@
 </style>
 
 <script>
-var isValidate = function(obj)
-{
-	if(obj.searchWord.value=="")
-	{
-		alert("검색내용을 입력하세요");
-		obj.searchWord.focus();
-		return false;
+	var isValidate = function(obj) {
+		if (obj.searchWord.value == "") {
+			alert("검색내용을 입력하세요");
+			obj.searchWord.focus();
+			return false;
+		}
 	}
-}
 </script>
 
 <body>
@@ -37,11 +34,6 @@ var isValidate = function(obj)
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
-
-	<!-- *****************************************************************************************************************
-	 CONTACT WRAP
-	 ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
 			<div class="row">
@@ -102,25 +94,24 @@ var isValidate = function(obj)
 												<table width="100%">
 													<tr>
 														<td align="right">
-														<%
-															if(login != null){
-														%>
+															<%
+																if (login != null) {
+															%>
 															<button type="button" class="btn btn-info"
-																onclick="location.href='freeBoardWrite'">글쓰기</button>
-														<%
-															}
-														%>
+																onclick="location.href='freeBoardWrite'">글쓰기</button> <%
+ 	}
+ %>
 														</td>
 													</tr>
 												</table>
 												<table class="table table-bordered table-hover">
 													<thead>
 														<tr>
-															<th style="width:10%;" class="text-center">NO</th>
+															<th style="width: 10%;" class="text-center">NO</th>
 															<th>제목</th>
-															<th style="width:10%;" class="text-center">작성자</th>
-															<th style="width:10%;" class="text-center">조회수</th>
-															<th style="width:15%;" class="text-center">작성일</th>
+															<th style="width: 10%;" class="text-center">작성자</th>
+															<th style="width: 10%;" class="text-center">조회수</th>
+															<th style="width: 15%;" class="text-center">작성일</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -154,11 +145,6 @@ var isValidate = function(obj)
 			</div>
 		</div>
 	</div>
-
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>

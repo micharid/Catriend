@@ -14,11 +14,10 @@ public class ContractSelectCheckCommand implements CatCommand {
 		ContractDAO dao = new ContractDAO();
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		System.out.println("유저 아이디 : " + req.getParameter("u_id") + ", c_index : " + Integer.parseInt(req.getParameter("c_index")));
 
 		int result = dao.selectCheck(req.getParameter("u_id"), Integer.parseInt(req.getParameter("c_index")));
 		model.addAttribute("checkResult", result);
-		
+
 		System.out.println("ContractListCommand");
 	}
 }

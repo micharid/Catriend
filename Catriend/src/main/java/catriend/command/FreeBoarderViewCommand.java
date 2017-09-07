@@ -18,9 +18,9 @@ public class FreeBoarderViewCommand implements CatCommand {
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
 		FreeBoarderDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("fb_index")));
-		
+
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
-		
+
 		model.addAttribute("dto", dto);
 
 		System.out.println("FreeBoarderViewCommand");

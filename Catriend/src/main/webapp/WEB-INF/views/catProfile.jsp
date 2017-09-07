@@ -10,7 +10,6 @@
 <head>
 <title>고양이 프로필</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -63,16 +62,6 @@ hr {
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
-
-
-
-	<!-- *****************************************************************************************************************
-	 BLOG CONTENT
-	 ***************************************************************************************************************** -->
-
 	<div class="container mtb">
 		<div class="row">
 			<div id="blue" style="margin-top: 60px;">
@@ -82,24 +71,15 @@ hr {
 						style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">Cat
 						Profile</h3>
 				</center>
-
-				<!-- /container -->
 			</div>
 
-			<!-- SINGLE POST -->
 			<div class="col-lg-8" style="margin: 15px 0 0 0;">
-				<!-- Blog Post 1 -->
 				<div align="center">
-					<!-- s -->
 					<img src="./resources/assets/img/catP/${dto.c_index}.jpg"
 						alt="이미지가없습니다." width="500px" />
-					<!-- e -->
 				</div>
 			</div>
-			<!--/col-lg-8 -->
 
-
-			<! -- SIDEBAR -->
 			<div class="col-lg-4">
 				<h4>고양이친구 프로필</h4>
 				<div class="hline"></div>
@@ -154,7 +134,7 @@ hr {
 					%>
 					<button class="btn btn-warning" style="width: 100%;"
 						onclick="location.href='catBoardList?c_index=${dto.c_index}'">후기게시판</button>
-						
+
 				</p>
 				<br />
 				<hr style="color: blue" />
@@ -182,14 +162,8 @@ hr {
 				</p>
 			</div>
 		</div>
-		<! --/row -->
 	</div>
-	<! --/container -->
 
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
@@ -199,6 +173,5 @@ hr {
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
 	<!-- bottom e -->
-
 </body>
 </html>

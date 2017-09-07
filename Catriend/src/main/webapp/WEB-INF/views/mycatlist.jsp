@@ -10,7 +10,6 @@
 <head>
 <title>나에게 맞는 고양이들</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 <script src="./resources/js/jquery-3.2.1.js"></script>
@@ -59,10 +58,6 @@
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
 	<div id="blue">
 		<div class="container">
 			<div class="row">
@@ -70,16 +65,9 @@
 					<h3>고양이친구를 소개합니다.</h3>
 				</center>
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
 	</div>
-	<!-- /blue -->
 
-	
-	<!-- *****************************************************************************************************************
-	 PORTFOLIO SECTION
-	 ***************************************************************************************************************** -->
 	<div class="container-fluid">
 		<div class="row">
 			<div class="container-fluid">
@@ -176,57 +164,56 @@
 			</div>
 		</div>
 	</div>
-<div id="Display">
-	<%
-		if (listRows.size() == 0) {
-	%>
-	<div class="row" align="center">
-		<br /> <img src="./resources/assets/img/notsign.png" alt="Not" /><span
-			style="font-size: 1.3em;">등록된 글이 없습니다.</span> <br />
-	</div>
-	<%
-		} else {
-	%>
-	
-	<section id="portfolio">
-		<div class="container">
-			<div class="row">
+	<div id="Display">
+		<%
+			if (listRows.size() == 0) {
+		%>
+		<div class="row" align="center">
+			<br /> <img src="./resources/assets/img/notsign.png" alt="Not" /><span
+				style="font-size: 1.3em;">등록된 글이 없습니다.</span> <br />
+		</div>
+		<%
+			} else {
+		%>
+
+		<section id="portfolio">
+			<div class="container">
+				<div class="row">
 					<%
 						for (CatsDTO dto : listRows) {
 					%>
-				<div class="col-md-4">
-					<a href="catProfile?c_index=<%=dto.getC_index()%>">
-						<div class="thumbnail">
-							<div class="caption"><br /><br />
-										<p id="catname" style="font-size:1.8em;"><%=dto.getC_name()%></p>
-										<p><%=dto.getC_gender()%></p>
-										<p><%=dto.getC_keyword()%></p>
+					<div class="col-md-4">
+						<a href="catProfile?c_index=<%=dto.getC_index()%>">
+							<div class="thumbnail">
+								<div class="caption">
+									<br />
+									<br />
+									<p id="catname" style="font-size: 1.8em;"><%=dto.getC_name()%></p>
+									<p><%=dto.getC_gender()%></p>
+									<p><%=dto.getC_keyword()%></p>
+								</div>
+								<img src="./resources/assets/img/catP/<%=dto.getC_index()%>.jpg"
+									width="100%" height="100%">
 							</div>
-							<img src="./resources/assets/img/catP/<%=dto.getC_index()%>.jpg" width="100%"
-								height="100%">
-						</div>
-					</a>
-				</div>
-				<%
-					}
+						</a>
+					</div>
+					<%
 						}
-				%>
+						}
+					%>
+				</div>
 			</div>
-		</div>
-	</section>
-</div>
+		</section>
+	</div>
 
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 </body>
 </html>

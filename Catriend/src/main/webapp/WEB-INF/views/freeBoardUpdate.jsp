@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>KapukAlas - Multipurpose template</title>
+<title>자유게시판 수정</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
@@ -19,20 +19,20 @@
 }
 </style>
 <script>
-   function checkWriteFrm(){
-      var f = document.writeFrm;
-      if(f.title.value==""){
-         alert("제목을 입력하세요");
-         f.title.focus();
-         return false;
-      }
-      if(f.content.value==""){
-         alert("내용을 입력하세요");
-         f.content.focus();
-         return false;
-      }
-      
-   }
+	function checkWriteFrm() {
+		var f = document.writeFrm;
+		if (f.title.value == "") {
+			alert("제목을 입력하세요");
+			f.title.focus();
+			return false;
+		}
+		if (f.content.value == "") {
+			alert("내용을 입력하세요");
+			f.content.focus();
+			return false;
+		}
+
+	}
 </script>
 
 <body>
@@ -41,53 +41,14 @@
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
-	<!-- *****************************************************************************************************************
-    CONTACT WRAP
-    ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
 			<div class="row">
-
-				<div class="col-lg-12">가로이미지 들어갈 부분</div>
-				<div class="col-lg-4">
-					<h2>새로운 글</h2>
-					<ul class="list-group">
-
-						<li class="list-group-item">공지사항<span class="badge">99</span></li>
-						<li class="list-group-item active">자유게시판<span class="badge">5</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-					</ul>
-				</div>
-				<!-- 인기글 -->
-				<div class="col-lg-4">
-					<h2>인기 글</h2>
-					<ul class="list-group">
-
-						<li class="list-group-item">공지사항<span class="badge">99</span></li>
-						<li class="list-group-item active">자유게시판<span class="badge">5</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-					</ul>
-				</div>
-				<!--  -->
-				<div class="col-lg-4">
-					<h2>인기 글</h2>
-					<ul class="list-group">
-
-						<li class="list-group-item">공지사항<span class="badge">99</span></li>
-						<li class="list-group-item active">자유게시판<span class="badge">5</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-						<li class="list-group-item disabled">새알림없음<span class="badge">0</span></li>
-					</ul>
-				</div>
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">게시판</div>
+						<div class="panel-heading">
+							<h1>자유게시판 수정</h1>
+						</div>
 						<div class="panel-body">
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#free" data-toggle="tab">자유
@@ -117,17 +78,17 @@
 																<div class="form-group">
 																	첨부파일 <br />
 																	<%
-																		FreeBoarderDTO dto = (FreeBoarderDTO)request.getAttribute("dto");
-					                                                	String img = dto.getFb_file();
-					                                                	if(img != null){
-					                                                %>
+																		FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
+																		String img = dto.getFb_file();
+																		if (img != null) {
+																	%>
 																	기존이미지 <br /> <img
 																		src="./resources/assets/img/boardImages/${dto.fb_file}"
 																		width="50%"> <br />
 																	<%
 																		}
-					                                                %>
-																	<input type="file" style="width: 90%;" name="cb_file"
+																	%>
+																	<input type="file" style="width: 90%;" name="fb_file"
 																		alt="${dto.fb_file}" />
 																</div>
 																<div class="form-group">
@@ -143,7 +104,6 @@
 														</div>
 													</div>
 												</div>
-
 											</div>
 										</div>
 									</div>
@@ -155,15 +115,6 @@
 			</div>
 		</div>
 	</div>
-
-	</div>
-	<div class="col-lg-12">가로이미지 들어갈 부분</div>
-	</div>
-	</div>
-
-	<!-- *****************************************************************************************************************
-    FOOTER
-    ***************************************************************************************************************** -->
 
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>

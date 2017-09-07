@@ -14,13 +14,12 @@ import catriend.model.PagingUtil;
 public class myFreeBoardhistoryCommand implements CatCommand {
 	@Override
 	public void execute(Model model) {
-		
-		
+
 		FreeBoarderDAO dao = new FreeBoarderDAO();
 
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+
 		// 전체 레코드수를 카운드
 		int totalRecordCount = dao.getTotalMyFreeBoarderCount(paramMap);
 
@@ -48,8 +47,8 @@ public class myFreeBoardhistoryCommand implements CatCommand {
 			addQueryStr = String.format("searchColumn=%s&searchWord=%s&", req.getParameter("searchColumn"),
 					req.getParameter("searchWord"));
 		}
-		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage, req.getContextPath() + "/myfreeboardhistory?" + addQueryStr);
-		System.out.println(pagingImg);
+		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
+				req.getContextPath() + "/myfreeboardhistory?" + addQueryStr);
 		// DAO에서 list메소드로 목록가져오기
 		List<FreeBoarderDTO> listRows = dao.mySelectAll(paramMap);
 		// 페이지 처리를 위한 저장

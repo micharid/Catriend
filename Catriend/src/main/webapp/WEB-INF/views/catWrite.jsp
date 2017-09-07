@@ -8,35 +8,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
 <script>
-	function checkWriteFrm(){
+	function checkWriteFrm() {
 		var f = document.writeFrm;
-		
-		if(f.c_name.value == ""){alert("이름을 입력해주세요");f.c_name.focus();return false;}
-		if(f.c_birthday.value == ""){alert("생일을 입력해주세요");f.c_birthday.focus();return false;}
-		if(f.c_gender.value == ""){alert("성별을 입력해주세요");f.c_gender.focus();return false;}
-		if(f.c_type.value == ""){alert("품종을 입력해주세요");f.c_type.focus();return false;}
-		if(f.c_keyword.value == ""){alert("키워드를 입력해주세요");f.c_keyword.focus();return false;}
-		if(f.c_grade.value == ""){alert("등급을 입력해주세요");f.c_grade.focus();return false;}
+
+		if (f.c_name.value == "") {
+			alert("이름을 입력해주세요");
+			f.c_name.focus();
+			return false;
+		}
+		if (f.c_birthday.value == "") {
+			alert("생일을 입력해주세요");
+			f.c_birthday.focus();
+			return false;
+		}
+		if (f.c_gender.value == "") {
+			alert("성별을 입력해주세요");
+			f.c_gender.focus();
+			return false;
+		}
+		if (f.c_type.value == "") {
+			alert("품종을 입력해주세요");
+			f.c_type.focus();
+			return false;
+		}
+		if (f.c_keyword.value == "") {
+			alert("키워드를 입력해주세요");
+			f.c_keyword.focus();
+			return false;
+		}
+		if (f.c_grade.value == "") {
+			alert("등급을 입력해주세요");
+			f.c_grade.focus();
+			return false;
+		}
 		return true;
 	}
 </script>
-<!-- BOOTSTRAP STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/bootstrap.css"
 	rel="stylesheet" />
-<!-- FONTAWESOME STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/font-awesome.css"
 	rel="stylesheet" />
-<!-- CUSTOM STYLES-->
 <link href="./resources/assets/adminPageTemplate/css/custom.css"
 	rel="stylesheet" />
-<!-- GOOGLE FONTS-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans'
 	rel='stylesheet' type='text/css' />
 </head>
 <body>
-
-
-
 	<div id="wrapper">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-header">
@@ -54,7 +71,6 @@
 				</a></li>
 			</ul>
 		</div>
-		<!-- /. NAV TOP  -->
 		<nav class="navbar-default navbar-side" role="navigation">
 		<div class="sidebar-collapse">
 			<ul class="nav" id="main-menu">
@@ -74,7 +90,6 @@
 		</div>
 
 		</nav>
-		<!-- /. NAV SIDE  -->
 		<div id="page-wrapper">
 			<div id="page-inner">
 				<div class="row">
@@ -82,7 +97,6 @@
 						<h2>관리자 페이지</h2>
 					</div>
 				</div>
-				<!-- /. ROW  -->
 				<hr />
 				<div class="row">
 					<div class="col-lg-12 ">
@@ -101,9 +115,11 @@
 							</div>
 							<div class="panel-body">
 								<form name="writeFrm" method="post"
-									onsubmit="return checkWriteFrm()" action="catWriteAction?sort=${sort}" enctype="multipart/form-data">
-									<input type="hid den" name="sort" value="${sort}">
-									<input type="hid den" name="order" value="${order}">
+									onsubmit="return checkWriteFrm()"
+									action="catWriteAction?sort=${sort}"
+									enctype="multipart/form-data">
+									<input type="hid den" name="sort" value="${sort}"> <input
+										type="hid den" name="order" value="${order}">
 									<div class="form-group">
 										<label>이름</label> <input class="form-control" type="text"
 											name="c_name" placeholder="고양이 이름을 입력해주세요" />
@@ -130,7 +146,7 @@
 									</div>
 									<div class="form-group">
 										<label>고양이 사진</label> <input class="form-control" type="file"
-											name="c_file"/>
+											name="c_file" />
 									</div>
 
 									<button type="submit" class="btn btn-info">등록하기</button>
@@ -142,22 +158,14 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- /. ROW  -->
 			</div>
-			<!-- /. PAGE INNER  -->
 		</div>
-		<!-- /. PAGE WRAPPER  -->
 		<div class="footer">
-
-
 			<div class="row">
 				<div class="col-lg-12">&copy; 2017 Cat'riend</div>
 			</div>
 		</div>
 
-
-		<!-- /. WRAPPER  -->
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
 		<script src="./resources/assets/adminPageTemplate/js/jquery-1.10.2.js"></script>

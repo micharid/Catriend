@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cat'riend</title>
+<title>계약</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
@@ -18,11 +18,6 @@
 	<!-- top e -->
 
 	<br /><br /><br /><br /><br />
-
-
-	<!-- *****************************************************************************************************************
-	 BLOG CONTENT
-	 ***************************************************************************************************************** -->
 	
 	<div class="container">
 		<div class="row">
@@ -48,10 +43,6 @@
 	
 	<br />
 	
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->

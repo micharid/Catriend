@@ -20,7 +20,6 @@
 	rel='stylesheet' type='text/css' />
 </head>
 <body>
-	
 
 
 	<div id="wrapper">
@@ -38,7 +37,6 @@
 			</li>
 		</ul>
 		</div>
-		<!-- /. NAV TOP  -->
 		<nav class="navbar-default navbar-side" role="navigation">
 		<div class="sidebar-collapse">
 			<ul class="nav" id="main-menu">
@@ -64,7 +62,6 @@
 		</div>
 
 		</nav>
-		<!-- /. NAV SIDE  -->
 		<div id="page-wrapper">
 			<div id="page-inner">
 				<div class="row">
@@ -72,7 +69,6 @@
 						<h2>관리자 페이지</h2>
 					</div>
 				</div>
-				<!-- /. ROW  -->
 				<hr />
 				<div class="row">
 					<div class="col-lg-12 ">
@@ -81,8 +77,6 @@
 						</div>
 					</div>
 				</div>
-
-
 
 				<div class="row text-center">
 
@@ -147,15 +141,9 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- /. ROW  -->
 			</div>
-			<!-- /. PAGE INNER  -->
 		</div>
-		<!-- /. PAGE WRAPPER  -->
 		<div class="footer">
-
-
 			<div class="row">
 				<div class="col-lg-12">
 					&copy; 2017 Cat'riend
@@ -163,8 +151,6 @@
 			</div>
 		</div>
 
-
-		<!-- /. WRAPPER  -->
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
 		<script src="./resources/assets/adminPageTemplate/js/jquery-1.10.2.js"></script>

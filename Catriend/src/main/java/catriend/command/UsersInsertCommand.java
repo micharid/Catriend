@@ -39,15 +39,6 @@ public class UsersInsertCommand implements CatCommand {
 		dto.setU_nickname(req.getParameter("u_nickname"));
 		dto.setU_grade(Integer.parseInt(req.getParameter("u_grade")));
 		
-		System.out.println(req.getParameter("u_id"));
-		System.out.println(req.getParameter("u_pw"));
-		System.out.println(req.getParameter("u_name"));
-		System.out.println(u_birthday);
-		System.out.println(req.getParameter("u_email"));
-		System.out.println(req.getParameter("u_phonenumber"));
-		System.out.println(req.getParameter("u_address"));
-		System.out.println(req.getParameter("u_nickname"));
-		System.out.println(req.getParameter("u_grade"));
 		UsersDAO dao = new UsersDAO();
 		dao.InsertUser(dto);
 

@@ -21,7 +21,6 @@ public class ContractListCommand implements CatCommand {
 
 		// 전체 레코드수를 카운드
 		int totalRecordCount = dao.getTotalMyContract(paramMap);
-		System.out.println("레코드수"+totalRecordCount);
 		// 페이지설정값(보이는 리스트갯수, 페이지갯수)
 		int pageSize = 4;
 		int blockPage = 3;
@@ -57,9 +56,9 @@ public class ContractListCommand implements CatCommand {
 		model.addAttribute("pagingImg", pagingImg);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("nowPage", nowPage);
-		
+
 		model.addAttribute("totalRecordCount", totalRecordCount);
-		
+
 		model.addAttribute("myContractList", lists);
 
 		System.out.println("ContractListCommand");

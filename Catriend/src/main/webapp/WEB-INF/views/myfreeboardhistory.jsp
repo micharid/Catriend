@@ -5,7 +5,6 @@
 <head>
 <title>내후기게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -38,38 +37,32 @@ var isValidate = function(obj)
 	}
 }
 </script>
-
 </head>
 
 <body>
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
-	<!-- Fixed navbar -->
-	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-	<!-- bottom e -->
-	<!-- bottom s -->
+	<!-- top e -->
+	<!-- top s -->
 	<%@ include file="../../resources/common/sectionAd.jsp"%>
-	<!-- bottom e -->
-	<!-- *****************************************************************************************************************
-	 BLOG CONTENT
-	 ***************************************************************************************************************** -->
+	<!-- top e -->
 
 	<div class="container">
 		<div class="row">
 			<div id="blue" style="margin-top: 60px;">
 				<center>
-					<h3 style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">
-						내가 작성한 글 목록
-					</h3>
+					<h3
+						style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">
+						내가 작성한 글 목록</h3>
 				</center>
 			</div>
 			<div class="col-md-2">
 				<div class="list-group text-center">
 					<a href="myfreeboardhistory" class="list-group-item active">자유게시판</a>
-					<!-- 소스코드로 active ajax방식으로 구현가능한지 확인해보기 -->
-					<a href="mycatboardhistory?u_id=${loginUser.u_id}" class="list-group-item">후기게시판</a> <a
+					<a href="mycatboardhistory?u_id=${loginUser.u_id}"
+						class="list-group-item">후기게시판</a> <a
 						class="btn btn-default list-group-item" href="myPageindex">마이
 						페이지로</a>
 				</div>
@@ -78,9 +71,7 @@ var isValidate = function(obj)
 
 				<div class="panel panel-default">
 					<div class="panel-heading"
-						style="font-size: 1.5em; font-weight: 700;">
-						자유게시판
-					</div>
+						style="font-size: 1.5em; font-weight: 700;">자유게시판</div>
 					<form method="get" onsubmit="return isValidate(this);">
 						<input type="hidden" name="nowPage" value="1" />
 						<table width="100%" style="text-align: center;">

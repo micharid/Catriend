@@ -18,9 +18,9 @@ public class QnAsDeletesCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+
 		String[] q_indexs = req.getParameterValues("select");
-		if(q_indexs != null){
+		if (q_indexs != null) {
 			for (String arrStr : q_indexs) {
 				int q_index = Integer.parseInt(arrStr);
 				dao.DeleteQna(q_index);

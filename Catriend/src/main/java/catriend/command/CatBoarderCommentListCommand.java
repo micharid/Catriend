@@ -21,8 +21,7 @@ public class CatBoarderCommentListCommand implements CatCommand {
 
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
-		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+
 		// DAO에서 list메소드로 목록가져오기
 		List<CatBoarderCommentDTO> listRows = dao.selectAll(paramMap);
 

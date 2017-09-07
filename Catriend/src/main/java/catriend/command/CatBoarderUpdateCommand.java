@@ -17,13 +17,10 @@ public class CatBoarderUpdateCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		System.out.println("cb_title : " + req.getParameter("cb_title"));
-		System.out.println("u_id : " + paramMap.get("u_id"));
-		System.out.println("cb_file : " + paramMap.get("cb_file"));
 
 		CatBoarderDTO dto = new CatBoarderDTO();
 		String cb_file = null;
-		if(paramMap.get("cb_file") != null) {
+		if (paramMap.get("cb_file") != null) {
 			cb_file = paramMap.get("cb_file").toString();
 		}
 

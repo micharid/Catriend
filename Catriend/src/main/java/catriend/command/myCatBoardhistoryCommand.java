@@ -42,7 +42,7 @@ public class myCatBoardhistoryCommand implements CatCommand {
 		paramMap.put("totalCount", totalRecordCount);
 		paramMap.put("pageSize", pageSize);
 		paramMap.put("blockPage", blockPage);
-		
+
 		// 페이지 처리를 위한 문자열 생성
 		String addQueryStr = "";
 		if (req.getParameter("searchWord") != null) {
@@ -51,7 +51,6 @@ public class myCatBoardhistoryCommand implements CatCommand {
 		}
 		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
 				req.getContextPath() + "/mycatboardhistory?" + addQueryStr);
-		System.out.println(pagingImg);
 		// DAO에서 list메소드로 목록가져오기
 		List<CatBoarderDTO> listRows = dao.mySelectAll(paramMap);
 		// 페이지 처리를 위한 저장

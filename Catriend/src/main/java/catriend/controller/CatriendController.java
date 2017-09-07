@@ -116,7 +116,6 @@ public class CatriendController {
 	private JavaMailSender mailSender;
 	
 	private String from ="kjs34160@gmail.com";
-	private String subject ="안녕하세요 캣랜드 입니다.";
 	  
 	@RequestMapping(value = "/mail")
 	public String sendMail(Model model,HttpServletRequest req){
@@ -146,13 +145,10 @@ public class CatriendController {
 	
 	@RequestMapping("/processing/emailsend")
 	public String emailsend(Model model, HttpServletRequest req) {
-		System.out.print("email값 : " +req.getParameter("email"));
 		
 		UsersDAO dao = new UsersDAO();
-		System.out.println(req.getParameter("email"));
 		
 		int result = dao.passUpdate(req.getParameter("id"));
-		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/emailsend";
 	}
@@ -160,13 +156,10 @@ public class CatriendController {
 	
 	@RequestMapping("/processing/findEqualCheck")
 	public String findEqualCheck(Model model, HttpServletRequest req) {
-		System.out.print("email값 : " +req.getParameter("email"));
 		
 		UsersDAO dao = new UsersDAO();
-		System.out.println(req.getParameter("email"));
 		
 		int result = dao.findEqual(req.getParameter("id"),req.getParameter("email"));
-		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/findEqualCheck";
 	}
@@ -175,12 +168,9 @@ public class CatriendController {
 	
 	@RequestMapping("/processing/findEmailCheck")
 	public String findEmailCheck(Model model, HttpServletRequest req) {
-		System.out.print("email값 : " +req.getParameter("email"));
 		
 		UsersDAO dao = new UsersDAO();
-		System.out.println(req.getParameter("email"));
 		int result = dao.userEmail(req.getParameter("email"));
-		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/findEmailCheck";
 	}
@@ -188,9 +178,7 @@ public class CatriendController {
 	@RequestMapping("/processing/findIdCheck")
 	public String findIdCheck(Model model, HttpServletRequest req) {
 		UsersDAO dao = new UsersDAO();
-		System.out.println(req.getParameter("id"));
 		int result = dao.userEqual(req.getParameter("id"));
-		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/findIdCheck";
 	}
@@ -210,8 +198,6 @@ public class CatriendController {
 	public String catBoardList(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
-		System.out.println("컨트롤러 검색어 : " + req.getParameter("searchWord"));
-		model.addAttribute(req);
 		command = new CatBoarderListCommand();
 		command.execute(model);
 
@@ -441,6 +427,7 @@ public class CatriendController {
 
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("c_index", req.getParameter("c_index"));
 
 		return "catBoardWrite";
 	}
@@ -502,7 +489,6 @@ public class CatriendController {
 
 		// 이미지 첨부 없을때 들어오는 조건
 		if (cb_file.contains(".") == false) {
-			System.out.println("asa");
 			// 기존 이미지 있을때
 			if (cb_Orifile != null) {
 				File f = new File(boardUploadPath + "\\" + cb_file);
@@ -525,12 +511,10 @@ public class CatriendController {
 			File f = new File(boardUploadPath + "\\" + cb_Orifile);
 			if (f.exists())
 				f.delete();
-			System.out.println(cb_file + ";;;;;;");
 		}
 		HttpSession session = req.getSession();
 		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
 		String u_id = dto.getU_id();
-		System.out.println(u_id);
 
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		model.addAttribute("cb_file", cb_file);
@@ -583,7 +567,6 @@ public class CatriendController {
 
 		CatsDAO dao = new CatsDAO();
 		CatsDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("c_index")));
-		System.out.println("캣 프로필 dto 불러 오기 : " + dto.getC_index());
 
 		model.addAttribute("dto", dto);
 		return "catProfile";
@@ -600,11 +583,6 @@ public class CatriendController {
 	public ResponseEntity<String> uimageUpload(MultipartFile file) throws Exception {
 
 		boardUploadPath = servletContext.getRealPath("/resources/assets/img/boardImages");
-		System.out.println(boardUploadPath);
-		System.out.println(file.getOriginalFilename());
-		System.out.println(file.getName());
-		System.out.println(file.getSize());
-		System.out.println(file.getContentType());
 
 		return new ResponseEntity<String>(
 				UploadFileUtils.uploadFile(boardUploadPath, file.getOriginalFilename(), file.getBytes()),
@@ -747,16 +725,6 @@ public class CatriendController {
 		return "myPage";
 	}
 
-	@RequestMapping("/newFile")
-	public String newFile(Model model, HttpServletRequest req) {
-		return "newFile";
-	}
-
-	@RequestMapping("/standard")
-	public String standard(Model model, HttpServletRequest req) {
-		return "standard";
-	}
-
 	@RequestMapping("/processing/catlistAction")
 	public String catlistAction(Model model, HttpServletRequest req) {
 		model.addAttribute("msg", req.getParameter("msg"));
@@ -783,7 +751,6 @@ public class CatriendController {
 		HttpSession session = req.getSession();
 		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
 		model.addAttribute("u_id", user.getU_id());
-		System.out.println("1");
 		command = new ContractListCommand();
 		command.execute(model);
 		return "mycontracthistory";
@@ -874,7 +841,6 @@ public class CatriendController {
 
 		// 이미지 첨부 없을때 들어오는 조건
 		if (fb_file.contains(".") == false) {
-			System.out.println("asa");
 			// 기존 이미지 있을때
 			if (fb_Orifile != null) {
 				File f = new File(boardUploadPath + "\\" + fb_file);
@@ -902,8 +868,6 @@ public class CatriendController {
 		HttpSession session = req.getSession();
 		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
 		String u_id = dto.getU_id();
-		System.out.println(u_id);
-		System.out.println(fb_file + ";;;;;;");
 
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		model.addAttribute("fb_file", fb_file);
@@ -1005,7 +969,7 @@ public class CatriendController {
 	public String regist(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "regist");
 		model.addAttribute("req", req);
-		System.out.println("컨트롤러 u_grade : " + req.getParameter("u_grade"));
+		
 		model.addAttribute("u_grade", req.getParameter("u_grade"));
 		return "regist";
 	}
@@ -1013,9 +977,6 @@ public class CatriendController {
 	@RequestMapping("registAction")
 	public String registAction(Model model, HttpServletRequest req) {
 		model.addAttribute("req", req);
-		System.out.println(req.getParameter("u_id") + req.getParameter("u_name") + req.getParameter("u_birthday")
-				+ req.getParameter("u_phonenumber") + req.getParameter("u_nickname") + req.getParameter("u_pw")
-				+ req.getParameter("u_grade"));
 		command = new UsersInsertCommand();
 		command.execute(model);
 		return "redirect:loginPage";
@@ -1024,9 +985,7 @@ public class CatriendController {
 	@RequestMapping("/processing/registcheck")
 	public String registcheck(Model model, HttpServletRequest req) {
 		UsersDAO dao = new UsersDAO();
-		System.out.println(req.getParameter("id"));
 		int result = dao.userEqual(req.getParameter("id"));
-		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/registcheck";
 	}
@@ -1034,9 +993,7 @@ public class CatriendController {
 	@RequestMapping("/processing/emailCheck")
 	public String emailCheck(Model model, HttpServletRequest req) {
 		UsersDAO dao = new UsersDAO();
-		System.out.println(req.getParameter("email"));
 		int result = dao.userEmail(req.getParameter("email"));
-		System.out.println("결과값: " + result);
 		model.addAttribute("result", result);
 		return "processing/emailCheck";
 	}
@@ -1044,10 +1001,8 @@ public class CatriendController {
 	@RequestMapping("/processing/nickCheck")
 	public String nickCheck(Model model, HttpServletRequest req) {
 		UsersDAO dao = new UsersDAO();
-		System.out.println("닉네임 : " + req.getParameter("nickname"));
 		int resultSet = dao.nickEqual(req.getParameter("nickname"));
 
-		System.out.println("결과값: " + resultSet);
 		model.addAttribute("resultSet", resultSet);
 		return "processing/nickCheck";
 	}
@@ -1247,13 +1202,11 @@ public class CatriendController {
 
 	@RequestMapping("/adminCatManagement")
 	public String adminCatManagement(Model model, HttpServletRequest req) {
-		System.out.println("컨트롤1 sort : " + req.getParameter("sort"));
 		model.addAttribute("pageGroup", "cats");
 		model.addAttribute("req", req);
 		model.addAttribute("sort", req.getParameter("sort"));
 		command = new AdminCatListCommand();
 		command.execute(model);
-		System.out.println("컨트롤2 sort : " + req.getParameter("sort"));
 		return "adminCatManagement";
 	}
 	
@@ -1289,18 +1242,12 @@ public class CatriendController {
 				c_index = catsDTO.getC_index();
 			System.out.println("켓 인덱스 : " + catsDTO.getC_index());
 		}
-		System.out.println("ddddddd :"+c_index);
 		String c_Orifile = mf.getFile("c_file").getOriginalFilename();
-		System.out.println("파일 이름 : " +c_Orifile);
 		int i = c_Orifile.indexOf(".");
-		System.out.println("아아앙아아 "+i);
-		System.out.println("수 : " + c_Orifile.substring(i));
 		String filetype = c_Orifile.substring(i).toLowerCase();
 		
 		String file = String.valueOf(c_index)+filetype;
-		System.out.println("파일 이름2342 : " + file);
-		String elkrndasg = aimageUpload(mf.getFile("c_file"), file).toString();
-		System.out.println("파일 이름22 : " + elkrndasg);
+		String result = aimageUpload(mf.getFile("c_file"), file).toString();
 
 		return "redirect:/adminCatManagement";
 	}

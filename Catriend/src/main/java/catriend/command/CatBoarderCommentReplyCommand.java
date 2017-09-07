@@ -9,23 +9,23 @@ import org.springframework.ui.Model;
 import catriend.model.CatBoarderCommentDAO;
 import catriend.model.CatBoarderCommentDTO;
 
-public class CatBoarderCommentReplyCommand implements CatCommand{
-@Override
-public void execute(Model model) {
-	CatBoarderCommentDAO dao = new CatBoarderCommentDAO();
+public class CatBoarderCommentReplyCommand implements CatCommand {
+	@Override
+	public void execute(Model model) {
+		CatBoarderCommentDAO dao = new CatBoarderCommentDAO();
 
-	Map<String, Object> paramMap = model.asMap();
-	HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-	
-	int cbc_index = Integer.parseInt(req.getParameter("cbc_index"));
-	
-	CatBoarderCommentDTO dto = dao.selectOne(cbc_index);
+		Map<String, Object> paramMap = model.asMap();
+		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 
-	dto.setCbc_content(req.getParameter("cbc_content"));
-	dto.setU_id(req.getParameter("u_id"));
+		int cbc_index = Integer.parseInt(req.getParameter("cbc_index"));
 
-	dao.ReplyCatBoarderComment(dto);
+		CatBoarderCommentDTO dto = dao.selectOne(cbc_index);
 
-	System.out.println("CatBoarderCommentReplyCommand");
-}
+		dto.setCbc_content(req.getParameter("cbc_content"));
+		dto.setU_id(req.getParameter("u_id"));
+
+		dao.ReplyCatBoarderComment(dto);
+
+		System.out.println("CatBoarderCommentReplyCommand");
+	}
 }

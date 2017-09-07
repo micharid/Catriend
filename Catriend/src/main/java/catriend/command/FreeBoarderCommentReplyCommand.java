@@ -16,11 +16,9 @@ public class FreeBoarderCommentReplyCommand implements CatCommand {
 
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+
 		int fbc_index = Integer.parseInt(req.getParameter("fbc_index"));
-		
-		System.out.println(fbc_index);
-		
+
 		FreeBoarderCommentDTO dto = dao.selectOne(fbc_index);
 
 		dto.setFbc_content(req.getParameter("fbc_content"));

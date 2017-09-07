@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 
 import catriend.model.FreeBoarderDAO;
 
-public class FreeBoarderDeleteCommand implements CatCommand{
+public class FreeBoarderDeleteCommand implements CatCommand {
 	@Override
 	public void execute(Model model) {
 		// DAO 연결

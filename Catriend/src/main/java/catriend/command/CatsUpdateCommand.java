@@ -49,8 +49,6 @@ public class CatsUpdateCommand implements CatCommand {
 		dto.setC_birthday(c_birthday);
 		dto.setC_detail(req.getParameter("c_detail"));
 		dto.setC_gender(req.getParameter("c_gender"));
-		
-		
 
 		dao.UpdateCat(dto);
 

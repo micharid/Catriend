@@ -22,7 +22,7 @@ public class ContractInsertCommand implements CatCommand {
 
 		String sdayStr = req.getParameter("ct_sday");
 		String edayStr = req.getParameter("ct_eday");
-		System.out.println(sdayStr +", "+edayStr+", ");
+		System.out.println(sdayStr + ", " + edayStr + ", ");
 		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd");
 
 		java.sql.Date ct_sday = null;

@@ -7,7 +7,6 @@
 <head>
 <title>게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -96,10 +95,7 @@ textarea {
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
+	
 	<div id="blue">
 		<div class="container">
 			<div class="row">
@@ -107,15 +103,8 @@ textarea {
 					<h3>글쓰기</h3>
 				</center>
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
 	</div>
-	<!-- /blue -->
-
-	<!-- *****************************************************************************************************************
-	 CONTACT WRAP
-	 ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
 			<div class="col-lg-12">
@@ -263,12 +252,6 @@ textarea {
 			</script>
 		</div>
 	</div>
-
-
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>

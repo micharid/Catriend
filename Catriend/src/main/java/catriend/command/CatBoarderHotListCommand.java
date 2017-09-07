@@ -3,8 +3,6 @@ package catriend.command;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.ui.Model;
 
 import catriend.model.CatBoarderDAO;
@@ -19,8 +17,7 @@ public class CatBoarderHotListCommand implements CatCommand {
 
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
-		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+
 		int start = 1;
 		int end = 6;
 
@@ -29,7 +26,7 @@ public class CatBoarderHotListCommand implements CatCommand {
 
 		// DAO에서 히트수가 높은 순으로 16개만 불러오기
 		List<CatBoarderDTO> listRows = dao.selectHotRecord(paramMap);
-		
+
 		// 리스트 레코드를 저장
 		model.addAttribute("CatBoarderHotList", listRows);
 

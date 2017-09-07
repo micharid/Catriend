@@ -5,7 +5,6 @@
 <head>
 <title>계약내역</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -31,54 +30,38 @@ img {
 }
 </style>
 
-
-
 <script>
-   function confirmFunc() {
-      if (confirm(" 탈퇴하시겠습니까? \n\n 탈퇴를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.")) {
-         location.href = "userdeletesuccess";
-      }
-   }
-   
-   function check() {
-      var f = document.userFrm;
-      
-      if(f.u_pw.value != null) {
-         if(f.u_pw.value != f.u_pwCheck.value){
-            alert("비밀번호가 다릅니다");
-            f.u_pwCheck.focus();
-            return false;
-         }
-      }
-      return true;
-   }
+	function confirmFunc() {
+		if (confirm(" 탈퇴하시겠습니까? \n\n 탈퇴를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.")) {
+			location.href = "userdeletesuccess";
+		}
+	}
 
+	function check() {
+		var f = document.userFrm;
 
+		if (f.u_pw.value != null) {
+			if (f.u_pw.value != f.u_pwCheck.value) {
+				alert("비밀번호가 다릅니다");
+				f.u_pwCheck.focus();
+				return false;
+			}
+		}
+		return true;
+	}
 </script>
-
 </head>
 
 <body>
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
-	<!-- Fixed navbar -->
-	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-	<!-- bottom e -->
+	<!-- top e -->
 
-
-
-	<!-- bottom s -->
+	<!-- top s -->
 	<%@ include file="../../resources/common/sectionAd.jsp"%>
-	<!-- bottom e -->
-
-
-
-
-	<!-- *****************************************************************************************************************
-	 BLOG CONTENT
-	 ***************************************************************************************************************** -->
+	<!-- top e -->
 
 	<div class="container">
 		<div class="row">

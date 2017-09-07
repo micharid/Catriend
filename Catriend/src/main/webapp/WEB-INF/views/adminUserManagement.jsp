@@ -8,33 +8,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>관리자 페이지</title>
 <script>
-	function check_all()
-	{
-		for(i=0; i < Frm.select.length; i++)
-		{
+	function check_all() {
+		for (i = 0; i < Frm.select.length; i++) {
 			Frm.select[i].checked = true;
 		}
 	}
-	
+
 	function uncheck_all() {
-		for(i=0; i < Frm.select.length; i++) {
+		for (i = 0; i < Frm.select.length; i++) {
 			Frm.select[i].checked = false;
 		}
 	}
-	
-	var check = function(obj)
-	{
+
+	var check = function(obj) {
 		var isUserChk = false;
-		for(var i=0; i<obj.select.length; i++)
-		{
-			if(obj.select[i].checked==true)
-			{
+		for (var i = 0; i < obj.select.length; i++) {
+			if (obj.select[i].checked == true) {
 				isUserChk = true;
-				break; 
+				break;
 			}
 		}
-		if(isUserChk==false)
-		{
+		if (isUserChk == false) {
 			alert("한명 이상의 유저가 선택되어야 삭제가 가능합니다.");
 			return false;
 		}
@@ -56,8 +50,6 @@
 </head>
 <body>
 
-
-
 	<div id="wrapper">
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-header">
@@ -75,7 +67,6 @@
 				</a></li>
 			</ul>
 		</div>
-		<!-- /. NAV TOP  -->
 		<nav class="navbar-default navbar-side" role="navigation">
 		<div class="sidebar-collapse">
 			<ul class="nav" id="main-menu">
@@ -89,13 +80,12 @@
 						class="fa fa-list-alt "></i>자유게시판관리</a></li>
 				<li><a href="adminReviewboardManagement"><i
 						class="fa fa-list-alt "></i>후기게시판관리</a></li>
-				<li><a href="adminCatManagement?order=c_index&sort=1"><i class="fa fa-paw "></i>고양이관리</a>
-				</li>
+				<li><a href="adminCatManagement?order=c_index&sort=1"><i
+						class="fa fa-paw "></i>고양이관리</a></li>
 			</ul>
 		</div>
 
 		</nav>
-		<!-- /. NAV SIDE  -->
 		<div id="page-wrapper">
 			<div id="page-inner">
 				<div class="row">
@@ -103,7 +93,6 @@
 						<h2>관리자 페이지</h2>
 					</div>
 				</div>
-				<!-- /. ROW  -->
 				<hr />
 				<div class="row">
 					<div class="col-lg-12 ">
@@ -120,7 +109,8 @@
 								style="font-size: 1.5em; font-weight: 700;">
 								<center>유저관리</center>
 							</div>
-							<form name="Frm" action="usersDeletes" onsubmit="return check(this)">
+							<form name="Frm" action="usersDeletes"
+								onsubmit="return check(this)">
 								<div class="panel-body">
 									<table class="table table-hover table-bordered">
 										<tr style="text-align: center;">
@@ -133,37 +123,40 @@
 										</tr>
 										<!--  게시판 반복 부분 s -->
 										<c:forEach items="${adminuserlist}" var="row">
-											
-												<c:choose>
+
+											<c:choose>
+												<c:when test="${row.u_state eq 1}">
+													<tr>
+												</c:when>
+												<c:otherwise>
+													<tr style="background-color: gray;">
+												</c:otherwise>
+											</c:choose>
+											<td class="text-center"><input type="checkbox"
+												name="select" value="${row.u_id}" /></td>
+											<td class="text-center">${totalRecordCount-row.rNum+1}</td>
+											<td class="text-center"><c:choose>
 													<c:when test="${row.u_state eq 1}">
-															<tr>
-													</c:when>
-													<c:otherwise>
-														<tr style="background-color:gray;">
-													</c:otherwise>
-												</c:choose>
-												<td class="text-center"><input type="checkbox"
-													name="select" value="${row.u_id}" /></td>
-												<td class="text-center">${totalRecordCount-row.rNum+1}</td>
-												<td class="text-center"><c:choose>
-														<c:when test="${row.u_state eq 1}">
 															활성화
 														</c:when>
-														<c:otherwise>
+													<c:otherwise>
 															탈퇴
 														</c:otherwise>
-													</c:choose></td>
-												<td class="text-center">${row.u_name}</td>
-												<td class="text-center">${row.u_id}</td>
-												<td class="text-center">${row.u_birthday}</td>
+												</c:choose></td>
+											<td class="text-center">${row.u_name}</td>
+											<td class="text-center">${row.u_id}</td>
+											<td class="text-center">${row.u_birthday}</td>
 											</tr>
 										</c:forEach>
 										<!-- 게시판 반복 부분 e  -->
 									</table>
 									<div class="pull-right" style="margin-top: -15px;">
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체선택" onclick="check_all();"/ >
-										<input class="btn btn-primary" type="button" style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
-										<input class="btn" type="submit" style="background-color: #00b3fe; color: white;" value="삭제하기"/ >
+										<input class="btn btn-primary" type="button"
+											style="color: white;" value="전체선택" onclick="check_all();"/ >
+										<input class="btn btn-primary" type="button"
+											style="color: white;" value="전체해제" onclick="uncheck_all();"/ >
+										<input class="btn" type="submit"
+											style="background-color: #00b3fe; color: white;" value="삭제하기"/ >
 									</div>
 									<div class="col-md-12 text-center" style="margin-top: 10px;">
 										${pagingImg}</div>
@@ -173,11 +166,8 @@
 					</div>
 				</div>
 
-				<!-- /. ROW  -->
 			</div>
-			<!-- /. PAGE INNER  -->
 		</div>
-		<!-- /. PAGE WRAPPER  -->
 		<div class="footer">
 
 
@@ -186,8 +176,6 @@
 			</div>
 		</div>
 
-
-		<!-- /. WRAPPER  -->
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
 		<script src="./resources/assets/adminPageTemplate/js/jquery-1.10.2.js"></script>

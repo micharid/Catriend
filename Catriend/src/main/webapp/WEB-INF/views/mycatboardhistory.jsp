@@ -5,7 +5,6 @@
 <head>
 <title>내후기게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -33,16 +32,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 	<!-- Fixed navbar -->
 	<!-- top s -->
-	<!-- Fixed navbar -->
-	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
-	<!-- bottom e -->
-	<!-- bottom s -->
 	<%@ include file="../../resources/common/sectionAd.jsp"%>
-	<!-- bottom e -->
-	<!-- *****************************************************************************************************************
-	 BLOG CONTENT
-	 ***************************************************************************************************************** -->
+	<!-- top e -->
 
 	<div class="container">
 		<div class="row">
@@ -53,14 +45,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 						style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">내가
 						작성한 글 목록</h3>
 				</center>
-
-				<!-- /container -->
 			</div>
 			<div class="col-md-2">
 				<div class="list-group text-center">
-					<a href="myfreeboardhistory" class="list-group-item">자유게시판</a>
-					<!-- 소스코드로 active ajax방식으로 구현가능한지 확인해보기 -->
-					<a href="mycatboardhistory" class="list-group-item active">후기게시판</a>
+					<a href="myfreeboardhistory" class="list-group-item">자유게시판</a> <a
+						href="mycatboardhistory" class="list-group-item active">후기게시판</a>
 					<a class="btn btn-default list-group-item" href="myPageindex">마이
 						페이지로</a>
 				</div>
@@ -71,8 +60,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					<div class="panel-heading"
 						style="font-size: 1.5em; font-weight: 700;">후기게시판</div>
 					<form method="get">
-						<input type="hidden" name="u_id" value="${loginUser.u_id}" />
-						<input type="hidden" name="nowPage" value="1" />
+						<input type="hidden" name="u_id" value="${loginUser.u_id}" /> <input
+							type="hidden" name="nowPage" value="1" />
 						<table width="100%" style="text-align: center;">
 							<tr>
 								<td><select name="searchColumn">
@@ -132,13 +121,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
 
-
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
 	<!-- bottom e -->
-
-
 </body>
 </html>

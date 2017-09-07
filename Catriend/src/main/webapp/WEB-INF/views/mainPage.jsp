@@ -66,12 +66,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">관련
 					영상</h3>
 			</center>
-
-			<!-- /container -->
 		</div>
 		<div class="container">
-			<!-- Fixed navbar -->
-
 			<div class="row pad-set">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="just-txt-div">
@@ -86,34 +82,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 						<iframe style="width: 555px; height: 300px;"
 							src="https://www.youtube.com/embed/Xz6yBbBRr8Y" frameborder="0"
 							allowfullscreen></iframe>
-
-
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 	</section>
 
-
-
-
-
-
 	<section id="portfolio">
-
 		<div class="container">
-
 			<div class="row">
 				<div id="blue" style="margin-top: 60px;">
-
 					<center>
 						<h3
 							style="font-size: 20px; line-height: 1.428571429; color: #fff; padding: 10px;">후기
 							게시판</h3>
 					</center>
-
 					<%
 						if (CatBoarderHotList.size() == 0) {
 					%>
@@ -168,8 +151,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 				</center>
 			</div>
 	</section>
-
-
 
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>

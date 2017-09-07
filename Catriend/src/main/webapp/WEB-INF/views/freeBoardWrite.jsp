@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>KapukAlas - Multipurpose template</title>
+<title>글쓰기</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
@@ -20,21 +20,18 @@
 </style>
 
 <script>
-var checkWriteFrm = function(obj)
-{
-	if(obj.fb_title.value=="")
-	{
-		alert("제목을 입력하세요");
-		obj.fb_title.focus();
-		return false;
+	var checkWriteFrm = function(obj) {
+		if (obj.fb_title.value == "") {
+			alert("제목을 입력하세요");
+			obj.fb_title.focus();
+			return false;
+		}
+		if (obj.fb_content.value == "") {
+			alert("내용을 입력하세요");
+			obj.fb_content.focus();
+			return false;
+		}
 	}
-	if(obj.fb_content.value=="")
-	{
-		alert("내용을 입력하세요");
-		obj.fb_content.focus();
-		return false;
-	}
-}
 </script>
 
 <body>
@@ -44,9 +41,6 @@ var checkWriteFrm = function(obj)
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-	<!-- *****************************************************************************************************************
-	 CONTACT WRAP
-	 ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
 			<div class="row">
@@ -97,7 +91,6 @@ var checkWriteFrm = function(obj)
 																<button type="submit" class="btn btn-info">등록하기</button>
 																<button class="btn btn-danger" type="button"
 																	onclick="javascript:history.go(-1)">취소하기</button>
-
 															</form>
 														</div>
 													</div>
@@ -113,10 +106,6 @@ var checkWriteFrm = function(obj)
 			</div>
 		</div>
 	</div>
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>

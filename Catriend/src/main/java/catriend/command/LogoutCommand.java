@@ -13,11 +13,11 @@ public class LogoutCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
-		
+
 		HttpSession session = req.getSession();
-		
+
 		session.invalidate();
-		
+
 		System.out.println("LogoutCommand");
 	}
 }

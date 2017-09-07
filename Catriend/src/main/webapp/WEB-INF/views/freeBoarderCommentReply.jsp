@@ -82,11 +82,9 @@ textarea {
 		}
 		return true;
 	}
-	
-	var checkReplyFrm = function(obj)
-	{
-		if(obj.fbc_content.value=="")
-		{
+
+	var checkReplyFrm = function(obj) {
+		if (obj.fbc_content.value == "") {
 			alert("댓글내용을 입력하세요");
 			obj.fbc_content.focus();
 			return false;
@@ -102,9 +100,6 @@ textarea {
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
 	<div id="blue">
 		<div class="container">
 			<div class="row">
@@ -112,15 +107,8 @@ textarea {
 					<h3>글쓰기</h3>
 				</center>
 			</div>
-			<!-- /row -->
 		</div>
-		<!-- /container -->
 	</div>
-	<!-- /blue -->
-
-	<!-- *****************************************************************************************************************
-	 CONTACT WRAP
-	 ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
 			<div class="col-lg-12">
@@ -171,17 +159,17 @@ textarea {
 						<tr>
 							<td colspan="4" style="text-align: center; padding: 10px 0;">
 								<%
-										dto = (FreeBoarderDTO) request.getAttribute("dto");
-										String u_id = dto.getU_id();
-										if (login != null && login.getU_id().equals(u_id)) {
-									%>
+									dto = (FreeBoarderDTO) request.getAttribute("dto");
+									String u_id = dto.getU_id();
+									if (login != null && login.getU_id().equals(u_id)) {
+								%>
 								<button class="btn btn-info" type="button"
 									onclick="javascript:location.href='freeBoardUpdate?fb_index=${dto.fb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
 								<button class="btn btn-info" type="button"
 									onclick="location.href='freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
 								<%
-										}
-									%>
+									}
+								%>
 								<button class="btn btn-info" type="button"
 									onclick="location.href='freeBoardList?nowPage=${nowPage}';">리스트보기</button>
 							</td>
@@ -268,12 +256,6 @@ textarea {
 			</script>
 		</div>
 	</div>
-
-
-
-	<!-- *****************************************************************************************************************
-	 FOOTER
-	 ***************************************************************************************************************** -->
 
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>

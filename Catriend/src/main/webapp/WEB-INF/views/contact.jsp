@@ -5,7 +5,6 @@
 <head>
 <title>Q & A</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 </head>
@@ -66,10 +65,6 @@ var isValidate = function(obj)
 <!-- bottom s -->
    <%@ include file="../../resources/common/sectionAd.jsp"%>
 <!-- bottom e -->
-
-
-
-
          <center>
             <h3 class="mb" id="blue" style="color: #fff; padding: 10px;">자주묻는질문(F.A.Q.)</h3>
          </center>
@@ -207,14 +202,11 @@ var isValidate = function(obj)
                            name="q_content"></textarea>
                      </div>
                      <button type="submit" class="btn btn-primary btn-sm">문의하기</button>
-                     <!-- 관리자에게 문의글이 전송됨 -->
-                     <!-- 관리자가 답변하면 관리자 / 유저 마이페이지/관리페이지에 기록됨 -->
                   </form>
                   <%}else{ %>
                      <span>로그인을 해주세요~</span>
                   <%} %>
                </div>
-               <! --/col-lg-8 -->
 
                <div class="col-lg-4">
                   <h4>캣렌드의 주소</h4>
@@ -227,14 +219,8 @@ var isValidate = function(obj)
                   </p>
                </div>
             </div>
-            <! --/row -->
          </div>
-         <! --/container -->
       </div>
-      <! --/row -->
-      </div>
-
-      <! --/container -->
    </section>
 
    <!-- bottom s -->

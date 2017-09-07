@@ -21,10 +21,9 @@ public class LoginCommand implements CatCommand {
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 		String u_id = req.getParameter("u_id");
 		String u_pw = req.getParameter("u_pw");
-		System.out.println(u_id + "," + u_pw);
 		UsersDTO dto = dao.loginProcess(u_id, u_pw) != null ? dao.loginProcess(u_id, u_pw) : null;
 		HttpSession session = req.getSession();
-		
+
 		if (dto != null) {
 			session.setAttribute("loginUser", dto);
 		} else {

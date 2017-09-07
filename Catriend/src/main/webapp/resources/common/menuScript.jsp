@@ -31,7 +31,6 @@
   $('body,html').animate({scrollTop:posi},700);
 })
 
-
       $( document ).ready(function() {
     $("[rel='tooltip']").tooltip();    
  

@@ -5,7 +5,6 @@
 <head>
 <title>로그인</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap -->
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
@@ -123,38 +122,33 @@ var checkForm = function(obj)
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
 
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/sectionAd.jsp"%>
-<!-- bottom e -->
-		<div class="container mtb">
-			<div class="row" style="margin-top: 50px;">
-				<div class="login-page">
-					<div class="form">
-						<span style="color: red;">${loginError}</span>
-						<form class="login-form" action="loginAction" name="loginFrm"
-							onsubmit="return checkForm(this);">
-							<input type="text" placeholder="userid" name="u_id" /> <input
-								type="password" placeholder="password" name="u_pw" /> <input
-								type="submit" value="로그인" />
-							<p class="message">
-								Not registered? <a href="onlineForm">Create an account</a>
-							</p>
-							<p class="message">
-								forgot password? <a href="findPass">Click here</a>
-							</p>
-						</form>
-					</div>
+	<!-- bottom e -->
+	<div class="container mtb">
+		<div class="row" style="margin-top: 50px;">
+			<div class="login-page">
+				<div class="form">
+					<span style="color: red;">${loginError}</span>
+					<form class="login-form" action="loginAction" name="loginFrm"
+						onsubmit="return checkForm(this);">
+						<input type="text" placeholder="userid" name="u_id" /> <input
+							type="password" placeholder="password" name="u_pw" /> <input
+							type="submit" value="로그인" />
+						<p class="message">
+							Not registered? <a href="onlineForm">Create an account</a>
+						</p>
+						<p class="message">
+							forgot password? <a href="findPass">Click here</a>
+						</p>
+					</form>
 				</div>
 			</div>
-			<! --/row -->
 		</div>
-	
-	
+		<! --/row -->
+	</div>
 
-	<!-- *****************************************************************************************************************
-	 TEEAM MEMBERS
-	 ***************************************************************************************************************** -->
-<script type="text/javascript">
+	<script type="text/javascript">
 	document.loginFrm.u_id.focus();
 </script>
 
@@ -164,8 +158,8 @@ var checkForm = function(obj)
 
 	<script src="./resources/KapukAlas/js/jquery.js"></script>
 	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
-<!-- bottom s -->
+	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
-<!-- bottom e -->
+	<!-- bottom e -->
 </body>
 </html>
