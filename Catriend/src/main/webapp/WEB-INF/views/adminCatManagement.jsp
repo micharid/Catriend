@@ -111,7 +111,7 @@
 						<div class="panel panel-default" style="width: 100%;">
 							<div class="panel-heading"
 								style="font-size: 1.5em; font-weight: 700;">
-								<center>고양이 관리 ${sort}</center>
+								<center>고양이 관리</center>
 							</div>
 							<form name="Frm" action="catsDeletes"
 								onsubmit="return check(this)">

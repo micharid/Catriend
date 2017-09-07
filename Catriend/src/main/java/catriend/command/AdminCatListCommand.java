@@ -48,6 +48,8 @@ public class AdminCatListCommand implements CatCommand {
 
 		// 페이지 처리를 위한 문자열 생성
 		String addQueryStr = "";
+		addQueryStr = "sort="+sort+"&order="+order+"&";
+		
 		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
 				req.getContextPath() + "/adminCatManagement?" + addQueryStr);
 
