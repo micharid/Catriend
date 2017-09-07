@@ -107,6 +107,7 @@ input {
 								<form action="catUpdateAction">
 									<p>
 										<input type="hidden" value="${dto.c_index }" name="c_index" />
+										<input type="hidden" value="${nowPage }" name="nowPage" />
 									</p>
 									<table class="table table-bordered">
 										<tr class="text-center">
