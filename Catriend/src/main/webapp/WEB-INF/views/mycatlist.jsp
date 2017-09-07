@@ -183,7 +183,7 @@
 						for (CatsDTO dto : listRows) {
 					%>
 					<div class="col-md-4">
-						<a href="catProfile?c_index=<%=dto.getC_index()%>">
+						<a href="catProfile?c_index=<%=dto.getC_index()%>&u_id=${loginUser.u_id}">
 							<div class="thumbnail">
 								<div class="caption">
 									<br />
