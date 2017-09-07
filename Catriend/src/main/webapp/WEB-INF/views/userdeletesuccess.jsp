@@ -36,9 +36,7 @@
 						</div>
 						<h3>회원탈퇴가 완료되었습니다.</h3>
 						<div class="text-center">
-							<a href="myPageindex">
-								<button class="btn" type="submit" style="background-color:#00b3fe; color:white;">마이페이지로</button>
-							</a>
+								<button class="btn" type="button" onclick="location.href='mainPage'" style="background-color:#00b3fe; color:white;">메인페이지로</button>
 						</div>
 					</div>
 				</div>

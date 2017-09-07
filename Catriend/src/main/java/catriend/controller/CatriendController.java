@@ -850,6 +850,8 @@ public class CatriendController {
 		model.addAttribute("req", req);
 		FreeBoarderDAO dao = new FreeBoarderDAO();
 		FreeBoarderDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("fb_index")));
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		model.addAttribute("dto", dto);
 
 		return "freeBoardUpdate";
@@ -860,9 +862,11 @@ public class CatriendController {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
 		System.out.println("컨트롤 fb_title : " + req.getParameter("fb_title"));
+		model.addAttribute("fb_index", req.getParameter("fb_index"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		command = new FreeBoarderUpdateCommand();
 		command.execute(model);
-		return "redirect:/freeBoardList";
+		return "freeBoardView";
 	}
 
 	@RequestMapping("/freeBoardDelete")
@@ -1332,7 +1336,8 @@ public class CatriendController {
 		model.addAttribute("req", req);
 		command = new UsersDeleteCommand();
 		command.execute(model);
-
+		HttpSession session = req.getSession();
+		session.invalidate();
 		return "userdeletesuccess";
 	}
 }

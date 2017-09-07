@@ -116,7 +116,9 @@
 																<input type="hidden"
 																	value="<%=request.getParameter("fb_index")%>"
 																	name="fb_index">
-
+																<input type="hidden"
+																	value="<%=request.getParameter("nowPage")%>"
+																	name="nowPage">
 																<div class="form-group">
 																	<label>제목</label> <input class="form-control"
 																		type="text" name="fb_title" value="${dto.fb_title}" />

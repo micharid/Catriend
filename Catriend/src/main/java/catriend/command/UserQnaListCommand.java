@@ -17,9 +17,13 @@ public class UserQnaListCommand implements CatCommand {
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
 		
+		int totalRecordCount =dao.getTotalMygetTotalQna(paramMap);
+		
 		List<QnaDTO> dto = dao.myqna(paramMap.get("u_id").toString());
-
+		
+		
 		model.addAttribute("myQnaList", dto);
+		model.addAttribute("totalRecordCount", totalRecordCount);
 
 		System.out.println("UserQnaListCommand");
 	}

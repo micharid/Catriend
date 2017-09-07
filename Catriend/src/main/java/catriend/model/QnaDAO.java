@@ -100,7 +100,7 @@ public class QnaDAO {
 	}
 
 	public List<QnaDTO> myqna(String u_id) {
-		String sql = "select * from qna where u_id='" + u_id + "'";
+		String sql = "select qna.*, rownum rNum from qna where u_id='" + u_id + "'";
 		return (List<QnaDTO>) template.query(sql, new BeanPropertyRowMapper<QnaDTO>(QnaDTO.class));
 	}
 
