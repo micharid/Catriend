@@ -56,7 +56,7 @@ textarea {
 	color: #24272B;
 	vertical-align: top;
 	-webkit-appearance: none;
-	resize:none;
+	resize: none;
 }
 </style>
 <script>
@@ -79,11 +79,9 @@ textarea {
 		}
 		return true;
 	}
-	
-	var checkReplyFrm = function(obj)
-	{
-		if(obj.cbc_content.value=="")
-		{
+
+	var checkReplyFrm = function(obj) {
+		if (obj.cbc_content.value == "") {
 			alert("댓글내용을 입력하세요");
 			obj.cbc_content.focus();
 			return false;
@@ -168,17 +166,17 @@ textarea {
 						<tr>
 							<td colspan="4" style="text-align: center; padding: 10px 0;">
 								<%
-										dto = (CatBoarderDTO) request.getAttribute("dto");
-										String u_id = dto.getU_id();
-										if (login != null && login.getU_id().equals(u_id)) {
-									%>
+									dto = (CatBoarderDTO) request.getAttribute("dto");
+									String u_id = dto.getU_id();
+									if (login != null && login.getU_id().equals(u_id)) {
+								%>
 								<button class="btn btn-info" type="button"
 									onclick="javascript:location.href='catBoardUpdate?cb_index=${dto.cb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
 								<button class="btn btn-info" type="button"
 									onclick="location.href='catBoardDelete?cb_index=${dto.cb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
 								<%
-										}
-									%>
+									}
+								%>
 								<button class="btn btn-info" type="button"
 									onclick="location.href='catBoardList?nowPage=${nowPage}';">리스트보기</button>
 							</td>
@@ -227,7 +225,7 @@ textarea {
 									<td>${row.cbc_date}</td>
 									<c:if test="${not empty loginUser}">
 										<td align="center"><c:if
-												test="${loginUser.u_id eq row.u_id}">
+												test="${loginUser.u_id == row.u_id || loginUser.u_grade > 100}">
 												<button type="button" class="btn btn-info"
 													onclick="location.href='catBoarderCommentUpdate?cbc_index=${row.cbc_index}&cb_index=${row.cb_index}&nowPage=${nowPage}';">수정</button>
 												<button type="button" class="btn btn-info"

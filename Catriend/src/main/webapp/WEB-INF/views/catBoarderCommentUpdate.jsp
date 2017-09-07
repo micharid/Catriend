@@ -56,7 +56,7 @@ textarea {
 	color: #24272B;
 	vertical-align: top;
 	-webkit-appearance: none;
-	resize:none;
+	resize: none;
 }
 </style>
 <script>
@@ -79,11 +79,9 @@ textarea {
 		}
 		return true;
 	}
-	
-	var checkUpdateFrm = function(obj)
-	{
-		if(obj.cbc_content.value=="")
-		{
+
+	var checkUpdateFrm = function(obj) {
+		if (obj.cbc_content.value == "") {
 			alert("댓글내용을 입력하세요");
 			obj.cbc_content.focus();
 			return false;
@@ -219,8 +217,8 @@ textarea {
 									<c:choose>
 										<c:when test="${cbc_index == row.cbc_index}">
 											<form action="catBoarderCommentUpdateAction"
-												name="updateCommentFrm" onsubmit="return checkUpdateFrm(this);"
-												method="post">
+												name="updateCommentFrm"
+												onsubmit="return checkUpdateFrm(this);" method="post">
 												<tr>
 													<td colspan="3"><input type="hidden" name="nowPage"
 														value="${nowPage}" /> <input type="hidden"
@@ -247,7 +245,7 @@ textarea {
 											<td>${row.cbc_date}</td>
 											<c:if test="${not empty loginUser}">
 												<td align="center"><c:if
-														test="${loginUser.u_id eq row.u_id}">
+														test="${loginUser.u_id == row.u_id || loginUser.u_grade > 100}">
 														<button type="button" class="btn btn-info"
 															onclick="location.href='catBoarderCommentUpdate?cbc_index=${row.cbc_index}&cb_index=${dto.cb_index}&nowPage=${nowPage}';">수정</button>
 														<button type="button" class="btn btn-info"

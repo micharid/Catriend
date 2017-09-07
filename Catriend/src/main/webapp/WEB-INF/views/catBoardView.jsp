@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-CatBoarderDTO dto = (CatBoarderDTO) request.getAttribute("dto");
+	CatBoarderDTO dto = (CatBoarderDTO) request.getAttribute("dto");
 %>
 <!DOCTYPE html>
 <html>
@@ -59,15 +59,13 @@ textarea {
 	color: #24272B;
 	vertical-align: top;
 	-webkit-appearance: none;
-	resize:none;
+	resize: none;
 }
 </style>
 
 <script>
-	var checkInsertFrm = function(obj)
-	{
-		if(obj.cbc_content.value=="")
-		{
+	var checkInsertFrm = function(obj) {
+		if (obj.cbc_content.value == "") {
 			alert("댓글내용을 입력하세요");
 			obj.cbc_content.focus();
 			return false;
@@ -81,94 +79,105 @@ textarea {
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-	
+
 	<!-- *****************************************************************************************************************
 	 CONTACT WRAP
 	 ***************************************************************************************************************** -->
 	<div class="row">
 		<div class="container">
-				<div class="col-lg-12">
-					<div class="panel panel-primary">
-						<div class="panel-heading" align="center">
-							<h1>${dto.cb_title}</h1>
-						</div>
-						<table class="table table-bordered" width="100%" cellspacing="0" cellpadding="2">
-							<tr>
-								<td width="20%">닉네임</td>
-								<td width="20%">${dto.u_id}</td>
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading" align="center">
+						<h1>${dto.cb_title}</h1>
+					</div>
+					<table class="table table-bordered" width="100%" cellspacing="0"
+						cellpadding="2">
+						<tr>
+							<td width="20%">닉네임</td>
+							<td width="20%">${dto.u_id}</td>
 
-								<td width="20%">작성일</td>
-								<td width="40%">${dto.cb_date}</td>
-							</tr>
-							<tr>
-								<td width="20%">조회수</td>
-								<td width="30%">${dto.cb_hits}</td>
+							<td width="20%">작성일</td>
+							<td width="40%">${dto.cb_date}</td>
+						</tr>
+						<tr>
+							<td width="20%">조회수</td>
+							<td width="30%">${dto.cb_hits}</td>
 
-								<td width="20%">추천수</td>
-								<td width="30%">
+							<td width="20%">추천수</td>
+							<td width="30%">
 								<%
-								String likeUsers = dto.getCb_like();
-								String[] userlist = likeUsers.split("@u_");
-								%>
-								<%=userlist.length-1%>
-								</td>
-							</tr>
-							<tr>
-								<td width="20%">제목</td>
-								<td width="80%" colspan="3">${dto.cb_title}</td>
-							</tr>
-							<tr>
-								<td>사진</td>
-								<td colspan="3" style="height: 300px; padding: 10px;"><img
-									src="./resources/assets/img/boardImages/${dto.cb_file}"
-									width="80%"><br /> <br /> <br /></td>
-							</tr>
-							<tr>
-								<td>내용</td>
-								<td colspan="3" style="height: 150px; padding: 10px;">${dto.cb_content}</td>
-							</tr>
-							<%
-						boolean result=false;
-						if(login != null){
-							for(String user : userlist){
-								if(login.getU_id().equals(user)) result=true;	
-							}
-						}
-						if(login != null && !result){%>
-						<tr align="center">
-							<td colspan="4">
-								<button class="btn btn-info" type="button" onclick="location.href='catBoardlikeUpAction?cb_index=${dto.cb_index}&u_id=<%=login.getU_id()%>&nowPage=${nowPage}'">좋아요 <span class="glyphicon glyphicon-thumbs-up"></span></button>
+									String likeUsers = dto.getCb_like();
+									String[] userlist = likeUsers.split("@u_");
+								%> <%=userlist.length - 1%>
 							</td>
 						</tr>
-						<%} 
-						if(login != null && result){
+						<tr>
+							<td width="20%">제목</td>
+							<td width="80%" colspan="3">${dto.cb_title}</td>
+						</tr>
+						<tr>
+							<td>사진</td>
+							<td colspan="3" style="height: 300px; padding: 10px;"><img
+								src="./resources/assets/img/boardImages/${dto.cb_file}"
+								width="80%"><br /> <br /> <br /></td>
+						</tr>
+						<tr>
+							<td>내용</td>
+							<td colspan="3" style="height: 150px; padding: 10px;">${dto.cb_content}</td>
+						</tr>
+						<%
+							boolean result = false;
+							if (login != null) {
+								for (String user : userlist) {
+									if (login.getU_id().equals(user))
+										result = true;
+								}
+							}
+							if (login != null && !result) {
 						%>
 						<tr align="center">
 							<td colspan="4">
-								<button class="btn btn-danger" type="button" onclick="location.href='catBoardlikeRemoveAction?cb_index=${dto.cb_index}&u_id=<%=login.getU_id()%>&cb_like=${dto.cb_like}&nowPage=${nowPage}'">좋아요 취소<span class="glyphicon glyphicon-remove-sign"></span></button>
+								<button class="btn btn-info" type="button"
+									onclick="location.href='catBoardlikeUpAction?cb_index=${dto.cb_index}&u_id=<%=login.getU_id()%>&nowPage=${nowPage}'">
+									좋아요 <span class="glyphicon glyphicon-thumbs-up"></span>
+								</button>
 							</td>
 						</tr>
-						<%} %>
-							<tr>
-								<td colspan="4" style="text-align: center; padding: 10px 0;">
-									<%
-										String u_id = dto.getU_id();
-										if (login != null && login.getU_id().equals(u_id)) {
-									%>
-									<button class="btn btn-info" type="button"
-										onclick="javascript:location.href='catBoardUpdate?cb_index=${dto.cb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
-									<button class="btn btn-info" type="button"
-										onclick="location.href='catBoardDelete?cb_index=${dto.cb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
-									<%
-										}
-									%>
-									<button class="btn btn-info" type="button"
-										onclick="location.href='catBoardList?nowPage=${nowPage}';">리스트보기</button>
-								</td>
-							</tr>
-						</table>
+						<%
+							}
+							if (login != null && result) {
+						%>
+						<tr align="center">
+							<td colspan="4">
+								<button class="btn btn-danger" type="button"
+									onclick="location.href='catBoardlikeRemoveAction?cb_index=${dto.cb_index}&u_id=<%=login.getU_id()%>&cb_like=${dto.cb_like}&nowPage=${nowPage}'">
+									좋아요 취소<span class="glyphicon glyphicon-remove-sign"></span>
+								</button>
+							</td>
+						</tr>
+						<%
+							}
+						%>
+						<tr>
+							<td colspan="4" style="text-align: center; padding: 10px 0;">
+								<%
+									String u_id = dto.getU_id();
+									if (login != null && login.getU_id().equals(u_id)) {
+								%>
+								<button class="btn btn-info" type="button"
+									onclick="javascript:location.href='catBoardUpdate?cb_index=${dto.cb_index}&nowPage=${nowPage}';">수정하기</button>&nbsp;&nbsp;
+								<button class="btn btn-info" type="button"
+									onclick="location.href='catBoardDelete?cb_index=${dto.cb_index}&nowPage=${nowPage}';">삭제하기</button>&nbsp;&nbsp;
+								<%
+									}
+								%>
+								<button class="btn btn-info" type="button"
+									onclick="location.href='catBoardList?nowPage=${nowPage}';">리스트보기</button>
+							</td>
+						</tr>
+					</table>
 
-						<div class="panel-footer">
+					<div class="panel-footer">
 						<c:if test="${not empty loginUser}">
 							<form name="insertCommentFrm"
 								action="catBoarderCommentWriteAction"
@@ -217,7 +226,7 @@ textarea {
 										<td>${row.cbc_date}</td>
 										<c:if test="${not empty loginUser}">
 											<td align="center"><c:if
-													test="${loginUser.u_id eq row.u_id}">
+													test="${loginUser.u_id == row.u_id || loginUser.u_grade > 100}">
 													<button type="button" class="btn btn-info"
 														onclick="location.href='catBoarderCommentUpdate?cbc_index=${row.cbc_index}&cb_index=${row.cb_index}&nowPage=${nowPage}';">수정</button>
 													<button type="button" class="btn btn-info"
@@ -232,8 +241,8 @@ textarea {
 							</table>
 						</c:if>
 					</div>
-					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 

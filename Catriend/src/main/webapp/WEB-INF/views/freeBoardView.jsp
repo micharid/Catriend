@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
+	FreeBoarderDTO dto = (FreeBoarderDTO) request.getAttribute("dto");
 %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@ textarea {
 	color: #24272B;
 	vertical-align: top;
 	-webkit-appearance: none;
-	resize:none;
+	resize: none;
 }
 </style>
 <script type="text/javascript">
@@ -68,11 +68,9 @@ textarea {
 			location.href = "freeBoardDelete?fb_index=${dto.fb_index}&nowPage=${nowPage}";
 		}
 	}
-	
-	var checkInsertFrm = function(obj)
-	{
-		if(obj.fbc_content.value=="")
-		{
+
+	var checkInsertFrm = function(obj) {
+		if (obj.fbc_content.value == "") {
 			alert("댓글내용을 입력하세요");
 			obj.fbc_content.focus();
 			return false;
@@ -98,7 +96,8 @@ textarea {
 					<div class="panel-heading" align="center">
 						<h1>${dto.fb_title}</h1>
 					</div>
-					<table class="table table-bordered" width="100%" cellspacing="0" cellpadding="2">
+					<table class="table table-bordered" width="100%" cellspacing="0"
+						cellpadding="2">
 						<tr>
 							<td width="20%">닉네임</td>
 							<td width="20%">${dto.u_id}</td>
@@ -112,11 +111,10 @@ textarea {
 
 							<td width="20%">추천수</td>
 							<td width="30%">
-							<%
-							String likeUsers = dto.getFb_like();
-							String[] userlist = likeUsers.split("@u_");
-							%>
-							<%=userlist.length-1%>
+								<%
+									String likeUsers = dto.getFb_like();
+									String[] userlist = likeUsers.split("@u_");
+								%> <%=userlist.length - 1%>
 							</td>
 						</tr>
 						<tr>
@@ -135,35 +133,46 @@ textarea {
 									if (fb_file != null) {
 								%> <img src="./resources/assets/img/boardImages/${dto.fb_file}"
 								width="80%"> <%
-							 	} else {
-							 %> 첨부파일 없음! <%
-							 	}
-							 %>
+ 	} else {
+ %> 첨부파일 없음! <%
+ 	}
+ %>
 							</td>
 
 						</tr>
 						<%
-						boolean result=false;
-						if(login != null){
-							for(String user : userlist){
-								if(login.getU_id().equals(user)) result=true;	
+							boolean result = false;
+							if (login != null) {
+								for (String user : userlist) {
+									if (login.getU_id().equals(user))
+										result = true;
+								}
 							}
-						}
-						if(login != null && !result){%>
-						<tr align="center">
-							<td colspan="4">
-								<button class="btn btn-info" type="button" onclick="location.href='freeBoardlikeUpAction?fb_index=${dto.fb_index}&u_id=<%=login.getU_id()%>&nowPage=${nowPage}'">좋아요 <span class="glyphicon glyphicon-thumbs-up"></span></button>
-							</td>
-						</tr>
-						<%} 
-						if(login != null && result){
+							if (login != null && !result) {
 						%>
 						<tr align="center">
 							<td colspan="4">
-								<button class="btn btn-danger" type="button" onclick="location.href='freeBoardlikeRemoveAction?fb_index=${dto.fb_index}&u_id=<%=login.getU_id()%>&fb_like=${dto.fb_like}&nowPage=${nowPage}'">좋아요 취소<span class="glyphicon glyphicon-remove-sign"></span></button>
+								<button class="btn btn-info" type="button"
+									onclick="location.href='freeBoardlikeUpAction?fb_index=${dto.fb_index}&u_id=<%=login.getU_id()%>&nowPage=${nowPage}'">
+									좋아요 <span class="glyphicon glyphicon-thumbs-up"></span>
+								</button>
 							</td>
 						</tr>
-						<%} %>
+						<%
+							}
+							if (login != null && result) {
+						%>
+						<tr align="center">
+							<td colspan="4">
+								<button class="btn btn-danger" type="button"
+									onclick="location.href='freeBoardlikeRemoveAction?fb_index=${dto.fb_index}&u_id=<%=login.getU_id()%>&fb_like=${dto.fb_like}&nowPage=${nowPage}'">
+									좋아요 취소<span class="glyphicon glyphicon-remove-sign"></span>
+								</button>
+							</td>
+						</tr>
+						<%
+							}
+						%>
 						<tr>
 							<td colspan="4" style="text-align: center; padding: 10px 0;">
 								<%
@@ -175,13 +184,19 @@ textarea {
 								<button class="btn btn-info" type="button"
 									onclick="deleteCheck();">삭제하기</button>&nbsp;&nbsp; <%
  	}
+ %> <%
+ 	if (login != null && login.getU_grade() > 100) {
  %>
- 								<%if(login != null && login.getU_grade() > 100){ %>	
-									<button class="btn btn-primary text-center" type="button" onclick="location.href='adminFreeboardManagement';">관리자 자유게시판 목록으로</button>
-								<%} else { %>
+								<button class="btn btn-primary text-center" type="button"
+									onclick="location.href='adminFreeboardManagement';">관리자
+									자유게시판 목록으로</button> <%
+ 	} else {
+ %>
 								<button class="btn btn-info text-center" type="button"
 									onclick="location.href='freeBoardList?nowPage=${nowPage}';">리스트보기</button>
-								<%} %>
+								<%
+									}
+								%>
 							</td>
 						</tr>
 					</table>
@@ -235,7 +250,7 @@ textarea {
 										<td>${row.fbc_date}</td>
 										<c:if test="${not empty loginUser}">
 											<td align="center"><c:if
-													test="${loginUser.u_id eq row.u_id}">
+													test="${loginUser.u_id == row.u_id || loginUser.u_grade > 100}">
 													<button type="button" class="btn btn-info"
 														onclick="location.href='freeBoarderCommentUpdate?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">수정</button>
 													<button type="button" class="btn btn-info"

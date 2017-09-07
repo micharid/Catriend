@@ -27,9 +27,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	line-height: 1.1;
 	color: inherit;
 }
-textarea
-{
-	resize:none;
+
+textarea {
+	resize: none;
 }
 </style>
 
@@ -72,10 +72,8 @@ textarea {
 		}
 		return true;
 	}
-	var checkUpdateFrm = function(obj)
-	{
-		if(obj.fbc_content.value=="")
-		{
+	var checkUpdateFrm = function(obj) {
+		if (obj.fbc_content.value == "") {
 			alert("댓글내용을 입력하세요");
 			obj.fbc_content.focus();
 			return false;
@@ -211,8 +209,8 @@ textarea {
 									<c:choose>
 										<c:when test="${fbc_index == row.fbc_index}">
 											<form action="freeBoarderCommentUpdateAction"
-												name="updateCommentFrm" onsubmit="return checkUpdateFrm(this);"
-												method="post">
+												name="updateCommentFrm"
+												onsubmit="return checkUpdateFrm(this);" method="post">
 												<tr>
 													<td colspan="3"><input type="hidden" name="nowPage"
 														value="${nowPage}" /> <input type="hidden"
@@ -239,7 +237,7 @@ textarea {
 											<td>${row.fbc_date}</td>
 											<c:if test="${not empty loginUser}">
 												<td align="center"><c:if
-														test="${loginUser.u_id eq row.u_id}">
+														test="${loginUser.u_id == row.u_id || loginUser.u_grade > 100}">
 														<button type="button" class="btn btn-info"
 															onclick="location.href='freeBoarderCommentUpdate?fbc_index=${row.fbc_index}&fb_index=${dto.fb_index}&nowPage=${nowPage}';">수정</button>
 														<button type="button" class="btn btn-info"

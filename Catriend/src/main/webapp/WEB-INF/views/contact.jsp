@@ -220,7 +220,7 @@ var isValidate = function(obj)
                   <h4>캣렌드의 주소</h4>
                   <div class="hline"></div>
                   <p>
-                     경기도 고양시 냐옹구 캣동<br /> 123-5번지 캣렌드타워 1004호<br />
+                     서울특별시 금천구 <br />가산디지털2로 123 월드메르디앙2차
                   </p>
                   <p>
                      Email: catRiend@Corea.com<br /> Tel: 02-1004-1004

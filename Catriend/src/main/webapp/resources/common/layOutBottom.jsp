@@ -39,7 +39,7 @@
 					<div class="col-md-1">
 						<span class="glyphicon glyphicon-map-marker"></span>
 					</div>
-					<div class="col-md-10">대한민국 고양시 냐옹구 캣동 123-5번지 캣렌드타워  1004호</div>
+					<div class="col-md-10">서울특별시 금천구 가산디지털2로 123 월드메르디앙2차</div>
 				</div>
 				<br>
 				<div class="row">

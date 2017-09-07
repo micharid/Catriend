@@ -27,9 +27,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	line-height: 1.1;
 	color: inherit;
 }
-textarea
-{
-	resize:none;
+
+textarea {
+	resize: none;
 }
 </style>
 
@@ -230,7 +230,7 @@ textarea {
 									<td>${row.fbc_date}</td>
 									<c:if test="${not empty loginUser}">
 										<td align="center"><c:if
-												test="${loginUser.u_id eq row.u_id}">
+												test="${loginUser.u_id == row.u_id || loginUser.u_grade > 100}">
 												<button type="button" class="btn btn-info"
 													onclick="location.href='freeBoarderCommentUpdate?fbc_index=${row.fbc_index}&fb_index=${row.fb_index}&nowPage=${nowPage}';">수정</button>
 												<button type="button" class="btn btn-info"
