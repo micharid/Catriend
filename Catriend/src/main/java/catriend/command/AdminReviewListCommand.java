@@ -26,8 +26,8 @@ public class AdminReviewListCommand implements CatCommand {
 		int totalRecordCount = dao.getTotalCatBoarderCount(paramMap);
 
 		// 페이지설정값(보이는 리스트갯수, 페이지갯수)
-		int pageSize = 10;
-		int blockPage = 5;
+		int pageSize = 5;
+		int blockPage = 4;
 		// 전체페이지수
 		int totalPage = (int) Math.ceil((double) totalRecordCount / pageSize);
 		// 현재페이지를 파라미터로 받기

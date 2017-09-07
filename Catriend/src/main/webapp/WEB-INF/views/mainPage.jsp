@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 								%>
 
 								<div class="col-md-4">
-									<a href="catBoardView?cb_index=<%=dto.getCb_index()%>">
+									<a href="catBoardView?cb_index=<%=dto.getCb_index()%>&nowPage=1">
 										<div class="thumbnail">
 											<div class="caption"><%=dto.getCb_title()%></div>
 											<%
