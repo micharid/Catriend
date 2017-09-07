@@ -102,8 +102,9 @@ public class CatBoarderDAO {
 	}
 
 	// 조회수 증가
-	public int hitsUp(final int cb_index) {
-		String sql = " UPDATE catboarder " + " SET cb_hits = cb_hits +1 " + " WHERE cb_index = ? ";
+	public int hitsUp(final int cb_index){
+		String sql = " UPDATE catboarder " + " SET cb_hits = cb_hits +1 " + ""
+				+ " WHERE cb_index = ? ";
 
 		return this.template.update(sql, new PreparedStatementSetter() {
 
@@ -114,6 +115,7 @@ public class CatBoarderDAO {
 			}
 		});
 	}
+	
 
 	// 고양이 한마리 정보 가져오기
 	public CatBoarderDTO selectOne(int cb_index) {

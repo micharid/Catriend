@@ -23,7 +23,7 @@
 <style>
    input
    {
-      width:40%;
+      width:50%;
    }
 </style>
 
@@ -118,7 +118,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td style="width:20%;">
+                                 <td style="width:50%;" class="text-right">
                                     이름 : ${dto.c_name}
                                  </td>
                                  <td>
@@ -126,7 +126,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     종류 : ${dto.c_type}
                                  </td>
                                  <td>
@@ -134,7 +134,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     생일 : ${dto.c_birthday}
                                  </td>
                                  <td>
@@ -142,7 +142,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     성별 : ${dto.c_gender}
                                  </td>
                                  <td>
@@ -150,7 +150,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     성별 : ${dto.c_gender}
                                  </td>
                                  <td>
@@ -158,7 +158,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     등급 : ${dto.c_grade}
                                  </td>
                                  <td>
@@ -166,7 +166,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     건강상태 : ${dto.c_health}
                                  </td>
                                  <td>
@@ -174,7 +174,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     키워드 : ${dto.c_keyword}
                                  </td>
                                  <td>
@@ -182,7 +182,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     세부사항 : ${dto.c_detail}
                                  </td>
                                  <td>
@@ -190,7 +190,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     보낸 날 : ${dto.c_sday}
                                  </td>
                                  <td>
@@ -198,7 +198,7 @@
                                  </td>
                               </tr>
                               <tr>
-                                 <td>
+                                 <td class="text-right">
                                     받은 날 : ${dto.c_eday}
                                  </td>
                                  <td>

@@ -26,11 +26,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 </style>
 
 <script>
-   function confirmFunc() {
-      if (confirm(" 탈퇴하시겠습니까? \n\n 탈퇴를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.")) {
-         location.href = "userdeletesuccess";
-      }
-   }
+   
    
    function check() {
       var f = document.userFrm;
@@ -154,9 +150,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 						<div class="panel-title text-center">회원탈퇴</div>
 					</div>
 					<div class="panel-body text-center">
-						<button class="btn" type="button"
-							style="background-color: #dfdfdf; color: black;"
-							onclick="confirmFunc()">회원 탈퇴하기</button>
+						<form action="leaveuserAction">
+							<input type="hidden" name="u_id" value="${loginUser.u_id}"/>
+							<button class="btn" type="submit"
+								style="background-color: #dfdfdf; color: black;"
+								onclick="confirmFunc()">회원 탈퇴하기</button>
+						</form>
 					</div>
 				</div>
 			</div>

@@ -20,8 +20,6 @@ public class CatBoarderViewCommand implements CatCommand {
 		CatBoarderDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("cb_index")));
 
 		model.addAttribute("dto", dto);
-		
-		dao.hitsUp(Integer.parseInt(req.getParameter("cb_index")));
 
 		System.out.println("CatBoarderViewCommand");
 	}

@@ -72,6 +72,7 @@ import catriend.command.LoginCommand;
 import catriend.command.LogoutCommand;
 import catriend.command.MyQnaViewCommand;
 import catriend.command.UserQnaListCommand;
+import catriend.command.UsersDeleteCommand;
 import catriend.command.UsersDeletesCommand;
 import catriend.command.QnAQInsertCommand;
 import catriend.command.QnAsDeletesCommand;
@@ -1323,5 +1324,15 @@ public class CatriendController {
 		command.execute(model);
 
 		return "adminQnaView";
+	}
+	
+	@RequestMapping("/leaveuserAction")
+	public String leaveuserAction(Model model, HttpServletRequest req) {
+		model.addAttribute("pageGroup", "board");
+		model.addAttribute("req", req);
+		command = new UsersDeleteCommand();
+		command.execute(model);
+
+		return "userdeletesuccess";
 	}
 }

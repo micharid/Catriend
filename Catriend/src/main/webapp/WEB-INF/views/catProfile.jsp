@@ -154,6 +154,7 @@ hr {
 					%>
 					<button class="btn btn-warning" style="width: 100%;"
 						onclick="location.href='catBoardList?c_index=${dto.c_index}'">후기게시판</button>
+						
 				</p>
 				<br />
 				<hr style="color: blue" />

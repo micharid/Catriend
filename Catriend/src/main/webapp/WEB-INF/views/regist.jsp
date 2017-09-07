@@ -325,10 +325,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 											회원가입 <i class="fa fa-check spaceLeft"></i>
 										</button>
 
-
-										<button class="btn btn-danger" type="reset">
+										<a href="mainPage">
+										<button class="btn btn-danger" type="button">
 											가입취소 <i class="fa fa-times spaceLeft"></i>
 										</button>
+										</a>
 									</div>
 								</div>
 							</form>
