@@ -1,6 +1,5 @@
 package catriend.controller;
 
-
 import java.io.File;
 import java.util.List;
 import java.util.Map;
@@ -807,6 +806,7 @@ public class CatriendController {
 	@RequestMapping("/mycatboardhistory")
 	public String myreviewhistory(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
+		model.addAttribute("req", req);
 		command = new myCatBoardhistoryCommand();
 		command.execute(model);
 		return "mycatboardhistory";
@@ -858,12 +858,59 @@ public class CatriendController {
 	}
 
 	@RequestMapping("/boardUpdateAction")
-	public String boardUpdateAction(Model model, HttpServletRequest req) {
+	public String boardUpdateAction(Model model, HttpServletRequest req) throws Exception {
+		model.addAttribute("pageGroup", "board");
+		MultipartHttpServletRequest mf = (MultipartHttpServletRequest) req;
+		// DAO에서 fb_file 가져와서 null체크
+		String fb_Orifile = req.getParameter("fileName");
+		String fb_file;
+		String fb_fileUpload;
+		String[] fileStr;
+
+		// 무조건 업로드(빈값도 됨)
+		fb_fileUpload = uimageUpload(mf.getFile("fb_file")).toString();
+		fileStr = fb_fileUpload.split(",");
+		fb_file = fileStr[1];
+
+		// 이미지 첨부 없을때 들어오는 조건
+		if (fb_file.contains(".") == false) {
+			System.out.println("asa");
+			// 기존 이미지 있을때
+			if (fb_Orifile != null) {
+				File f = new File(boardUploadPath + "\\" + fb_file);
+				if (f.exists())
+					f.delete();
+
+				fb_file = fb_Orifile;
+			}
+			// 기존 이미지 없을때
+			else {
+				File f = new File(boardUploadPath + "\\" + fb_file);
+				if (f.exists())
+					f.delete();
+
+				fb_file = fb_Orifile;
+			}
+		}
+		// 이미지 첨부있을때
+		else {
+			File f = new File(boardUploadPath + "\\" + fb_Orifile);
+			if (f.exists())
+				f.delete();
+			System.out.println(fb_file + ";;;;;;");
+		}
+		HttpSession session = req.getSession();
+		UsersDTO dto = (UsersDTO) session.getAttribute("loginUser");
+		String u_id = dto.getU_id();
+		System.out.println(u_id);
+		System.out.println(fb_file + ";;;;;;");
+
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		model.addAttribute("fb_file", fb_file);
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
-		System.out.println("컨트롤 fb_title : " + req.getParameter("fb_title"));
+		model.addAttribute("u_id", u_id);
 		model.addAttribute("fb_index", req.getParameter("fb_index"));
-		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		command = new FreeBoarderUpdateCommand();
 		command.execute(model);
 		return "freeBoardView";

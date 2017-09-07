@@ -40,7 +40,6 @@ public class UsersDAO {
 		String query = " SELECT count(*) FROM users WHERE u_email = '" + u_email + "'";
 		return template.queryForObject(query, Integer.class);
 	}
-	
 
 	// 아이디 중복체크
 	public int userEqual(String u_id) {
@@ -107,7 +106,7 @@ public class UsersDAO {
 	// 회원 정보변경 크게
 	public int UpdateUsers(final UsersDTO dto) {
 		String sql = " UPDATE users " + " SET u_pw = ?, u_phonenumber = ?, u_address = ?, "
-				+ " u_email = ?, u_grade = ?, u_nickname = ? " + " WHERE u_id = ? ";
+				+ " u_grade = ?, u_nickname = ? " + " WHERE u_id = ? ";
 		return this.template.update(sql, new PreparedStatementSetter() {
 
 			@Override
@@ -115,10 +114,9 @@ public class UsersDAO {
 				psmt.setString(1, dto.getU_pw());
 				psmt.setString(2, dto.getU_phonenumber());
 				psmt.setString(3, dto.getU_address());
-				psmt.setString(4, dto.getU_email());
-				psmt.setInt(5, dto.getU_grade());
-				psmt.setString(6, dto.getU_nickname());
-				psmt.setString(7, dto.getU_id());
+				psmt.setInt(4, dto.getU_grade());
+				psmt.setString(5, dto.getU_nickname());
+				psmt.setString(6, dto.getU_id());
 			}
 		});
 	}

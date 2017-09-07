@@ -19,6 +19,7 @@ public class myCatBoardhistoryCommand implements CatCommand {
 
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
+		model.addAttribute("u_id", req.getParameter("u_id"));
 
 		// 전체 레코드수를 카운드
 		int totalRecordCount = dao.getTotalMyCatBoarderCount(paramMap);
@@ -41,6 +42,7 @@ public class myCatBoardhistoryCommand implements CatCommand {
 		paramMap.put("totalCount", totalRecordCount);
 		paramMap.put("pageSize", pageSize);
 		paramMap.put("blockPage", blockPage);
+		
 		// 페이지 처리를 위한 문자열 생성
 		String addQueryStr = "";
 		if (req.getParameter("searchWord") != null) {

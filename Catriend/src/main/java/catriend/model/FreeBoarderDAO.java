@@ -33,11 +33,11 @@ public class FreeBoarderDAO {
 
 		return this.template.queryForObject(sql, Integer.class);
 	}
-	
+
 	// 내 게시물 총 갯수 가져오기(검색)
 	public int getTotalMyFreeBoarderCount(Map<String, Object> map) {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
-		String sql = "SELECT count(*) FROM freeboarder WHERE u_id='"+ map.get("u_id") +"'";
+		String sql = "SELECT count(*) FROM freeboarder WHERE u_id='" + map.get("u_id") + "'";
 
 		// 검색단어가 있을 경우 검색조건을 쿼리에 추가
 		if (req.getParameter("searchWord") != null) {
@@ -75,8 +75,7 @@ public class FreeBoarderDAO {
 	// 자유게시물 변경
 	public int UpdateFreeBoarder(final FreeBoarderDTO dto) {
 
-		String sql = " UPDATE freeboarder " + " SET fb_title = ?, fb_content = ?, fb_file = ?"
-				+ " WHERE fb_index = ? ";
+		String sql = " UPDATE freeboarder " + " SET fb_title = ?, fb_content = ?, fb_file = ?" + " WHERE fb_index = ? ";
 
 		return this.template.update(sql, new PreparedStatementSetter() {
 
@@ -90,23 +89,24 @@ public class FreeBoarderDAO {
 			}
 		});
 	}
-	//좋아요 유저등록
-	public void likeUp(int fb_index, String u_id){
-		String sql = " UPDATE freeboarder SET fb_like=fb_like||'@u_"+u_id+"' WHERE fb_index = "+fb_index;
-		
+
+	// 좋아요 유저등록
+	public void likeUp(int fb_index, String u_id) {
+		String sql = " UPDATE freeboarder SET fb_like=fb_like||'@u_" + u_id + "' WHERE fb_index = " + fb_index;
+
 		template.update(sql);
 	}
-	
-	//좋아요 유저 삭제
-	public void likeRemove(int fb_index, String fb_like){
-		String sql = " UPDATE freeboarder SET fb_like='"+fb_like+"' WHERE fb_index = "+fb_index;
-		
+
+	// 좋아요 유저 삭제
+	public void likeRemove(int fb_index, String fb_like) {
+		String sql = " UPDATE freeboarder SET fb_like='" + fb_like + "' WHERE fb_index = " + fb_index;
+
 		template.update(sql);
 	}
-	//조회수 증가
-	public int hitsUp(final int fb_index){
-		String sql = " UPDATE freeboarder " + " SET fb_hits = fb_hits +1 "
-				+ " WHERE fb_index = ? ";
+
+	// 조회수 증가
+	public int hitsUp(final int fb_index) {
+		String sql = " UPDATE freeboarder " + " SET fb_hits = fb_hits +1 " + " WHERE fb_index = ? ";
 
 		return this.template.update(sql, new PreparedStatementSetter() {
 
@@ -117,11 +117,11 @@ public class FreeBoarderDAO {
 			}
 		});
 	}
-	
+
 	// 게시물 한개 정보 가져오기
 	public FreeBoarderDTO selectOne(int fb_index) {
 		hitsUp(fb_index);
-		
+
 		String sql = "SELECT * FROM freeboarder WHERE fb_index = " + fb_index;
 		return (FreeBoarderDTO) template.queryForObject(sql,
 				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
@@ -143,19 +143,19 @@ public class FreeBoarderDAO {
 		return (List<FreeBoarderDTO>) template.query(sql,
 				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
 	}
-	
-	//조회순으로 가져오기
+
+	// 조회순으로 가져오기
 	public List<FreeBoarderDTO> selectHotRecord(Map<String, Object> map) {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM freeboarder ";
 		sql += " ORDER BY fb_hits DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
-		
+
 		return (List<FreeBoarderDTO>) template.query(sql,
 				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
 	}
-	
+
 	// 내가 쓴글 가져오기
 	public List<FreeBoarderDTO> mySelectAll(Map<String, Object> map) {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
@@ -163,9 +163,10 @@ public class FreeBoarderDAO {
 		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT freeboarder.*, users.u_nickname FROM "
-				+ "freeboarder JOIN users ON freeboarder.u_id = users.u_id WHERE freeboarder.u_id = '"+ map.get("u_id").toString() +"' ";
+				+ "freeboarder JOIN users ON freeboarder.u_id = users.u_id WHERE freeboarder.u_id = '"
+				+ map.get("u_id").toString() + "' ";
 		if (req.getParameter("searchWord") != null) {
-			sql  += " AND  " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
+			sql += " AND  " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
 		sql += " ORDER BY fb_index DESC ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 

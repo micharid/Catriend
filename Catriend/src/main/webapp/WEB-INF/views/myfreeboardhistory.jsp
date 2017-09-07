@@ -69,7 +69,7 @@ var isValidate = function(obj)
 				<div class="list-group text-center">
 					<a href="myfreeboardhistory" class="list-group-item active">자유게시판</a>
 					<!-- 소스코드로 active ajax방식으로 구현가능한지 확인해보기 -->
-					<a href="mycatboardhistory" class="list-group-item">후기게시판</a> <a
+					<a href="mycatboardhistory?u_id=${loginUser.u_id}" class="list-group-item">후기게시판</a> <a
 						class="btn btn-default list-group-item" href="myPageindex">마이
 						페이지로</a>
 				</div>

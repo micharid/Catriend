@@ -71,6 +71,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					<div class="panel-heading"
 						style="font-size: 1.5em; font-weight: 700;">후기게시판</div>
 					<form method="get">
+						<input type="hidden" name="u_id" value="${loginUser.u_id}" />
 						<input type="hidden" name="nowPage" value="1" />
 						<table width="100%" style="text-align: center;">
 							<tr>

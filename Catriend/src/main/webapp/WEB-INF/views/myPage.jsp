@@ -26,7 +26,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 </style>
 
 <script>
-   
+   function confirmFunc() {
+      if (confirm(" 탈퇴하시겠습니까? \n\n 탈퇴를 하시면 모든 정보가 DB에서 사라집니다. \n\n 이점 유의해주시길 바랍니다.")) {
+         location.href = "userdeletesuccess";
+      }
+   }
    
    function check() {
       var f = document.userFrm;
@@ -67,6 +71,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		if(obj.u_pwCheck.value=="")
 		{
 			alert("비밀번호 확인을 입력하세요");
+			obj.u_pwCheck.focus();
+			return false;
+		}
+		
+		if(obj.u_pwCheck.value!=obj.u_pw.value)
+		{
+			alert("비밀번호가 다릅니다");
 			obj.u_pwCheck.focus();
 			return false;
 		}

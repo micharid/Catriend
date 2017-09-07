@@ -87,7 +87,7 @@ public class CatBoarderDAO {
 		});
 	}
 
-	//좋아요 유저등록
+	// 좋아요 유저등록
 	public void likeUp(int cb_index, String u_id) {
 		String sql = " UPDATE catboarder SET cb_like=cb_like||'@u_" + u_id + "' WHERE cb_index = " + cb_index;
 
@@ -102,9 +102,8 @@ public class CatBoarderDAO {
 	}
 
 	// 조회수 증가
-	public int hitsUp(final int cb_index){
-		String sql = " UPDATE catboarder " + " SET cb_hits = cb_hits +1 " + ""
-				+ " WHERE cb_index = ? ";
+	public int hitsUp(final int cb_index) {
+		String sql = " UPDATE catboarder " + " SET cb_hits = cb_hits +1 " + "" + " WHERE cb_index = ? ";
 
 		return this.template.update(sql, new PreparedStatementSetter() {
 
@@ -115,7 +114,6 @@ public class CatBoarderDAO {
 			}
 		});
 	}
-	
 
 	// 고양이 한마리 정보 가져오기
 	public CatBoarderDTO selectOne(int cb_index) {
@@ -157,13 +155,14 @@ public class CatBoarderDAO {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		String sql = "";
-		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT catboarder.*, users.u_nickname FROM "
-				+ "catboarder JOIN users ON catboarder.u_id = users.u_id WHERE catboarder.u_id = '"
-				+ map.get("u_id").toString() + "' ";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM catboarder WHERE u_id ='"
+				+ map.get("u_id") + "' ";
 		if (req.getParameter("searchWord") != null) {
-			sql += " AND  " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
+			sql += " AND " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
-		sql += " ORDER BY cb_index DESC ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		sql += " ORDER BY cb_hits DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+
+		System.out.println("마이셀렉트올 : " + sql);
 
 		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
 	}

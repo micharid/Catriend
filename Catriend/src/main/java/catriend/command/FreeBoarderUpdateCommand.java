@@ -23,7 +23,7 @@ public class FreeBoarderUpdateCommand implements CatCommand {
 		FreeBoarderDTO dto = dao.selectOne(Integer.parseInt(req.getParameter("fb_index")));
 		
 		dto.setFb_title(req.getParameter("fb_title"));
-		dto.setFb_file(req.getParameter("fb_file"));
+		dto.setFb_file(paramMap.get("fb_file").toString());
 		dto.setFb_content(req.getParameter("fb_content"));
 
 		model.addAttribute("dto", dto);
