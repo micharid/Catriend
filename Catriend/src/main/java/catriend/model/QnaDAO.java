@@ -89,12 +89,18 @@ public class QnaDAO {
 	public List<QnaDTO> selectAll(Map<String, Object> map) {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
+		String order = map.get("order") != null ? map.get("order").toString() : "c_index";
+		if (Integer.parseInt(map.get("sort").toString()) % 2 == 1) {
+			order += " desc ";
+		} else {
+			order += " asc ";
+		}
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM qna ";
 		if (map.get("COLUMN") != null) {
 			sql += " WHERE " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += " ORDER BY q_index DESC) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		sql += " ORDER BY " + order + " ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 
 		return (List<QnaDTO>) template.query(sql, new BeanPropertyRowMapper<QnaDTO>(QnaDTO.class));
 	}
@@ -109,13 +115,15 @@ public class QnaDAO {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
+		
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT qna.*, users.u_nickname FROM "
 				+ "qna JOIN users ON qna.u_id = users.u_id WHERE qna.u_id = '" + map.get("u_id").toString() + "' ";
 		if (req.getParameter("searchWord") != null) {
 			sql += " AND  " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
-		sql += " ORDER BY q_index DESC ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		sql += " ORDER BY c_index DESC ) Tb " 
+		+ ") WHERE rNum BETWEEN " + start + " AND " + end;
 
 		return (List<QnaDTO>) template.query(sql, new BeanPropertyRowMapper<QnaDTO>(QnaDTO.class));
 	}

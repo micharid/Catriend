@@ -1150,6 +1150,7 @@ public class CatriendController {
 	public String adminUserManagement(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "myInfo");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", req.getParameter("sort"));
 		command = new AdminUserListCommand();
 		command.execute(model);
 
@@ -1175,6 +1176,7 @@ public class CatriendController {
 	public String adminFreeboardManagement(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", req.getParameter("sort"));
 		command = new AdminFreeBoardListCommand();
 		command.execute(model);
 
@@ -1185,6 +1187,7 @@ public class CatriendController {
 	public String adminReviewboardManagement(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", req.getParameter("sort"));
 		command = new AdminReviewListCommand();
 		command.execute(model);
 		return "adminReviewboardManagement";
@@ -1194,6 +1197,7 @@ public class CatriendController {
 	public String adminQnaManagement(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", req.getParameter("sort"));
 		command = new AdminQnaListCommand();
 		command.execute(model);
 

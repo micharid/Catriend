@@ -108,7 +108,7 @@ public class CatsDAO {
 	public List<CatsDTO> selectAlladmin(Map<String, Object> map) {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
-		String order = map.get("order") != null ? map.get("order").toString() : "c_index";
+		String order = map.get("order") != null ? map.get("order").toString() : "q_index";
 		if (Integer.parseInt(map.get("sort").toString()) % 2 == 1) {
 			order += " desc ";
 		} else {
@@ -122,6 +122,8 @@ public class CatsDAO {
 		}
 		sql += " ORDER BY " + order + ") Tb " + ") ";
 		sql += " WHERE rNum BETWEEN " + start + " AND " + end + " ";
+		
+		System.out.println(sql);
 		return (List<CatsDTO>) template.query(sql, new BeanPropertyRowMapper<CatsDTO>(CatsDTO.class));
 	}
 

@@ -21,6 +21,9 @@ public class AdminFreeBoardListCommand implements CatCommand {
 		// 파라미터 받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) paramMap.get("req");
+		
+		String order = req.getParameter("order") != null ? req.getParameter("order") : null;
+		int sort = Integer.parseInt(paramMap.get("sort").toString());
 
 		// 전체 레코드수를 카운드
 		int totalRecordCount = dao.getTotalFreeBoarderCount(paramMap);
@@ -33,6 +36,10 @@ public class AdminFreeBoardListCommand implements CatCommand {
 		int totalPage = (int) Math.ceil((double) totalRecordCount / pageSize);
 		// 현재페이지를 파라미터로 받기
 		int nowPage = req.getParameter("nowPage") == null ? 1 : Integer.parseInt(req.getParameter("nowPage"));
+		if (nowPage == 0) {
+			sort = Integer.parseInt(paramMap.get("sort").toString()) + 1;
+			nowPage = 1;
+		}
 		// 시작 및 끝 rownum 구하기
 		int start = (nowPage - 1) * pageSize + 1;
 		int end = nowPage * pageSize;
@@ -44,9 +51,12 @@ public class AdminFreeBoardListCommand implements CatCommand {
 		paramMap.put("totalCount", totalRecordCount);
 		paramMap.put("pageSize", pageSize);
 		paramMap.put("blockPage", blockPage);
+		paramMap.put("order", order);
+		paramMap.put("sort", sort);
 
 		// 페이지 처리를 위한 문자열 생성
 		String addQueryStr = "";
+		addQueryStr = "sort=" + sort + "&order=" + order + "&";
 		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage,
 				req.getContextPath() + "/adminFreeboardManagement?" + addQueryStr);
 
@@ -57,6 +67,7 @@ public class AdminFreeBoardListCommand implements CatCommand {
 		model.addAttribute("pagingImg", pagingImg);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("nowPage", nowPage);
+		model.addAttribute("sort", sort);
 
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		// 리스트 레코드를 저장

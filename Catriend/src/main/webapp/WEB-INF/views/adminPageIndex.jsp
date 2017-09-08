@@ -40,24 +40,13 @@
 		<nav class="navbar-default navbar-side" role="navigation">
 		<div class="sidebar-collapse">
 			<ul class="nav" id="main-menu">
-				<li>
-					<a href="adminPageIndex"><i class="fa fa-home"></i>관리자홈으로</a>
+				<li><a href="adminPageIndex"><i class="fa fa-home"></i>관리자홈으로</a>
 				</li>
-				<li>
-					<a href="adminUserManagement"><i class="fa fa-user"></i>유저관리</a>
-				</li>
-				<li>
-					<a href="adminQnaManagement"><i class="fa fa-question "></i>질문관리</a>
-				</li>
-				<li>
-					<a href="adminFreeboardManagement"><i class="fa fa-list-alt "></i>자유게시판관리</a>
-				</li>
-				<li>
-					<a href="adminReviewboardManagement"><i class="fa fa-list-alt "></i>후기게시판관리</a>
-				</li>
-				<li>
-					<a href="adminCatManagement?order=c_index&sort=1"><i class="fa fa-paw "></i>고양이관리</a>
-				</li>
+				<li><a href="adminUserManagement?order=u_name&sort=1&nowPage=1"><i class="fa fa-user"></i>유저관리</a></li>
+				<li><a href="adminQnaManagement?order=q_answer&sort=1&nowPage=1"><i class="fa fa-question "></i>질문관리</a>	</li>
+				<li><a href="adminFreeboardManagement?order=fb_index&sort=1&nowPage=1"><i class="fa fa-list-alt "></i>자유게시판관리</a></li>
+				<li><a href="adminReviewboardManagement?order=cb_index&sort=1&nowPage=1"><i class="fa fa-list-alt "></i>후기게시판관리</a></li>
+				<li><a href="adminCatManagement?order=c_index&sort=1&nowPage=1"><i class="fa fa-paw "></i>고양이관리</a></li>
 			</ul>
 		</div>
 
@@ -96,7 +85,7 @@
 					</div>
 					<div class="col-md-3">
 						<div class="panel panel-default">
-							<a href="adminQnaManagement" style="color:#428bca; text-decoration: none;">
+							<a href="adminQnaManagement?order=q_answer&sort=1" style="color:#428bca; text-decoration: none;">
 								<div class="panel-body text-center" style="cursor: pointer">
 									<div class="img2">
 										<img class="center-block" src="./resources/assets/adminPageTemplate/img/adminqna.png" style="width: 110px ! important; height: 110px ! important;">

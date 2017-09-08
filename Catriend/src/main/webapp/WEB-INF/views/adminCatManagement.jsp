@@ -76,16 +76,11 @@
 			<ul class="nav" id="main-menu">
 				<li><a href="adminPageIndex"><i class="fa fa-home"></i>관리자홈으로</a>
 				</li>
-				<li><a href="adminUserManagement"><i class="fa fa-user"></i>유저관리</a>
-				</li>
-				<li><a href="adminQnaManagement"><i class="fa fa-question "></i>질문관리</a>
-				</li>
-				<li><a href="adminFreeboardManagement"><i
-						class="fa fa-list-alt "></i>자유게시판관리</a></li>
-				<li><a href="adminReviewboardManagement"><i
-						class="fa fa-list-alt "></i>후기게시판관리</a></li>
-				<li><a href="adminCatManagement?order=c_index&sort=1"><i
-						class="fa fa-paw "></i>고양이관리</a></li>
+				<li><a href="adminUserManagement?order=u_name&sort=1&nowPage=1"><i class="fa fa-user"></i>유저관리</a></li>
+				<li><a href="adminQnaManagement?order=q_answer&sort=1&nowPage=1"><i class="fa fa-question "></i>질문관리</a>	</li>
+				<li><a href="adminFreeboardManagement?order=fb_index&sort=1&nowPage=1"><i class="fa fa-list-alt "></i>자유게시판관리</a></li>
+				<li><a href="adminReviewboardManagement?order=cb_index&sort=1&nowPage=1"><i class="fa fa-list-alt "></i>후기게시판관리</a></li>
+				<li><a href="adminCatManagement?order=c_index&sort=1&nowPage=1"><i class="fa fa-paw "></i>고양이관리</a></li>
 			</ul>
 		</div>
 
@@ -120,16 +115,16 @@
 										<tr>
 											<th style="width: 5%;" class="text-center">선택</th>
 											<th width="10%" class="text-center"><a
-												href="adminCatManagement?order=c_index&sort=${sort}">고양이
+												href="adminCatManagement?order=c_index&sort=${sort}&nowPage=0">고양이
 													고유 번호</a></th>
 											<th class="text-center"><a
-												href="adminCatManagement?order=c_name&sort=${sort}">이름</a></th>
+												href="adminCatManagement?order=c_name&sort=${sort}&nowPage=0">이름</a></th>
 											<th style="width: 15%;" class="text-center"><a
-												href="adminCatManagement?order=c_gender&sort=${sort}">성별</a></th>
+												href="adminCatManagement?order=c_gender&sort=${sort}&nowPage=0">성별</a></th>
 											<th style="width: 15%;" class="text-center"><a
-												href="adminCatManagement?order=c_birthday&sort=${sort}">생일</a></th>
+												href="adminCatManagement?order=c_birthday&sort=${sort}&nowPage=0">생일</a></th>
 											<th style="width: 15%" class="text-center"><a
-												href="adminCatManagement?order=c_type&sort=${sort}">고양이종류</a></th>
+												href="adminCatManagement?order=c_type&sort=${sort}&nowPage=0">고양이종류</a></th>
 										</tr>
 
 										<c:forEach items="${admincatlists}" var="row">

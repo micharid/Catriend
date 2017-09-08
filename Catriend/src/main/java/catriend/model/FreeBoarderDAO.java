@@ -132,13 +132,21 @@ public class FreeBoarderDAO {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
+		String order = map.get("order") != null ? map.get("order").toString() : "fb_index";
+		if (Integer.parseInt(map.get("sort").toString()) % 2 == 1) {
+			order += " desc ";
+		} else {
+			order += " asc ";
+		}
+		
+		
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT freeboarder.*, users.u_nickname FROM "
 				+ "freeboarder JOIN users ON freeboarder.u_id = users.u_id ";
 		if (req.getParameter("searchWord") != null) {
 			sql += " WHERE " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
-		sql += " ORDER BY fb_index DESC ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		sql += " ORDER BY freeboarder."+ order +" ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 
 		return (List<FreeBoarderDTO>) template.query(sql,
 				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));

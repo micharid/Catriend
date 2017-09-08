@@ -72,16 +72,11 @@
 			<ul class="nav" id="main-menu">
 				<li><a href="adminPageIndex"><i class="fa fa-home"></i>관리자홈으로</a>
 				</li>
-				<li><a href="adminUserManagement"><i class="fa fa-user"></i>유저관리</a>
-				</li>
-				<li><a href="adminQnaManagement"><i class="fa fa-question "></i>질문관리</a>
-				</li>
-				<li><a href="adminFreeboardManagement"><i
-						class="fa fa-list-alt "></i>자유게시판관리</a></li>
-				<li><a href="adminReviewboardManagement"><i
-						class="fa fa-list-alt "></i>후기게시판관리</a></li>
-				<li><a href="adminCatManagement?order=c_index&sort=1"><i
-						class="fa fa-paw "></i>고양이관리</a></li>
+				<li><a href="adminUserManagement?order=u_name&sort=1&nowPage=1"><i class="fa fa-user"></i>유저관리</a></li>
+				<li><a href="adminQnaManagement?order=q_answer&sort=1&nowPage=1"><i class="fa fa-question "></i>질문관리</a>	</li>
+				<li><a href="adminFreeboardManagement?order=fb_index&sort=1&nowPage=1"><i class="fa fa-list-alt "></i>자유게시판관리</a></li>
+				<li><a href="adminReviewboardManagement?order=cb_index&sort=1&nowPage=1"><i class="fa fa-list-alt "></i>후기게시판관리</a></li>
+				<li><a href="adminCatManagement?order=c_index&sort=1&nowPage=1"><i class="fa fa-paw "></i>고양이관리</a></li>
 			</ul>
 		</div>
 
@@ -116,10 +111,12 @@
 										<tr style="text-align: center;">
 											<th style="width: 5%;" class="text-center info">선택</th>
 											<th style="width: 5%;" class="text-center info">NO</th>
-											<th style="width: 10%;" class="text-center info">유저상태</th>
-											<th style="width:" class="text-center info">이름</th>
-											<th style="width:" class="text-center info">아이디</th>
-											<th style="width: 15%;" class="text-center info">생년월일</th>
+											<th style="width: 10%" class="text-center info"><a href="adminUserManagement?order=u_name&sort=${sort}&nowPage=0">이름</a></th>
+											<th style="width:" class="text-center info"><a href="adminUserManagement?order=u_id&sort=${sort}&nowPage=0">아이디</a></th>
+											<th style="width: 15%" class="text-center info"><a href="adminUserManagement?order=u_email&sort=${sort}&nowPage=0">이메일</a></th>
+											<th style="width: 10%;" class="text-center info"><a href="adminUserManagement?order=u_nickname&sort=${sort}&nowPage=0">닉네임</a></th>
+											<th style="width: 5%;" class="text-center info"><a href="adminUserManagement?order=u_grade&sort=${sort}&nowPage=0">등급</a></th>
+											<th style="width: 15%;" class="text-center info"><a href="adminUserManagement?order=u_birthday&sort=${sort}&nowPage=0">생년월일</a></th>
 										</tr>
 										<!--  게시판 반복 부분 s -->
 										<c:forEach items="${adminuserlist}" var="row">
@@ -135,16 +132,11 @@
 											<td class="text-center"><input type="checkbox"
 												name="select" value="${row.u_id}" /></td>
 											<td class="text-center">${totalRecordCount-row.rNum+1}</td>
-											<td class="text-center"><c:choose>
-													<c:when test="${row.u_state eq 1}">
-															활성화
-														</c:when>
-													<c:otherwise>
-															탈퇴
-														</c:otherwise>
-												</c:choose></td>
 											<td class="text-center">${row.u_name}</td>
 											<td class="text-center">${row.u_id}</td>
+											<td class="text-center">${row.u_email}</td>
+											<td class="text-center">${row.u_nickname}</td>
+											<td class="text-center">${row.u_grade}</td>
 											<td class="text-center">${row.u_birthday}</td>
 											</tr>
 										</c:forEach>

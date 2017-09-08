@@ -74,16 +74,11 @@
 			<ul class="nav" id="main-menu">
 				<li><a href="adminPageIndex"><i class="fa fa-home"></i>관리자홈으로</a>
 				</li>
-				<li><a href="adminUserManagement"><i class="fa fa-user"></i>유저관리</a>
-				</li>
-				<li><a href="adminQnaManagement"><i class="fa fa-question "></i>질문관리</a>
-				</li>
-				<li><a href="adminFreeboardManagement"><i
-						class="fa fa-list-alt "></i>자유게시판관리</a></li>
-				<li><a href="adminReviewboardManagement"><i
-						class="fa fa-list-alt "></i>후기게시판관리</a></li>
-				<li><a href="adminCatManagement?order=c_index&sort=1"><i
-						class="fa fa-paw "></i>고양이관리</a></li>
+				<li><a href="adminUserManagement?order=u_name&sort=1&nowPage=1"><i class="fa fa-user"></i>유저관리</a></li>
+				<li><a href="adminQnaManagement?order=q_answer&sort=1&nowPage=1"><i class="fa fa-question "></i>질문관리</a>	</li>
+				<li><a href="adminFreeboardManagement?order=fb_index&sort=1&nowPage=1"><i class="fa fa-list-alt "></i>자유게시판관리</a></li>
+				<li><a href="adminReviewboardManagement?order=cb_index&sort=1&nowPage=1"><i class="fa fa-list-alt "></i>후기게시판관리</a></li>
+				<li><a href="adminCatManagement?order=c_index&sort=1&nowPage=1"><i class="fa fa-paw "></i>고양이관리</a></li>
 			</ul>
 		</div>
 
@@ -118,9 +113,9 @@
 										<tr style="text-align: center;">
 											<th style="width: 5%;" class="text-center info">선택</th>
 											<th style="width: 5%;" class="text-center info">NO</th>
-											<th style="width: 70%" class="info">제목</th>
-											<th style="width: 10%" class="text-center info">아이디</th>
-											<th style="width: 10%;" class="text-center info">작성일</th>
+											<th style="width: 70%" class="info"><a href="adminFreeboardManagement?order=fb_title&sort=${sort}&nowPage=0">제목</a></th>
+											<th style="width: 10%" class="text-center info"><a href="adminFreeboardManagement?order=u_id&sort=${sort}&nowPage=0">아이디</a></th>
+											<th style="width: 10%;" class="text-center info"><a href="adminFreeboardManagement?order=fb_date&sort=${sort}&nowPage=0">작성일</a></th>
 										</tr>
 
 										<!--  게시판 반복 부분 s -->

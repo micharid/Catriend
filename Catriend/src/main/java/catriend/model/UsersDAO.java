@@ -131,13 +131,19 @@ public class UsersDAO {
 	public List<UsersDTO> selectAll(Map<String, Object> map) {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
+		String order = map.get("order") != null ? map.get("order").toString() : "fb_index";
+		if (Integer.parseInt(map.get("sort").toString()) % 2 == 1) {
+			order += " desc ";
+		} else {
+			order += " asc ";
+		}
 
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM users WHERE u_state = 1 ";
 		if (map.get("COLUMN") != null) {
 			sql += " AND " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
-		sql += "order by u_name asc ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end + " ";
+		sql += "order by " + order + " ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end + " ";
 
 		return (List<UsersDTO>) template.query(sql, new BeanPropertyRowMapper<UsersDTO>(UsersDTO.class));
 	}
