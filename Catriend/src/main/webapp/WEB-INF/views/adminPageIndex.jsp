@@ -72,7 +72,7 @@
 					<div class="col-md-3">
 						<div>
 							<div class="panel panel-default">
-								<a href="adminUserManagement" style="color:#428bca; text-decoration: none;">
+								<a href="adminUserManagement?order=u_name&sort=1&nowPage=1" style="color:#428bca; text-decoration: none;">
 									<div class="panel-body text-center" style="cursor: pointer">
 										<div class="img1">
 											<img class="center-block" src="./resources/assets/adminPageTemplate/img/adminuser.png" style="width: 110px ! important; height: 110px ! important;">
@@ -97,7 +97,7 @@
 					</div>
 					<div class="col-md-3">
 						<div class="panel panel-default">
-							<a href="adminFreeboardManagement" style="color:#428bca; text-decoration: none;">
+							<a href="adminFreeboardManagement?order=fb_index&sort=1&nowPage=1" style="color:#428bca; text-decoration: none;">
 								<div class="panel-body text-center" style="cursor: pointer">
 									<div class="img3">
 										<img class="center-block" src="./resources/assets/adminPageTemplate/img/adminfreeboard2.png" style="width: 110px ! important; height: 110px ! important;">
@@ -110,7 +110,7 @@
 					
 					<div class="col-md-3">
 						<div class="panel panel-default">
-							<a href="adminReviewboardManagement" style="color:#428bca; text-decoration: none;">
+							<a href="adminReviewboardManagement?order=cb_index&sort=1&nowPage=1" style="color:#428bca; text-decoration: none;">
 								<div class="panel-body text-center" style="cursor:pointer;">
 									<div class="img4"><img class="center-block" src="./resources/assets/adminPageTemplate/img/adminreviewboard.png" style="width: 110px ! important; height: 110px ! important;"></div>
 									<p style="font-size: 1.2em">후기게시판관리</p>
@@ -121,7 +121,7 @@
 					
 					<div class="col-md-3">
 						<div class="panel panel-default">
-							<a href="adminCatManagement?order=c_index&sort=1" style="color:#428bca; text-decoration: none;">
+							<a href="adminCatManagement?order=c_index&sort=1&nowPage=1" style="color:#428bca; text-decoration: none;">
 								<div class="panel-body text-center" style="cursor:pointer;">
 									<div class="img5"><img class="center-block" src="./resources/assets/adminPageTemplate/img/admincat.png" style="width: 110px ! important; height: 110px ! important;"></div>
 									<p style="font-size: 1.2em">고양이 관리</p>
