@@ -98,10 +98,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 	<br />
 	<br />
-
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
+
+	<script src="./resources/KapukAlas/js/jquery.js"></script>
+	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
 	<!-- bottom e -->

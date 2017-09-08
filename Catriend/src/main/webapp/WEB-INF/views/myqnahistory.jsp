@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>질문내역</title>
+<title>내후기게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="./resources/KapukAlas/css/bootstrap.css" rel="stylesheet">
 <link href="./resources/KapukAlas/css/style.css" rel="stylesheet">
@@ -27,6 +26,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 </style>
 
+<script>
+var isValidate = function(obj)
+{
+	if(obj.searchWord.value=="")
+	{
+		alert("검색내용을 입력하세요");
+		obj.searchWord.focus();
+		return false;
+	}
+}
+</script>
 </head>
 
 <body>
@@ -35,14 +45,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	<!-- top s -->
 	<%@ include file="../../resources/common/layOutTop.jsp"%>
 	<!-- top e -->
-
-
-
 	<!-- top s -->
 	<%@ include file="../../resources/common/sectionAd.jsp"%>
 	<!-- top e -->
 
-	<div class="container">
+		<div class="container">
 		<div class="row">
 			<div id="blue" style="margin-top: 60px;">
 				<center>
@@ -109,12 +116,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 	<br />
 	<br />
-
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/layOutBottom.jsp"%>
 	<!-- bottom e -->
+
+	<script src="./resources/KapukAlas/js/jquery.js"></script>
+	<script src="./resources/KapukAlas/js/bootstrap.min.js"></script>
 	<!-- bottom s -->
 	<%@ include file="../../resources/common/menuScript.jsp"%>
 	<!-- bottom e -->
+
 </body>
 </html>
