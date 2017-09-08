@@ -1309,6 +1309,8 @@ public class CatriendController {
 	public String qnaReplyAction(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "qna");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", req.getParameter("sort"));
+		
 		command = new AdminQnaReplyCommand();
 		command.execute(model);
 		
@@ -1322,6 +1324,8 @@ public class CatriendController {
 	public String adminQnaView(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "qna");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", req.getParameter("sort"));
+		model.addAttribute("order", req.getParameter("order"));
 		command = new AdminQnaViewCommand();
 		command.execute(model);
 

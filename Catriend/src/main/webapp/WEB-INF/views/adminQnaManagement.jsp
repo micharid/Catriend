@@ -130,7 +130,7 @@
 													value="${row.q_index}" name="select" /></td>
 												<td class="text-center">${totalRecordCount - row.rNum +1}</td>
 												<td><a
-													href="adminQnaView?q_index=${row.q_index}&nowPage=${nowPage}">${row.q_title}</a></td>
+													href="adminQnaView?q_index=${row.q_index}&nowPage=${nowPage}&order=${order}&sort=${sort}">${row.q_title}</a></td>
 												<td class="text-center">${row.u_id}</td>
 												<td class="text-center"><c:if
 														test="${row.q_a_result == 1}">

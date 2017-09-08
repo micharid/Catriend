@@ -132,13 +132,6 @@ public class FreeBoarderDAO {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
-		String order = map.get("order") != null ? map.get("order").toString() : "fb_index";
-		if (Integer.parseInt(map.get("sort").toString()) % 2 == 1) {
-			order += " desc ";
-		} else {
-			order += " asc ";
-		}
-		
 		
 		String sql = "";
 		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT freeboarder.*, users.u_nickname FROM "
@@ -146,11 +139,35 @@ public class FreeBoarderDAO {
 		if (req.getParameter("searchWord") != null) {
 			sql += " WHERE " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
 		}
-		sql += " ORDER BY freeboarder."+ order +" ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		sql += " ORDER BY fb_index desc ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
 
 		return (List<FreeBoarderDTO>) template.query(sql,
 				new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
 	}
+	// 관리자 자유게시물 전부가져오기(검색, 페이징)
+		public List<FreeBoarderDTO> adminSelectAll(Map<String, Object> map) {
+			HttpServletRequest req = (HttpServletRequest) map.get("req");
+			int start = Integer.parseInt(map.get("start").toString());
+			int end = Integer.parseInt(map.get("end").toString());
+			String order = map.get("order") != null ? map.get("order").toString() : "fb_index";
+			if (Integer.parseInt(map.get("sort").toString()) % 2 == 1) {
+				order += " desc ";
+			} else {
+				order += " asc ";
+			}
+			
+			
+			String sql = "";
+			sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT freeboarder.*, users.u_nickname FROM "
+					+ "freeboarder JOIN users ON freeboarder.u_id = users.u_id ";
+			if (req.getParameter("searchWord") != null) {
+				sql += " WHERE " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
+			}
+			sql += " ORDER BY freeboarder."+ order +" ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+
+			return (List<FreeBoarderDTO>) template.query(sql,
+					new BeanPropertyRowMapper<FreeBoarderDTO>(FreeBoarderDTO.class));
+		}
 
 	// 조회순으로 가져오기
 	public List<FreeBoarderDTO> selectHotRecord(Map<String, Object> map) {

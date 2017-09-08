@@ -61,7 +61,7 @@ public class AdminQnaListCommand implements CatCommand {
 				req.getContextPath() + "/adminQnaManagement?" + addQueryStr);
 
 		// DAO에서 list메소드로 목록가져오기
-		List<QnaDTO> listRows = dao.selectAll(paramMap);
+		List<QnaDTO> listRows = dao.adminSelectAll(paramMap);
 
 		// 페이지 처리를 위한 저장
 		model.addAttribute("pagingImg", pagingImg);

@@ -127,6 +127,20 @@ public class CatBoarderDAO {
 		HttpServletRequest req = (HttpServletRequest) map.get("req");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
+	
+		String sql = "";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM catboarder ";
+		if (req.getParameter("searchWord") != null) {
+			sql += " WHERE " + req.getParameter("searchColumn") + " like '%" + req.getParameter("searchWord") + "%' ";
+		}
+		sql += " ORDER BY cb_index desc ) Tb " + ") WHERE rNum BETWEEN " + start + " AND " + end;
+		return (List<CatBoarderDTO>) template.query(sql, new BeanPropertyRowMapper<CatBoarderDTO>(CatBoarderDTO.class));
+	}
+	
+	public List<CatBoarderDTO> adminSelectAll(Map<String, Object> map) {
+		HttpServletRequest req = (HttpServletRequest) map.get("req");
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
 		String order = map.get("order") != null ? map.get("order").toString() : "fb_index";
 		if (Integer.parseInt(map.get("sort").toString()) % 2 == 1) {
 			order += " desc ";

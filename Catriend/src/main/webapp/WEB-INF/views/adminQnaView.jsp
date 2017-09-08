@@ -97,6 +97,8 @@ var isValidate = function(obj)
 								<form action="qnaReplyAction"
 									onsubmit="return isValidate(this);">
 									<input type="hidden" name="q_index" value="${dto.q_index}" />
+									<input type="hidden" name="sort" value="${sort}" />
+									<input type="hidden" name="order" value="${order}" />
 									<table class="table table-bordered">
 										<tr>
 											<td colspan="2" style="text-align: center; font-size: 1.3em;"><b>${dto.q_title}</b></td>

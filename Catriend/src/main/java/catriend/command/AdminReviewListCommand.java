@@ -61,7 +61,7 @@ public class AdminReviewListCommand implements CatCommand {
 				req.getContextPath() + "/adminReviewboardManagement?" + addQueryStr);
 
 		// DAO에서 list메소드로 목록가져오기
-		List<CatBoarderDTO> listRows = dao.selectAll(paramMap);
+		List<CatBoarderDTO> listRows = dao.adminSelectAll(paramMap);
 
 		// 페이지 처리를 위한 저장
 		model.addAttribute("pagingImg", pagingImg);
