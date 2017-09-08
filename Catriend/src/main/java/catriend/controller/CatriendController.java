@@ -894,6 +894,8 @@ public class CatriendController {
 	public String catBoardsDeletes(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", 1);
+		model.addAttribute("order", "cb_index");
 		command = new CatBoardsDeletesCommand();
 		command.execute(model);
 
@@ -904,6 +906,8 @@ public class CatriendController {
 	public String freeBoardsDeletes(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", 1);
+		model.addAttribute("order", "fb_index");
 		command = new FreeBoardsDeletesCommand();
 		command.execute(model);
 
@@ -914,6 +918,8 @@ public class CatriendController {
 	public String qnasDeletes(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", 1);
+		model.addAttribute("order", "q_index");
 		command = new QnAsDeletesCommand();
 		command.execute(model);
 
@@ -924,6 +930,8 @@ public class CatriendController {
 	public String usersDeletes(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", 1);
+		model.addAttribute("order", "u_name");
 		command = new UsersDeletesCommand();
 		command.execute(model);
 
@@ -934,6 +942,8 @@ public class CatriendController {
 	public String catsDeletes(Model model, HttpServletRequest req) {
 		model.addAttribute("pageGroup", "board");
 		model.addAttribute("req", req);
+		model.addAttribute("sort", 1);
+		model.addAttribute("order", "c_index");
 		command = new CatsDeletesCommand();
 		command.execute(model);
 

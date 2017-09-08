@@ -184,7 +184,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 										<div class="col-sm-10">
 											<input class="form-control" id="inputContact3" type="text"
 												name="u_nickname" placeholder=""
-												value="${loginUser.u_nickname}">
+												value="${loginUser.u_nickname}" disabled>
 										</div>
 									</div>
 

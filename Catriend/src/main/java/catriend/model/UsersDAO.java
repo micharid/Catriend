@@ -139,7 +139,7 @@ public class UsersDAO {
 		}
 
 		String sql = "";
-		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM users WHERE u_state = 1 ";
+		sql += "SELECT * FROM ( " + "SELECT Tb.* , rownum rNum FROM ( " + "SELECT * FROM users WHERE u_state = 1 AND u_id != 'admin' ";
 		if (map.get("COLUMN") != null) {
 			sql += " AND " + map.get("COLUMN") + " like '%" + map.get("WORD") + "%' ";
 		}
